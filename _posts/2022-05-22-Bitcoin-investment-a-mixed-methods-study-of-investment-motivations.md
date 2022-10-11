@@ -1,14 +1,12 @@
-# A review of paper "Bitcoin investment: a mixed methods study of investment motivations"
-
-#### Introduction
-It is estimated that around 25 million individuals worldwide possess bitcoin1 which has a market capitalisation of around 186 USD billion.2 Those millions 
-of users mostly see their bitcoin engagement as an investment (Lielacher, 2019) and a variety of stakeholders stand to benefit by better understanding what 
-motivates people to invest in bitcoin. Bitcoin companies such as wallet providers or crypto exchanges need 
-to understand why individuals invest in bitcoin in order to optimise their marketing and public relations 
-activities in an effort, among others, to establish bitcoin as a widely accepted medium of exchange and an 
-accepted cryptocurrency (Mattke et al., 2020). 
-Investors’ understanding of the dynamics of bitcoin prices rests upon their understanding of underlying investment reasons. Organisations aiming to finance new ventures by launching their own cryptocurrency, e.g., through initial coin offering (ICO) or security 
-token offering (STO) (Fisch, 2019), need to understand why individuals invest in cryptocurrency in order to draw conclusions for the design of their own coins or tokens. In summary, developing a better understanding of what drives investing in bitcoin is relevant for a variety of stakeholders in 
-research and practise.
-While there are various theories to explain why individuals invest (e.g., prospect theory or rational choice theory), we rely on regret theory (Loomes & 
-Sugden, 1982) as one of the most used theoretical lenses in investment research. It has been used to understand portfolio investment (Solnik & Zuo, 2012), currency hedging (Michenaud & Solnik, 2008) and IT investment (Lankton & Luft, 2008; EH Park et al., 2016)
+## OOP Notes
+What is OOPS?
+1)  OOPS is abbreviated as Object Oriented Programming system in which programs are considered as a collection of objects. Each object is nothing but an instance of a class. 
+2) Write basic concepts of OOPS? Following are the concepts of OOPS:
+I. Abstraction 
+2. Encapsulation 
+3. Inheritance 
+4. Polymorphism 
+3) What is a class? A class is simply a representation of a type of object. It is the blueprint/ plan/template that describes the details of an object. 
+4) What is an Object? An object is an instance of a class. It has its own state, behavior, and identity. 
+5) What is Encapsulation? Encapsulation is an attribute of an object, and it contains all data which is hidden. That hidden data can be restricted to the members of that class. Levels are Public, Protected, Private, Internal, and Protected Internal. 
+6) What is Polymorphism? Polymorphism is nothing but assigning behavior or value in a subclass to something that was already declared in the main class. Simply, polymorphism takes more than one form. 
