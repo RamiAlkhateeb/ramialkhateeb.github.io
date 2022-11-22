@@ -6,9 +6,9 @@ bot statless, one on Soap, other on http
 
 #### What to do if the request is slow
 
-### What the feature of azure components
+#### What the feature of azure components
 
-### Main oop features
+#### Main oop features
 * Inheritance
 In object-oriented programming, inheritance is the mechanism by which an object or class (referred to as a child) is created using the definition of another object or class (referred to as a parent).
 * Encapsulation
@@ -20,15 +20,15 @@ In OOPs, Polymorphism refers to the process by which some code, data, method, or
 Abstraction is the method of hiding unnecessary details from the necessary ones. It is one of the main features of OOPs
 
 
-##### What is Compile time Polymorphism and how is it different from Runtime Polymorphism
+#### What is Compile time Polymorphism and how is it different from Runtime Polymorphism
 
-##### What is the difference between overloading and overriding?
+#### What is the difference between overloading and overriding?
 Overloading is a compile-time polymorphism feature in which an entity has multiple implementations with the same name. For example, Method overloading and Operator overloading.
 
 Whereas Overriding is a runtime polymorphism feature in which an entity has the same name, but its implementation changes during execution. For example, Method overriding.
 Image
 
-###### Can you explain the SOLID design principles?
+#### Can you explain the SOLID design principles?
 The SOLID design principles are a set of guidelines that aim to help developers create more robust and maintainable software. The acronym stands for 
 S - Single Responsibility Principle (SRP): The single responsibility principle ensures that every class or module should be accountable and responsible for only one functionality. There should be one and only one reason for changing any class.
 O - Open Closed Principle (OCP): Every class is open for extension but closed for modification. Here, we are allowed to extend the entities behaviour by not modifying anything in the existing source code.

@@ -1,5 +1,7 @@
 
-#### You should wirte on paper first, even a brut force algorithm 
+
+
+## You should wirte on paper first, even a brut force algorithm 
 
 ### Technical questions 
 Five algorithms approaches
