@@ -24,4 +24,4 @@ We make a ProductFilter service class. To support filtering products by color, w
 implement it as follows
 
 <br> 
-![alt text](https://github.com/RamiAlkhateeb/ramialkhateeb.github.io/assets/OCP.PNG?raw=true)
+![alt text](https://github.com/RamiAlkhateeb/ramialkhateeb.github.io/blob/main/assets/OCP.PNG?raw=true)
