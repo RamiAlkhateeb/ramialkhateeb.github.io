@@ -1,5 +1,4 @@
-### Helm
-<br>
+
 Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources.
 <br>
 Helm charts as a unit of deployment
