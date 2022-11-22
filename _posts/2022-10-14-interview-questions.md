@@ -1,5 +1,4 @@
 
-
 #### How do you authenticate ? 
 
 #### Difference between rest api and web api ? 
@@ -54,7 +53,6 @@ Let us consider that we have a MediaPlayer Interface which is implemented by the
 
 ##### Proxy Design Pattern: 
 structural design
-
 
 ##### What is middleware
 It is software that is injected into the application pipeline to handle requests and responses. They are just like chained to each other and form as a pipeline. The incoming requests are passed through this pipeline where all middleware is configured, and middleware can perform some action on the request before passing it to the next middleware. Same as for the responses, they are also passing through the middleware but in reverse order.

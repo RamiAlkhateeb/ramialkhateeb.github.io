@@ -1,4 +1,3 @@
-## Blog Post Title From First Header
 
 #### You should wirte on paper first, even a brut force algorithm 
 
