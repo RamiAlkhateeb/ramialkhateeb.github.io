@@ -67,3 +67,27 @@ ASP.NET Core will create and share an instance of the service every time to the 
 
 ###### Scoped
 ASP.NET Core will create and share an instance of the service <b>per request to the application.</b> It means that a single instance of service is available per request. It will create a new instance in the new request. The service can be added as scoped using an AddScoped method of IServiceCollection. We need to take care while the service registered via Scoped in middleware and inject the service in the Invoke or InvokeAsync methods. If we inject dependency via the constructor, it behaves like a singleton object.
+
+
+
+## OOP Notes
+What is OOPS?
+<br>
+
+1) OOPS is abbreviated as Object Oriented Programming system in which programs are considered as a collection of objects. Each object is nothing but an instance of a class. 
+<br>
+2) Write basic concepts of OOPS? Following are the concepts of OOPS:
+<br>
+1. Abstraction 
+2. Encapsulation 
+3. Inheritance 
+4. Polymorphism 
+
+<br>
+3) What is a class? A class is simply a representation of a type of object. It is the blueprint/ plan/template that describes the details of an object. 
+<br>
+4) What is an Object? An object is an instance of a class. It has its own state, behavior, and identity. 
+<br>
+5) What is Encapsulation? Encapsulation is an attribute of an object, and it contains all data which is hidden. That hidden data can be restricted to the members of that class. Levels are Public, Protected, Private, Internal, and Protected Internal. 
+<br>
+6) What is Polymorphism? Polymorphism is nothing but assigning behavior or value in a subclass to something that was already declared in the main class. Simply, polymorphism takes more than one form. 
