@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rami Alkhateeb | Software Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* --- CSS Variables & Theme Setup --- */
         :root {
@@ -13,7 +14,7 @@
             --primary-color: #0056b3;
             --accent-color: #00a8cc;
             --card-bg: #ffffff;
-            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --timeline-line: #ddd;
             --hero-overlay: rgba(255, 255, 255, 0.9);
             --nav-bg: rgba(255, 255, 255, 0.95);
@@ -26,7 +27,7 @@
             --primary-color: #4da3ff;
             --accent-color: #00bcd4;
             --card-bg: #1e1e1e;
-            --card-shadow: 0 4px 6px rgba(0,0,0,0.5);
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
             --timeline-line: #333;
             --hero-overlay: rgba(18, 18, 18, 0.85);
             --nav-bg: rgba(30, 30, 30, 0.95);
@@ -48,21 +49,28 @@
 
         /* --- Language Switching Logic --- */
         /* By default, hide German */
-        [lang="de"] { display: none !important; }
-        
+        [lang="de"] {
+            display: none !important;
+        }
+
         /* If body has class 'show-german', hide English and show German */
-        body.show-german [lang="en"] { display: none !important; }
-        body.show-german [lang="de"] { display: inline-block !important; }
-        
+        body.show-german [lang="en"] {
+            display: none !important;
+        }
+
+        body.show-german [lang="de"] {
+            display: inline-block !important;
+        }
+
         /* Block elements need to remain block */
-        body.show-german div[lang="de"], 
+        body.show-german div[lang="de"],
         body.show-german p[lang="de"],
         body.show-german h1[lang="de"],
         body.show-german h2[lang="de"],
         body.show-german h3[lang="de"],
         body.show-german h4[lang="de"],
-        body.show-german li[lang="de"] { 
-            display: block !important; 
+        body.show-german li[lang="de"] {
+            display: block !important;
         }
 
         /* --- Navigation --- */
@@ -72,7 +80,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav {
@@ -129,7 +137,7 @@
         /* --- Hero Section --- */
         .hero {
             /* Placeholder for Cover Photo */
-            background-image: url('https://images.unsplash.com/photo-1624696941338-934bf86c28b4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+            background-image: url('https://images.unsplash.com/photo-1624696941338-934bf86c28b4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
             padding: 80px 20px 60px;
@@ -168,6 +176,20 @@
             margin-bottom: 15px;
         }
 
+        .social-buttons {
+            display: flex;
+            /* Enables Flexbox */
+            flex-wrap: wrap;
+            /* Allows buttons to move to next line on small screens */
+            gap: 15px;
+            /* Creates equal space between buttons */
+            justify-content: center;
+            /* Centers buttons horizontally */
+            align-items: center;
+            /* Ensures all buttons are the same height */
+            margin-top: 20px;
+        }
+
         .social-btn {
             display: inline-flex;
             align-items: center;
@@ -182,9 +204,34 @@
             font-size: 0.9rem;
         }
 
-        .social-btn.github { background: #333; }
-        .social-btn.linkedin { background: #0077b5; }
-        .social-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .social-btn.github {
+            background: #333;
+        }
+
+        .social-btn.linkedin {
+            background: #0077b5;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Styling for the Substack button */
+        .social-btn.substack {
+            background-color: #FF6719;
+            /* Substack's brand orange */
+            color: #FFFFFF;
+            /* White text/icon */
+            border: none;
+        }
+
+        /* Optional: Add a hover effect */
+        .social-btn.substack:hover {
+            background-color: #e55c16;
+            /* A slightly darker shade for hover */
+            text-decoration: none;
+        }
 
         /* --- Common Layout --- */
         section {
@@ -289,9 +336,20 @@
             margin-bottom: 10px;
         }
 
-        .job-title { font-weight: bold; font-size: 1.1rem; }
-        .job-company { color: var(--accent-color); font-weight: 600; }
-        .job-date { font-size: 0.9rem; color: #777; }
+        .job-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .job-company {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
 
         .job-desc ul {
             list-style-position: inside;
@@ -352,12 +410,21 @@
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .job-header { flex-direction: column; }
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -370,7 +437,7 @@
                     <a href="#experience"><span lang="en">Experience</span><span lang="de">Erfahrung</span></a>
                     <a href="#projects"><span lang="en">Projects</span><span lang="de">Projekte</span></a>
                 </div>
-                
+
                 <button id="lang-toggle" class="icon-btn" aria-label="Switch Language">
                     DE
                 </button>
@@ -384,19 +451,24 @@
 
     <section class="hero" id="about">
         <div class="hero-content">
-            <img src="https://profile-images.xing.com/images/ef1ab292604cf041a50f4bff0e5ed3ed-2/rami-alkhateeb.256x256.jpg" alt="Rami Alkhateeb" class="profile-img">
-            
+            <img src="https://profile-images.xing.com/images/ef1ab292604cf041a50f4bff0e5ed3ed-2/rami-alkhateeb.256x256.jpg"
+                alt="Rami Alkhateeb" class="profile-img">
+
             <h1>Rami Alkhateeb</h1>
             <h2>Software Engineer</h2>
             <p style="color: #666; margin-bottom: 20px;">
                 Paderborn, Germany | .NET Specialist | Clean Code Enthusiast
             </p>
-            
+
             <p lang="en" style="margin-bottom: 25px;">
-                Software Engineer with 6 years of experience building scalable web applications across Logistics, Education, HRM, and Telecom. Passionate about modernizing legacy systems and delivering robust microservices.
+                Software Engineer with 6 years of experience building scalable web applications across Logistics,
+                Education, HRM, and Telecom. Passionate about modernizing legacy systems and delivering robust
+                microservices.
             </p>
             <p lang="de" style="margin-bottom: 25px;">
-                Softwareentwickler mit 6 Jahren Erfahrung in der Entwicklung skalierbarer Webanwendungen in den Bereichen Logistik, Bildung, HRM und Telekommunikation. Leidenschaftlich in der Modernisierung von Legacy-Systemen und der Bereitstellung robuster Microservices.
+                Softwareentwickler mit 6 Jahren Erfahrung in der Entwicklung skalierbarer Webanwendungen in den
+                Bereichen Logistik, Bildung, HRM und Telekommunikation. Leidenschaftlich in der Modernisierung von
+                Legacy-Systemen und der Bereitstellung robuster Microservices.
             </p>
 
             <div class="social-buttons">
@@ -408,6 +480,13 @@
                 </a>
                 <a href="https://github.com/ramialkhateeb" target="_blank" class="social-btn github">
                     <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://rami13kh.substack.com/" target="_blank" class="social-btn substack">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 3px;">
+                        <path
+                            d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z" />
+                    </svg>
+                    Substack
                 </a>
             </div>
         </div>
@@ -477,7 +556,7 @@
             <span lang="de">Berufserfahrung</span>
         </h3>
         <div class="timeline">
-            
+
             <div class="timeline-item">
                 <div class="job-card">
                     <div class="job-header">
@@ -489,13 +568,17 @@
                     </div>
                     <div class="job-desc">
                         <ul lang="en">
-                            <li>Modernized internal systems for Dubai Public Prosecution, reducing in-person visits by 30%.</li>
-                            <li>Integrated forensic evidence processing with Dubai Police using secure APIs (ASP.NET, VB.NET).</li>
+                            <li>Modernized internal systems for Dubai Public Prosecution, reducing in-person visits by
+                                30%.</li>
+                            <li>Integrated forensic evidence processing with Dubai Police using secure APIs (ASP.NET,
+                                VB.NET).</li>
                             <li>Coordinated with 10+ developers and 15 stakeholders in an Agile environment.</li>
                         </ul>
                         <ul lang="de">
-                            <li>Modernisierung interner Systeme für die Staatsanwaltschaft Dubai, Reduzierung der persönlichen Besuche um 30%.</li>
-                            <li>Integration der forensischen Beweisverarbeitung mit der Polizei Dubai mittels sicherer APIs (ASP.NET, VB.NET).</li>
+                            <li>Modernisierung interner Systeme für die Staatsanwaltschaft Dubai, Reduzierung der
+                                persönlichen Besuche um 30%.</li>
+                            <li>Integration der forensischen Beweisverarbeitung mit der Polizei Dubai mittels sicherer
+                                APIs (ASP.NET, VB.NET).</li>
                             <li>Koordination mit 10+ Entwicklern und 15 Stakeholdern in einem agilen Umfeld.</li>
                         </ul>
                     </div>
@@ -542,7 +625,8 @@
                             <li>Implemented CI/CD pipelines via Azure DevOps.</li>
                         </ul>
                         <ul lang="de">
-                            <li>Leitung von 4 Microservice-Projekten in der Azure Cloud (Reduzierung der Deployment-Zeiten um 40%).</li>
+                            <li>Leitung von 4 Microservice-Projekten in der Azure Cloud (Reduzierung der
+                                Deployment-Zeiten um 40%).</li>
                             <li>Integration der Microsoft Graph API in 3 Unternehmenssysteme.</li>
                             <li>Implementierung von CI/CD-Pipelines über Azure DevOps.</li>
                         </ul>
@@ -566,7 +650,8 @@
                         </ul>
                         <ul lang="de">
                             <li>Erweiterung von 15+ Angular-Modulen für ein britisches HRM-System.</li>
-                            <li>Entwicklung einer wiederverwendbaren Komponentenbibliothek (Reduzierung der Lieferzeit um 25%).</li>
+                            <li>Entwicklung einer wiederverwendbaren Komponentenbibliothek (Reduzierung der Lieferzeit
+                                um 25%).</li>
                         </ul>
                     </div>
                 </div>
@@ -583,32 +668,42 @@
         <div class="project-grid">
 
             <div class="project-card">
-                <img src="https://placehold.co/600x400/0056b3/ffffff?text=E-Commerce+Store" alt="E-commerce Project" class="project-img">
+                <img src="https://placehold.co/600x400/0056b3/ffffff?text=E-Commerce+Store" alt="E-commerce Project"
+                    class="project-img">
                 <div class="project-content">
                     <h4>E-Commerce Platform</h4>
                     <p class="tech-stack">.NET 6, Angular, Redis, Stripe</p>
-                    <p lang="en">A full-stack e-commerce solution built with the Specification pattern and Unit of Work. Features a high-performance basket module using Redis.</p>
-                    <p lang="de">Eine Full-Stack-E-Commerce-Lösung, die mit dem Specification Pattern und Unit of Work erstellt wurde. Beinhaltet ein Hochleistungs-Warenkorb-Modul mit Redis.</p>
+                    <p lang="en">A full-stack e-commerce solution built with the Specification pattern and Unit of Work.
+                        Features a high-performance basket module using Redis.</p>
+                    <p lang="de">Eine Full-Stack-E-Commerce-Lösung, die mit dem Specification Pattern und Unit of Work
+                        erstellt wurde. Beinhaltet ein Hochleistungs-Warenkorb-Modul mit Redis.</p>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://placehold.co/600x400/222/ffffff?text=Forensic+System" alt="Forensic Integration" class="project-img">
+                <img src="https://placehold.co/600x400/222/ffffff?text=Forensic+System" alt="Forensic Integration"
+                    class="project-img">
                 <div class="project-content">
                     <h4>Gov. Forensic Integration</h4>
                     <p class="tech-stack">VB.NET, ASP.NET, Oracle, REST</p>
-                    <p lang="en">Backend integration system for Dubai Police. Solved complex legacy protocol challenges (TLS/Keep-Alive) to securely automate forensic evidence processing.</p>
-                    <p lang="de">Backend-Integrationssystem für die Polizei Dubai. Lösung komplexer Legacy-Protokoll-Herausforderungen (TLS/Keep-Alive) zur sicheren Automatisierung der forensischen Beweissicherung.</p>
+                    <p lang="en">Backend integration system for Dubai Police. Solved complex legacy protocol challenges
+                        (TLS/Keep-Alive) to securely automate forensic evidence processing.</p>
+                    <p lang="de">Backend-Integrationssystem für die Polizei Dubai. Lösung komplexer
+                        Legacy-Protokoll-Herausforderungen (TLS/Keep-Alive) zur sicheren Automatisierung der
+                        forensischen Beweissicherung.</p>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://placehold.co/600x400/00a8cc/ffffff?text=Microservices" alt="Microservices Architecture" class="project-img">
+                <img src="https://placehold.co/600x400/00a8cc/ffffff?text=Microservices"
+                    alt="Microservices Architecture" class="project-img">
                 <div class="project-content">
                     <h4>Logistics Microservices</h4>
                     <p class="tech-stack">Azure, .NET Core, SQL Optimization</p>
-                    <p lang="en">Scalable backend architecture for Abu Dhabi Ports. Focused on SQL query optimization and splitting monolithic services into manageable microservices.</p>
-                    <p lang="de">Skalierbare Backend-Architektur für Abu Dhabi Ports. Fokus auf SQL-Optimierung und Aufteilung monolithischer Dienste in verwaltbare Microservices.</p>
+                    <p lang="en">Scalable backend architecture for Abu Dhabi Ports. Focused on SQL query optimization
+                        and splitting monolithic services into manageable microservices.</p>
+                    <p lang="de">Skalierbare Backend-Architektur für Abu Dhabi Ports. Fokus auf SQL-Optimierung und
+                        Aufteilung monolithischer Dienste in verwaltbare Microservices.</p>
                 </div>
             </div>
 
@@ -625,7 +720,8 @@
                 <h4 lang="en">B.Sc. Software Engineering and Information Systems</h4>
                 <h4 lang="de">B.Sc. Software Engineering und Informationssysteme</h4>
                 <p style="color: var(--primary-color); font-weight: bold;">Al-Baath University</p>
-                <p>2013 - 2018 | <span lang="en">Recognized for EU Blue Card</span><span lang="de">Anerkannt für Blaue Karte EU</span></p>
+                <p>2013 - 2018 | <span lang="en">Recognized for EU Blue Card</span><span lang="de">Anerkannt für Blaue
+                        Karte EU</span></p>
             </div>
         </div>
     </section>
@@ -633,7 +729,8 @@
     <footer>
         <p>&copy; 2025 Rami Alkhateeb. Built with HTML, CSS & JS.</p>
         <p>
-            <a href="https://linkedin.com/in/rami13alkhateeb" style="color: var(--primary-color); margin: 0 10px;">LinkedIn</a> | 
+            <a href="https://linkedin.com/in/rami13alkhateeb"
+                style="color: var(--primary-color); margin: 0 10px;">LinkedIn</a> |
             <a href="https://github.com/ramialkhateeb" style="color: var(--primary-color); margin: 0 10px;">GitHub</a>
         </p>
     </footer>
@@ -644,7 +741,7 @@
         const themeIcon = themeBtn.querySelector('i');
         const body = document.body;
 
-        if(localStorage.getItem('theme') === 'dark') {
+        if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
@@ -652,7 +749,7 @@
 
         themeBtn.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            if(body.classList.contains('dark-mode')) {
+            if (body.classList.contains('dark-mode')) {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
                 localStorage.setItem('theme', 'dark');
@@ -665,9 +762,9 @@
 
         // --- Language Switch Logic ---
         const langBtn = document.getElementById('lang-toggle');
-        
+
         // Check stored language
-        if(localStorage.getItem('lang') === 'de') {
+        if (localStorage.getItem('lang') === 'de') {
             body.classList.add('show-german');
             langBtn.textContent = 'EN'; // Button shows option to switch TO
         } else {
@@ -676,8 +773,8 @@
 
         langBtn.addEventListener('click', () => {
             body.classList.toggle('show-german');
-            
-            if(body.classList.contains('show-german')) {
+
+            if (body.classList.contains('show-german')) {
                 langBtn.textContent = 'EN'; // If German is showing, button says EN
                 localStorage.setItem('lang', 'de');
             } else {
@@ -687,4 +784,5 @@
         });
     </script>
 </body>
+
 </html>
