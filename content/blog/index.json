@@ -3,9 +3,22 @@
     "Slug": "first-mock-post",
     "TitleEn": "Optimizing .NET Applications",
     "TitleDe": "Optimierung von .NET-Anwendungen",
+    "TitleAr": "",
     "SummaryEn": "A look into memory allocations.",
     "SummaryDe": "Ein Blick auf Speicherallokationen.",
-    "Date": "2026-06-18",
+    "SummaryAr": "",
+    "Date": "2026-06-18T00:00:00",
+    "IsPublished": true
+  },
+  {
+    "Slug": "advanced-async-await",
+    "TitleEn": "Test",
+    "TitleDe": "",
+    "TitleAr": "",
+    "SummaryEn": "Testtttttttttttttttt",
+    "SummaryDe": "",
+    "SummaryAr": "",
+    "Date": "2026-06-19T14:09:23.549+02:00",
     "IsPublished": true
   }
 ]
