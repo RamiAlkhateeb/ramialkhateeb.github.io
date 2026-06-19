@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lTvIIuvf0HQ=",
+  "success": true,
+  "projectFilePath": "/home/runner/work/Portfolio/Portfolio/src/SiteGenerator/SiteGenerator.csproj",
+  "expectedPackageFiles": [
+    "/home/runner/.nuget/packages/markdig/1.3.2/markdig.1.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}
