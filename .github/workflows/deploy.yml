@@ -1,0 +1,34 @@
+name: Build and Deploy Portfolio
+
+on:
+  push:
+    branches: [ main ] # Runs every time you commit JSON via Blazor
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Run Custom C# Site Generator
+      run: dotnet run --project src/SiteGenerator/SiteGenerator.csproj
+      # This step generates all your HTML files and saves them to your repo folders
+
+    - name: Build Blazor Admin App
+      run: dotnet publish src/AdminApp/AdminApp.csproj -c Release -o ./admin
+      # This puts the Blazor app into the /admin folder
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./ # Deploys the root folder (which now includes generated HTML and /admin)
