@@ -1,34 +1,34 @@
-name: Build and Deploy Portfolio
+name: Build and Deploy Portfolio Site
 
 on:
-  push:
-    branches: [ main ] # Runs every time you commit JSON via Blazor
+  repository_dispatch:
+    types: [ trigger-compiler ]  # This matches the event string fired by your Blazor App
+  workflow_dispatch:              # Allows you to click a button manually on GitHub to force run
 
 jobs:
-  build-and-deploy:
+  compile-and-publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write             # Grants permission to save compiled files back to your repo
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
       with:
-        dotnet-version: '8.0.x'
+        fetch-depth: 0            # Pulls complete Git history safely
 
-    - name: Run Custom C# Site Generator
-      run: dotnet run --project src/SiteGenerator/SiteGenerator.csproj
-      # This step generates all your HTML files and saves them to your repo folders
-
-    - name: Build Blazor Admin App
-      run: dotnet publish src/AdminApp/AdminApp.csproj -c Release -o ./admin
-      # This puts the Blazor app into the /admin folder
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Setup .NET Environment
+      uses: actions/setup-dotnet@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./ # Deploys the root folder (which now includes generated HTML and /admin)
+        dotnet-version: '8.0.x'   # Adjust to match your compiler project's targeting framework version
+
+    - name: Run Static HTML Template Compiler
+      run: dotnet run --project compiler/compiler.csproj
+      # This builds your physical blog.html, guides.html, and individual posts!
+
+    - name: Deploy Compiled Layout Assets to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} # Built-in token managed by GitHub automatically
+        publish_dir: ./                           # Serves your optimized static root directory files
+        publish_branch: gh-pages                  # Branch that GitHub Pages points to
