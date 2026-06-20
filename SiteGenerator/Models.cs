@@ -9,7 +9,7 @@ public class BlogIndexEntry
     public string SummaryEn { get; set; } = string.Empty;
     public string SummaryDe { get; set; } = string.Empty;
     public string SummaryAr { get; set; } = string.Empty;
-    public DateTime Date { get; set; } = string.Empty;
+    public string Date { get; set; } = string.Empty;
     public bool IsPublished { get; set; }
 }
 

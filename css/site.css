@@ -104,42 +104,30 @@
 }
 
 /* --- 3-Way Visibility Control Architecture --- */
-
-/* Hide everything by default across blocks */
-.lang-en, .lang-de, .lang-ar {
+/* --- Core 3-Way Scoped Visibility Matrix --- */
+.lang-en, .lang-de, .lang-ar,
+.lang-en-content, .lang-de-content, .lang-ar-content {
     display: none !important;
 }
 
-body.lang-en .lang-en { display: block !important; }
-body.lang-de .lang-de { display: block !important; }
-body.lang-ar .lang-ar { display: block !important; }
-body[dir="rtl"] .lang-ar { text-align: right; }
+/* Re-reveal conditionally based on body state flags */
+body.lang-en .lang-en, body.lang-en .lang-en-content { display: block !important; }
+body.lang-de .lang-de, body.lang-de .lang-de-content { display: block !important; }
+body.lang-ar .lang-ar, body.lang-ar .lang-ar-content { display: block !important; }
 
-.lang-en-content,
-.lang-de-content,
-.lang-ar-content {
-    display: none !important;
-}
-
-/* Conditionally reveal based on body tag state mapping */
-body.lang-en .lang-en-content {
-    display: block !important;
-}
-body.lang-de .lang-de-content {
-    display: block !important;
-}
-body.lang-ar .lang-ar-content {
-    display: block !important;
-}
-
-/* Alternate inline element revelations (e.g., span labels) */
+/* Handle inline span text objects explicitly */
+span.lang-en, span.lang-de, span.lang-ar,
 span.lang-en-content, span.lang-de-content, span.lang-ar-content {
     display: none !important;
 }
-body.lang-en span.lang-en-content { display: inline !important; }
-body.lang-de span.lang-de-content { display: inline !important; }
-body.lang-ar span.lang-ar-content { display: inline !important; }
+body.lang-en span.lang-en, body.lang-en span.lang-en-content { display: inline !important; }
+body.lang-de span.lang-de, body.lang-de span.lang-de-content { display: inline !important; }
+body.lang-ar span.lang-ar, body.lang-ar span.lang-ar-content { display: inline !important; }
 
+/* Global Arabic text behavior alignment adjustments */
+body.lang-ar {
+    text-align: right !important;
+}
 /* --- Right-To-Left (RTL) Structural Overrides --- */
 body[dir="rtl"] {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fallback rendering clean for Arabic text shapes */
