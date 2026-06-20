@@ -646,9 +646,9 @@ body.lang-de .lang-de, body.lang-de .lang-de-content { display: block !important
 body.lang-ar .lang-ar, body.lang-ar .lang-ar-content { display: block !important; }
 
 /* Inline text overrides for span tags in menus */
- span.lang-en-content,
- span.lang-de-content,
- span.lang-ar-content {
+span.lang-en-content,
+span.lang-de-content,
+span.lang-ar-content {
     display: none !important;
 }
 body.lang-en span.lang-en, body.lang-en span.lang-en-content { display: inline !important; }

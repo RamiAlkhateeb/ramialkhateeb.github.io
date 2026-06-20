@@ -36,6 +36,12 @@ string contentPath = Path.Combine(rootPath, "content");
 string templatesPath = Path.Combine(rootPath, "templates");
 string blogOutputDir = Path.Combine(rootPath, "blog");
 
+// Load shared header partial
+string headerPartialPath = Path.Combine(templatesPath, "header.html");
+string headerHtml = File.Exists(headerPartialPath)
+    ? File.ReadAllText(headerPartialPath)
+    : "<!-- header partial missing -->";
+
 // Ensure output subdirectories exist
 Directory.CreateDirectory(blogOutputDir);
 
@@ -68,6 +74,7 @@ if (File.Exists(blogIndexFile))
 
         // Inject page values into tokens
         string singlePostHtml = singlePostTemplate
+            .Replace("{{HEADER}}", headerHtml)
             .Replace("{{PostTitleEn}}", fullPost.TitleEn)
             .Replace("{{PostTitleDe}}", fullPost.TitleDe)
             .Replace("{{PostTitleAr}}", fullPost.TitleAr)
@@ -106,7 +113,12 @@ if (File.Exists(blogIndexFile))
 
     // Output main blog.html listing page
     string blogListTemplate = File.ReadAllText(Path.Combine(templatesPath, "blog-list.html"));
-    File.WriteAllText(Path.Combine(rootPath, "blog.html"), blogListTemplate.Replace("{{BlogCardsLoop}}", blogCardsBuilder.ToString()));
+    File.WriteAllText(
+        Path.Combine(rootPath, "blog.html"),
+        blogListTemplate
+            .Replace("{{HEADER}}", headerHtml)
+            .Replace("{{BlogCardsLoop}}", blogCardsBuilder.ToString())
+    );
     Console.WriteLine(" -> Generated: /blog.html");
 }
 
@@ -151,7 +163,12 @@ if (File.Exists(guidesFile))
     }
 
     string guidesListTemplate = File.ReadAllText(Path.Combine(templatesPath, "guides-list.html"));
-    File.WriteAllText(Path.Combine(rootPath, "guides.html"), guidesListTemplate.Replace("{{GuidesCardsLoop}}", guidesCardsBuilder.ToString()));
+    File.WriteAllText(
+        Path.Combine(rootPath, "guides.html"),
+        guidesListTemplate
+            .Replace("{{HEADER}}", headerHtml)
+            .Replace("{{GuidesCardsLoop}}", guidesCardsBuilder.ToString())
+    );
     Console.WriteLine(" -> Generated: /guides.html");
 }
 

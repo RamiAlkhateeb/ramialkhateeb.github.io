@@ -28,9 +28,12 @@ jobs:
 
     - name: Prepare deployment artifacts
       run: |
+        set -e
         mkdir -p gh-pages-out
         cp index.html blog.html guides.html gh-pages-out/
         cp -R css js blog gh-pages-out/
+        echo "✅ Artifacts staged successfully"
+        ls gh-pages-out/
 
     - name: Deploy Compiled Layout Assets to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4

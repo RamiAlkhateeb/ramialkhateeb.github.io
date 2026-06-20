@@ -5,15 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High Performance Microservices | Rami Alkhateeb</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="/css/site.css"> 
+    <link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
-    
-    <main class="main-container" style="padding-top: 100px; max-width: 800px; margin: 0 auto; padding-left:20px; padding-right:20px;">
+<body class="lang-en">
+    <header>
+    <nav>
+        <div class="logo">
+            <a href="/" style="text-decoration:none; color:inherit;">Rami Alkhateeb</a>
+        </div>
+        <div class="nav-controls">
+            <div class="nav-links">
+                <a href="/#about">
+                    <span class="lang-en-content">About</span>
+                    <span class="lang-de-content">Über mich</span>
+                    <span class="lang-ar-content">عن</span>
+                </a>
+                <a href="/#skills">
+                    <span class="lang-en-content">Skills</span>
+                    <span class="lang-de-content">Kompetenzen</span>
+                    <span class="lang-ar-content">المهارات</span>
+                </a>
+                <a href="/#experience">
+                    <span class="lang-en-content">Experience</span>
+                    <span class="lang-de-content">Erfahrung</span>
+                    <span class="lang-ar-content">الخبرة</span>
+                </a>
+                <a href="/#projects">
+                    <span class="lang-en-content">Projects</span>
+                    <span class="lang-de-content">Projekte</span>
+                    <span class="lang-ar-content">المشاريع</span>
+                </a>
+                <a href="/blog.html">
+                    <span class="lang-en-content">Blog</span>
+                    <span class="lang-de-content">Blog</span>
+                    <span class="lang-ar-content">المدونة</span>
+                </a>
+                <a href="/guides.html">
+                    <span class="lang-en-content">Guides</span>
+                    <span class="lang-de-content">Anleitungen</span>
+                    <span class="lang-ar-content">الأدلة</span>
+                </a>
+            </div>
+            <div class="lang-dropdown">
+                <button class="icon-btn" id="lang-dropdown-btn">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="current-lang-label">EN</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
+                </button>
+                <div class="dropdown-menu" id="lang-dropdown-menu">
+                    <button type="button" data-lang="en">🇺🇸 English (EN)</button>
+                    <button type="button" data-lang="de">🇩🇪 Deutsch (DE)</button>
+                    <button type="button" data-lang="ar">🇸🇦 العربية (AR)</button>
+                </div>
+            </div>
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+</header>
+
+    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
         <article class="project-card">
             <p class="timeline-date"><i class="fa-regular fa-calendar"></i> 2026-06-19</p>
-            
-            <div class="lang-en">
+
+            <div class="lang-en-content">
                 <h1 style="font-size: 2rem; margin-bottom: 10px;">High Performance Microservices</h1>
                 <p style="color: gray; font-style: italic; margin-bottom: 20px;">An exploration of memory alloc pipelines.</p>
                 <hr style="border: 0; border-top: 1px solid var(--timeline-line); margin-bottom: 20px;">
@@ -21,8 +77,8 @@
 <p>Optimized compilation loops.</p>
 </div>
             </div>
-            
-            <div class="lang-de">
+
+            <div class="lang-de-content">
                 <h1 style="font-size: 2rem; margin-bottom: 10px;">Hochleistungs-Mikrodienste</h1>
                 <p style="color: gray; font-style: italic; margin-bottom: 20px;">Eine Untersuchung von Speicherallokationspipelines.</p>
                 <hr style="border: 0; border-top: 1px solid var(--timeline-line); margin-bottom: 20px;">
@@ -31,7 +87,7 @@
 </div>
             </div>
 
-            <div class="lang-ar">
+            <div class="lang-ar-content">
                 <h1 style="font-size: 2rem; margin-bottom: 10px;">الخدمات المصغرة عالية الأداء</h1>
                 <p style="color: gray; font-style: italic; margin-bottom: 20px;">استكشاف لمسارات تخصيص الذاكرة.</p>
                 <hr style="border: 0; border-top: 1px solid var(--timeline-line); margin-bottom: 20px;">
@@ -40,16 +96,18 @@
 </div>
             </div>
         </article>
-        
+
         <div style="text-align: center; margin-top: 30px;">
-            <a href="/blog.html" class="social-btn" style="text-decoration: none;">
-                <span class="lang-en">← Back to Blog Archive</span>
-                <span class="lang-de">← Zurück zum Blog Archive</span>
-                <span class="lang-ar">العودة إلى أرشيف المدونة ➔</span>
+            <a href="/blog.html" class="social-btn">
+                <span class="lang-en-content">← Back to Blog</span>
+                <span class="lang-de-content">← Zurück zum Blog</span>
+                <span class="lang-ar-content">العودة إلى المدونة ➔</span>
             </a>
         </div>
     </main>
-
+    <footer>
+        <p>&copy; 2025 Rami Alkhateeb.</p>
+    </footer>
     <script src="/js/site.js"></script>
 </body>
 </html>
