@@ -23,7 +23,7 @@ jobs:
         dotnet-version: '8.0.x'   # Adjust to match your compiler project's targeting framework version
 
     - name: Run Static HTML Template Compiler
-      run: dotnet run --project compiler/compiler.csproj
+      run: dotnet run --project SiteGenerator/SiteGenerator.csproj
       # This builds your physical blog.html, guides.html, and individual posts!
 
     - name: Deploy Compiled Layout Assets to GitHub Pages
