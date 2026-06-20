@@ -102,3 +102,560 @@
     border-radius: 6px;
     font-family: monospace;
 }
+
+/* --- Right-To-Left (RTL) Structural Overrides --- */
+body[dir="rtl"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fallback rendering clean for Arabic text shapes */
+    text-align: right;
+}
+
+/* Automatically flip alignments of icons/timeline alignments where necessary */
+body[dir="rtl"] .timeline {
+    border-left: none;
+    border-right: 2px solid var(--timeline-line);
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+body[dir="rtl"] .timeline-item {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+body[dir="rtl"] .timeline-item::before {
+    left: auto;
+    right: -6px;
+}
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --primary-color: #0056b3;
+    --accent-color: #00a8cc;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --timeline-line: #ddd;
+    --hero-overlay: rgba(255, 255, 255, 0.9);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Theme Variables */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #4da3ff;
+    --accent-color: #00bcd4;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --timeline-line: #333;
+    --hero-overlay: rgba(18, 18, 18, 0.85);
+    --nav-bg: rgba(30, 30, 30, 0.95);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* --- Navigation --- */
+header {
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Toggle Buttons */
+.icon-btn {
+    background: none;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* Placeholder for Cover Photo */
+    background-image: url('https://images.unsplash.com/photo-1624696941338-934bf86c28b4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    background: var(--hero-overlay);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-top: -90px;
+    background-color: #fff;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.hero h2 {
+    font-weight: normal;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.social-buttons {
+    display: flex;
+    /* Enables Flexbox */
+    flex-wrap: wrap;
+    /* Allows buttons to move to next line on small screens */
+    gap: 15px;
+    /* Creates equal space between buttons */
+    justify-content: center;
+    /* Centers buttons horizontally */
+    align-items: center;
+    /* Ensures all buttons are the same height */
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.social-btn.github {
+    background: #333;
+}
+
+.social-btn.linkedin {
+    background: #0077b5;
+}
+
+.social-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Styling for the Substack button */
+.social-btn.substack {
+    background-color: #FF6719;
+    /* Substack's brand orange */
+    color: #FFFFFF;
+    /* White text/icon */
+    border: none;
+}
+
+/* Optional: Add a hover effect */
+.social-btn.substack:hover {
+    background-color: #e55c16;
+    /* A slightly darker shade for hover */
+    text-decoration: none;
+}
+
+/* --- Common Layout --- */
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h3.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    position: relative;
+}
+
+h3.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+.skill-category h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--timeline-line);
+    padding-bottom: 5px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(0, 86, 179, 0.1);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+body.dark-mode .tag {
+    background: rgba(77, 163, 255, 0.2);
+    color: var(--primary-color);
+}
+
+/* --- Experience (Timeline) --- */
+.timeline {
+    position: relative;
+    border-left: 2px solid var(--timeline-line);
+    margin-left: 20px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: -39px;
+    top: 5px;
+}
+
+.job-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.job-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.job-company {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.job-date {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.job-desc ul {
+    list-style-position: inside;
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+/* --- Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-content h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tech-stack {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--card-bg);
+    text-align: center;
+    padding: 40px;
+    margin-top: 60px;
+    border-top: 1px solid var(--timeline-line);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .job-header {
+        flex-direction: column;
+    }
+}
+
+/* --- Premium Language Dropdown Container Layout --- */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Patched Dropdown Button - Overrides the harmful 'nav button' defaults */
+#lang-dropdown-btn {
+    background: none !important;
+    border: none !important;
+    color: var(--text-color) !important; /* ◄ Forces text color to adapt between light/dark themes */
+    font-size: 1rem !important;          /* Adjust font scaling relative to nav anchors */
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Ensure icons inside the button also use the adaptive theme color */
+#lang-dropdown-btn i {
+    color: var(--text-color) !important;
+}
+
+/* Solid high-contrast hover indicators for Light and Dark themes */
+#lang-dropdown-btn:hover {
+    background-color: rgba(0, 86, 179, 0.12) !important;
+    color: var(--primary-color) !important;
+}
+#lang-dropdown-btn:hover i {
+    color: var(--primary-color) !important;
+}
+
+/* Dark Mode hover enhancements */
+body.dark-mode #lang-dropdown-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+/* The Menu Box Panel */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--timeline-line);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    z-index: 1000;
+    min-width: 140px;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+}
+
+/* Smooth fade-in and slide-up transition effect */
+.dropdown-menu.show {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adjust dropdown alignment metrics automatically for Arabic RTL */
+body[dir="rtl"] .dropdown-menu {
+    right: auto;
+    left: 0;
+}
+
+/* Individual Dropdown Row Choice Options */
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: none !important;
+    border: none !important;
+    color: var(--text-color) !important;
+    font-size: 0.95rem;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body[dir="rtl"] .dropdown-menu button {
+    text-align: right;
+}
+
+/* Row Hover State matching the primary brand color selection accent */
+.dropdown-menu button:hover {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* Small visual indicator pointing up toward the button */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 16px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--card-bg);
+    border-left: 1px solid var(--timeline-line);
+    border-top: 1px solid var(--timeline-line);
+    transform: rotate(45deg);
+}
+
+body[dir="rtl"] .dropdown-menu::before {
+    right: auto;
+    left: 16px;
+}
+
+/* --- Unified 3-Way Language Visibility Rules --- */
+.lang-en-content, .lang-de-content, .lang-ar-content {
+    display: none !important;
+}
+
+/* Structural display block overrides */
+body.lang-en .lang-en, body.lang-en .lang-en-content { display: block !important; }
+body.lang-de .lang-de, body.lang-de .lang-de-content { display: block !important; }
+body.lang-ar .lang-ar, body.lang-ar .lang-ar-content { display: block !important; }
+
+/* Inline text overrides for span tags in menus */
+span.lang-en-content,
+span.lang-de-content,
+span.lang-ar-content {
+    display: none !important;
+}
+body.lang-en span.lang-en, body.lang-en span.lang-en-content { display: inline !important; }
+body.lang-de span.lang-de, body.lang-de span.lang-de-content { display: inline !important; }
+body.lang-ar span.lang-ar, body.lang-ar span.lang-ar-content { display: inline !important; }
+
+/* Global Arabic Right-To-Left Alignment Modifier */
+body.lang-ar {
+    text-align: right !important;
+}

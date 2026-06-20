@@ -6,441 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rami Alkhateeb | Software Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* --- CSS Variables & Theme Setup --- */
-        :root {
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --primary-color: #0056b3;
-            --accent-color: #00a8cc;
-            --card-bg: #ffffff;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --timeline-line: #ddd;
-            --hero-overlay: rgba(255, 255, 255, 0.9);
-            --nav-bg: rgba(255, 255, 255, 0.95);
-        }
-
-        /* Dark Theme Variables */
-        body.dark-mode {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --primary-color: #4da3ff;
-            --accent-color: #00bcd4;
-            --card-bg: #1e1e1e;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            --timeline-line: #333;
-            --hero-overlay: rgba(18, 18, 18, 0.85);
-            --nav-bg: rgba(30, 30, 30, 0.95);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* --- Language Switching Logic --- */
-        /* By default, hide German */
-        [lang="de"] {
-            display: none !important;
-        }
-
-        /* If body has class 'show-german', hide English and show German */
-        body.show-german [lang="en"] {
-            display: none !important;
-        }
-
-        body.show-german [lang="de"] {
-            display: inline-block !important;
-        }
-
-        /* Block elements need to remain block */
-        body.show-german div[lang="de"],
-        body.show-german p[lang="de"],
-        body.show-german h1[lang="de"],
-        body.show-german h2[lang="de"],
-        body.show-german h3[lang="de"],
-        body.show-german h4[lang="de"],
-        body.show-german li[lang="de"] {
-            display: block !important;
-        }
-
-        /* --- Navigation --- */
-        header {
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            margin-left: 20px;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Toggle Buttons */
-        .icon-btn {
-            background: none;
-            border: 1px solid var(--text-color);
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 5px 10px;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .icon-btn:hover {
-            background: var(--primary-color);
-            color: #fff;
-            border-color: var(--primary-color);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            /* Placeholder for Cover Photo */
-            background-image: url('https://images.unsplash.com/photo-1624696941338-934bf86c28b4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 20px 60px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            background: var(--hero-overlay);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-            margin-top: -90px;
-            background-color: #fff;
-        }
-
-        .hero h1 {
-            margin-top: 15px;
-            font-size: 2.5rem;
-            color: var(--text-color);
-        }
-
-        .hero h2 {
-            font-weight: normal;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .social-buttons {
-            display: flex;
-            /* Enables Flexbox */
-            flex-wrap: wrap;
-            /* Allows buttons to move to next line on small screens */
-            gap: 15px;
-            /* Creates equal space between buttons */
-            justify-content: center;
-            /* Centers buttons horizontally */
-            align-items: center;
-            /* Ensures all buttons are the same height */
-            margin-top: 20px;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary-color);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            margin: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .social-btn.github {
-            background: #333;
-        }
-
-        .social-btn.linkedin {
-            background: #0077b5;
-        }
-
-        .social-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        /* Styling for the Substack button */
-        .social-btn.substack {
-            background-color: #FF6719;
-            /* Substack's brand orange */
-            color: #FFFFFF;
-            /* White text/icon */
-            border: none;
-        }
-
-        /* Optional: Add a hover effect */
-        .social-btn.substack:hover {
-            background-color: #e55c16;
-            /* A slightly darker shade for hover */
-            text-decoration: none;
-        }
-
-        /* --- Common Layout --- */
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        h3.section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--text-color);
-            position: relative;
-        }
-
-        h3.section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-        }
-
-        /* --- Skills Section --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .skill-category h4 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--timeline-line);
-            padding-bottom: 5px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background: rgba(0, 86, 179, 0.1);
-            color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        body.dark-mode .tag {
-            background: rgba(77, 163, 255, 0.2);
-            color: var(--primary-color);
-        }
-
-        /* --- Experience (Timeline) --- */
-        .timeline {
-            position: relative;
-            border-left: 2px solid var(--timeline-line);
-            margin-left: 20px;
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            position: absolute;
-            left: -39px;
-            top: 5px;
-        }
-
-        .job-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        .job-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .job-company {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .job-date {
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        .job-desc ul {
-            list-style-position: inside;
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-
-        /* --- Projects Section --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .tech-stack {
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--card-bg);
-            text-align: center;
-            padding: 40px;
-            margin-top: 60px;
-            border-top: 1px solid var(--timeline-line);
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .job-header {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 
-<body>
+<body class="lang-en" dir="ltr">
 
     <header>
         <nav>
             <div class="logo">Rami Alkhateeb</div>
             <div class="nav-controls">
                 <div class="nav-links">
-                    <a href="#about"><span lang="en">About</span><span lang="de">Über mich</span></a>
-                    <a href="#skills"><span lang="en">Skills</span><span lang="de">Kompetenzen</span></a>
-                    <a href="#experience"><span lang="en">Experience</span><span lang="de">Erfahrung</span></a>
-                    <a href="#projects"><span lang="en">Projects</span><span lang="de">Projekte</span></a>
+                    <a href="#about">
+                        <span class="lang-en-content">About</span>
+                        <span class="lang-de-content">Über mich</span>
+                        <span class="lang-ar-content">عن</span>
+                    </a>
+                    <a href="#skills">
+                        <span class="lang-en-content">Skills</span>
+                        <span class="lang-de-content">Kompetenzen</span>
+                        <span class="lang-ar-content">المهارات</span>
+                    </a>
+                    <a href="#experience">
+                        <span class="lang-en-content">Experience</span>
+                        <span class="lang-de-content">Erfahrung</span>
+                        <span class="lang-ar-content">الخبرة</span>
+                    </a>
+                    <a href="#projects">
+                        <span class="lang-en-content">Projects</span>
+                        <span class="lang-de-content">Projekte</span>
+                        <span class="lang-ar-content">المشاريع</span>
+                    </a>
+                    <a href="/blog.html">
+                        <span class="lang-en-content">Blog</span>
+                        <span class="lang-de-content">Blog</span>
+                        <span class="lang-ar-content">المدونة</span>
+                    </a>
+                    <a href="/guides.html">
+                        <span class="lang-en-content">Guides</span>
+                        <span class="lang-de-content">Anleitungen</span>
+                        <span class="lang-ar-content">الأدلة</span>
+                    </a>
+                </div>
+                <div class="lang-dropdown">
+                    <button class="social-btn" id="lang-dropdown-btn">
+                        <i class="fa-solid fa-globe"></i> <span id="current-lang-label">EN</span> <i
+                            class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </button>
+                    <div class="dropdown-menu" id="lang-dropdown-menu">
+                        <button type="button" data-lang="en">🇺🇸 English (EN)</button>
+                        <button type="button" data-lang="de">🇩🇪 Deutsch (DE)</button>
+                        <button type="button" data-lang="ar">🇸🇦 العربية (AR)</button>
+                    </div>
                 </div>
 
-                <button id="lang-toggle" class="icon-btn" aria-label="Switch Language">
-                    DE
-                </button>
 
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode" style="border:none;">
                     <i class="fas fa-moon"></i>
@@ -460,16 +78,20 @@
                 Paderborn, Germany | .NET Specialist | Clean Code Enthusiast
             </p>
 
-            <p lang="en" style="margin-bottom: 25px;">
-                Software Engineer with 6 years of experience building scalable web applications across Logistics,
-                Education, HRM, and Telecom. Passionate about modernizing legacy systems and delivering robust
-                microservices.
-            </p>
-            <p lang="de" style="margin-bottom: 25px;">
-                Softwareentwickler mit 6 Jahren Erfahrung in der Entwicklung skalierbarer Webanwendungen in den
-                Bereichen Logistik, Bildung, HRM und Telekommunikation. Leidenschaftlich in der Modernisierung von
-                Legacy-Systemen und der Bereitstellung robuster Microservices.
-            </p>
+            <div class="lang-en-content" style="margin-bottom: 25px;">
+                <p>Software Engineer with 6 years of experience building scalable web applications across Logistics,
+                    Education, HRM, and Telecom. Passionate about modernizing legacy systems and delivering robust
+                    microservices.</p>
+            </div>
+            <div class="lang-de-content" style="margin-bottom: 25px;">
+                <p>Softwareentwickler mit 6 Jahren Erfahrung in der Entwicklung skalierbarer Webanwendungen in den
+                    Bereichen Logistik, Bildung, HRM und Telekommunikation. Leidenschaftlich in der Modernisierung von
+                    Legacy-Systemen und der Bereitstellung robuster Microservices.</p>
+            </div>
+            <div class="lang-ar-content" style="margin-bottom: 25px;">
+                <p>مهندس برمجيات لديه 6 سنوات من الخبرة في بناء تطبيقات ويب قابلة للتوسع عبر اللوجستيات والتعليم
+                    وإدارة الموارد البشرية والاتصالات. شغوف بتحسين الأنظمة القديمة وتسليم خدمات دقيقة.</p>
+            </div>
 
             <div class="social-buttons">
                 <a href="mailto:rami13alkhateeb@gmail.com" class="social-btn">
@@ -494,14 +116,16 @@
 
     <section id="skills">
         <h3 class="section-title">
-            <span lang="en">Technical Skills</span>
-            <span lang="de">Technische Kompetenzen</span>
+            <span class="lang-en-content">Technical Skills</span>
+            <span class="lang-de-content">Technische Kompetenzen</span>
+            <span class="lang-ar-content">المهارات التقنية</span>
         </h3>
         <div class="skills-grid">
             <div class="skill-category">
                 <h4>
-                    <span lang="en">Languages & Frameworks</span>
-                    <span lang="de">Sprachen & Frameworks</span>
+                    <span class="lang-en-content">Languages & Frameworks</span>
+                    <span class="lang-de-content">Sprachen & Frameworks</span>
+                    <span class="lang-ar-content">اللغات والأطر</span>
                 </h4>
                 <div class="tags">
                     <span class="tag">C#</span>
@@ -524,8 +148,9 @@
             </div>
             <div class="skill-category">
                 <h4>
-                    <span lang="en">Architecture</span>
-                    <span lang="de">Architektur</span>
+                    <span class="lang-en-content">Architecture</span>
+                    <span class="lang-de-content">Architektur</span>
+                    <span class="lang-ar-content">الهندسة</span>
                 </h4>
                 <div class="tags">
                     <span class="tag">Microservices</span>
@@ -536,8 +161,9 @@
             </div>
             <div class="skill-category">
                 <h4>
-                    <span lang="en">Databases</span>
-                    <span lang="de">Datenbanken</span>
+                    <span class="lang-en-content">Databases</span>
+                    <span class="lang-de-content">Datenbanken</span>
+                    <span class="lang-ar-content">قواعد البيانات</span>
                 </h4>
                 <div class="tags">
                     <span class="tag">SQL Server</span>
@@ -552,8 +178,9 @@
 
     <section id="experience">
         <h3 class="section-title">
-            <span lang="en">Work Experience</span>
-            <span lang="de">Berufserfahrung</span>
+            <span class="lang-en-content">Work Experience</span>
+            <span class="lang-de-content">Berufserfahrung</span>
+            <span class="lang-ar-content">الخبرة المهنية</span>
         </h3>
         <div class="timeline">
 
@@ -567,20 +194,27 @@
                         <div class="job-date">11/2023 - 04/2025</div>
                     </div>
                     <div class="job-desc">
-                        <ul lang="en">
-                            <li>Modernized internal systems for Dubai Public Prosecution, reducing in-person visits by
-                                30%.</li>
-                            <li>Integrated forensic evidence processing with Dubai Police using secure APIs (ASP.NET,
-                                VB.NET).</li>
-                            <li>Coordinated with 10+ developers and 15 stakeholders in an Agile environment.</li>
-                        </ul>
-                        <ul lang="de">
-                            <li>Modernisierung interner Systeme für die Staatsanwaltschaft Dubai, Reduzierung der
-                                persönlichen Besuche um 30%.</li>
-                            <li>Integration der forensischen Beweisverarbeitung mit der Polizei Dubai mittels sicherer
-                                APIs (ASP.NET, VB.NET).</li>
-                            <li>Koordination mit 10+ Entwicklern und 15 Stakeholdern in einem agilen Umfeld.</li>
-                        </ul>
+                        <div class="lang-en-content">
+                            <ul>
+                                <li>Modernized internal systems for Dubai Public Prosecution, reducing in-person visits
+                                    by
+                                    30%.</li>
+                                <li>Integrated forensic evidence processing with Dubai Police using secure APIs
+                                    (ASP.NET,
+                                    VB.NET).</li>
+                                <li>Coordinated with 10+ developers and 15 stakeholders in an Agile environment.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-de-content">
+                            <ul>
+                                <li>Modernisierung interner Systeme für die Staatsanwaltschaft Dubai, Reduzierung der
+                                    persönlichen Besuche um 30%.</li>
+                                <li>Integration der forensischen Beweisverarbeitung mit der Polizei Dubai mittels
+                                    sicherer
+                                    APIs (ASP.NET, VB.NET).</li>
+                                <li>Koordination mit 10+ Entwicklern und 15 Stakeholdern in einem agilen Umfeld.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -595,16 +229,21 @@
                         <div class="job-date">12/2022 - 11/2023</div>
                     </div>
                     <div class="job-desc">
-                        <ul lang="en">
-                            <li>Resolved backend issues for the Advanced Trade and Logistics Platform (ATLP).</li>
-                            <li>Optimized SQL queries reducing execution time by 20%.</li>
-                            <li>Enhanced microservices scalability using .NET Core and Angular.</li>
-                        </ul>
-                        <ul lang="de">
-                            <li>Lösung von Backend-Problemen für die Advanced Trade and Logistics Platform (ATLP).</li>
-                            <li>Optimierung von SQL-Abfragen und Reduzierung der Ausführungszeit um 20%.</li>
-                            <li>Verbesserung der Skalierbarkeit von Microservices mit .NET Core und Angular.</li>
-                        </ul>
+                        <div class="lang-en-content">
+                            <ul>
+                                <li>Resolved backend issues for the Advanced Trade and Logistics Platform (ATLP).</li>
+                                <li>Optimized SQL queries reducing execution time by 20%.</li>
+                                <li>Enhanced microservices scalability using .NET Core and Angular.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-de-content">
+                            <ul>
+                                <li>Lösung von Backend-Problemen für die Advanced Trade and Logistics Platform (ATLP).
+                                </li>
+                                <li>Optimierung von SQL-Abfragen und Reduzierung der Ausführungszeit um 20%.</li>
+                                <li>Verbesserung der Skalierbarkeit von Microservices mit .NET Core und Angular.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -619,17 +258,21 @@
                         <div class="job-date">09/2021 - 12/2022</div>
                     </div>
                     <div class="job-desc">
-                        <ul lang="en">
-                            <li>Led 4 microservices projects on Azure Cloud, reducing deployment times by 40%.</li>
-                            <li>Integrated Microsoft Graph API into 3 enterprise systems.</li>
-                            <li>Implemented CI/CD pipelines via Azure DevOps.</li>
-                        </ul>
-                        <ul lang="de">
-                            <li>Leitung von 4 Microservice-Projekten in der Azure Cloud (Reduzierung der
-                                Deployment-Zeiten um 40%).</li>
-                            <li>Integration der Microsoft Graph API in 3 Unternehmenssysteme.</li>
-                            <li>Implementierung von CI/CD-Pipelines über Azure DevOps.</li>
-                        </ul>
+                        <div class="lang-en-content">
+                            <ul>
+                                <li>Led 4 microservices projects on Azure Cloud, reducing deployment times by 40%.</li>
+                                <li>Integrated Microsoft Graph API into 3 enterprise systems.</li>
+                                <li>Implemented CI/CD pipelines via Azure DevOps.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-de-content">
+                            <ul>
+                                <li>Leitung von 4 Microservice-Projekten in der Azure Cloud (Reduzierung der
+                                    Deployment-Zeiten um 40%).</li>
+                                <li>Integration der Microsoft Graph API in 3 Unternehmenssysteme.</li>
+                                <li>Implementierung von CI/CD-Pipelines über Azure DevOps.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -644,15 +287,20 @@
                         <div class="job-date">09/2020 - 05/2021</div>
                     </div>
                     <div class="job-desc">
-                        <ul lang="en">
-                            <li>Enhanced 15+ Angular modules for a UK-based HRM system.</li>
-                            <li>Built a reusable components library reducing delivery time by 25%.</li>
-                        </ul>
-                        <ul lang="de">
-                            <li>Erweiterung von 15+ Angular-Modulen für ein britisches HRM-System.</li>
-                            <li>Entwicklung einer wiederverwendbaren Komponentenbibliothek (Reduzierung der Lieferzeit
-                                um 25%).</li>
-                        </ul>
+                        <div class="lang-en-content">
+                            <ul>
+                                <li>Enhanced 15+ Angular modules for a UK-based HRM system.</li>
+                                <li>Built a reusable components library reducing delivery time by 25%.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-de-content">
+                            <ul>
+                                <li>Erweiterung von 15+ Angular-Modulen für ein britisches HRM-System.</li>
+                                <li>Entwicklung einer wiederverwendbaren Komponentenbibliothek (Reduzierung der
+                                    Lieferzeit
+                                    um 25%).</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -662,8 +310,9 @@
 
     <section id="projects">
         <h3 class="section-title">
-            <span lang="en">Featured Projects</span>
-            <span lang="de">Ausgewählte Projekte</span>
+            <span class="lang-en-content">Featured Projects</span>
+            <span class="lang-de-content">Ausgewählte Projekte</span>
+            <span class="lang-ar-content">المشاريع المميزة</span>
         </h3>
         <div class="project-grid">
 
@@ -673,10 +322,14 @@
                 <div class="project-content">
                     <h4>E-Commerce Platform</h4>
                     <p class="tech-stack">.NET 6, Angular, Redis, Stripe</p>
-                    <p lang="en">A full-stack e-commerce solution built with the Specification pattern and Unit of Work.
-                        Features a high-performance basket module using Redis.</p>
-                    <p lang="de">Eine Full-Stack-E-Commerce-Lösung, die mit dem Specification Pattern und Unit of Work
-                        erstellt wurde. Beinhaltet ein Hochleistungs-Warenkorb-Modul mit Redis.</p>
+                    <div class="lang-en-content">
+                        <p>A full-stack e-commerce solution built with the Specification pattern and Unit of Work.
+                            Features a high-performance basket module using Redis.</p>
+                    </div>
+                    <div class="lang-de-content">
+                        <p>Eine Full-Stack-E-Commerce-Lösung, die mit dem Specification Pattern und Unit of Work
+                            erstellt wurde. Beinhaltet ein Hochleistungs-Warenkorb-Modul mit Redis.</p>
+                    </div>
                 </div>
             </div>
 
@@ -686,11 +339,15 @@
                 <div class="project-content">
                     <h4>Gov. Forensic Integration</h4>
                     <p class="tech-stack">VB.NET, ASP.NET, Oracle, REST</p>
-                    <p lang="en">Backend integration system for Dubai Police. Solved complex legacy protocol challenges
-                        (TLS/Keep-Alive) to securely automate forensic evidence processing.</p>
-                    <p lang="de">Backend-Integrationssystem für die Polizei Dubai. Lösung komplexer
-                        Legacy-Protokoll-Herausforderungen (TLS/Keep-Alive) zur sicheren Automatisierung der
-                        forensischen Beweissicherung.</p>
+                    <div class="lang-en-content">
+                        <p>Backend integration system for Dubai Police. Solved complex legacy protocol challenges
+                            (TLS/Keep-Alive) to securely automate forensic evidence processing.</p>
+                    </div>
+                    <div class="lang-de-content">
+                        <p>Backend-Integrationssystem für die Polizei Dubai. Lösung komplexer
+                            Legacy-Protokoll-Herausforderungen (TLS/Keep-Alive) zur sicheren Automatisierung der
+                            forensischen Beweissicherung.</p>
+                    </div>
                 </div>
             </div>
 
@@ -700,10 +357,14 @@
                 <div class="project-content">
                     <h4>Logistics Microservices</h4>
                     <p class="tech-stack">Azure, .NET Core, SQL Optimization</p>
-                    <p lang="en">Scalable backend architecture for Abu Dhabi Ports. Focused on SQL query optimization
-                        and splitting monolithic services into manageable microservices.</p>
-                    <p lang="de">Skalierbare Backend-Architektur für Abu Dhabi Ports. Fokus auf SQL-Optimierung und
-                        Aufteilung monolithischer Dienste in verwaltbare Microservices.</p>
+                    <div class="lang-en-content">
+                        <p>Scalable backend architecture for Abu Dhabi Ports. Focused on SQL query optimization
+                            and splitting monolithic services into manageable microservices.</p>
+                    </div>
+                    <div class="lang-de-content">
+                        <p>Skalierbare Backend-Architektur für Abu Dhabi Ports. Fokus auf SQL-Optimierung und
+                            Aufteilung monolithischer Dienste in verwaltbare Microservices.</p>
+                    </div>
                 </div>
             </div>
 
@@ -712,16 +373,28 @@
 
     <section id="education">
         <h3 class="section-title">
-            <span lang="en">Education</span>
-            <span lang="de">Ausbildung</span>
+            <span class="lang-en-content">Education</span>
+            <span class="lang-de-content">Ausbildung</span>
+            <span class="lang-ar-content">التعليم</span>
         </h3>
         <div style="text-align: center;">
             <div class="job-card">
-                <h4 lang="en">B.Sc. Software Engineering and Information Systems</h4>
-                <h4 lang="de">B.Sc. Software Engineering und Informationssysteme</h4>
+                <div class="lang-en-content">
+                    <h4>B.Sc. Software Engineering and Information Systems</h4>
+                </div>
+                <div class="lang-de-content">
+                    <h4>B.Sc. Software Engineering und Informationssysteme</h4>
+                </div>
                 <p style="color: var(--primary-color); font-weight: bold;">Al-Baath University</p>
-                <p>2013 - 2018 | <span lang="en">Recognized for EU Blue Card</span><span lang="de">Anerkannt für Blaue
-                        Karte EU</span></p>
+                <div class="lang-en-content">
+                    <p>2013 - 2018 | Recognized for EU Blue Card</p>
+                </div>
+                <div class="lang-de-content">
+                    <p>Anerkannt für Blaue Karte EU</p>
+                </div>
+                <div class="lang-ar-content">
+                    <p>2013 - 2018 | تم الاعتراف بي للحصول على بطاقة الاتحاد الأوروبي الزرقاء</p>
+                </div>
             </div>
         </div>
     </section>
@@ -734,55 +407,7 @@
             <a href="https://github.com/ramialkhateeb" style="color: var(--primary-color); margin: 0 10px;">GitHub</a>
         </p>
     </footer>
-
-    <script>
-        // --- Dark Mode Logic ---
-        const themeBtn = document.getElementById('theme-toggle');
-        const themeIcon = themeBtn.querySelector('i');
-        const body = document.body;
-
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-
-        themeBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // --- Language Switch Logic ---
-        const langBtn = document.getElementById('lang-toggle');
-
-        // Check stored language
-        if (localStorage.getItem('lang') === 'de') {
-            body.classList.add('show-german');
-            langBtn.textContent = 'EN'; // Button shows option to switch TO
-        } else {
-            langBtn.textContent = 'DE';
-        }
-
-        langBtn.addEventListener('click', () => {
-            body.classList.toggle('show-german');
-
-            if (body.classList.contains('show-german')) {
-                langBtn.textContent = 'EN'; // If German is showing, button says EN
-                localStorage.setItem('lang', 'de');
-            } else {
-                langBtn.textContent = 'DE'; // If English is showing, button says DE
-                localStorage.setItem('lang', 'en');
-            }
-        });
-    </script>
+    <script src="/js/site.js"></script>
 </body>
 
 </html>

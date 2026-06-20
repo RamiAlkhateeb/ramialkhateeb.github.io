@@ -1,4 +1,0 @@
-/home/runner/work/Portfolio/Portfolio/admin/wwwroot/index.html
-/home/runner/work/Portfolio/Portfolio/admin/AdminApp.runtimeconfig.json
-/home/runner/work/Portfolio/Portfolio/admin/dotnet.js
-/home/runner/work/Portfolio/Portfolio/admin/web.config
