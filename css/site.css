@@ -103,31 +103,6 @@
     font-family: monospace;
 }
 
-/* --- 3-Way Visibility Control Architecture --- */
-/* --- Core 3-Way Scoped Visibility Matrix --- */
-.lang-en, .lang-de, .lang-ar,
-.lang-en-content, .lang-de-content, .lang-ar-content {
-    display: none !important;
-}
-
-/* Re-reveal conditionally based on body state flags */
-body.lang-en .lang-en, body.lang-en .lang-en-content { display: block !important; }
-body.lang-de .lang-de, body.lang-de .lang-de-content { display: block !important; }
-body.lang-ar .lang-ar, body.lang-ar .lang-ar-content { display: block !important; }
-
-/* Handle inline span text objects explicitly */
-span.lang-en, span.lang-de, span.lang-ar,
-span.lang-en-content, span.lang-de-content, span.lang-ar-content {
-    display: none !important;
-}
-body.lang-en span.lang-en, body.lang-en span.lang-en-content { display: inline !important; }
-body.lang-de span.lang-de, body.lang-de span.lang-de-content { display: inline !important; }
-body.lang-ar span.lang-ar, body.lang-ar span.lang-ar-content { display: inline !important; }
-
-/* Global Arabic text behavior alignment adjustments */
-body.lang-ar {
-    text-align: right !important;
-}
 /* --- Right-To-Left (RTL) Structural Overrides --- */
 body[dir="rtl"] {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fallback rendering clean for Arabic text shapes */
@@ -191,31 +166,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- Language Switching Logic --- */
-/* By default, hide German */
-[lang="de"] {
-    display: none !important;
-}
-
-/* If body has class 'show-german', hide English and show German */
-body.show-german [lang="en"] {
-    display: none !important;
-}
-
-body.show-german [lang="de"] {
-    display: inline-block !important;
-}
-
-/* Block elements need to remain block */
-body.show-german div[lang="de"],
-body.show-german p[lang="de"],
-body.show-german h1[lang="de"],
-body.show-german h2[lang="de"],
-body.show-german h3[lang="de"],
-body.show-german h4[lang="de"],
-body.show-german li[lang="de"] {
-    display: block !important;
-}
 
 /* --- Navigation --- */
 header {
@@ -683,4 +633,29 @@ body[dir="rtl"] .dropdown-menu button {
 body[dir="rtl"] .dropdown-menu::before {
     right: auto;
     left: 16px;
+}
+
+/* --- Unified 3-Way Language Visibility Rules --- */
+.lang-en-content, .lang-de-content, .lang-ar-content {
+    display: none !important;
+}
+
+/* Structural display block overrides */
+body.lang-en .lang-en, body.lang-en .lang-en-content { display: block !important; }
+body.lang-de .lang-de, body.lang-de .lang-de-content { display: block !important; }
+body.lang-ar .lang-ar, body.lang-ar .lang-ar-content { display: block !important; }
+
+/* Inline text overrides for span tags in menus */
+ span.lang-en-content,
+ span.lang-de-content,
+ span.lang-ar-content {
+    display: none !important;
+}
+body.lang-en span.lang-en, body.lang-en span.lang-en-content { display: inline !important; }
+body.lang-de span.lang-de, body.lang-de span.lang-de-content { display: inline !important; }
+body.lang-ar span.lang-ar, body.lang-ar span.lang-ar-content { display: inline !important; }
+
+/* Global Arabic Right-To-Left Alignment Modifier */
+body.lang-ar {
+    text-align: right !important;
 }

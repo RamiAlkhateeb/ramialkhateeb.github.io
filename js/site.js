@@ -1,7 +1,7 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeBtn?.querySelector('i');
+    const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
     const dropdownBtn = document.getElementById('lang-dropdown-btn');
     const dropdownMenu = document.getElementById('lang-dropdown-menu');
     const currentLangLabel = document.getElementById('current-lang-label');
@@ -11,44 +11,40 @@
 
     function updateThemeState(theme) {
         if (!body) return;
-
         if (theme === 'dark') {
             body.classList.add('dark-mode');
-            themeIcon?.classList.remove('fa-moon');
-            themeIcon?.classList.add('fa-sun');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
         } else {
             body.classList.remove('dark-mode');
-            themeIcon?.classList.remove('fa-sun');
-            themeIcon?.classList.add('fa-moon');
+            if (themeIcon) {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         }
     }
 
     function applyLanguage(lang) {
         if (!body || !lang || !langLabels[lang]) return;
-
         body.classList.remove('lang-en', 'lang-de', 'lang-ar', 'show-german');
         body.classList.add(`lang-${lang}`);
-
-        if (lang === 'ar') {
-            body.setAttribute('dir', 'rtl');
-        } else {
-            body.removeAttribute('dir');
-        }
-
-        if (currentLangLabel) {
-            currentLangLabel.textContent = langLabels[lang];
-        }
-
+        if (lang === 'ar') { body.setAttribute('dir', 'rtl'); } else { body.removeAttribute('dir'); }
+        if (currentLangLabel) { currentLangLabel.textContent = langLabels[lang]; }
         localStorage.setItem('lang', lang);
         currentLang = lang;
     }
 
+    // Run safe initializations
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark' || storedTheme === 'light') {
         updateThemeState(storedTheme);
     } else if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
         updateThemeState('dark');
     }
+
+    applyLanguage(currentLang);
 
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
@@ -58,27 +54,18 @@
         });
     }
 
-    applyLanguage(currentLang);
-
     if (dropdownBtn && dropdownMenu) {
         dropdownBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             dropdownMenu.classList.toggle('show');
         });
-
-        const buttons = dropdownMenu.querySelectorAll('button[data-lang]');
-        buttons.forEach(button => {
+        dropdownMenu.querySelectorAll('button[data-lang]').forEach(button => {
             button.addEventListener('click', () => {
                 const selectedLang = button.getAttribute('data-lang');
-                if (selectedLang) {
-                    applyLanguage(selectedLang);
-                }
+                if (selectedLang) { applyLanguage(selectedLang); }
                 dropdownMenu.classList.remove('show');
             });
         });
-
-        document.addEventListener('click', () => {
-            dropdownMenu.classList.remove('show');
-        });
+        document.addEventListener('click', () => dropdownMenu.classList.remove('show'));
     }
 });
