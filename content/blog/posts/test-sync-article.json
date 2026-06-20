@@ -1,5 +1,4 @@
-[
-  {
+{
     "Slug": "test-sync-article",
     "TitleEn": "High Performance Microservices",
     "TitleDe": "Hochleistungs-Mikrodienste",
@@ -8,6 +7,8 @@
     "SummaryDe": "Eine Untersuchung von Speicherallokationspipelines.",
     "SummaryAr": "استكشاف لمسارات تخصيص الذاكرة.",
     "Date": "2026-06-19",
-    "IsPublished": true
+    "IsPublished": true,
+    "BodyEn": "# Architectural Diagnostics\nOptimized compilation loops.",
+    "BodyDe": "# Architektur-Diagnose\nOptimierte Kompilierungsschleifen.",
+    "BodyAr": "# تشخيصات معمارية\nحلقات تجميع محسنة."
   }
-]

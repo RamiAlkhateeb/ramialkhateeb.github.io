@@ -1,14 +1,16 @@
 [
   {
-    "Slug": "dotnet-performance-guide",
-    "TitleEn": "High-Performance .NET Blueprint",
-    "TitleDe": "Hochleistungs-.NET-Blaupause",
-    "SummaryEn": "Master low-allocation code and advanced memory diagnostics.",
-    "SummaryDe": "Meistern Sie allocationsarmen Code und erweiterte Speicherdiagnose.",
+    "Slug": "dotnet-mastery",
+    "TitleEn": "Advanced .NET Architecture Guide",
+    "TitleDe": "Leitfaden für fortgeschrittene .NET-Architektur",
+    "TitleAr": "دليل هندسة .NET المتقدمة",
+    "SummaryEn": "Master low-allocation memory profiling paradigms.",
+    "SummaryDe": "Meistern Sie Paradigmen zur Speicherprofilierung mit geringer Allokation.",
+    "SummaryAr": "احترف نماذج تحليل الذاكرة منخفضة التخصيص.",
     "CoverImageUrl": "https://placehold.co/600x400/0056b3/white?text=.NET+Blueprint",
-    "BuyLink": "https://gumroad.com/l/your-mock-id",
-    "PriceLabel": "14.99€",
+    "BuyLink": "https://gumroad.com/l/mock-id",
+    "PriceLabel": "19.99€",
     "IsPublished": true,
-    "Date": "2026-06-18"
+    "Date": "2026-06-19"
   }
 ]
