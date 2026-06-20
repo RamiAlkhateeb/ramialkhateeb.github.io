@@ -9,22 +9,29 @@ using Portfolio.Compiler.Models;
 
 Console.WriteLine("🚀 Launching Static Site Compiler...");
 
-// 1. Resolve exact repository path properties by looking upwards for index.html
-var currentDir = new DirectoryInfo(AppContext.BaseDirectory);
-while (currentDir != null && !File.Exists(Path.Combine(currentDir.FullName, "index.html")))
+// 1. Resolve repository root from AppDomain base path and fallback explicitly
+var baseDir = AppDomain.CurrentDomain.BaseDirectory;
+string rootPath = Path.GetFullPath(baseDir);
+
+if (!File.Exists(Path.Combine(rootPath, "index.html")))
 {
-    currentDir = currentDir.Parent;
+    var candidateRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", ".."));
+    if (File.Exists(Path.Combine(candidateRoot, "index.html")))
+    {
+        rootPath = candidateRoot;
+    }
+    else
+    {
+        rootPath = Directory.GetCurrentDirectory();
+        if (!File.Exists(Path.Combine(rootPath, "index.html")))
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"⚠️ Warning: Could not locate index.html from AppDomain.BaseDirectory; falling back to current working directory: {rootPath}");
+            Console.ResetColor();
+        }
+    }
 }
 
-if (currentDir == null)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("❌ Critical Error: Could not resolve the repository root directory!");
-    Console.ResetColor();
-    return;
-}
-
-string rootPath = currentDir.FullName;
 string contentPath = Path.Combine(rootPath, "content");
 string templatesPath = Path.Combine(rootPath, "templates");
 string blogOutputDir = Path.Combine(rootPath, "blog");

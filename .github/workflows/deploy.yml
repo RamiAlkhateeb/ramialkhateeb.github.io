@@ -26,9 +26,15 @@ jobs:
       run: dotnet run --project SiteGenerator/SiteGenerator.csproj
       # This builds your physical blog.html, guides.html, and individual posts!
 
+    - name: Prepare deployment artifacts
+      run: |
+        mkdir -p gh-pages-out
+        cp index.html blog.html guides.html gh-pages-out/
+        cp -R css js blog gh-pages-out/
+
     - name: Deploy Compiled Layout Assets to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }} # Built-in token managed by GitHub automatically
-        publish_dir: ./                           # Serves your optimized static root directory files
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: gh-pages-out
         publish_branch: gh-pages                  # Branch that GitHub Pages points to
