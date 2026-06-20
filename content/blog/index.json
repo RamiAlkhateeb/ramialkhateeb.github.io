@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "Slug": "test-sync-article",
     "TitleEn": "High Performance Microservices",
     "TitleDe": "Hochleistungs-Mikrodienste",
@@ -8,6 +9,44 @@
     "SummaryDe": "Eine Untersuchung von Speicherallokationspipelines.",
     "SummaryAr": "استكشاف لمسارات تخصيص الذاكرة.",
     "Date": "2026-06-19",
+=======
+    "Slug": "asking-the-right-question-while-analyzing",
+    "TitleEn": "Asking the Right Question While Analyzing Data",
+    "TitleDe": "",
+    "TitleAr": "",
+    "SummaryEn": "A personal story from a data-driven car search",
+    "SummaryDe": "",
+    "SummaryAr": "",
+    "CoverImageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwyfHxjYXJ8ZW58MHx8fHwxNzUwNzU0MzY4fDA\u0026ixlib=rb-4.1.0\u0026q=80\u0026w=1080",
+    "SubstackUrl": "https://rami13kh.substack.com/p/asking-the-right-question-while-analyzing",
+    "Date": "2025-06-24T10:52:44.376+02:00",
+    "IsPublished": true
+  },
+  {
+    "Slug": "first-mock-post",
+    "TitleEn": "Optimizing .NET Applications",
+    "TitleDe": "Optimierung von .NET-Anwendungen",
+    "TitleAr": "",
+    "SummaryEn": "A look into memory allocations.",
+    "SummaryDe": "Ein Blick auf Speicherallokationen.",
+    "SummaryAr": "",
+    "CoverImageUrl": null,
+    "SubstackUrl": null,
+    "Date": "2026-06-18T00:00:00",
+    "IsPublished": true
+  },
+  {
+    "Slug": "advanced-async-await",
+    "TitleEn": "Test",
+    "TitleDe": "adsf ads fa",
+    "TitleAr": "",
+    "SummaryEn": "Testtttttttttttttttt",
+    "SummaryDe": "dsaf adf a",
+    "SummaryAr": "",
+    "CoverImageUrl": null,
+    "SubstackUrl": null,
+    "Date": "2026-06-19T14:09:23.549+02:00",
+>>>>>>> 192763b205f238d02ea620a2a3eb7ce663a36725
     "IsPublished": true
   }
 ]
