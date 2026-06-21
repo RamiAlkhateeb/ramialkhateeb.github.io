@@ -97,16 +97,28 @@ if (File.Exists(blogIndexFile))
                 <h3 class='project-title'>{entry.TitleEn}</h3>
                 <p class='project-desc'>{entry.SummaryEn}</p>
                 <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>Read Article <i class='fa-solid fa-arrow-right'></i></a>
+                <p style='margin-top:12px; font-size:0.85rem;'>
+                    Want to go deeper?
+                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>Browse the guides →</a>
+                </p>
             </div>
             <div class='lang-de-content'>
                 <h3 class='project-title'>{entry.TitleDe}</h3>
                 <p class='project-desc'>{entry.SummaryDe}</p>
                 <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>Artikel lesen <i class='fa-solid fa-arrow-right'></i></a>
+                <p style='margin-top:12px; font-size:0.85rem;'>
+                    Tiefer einsteigen?
+                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>Zu den Guides →</a>
+                </p>
             </div>
             <div class='lang-ar-content'>
                 <h3 class='project-title'>{entry.TitleAr}</h3>
                 <p class='project-desc'>{entry.SummaryAr}</p>
                 <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>اقرأ المقال <i class='fa-solid fa-arrow-left'></i></a>
+                <p style='margin-top:12px; font-size:0.85rem;'>
+                    هل تريد التعمق أكثر؟
+                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>← تصفح الأدلة</a>
+                </p>
             </div>
         </div>");
     }
