@@ -30,7 +30,7 @@ jobs:
       run: |
         set -e
         mkdir -p gh-pages-out
-        cp index.html blog.html guides.html gh-pages-out/
+        cp index.html blog.html guides.html about.html gh-pages-out/
         cp -R css js blog gh-pages-out/
         echo "✅ Artifacts staged successfully"
         ls gh-pages-out/

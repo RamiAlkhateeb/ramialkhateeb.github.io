@@ -61,66 +61,30 @@ if (File.Exists(blogIndexFile))
 
     foreach (var entry in blogList.Where(p => p.IsPublished).OrderByDescending(p => p.Date))
     {
-        string fullPostFile = Path.Combine(contentPath, "blog", "posts", $"{entry.Slug}.json");
-        if (!File.Exists(fullPostFile)) continue;
+        // ... (Keep the File read and markdown HTML conversion parts exactly the same) ...
 
-        string postJson = File.ReadAllText(fullPostFile);
-        var fullPost = JsonSerializer.Deserialize<BlogPost>(postJson, jsonOptions)!;
-
-        // Convert individual text languages from Markdown to structural HTML
-        string htmlEn = Markdown.ToHtml(fullPost.BodyEn, markdownPipeline);
-        string htmlDe = Markdown.ToHtml(fullPost.BodyDe, markdownPipeline);
-        string htmlAr = Markdown.ToHtml(fullPost.BodyAr, markdownPipeline);
-
-        // Inject page values into tokens
-        string singlePostHtml = singlePostTemplate
-            .Replace("{{HEADER}}", headerHtml)
-            .Replace("{{PostTitleEn}}", fullPost.TitleEn)
-            .Replace("{{PostTitleDe}}", fullPost.TitleDe)
-            .Replace("{{PostTitleAr}}", fullPost.TitleAr)
-            .Replace("{{PostSummaryEn}}", fullPost.SummaryEn)
-            .Replace("{{PostSummaryDe}}", fullPost.SummaryDe)
-            .Replace("{{PostSummaryAr}}", fullPost.SummaryAr)
-            .Replace("{{PostDate}}", fullPost.Date)
-            .Replace("{{PostBodyEn}}", htmlEn)
-            .Replace("{{PostBodyDe}}", htmlDe)
-            .Replace("{{PostBodyAr}}", htmlAr);
-
-        File.WriteAllText(Path.Combine(blogOutputDir, $"{entry.Slug}.html"), singlePostHtml);
-        Console.WriteLine($" -> Generated: /blog/{entry.Slug}.html");
-
-        // Append card snippet row to the master archive loop using visibility classes
+        // Replace your existing blogCardsBuilder.Append with this:
         blogCardsBuilder.Append($@"
-        <div class='timeline-item'>
-            <p class='timeline-date'><i class='fa-regular fa-calendar'></i> {entry.Date}</p>
-            <div class='lang-en-content'>
-                <h3 class='project-title'>{entry.TitleEn}</h3>
-                <p class='project-desc'>{entry.SummaryEn}</p>
-                <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>Read Article <i class='fa-solid fa-arrow-right'></i></a>
-                <p style='margin-top:12px; font-size:0.85rem;'>
-                    Want to go deeper?
-                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>Browse the guides →</a>
-                </p>
+        <a href='/blog/{entry.Slug}.html' class='saas-card blog-row'>
+            <div class='blog-row-content'>
+                <div class='lang-en-content'>
+                    <h3>{entry.TitleEn}</h3>
+                    <p>{entry.SummaryEn}</p>
+                </div>
+                <div class='lang-de-content'>
+                    <h3>{entry.TitleDe}</h3>
+                    <p>{entry.SummaryDe}</p>
+                </div>
+                <div class='lang-ar-content'>
+                    <h3>{entry.TitleAr}</h3>
+                    <p>{entry.SummaryAr}</p>
+                </div>
             </div>
-            <div class='lang-de-content'>
-                <h3 class='project-title'>{entry.TitleDe}</h3>
-                <p class='project-desc'>{entry.SummaryDe}</p>
-                <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>Artikel lesen <i class='fa-solid fa-arrow-right'></i></a>
-                <p style='margin-top:12px; font-size:0.85rem;'>
-                    Tiefer einsteigen?
-                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>Zu den Guides →</a>
-                </p>
+            <div style='text-align: right;'>
+                <div class='blog-row-date'>{entry.Date}</div>
+                <i class='fa-solid fa-arrow-right' style='color: var(--primary-color); margin-top: 8px;'></i>
             </div>
-            <div class='lang-ar-content'>
-                <h3 class='project-title'>{entry.TitleAr}</h3>
-                <p class='project-desc'>{entry.SummaryAr}</p>
-                <a href='/blog/{entry.Slug}.html' class='social-btn' style='margin-top:10px; display:inline-block;'>اقرأ المقال <i class='fa-solid fa-arrow-left'></i></a>
-                <p style='margin-top:12px; font-size:0.85rem;'>
-                    هل تريد التعمق أكثر؟
-                    <a href='/guides.html' style='color:var(--primary-color); font-weight:600;'>← تصفح الأدلة</a>
-                </p>
-            </div>
-        </div>");
+        </a>");
     }
 
     // Output main blog.html listing page
@@ -146,29 +110,32 @@ if (File.Exists(guidesFile))
 
     foreach (var guide in guidesList.Where(g => g.IsPublished).OrderByDescending(g => g.Date))
     {
+        // Replace your existing guidesCardsBuilder.Append with this:
         guidesCardsBuilder.Append($@"
-        <div class='project-card' style='display: flex; flex-direction: column; justify-content: space-between;'>
+        <div class='saas-card guide-card' style='display: flex; flex-direction: column; justify-content: space-between;'>
             <div>
-                <img src='{guide.CoverImageUrl}' alt='Cover' style='width:100%; border-radius:8px; margin-bottom:15px;'>
+                <div class='guide-image-wrapper'>
+                    <img src='{guide.CoverImageUrl}' alt='Cover'>
+                </div>
                 <div class='lang-en-content'>
-                    <h3 class='project-title'>{guide.TitleEn}</h3>
-                    <p class='project-desc'>{guide.SummaryEn}</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>{guide.TitleEn}</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>{guide.SummaryEn}</p>
                 </div>
                 <div class='lang-de-content'>
-                    <h3 class='project-title'>{guide.TitleDe}</h3>
-                    <p class='project-desc'>{guide.SummaryDe}</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>{guide.TitleDe}</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>{guide.SummaryDe}</p>
                 </div>
                 <div class='lang-ar-content'>
-                    <h3 class='project-title'>{guide.TitleAr}</h3>
-                    <p class='project-desc'>{guide.SummaryAr}</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>{guide.TitleAr}</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>{guide.SummaryAr}</p>
                 </div>
             </div>
-            <div style='margin-top: 20px; display: flex; justify-content: space-between; align-items: center;'>
-                <span class='timeline-date' style='font-weight: bold; font-size: 1.2rem;'>{guide.PriceLabel}</span>
-                <a href='{guide.BuyLink}' class='social-btn' data-gumroad-overlay-checkout='true'>
-                    <span class='lang-en-content'>Buy Guide <i class='fa-solid fa-cart-shopping'></i></span>
+            <div style='margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;'>
+                <span style='font-weight: 800; font-size: 1.4rem; color: var(--text-main);'>{guide.PriceLabel}</span>
+                <a href='{guide.BuyLink}' class='btn-primary' data-gumroad-overlay-checkout='true'>
+                    <span class='lang-en-content'>Buy <i class='fa-solid fa-cart-shopping'></i></span>
                     <span class='lang-de-content'>Kaufen <i class='fa-solid fa-cart-shopping'></i></span>
-                    <span class='lang-ar-content'>شراء الدليل <i class='fa-solid fa-cart-shopping'></i></span>
+                    <span class='lang-ar-content'>شراء <i class='fa-solid fa-cart-shopping'></i></span>
                 </a>
             </div>
         </div>");

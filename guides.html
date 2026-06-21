@@ -8,27 +8,28 @@
     <link rel="stylesheet" href="/css/site.css">
 </head>
 <body class="lang-en">
-    <header>
+    
+<header>
     <nav>
         <div class="logo">
-            <a href="./index.html" style="text-decoration:none; color:inherit;">Rami Alkhateeb</a>
+            <a href="/index.html" style="text-decoration:none; color:inherit;">Rami Alkhateeb</a>
         </div>
         <div class="nav-controls">
             <div class="nav-links">
-                <a href="./index.html#about">
-                    <span class="lang-en-content">About</span>
-                    <span class="lang-de-content">Über mich</span>
-                    <span class="lang-ar-content">عن</span>
-                </a>
-                <a href="./guides.html">
+                <a href="/guides.html">
                     <span class="lang-en-content">Guides</span>
                     <span class="lang-de-content">Anleitungen</span>
                     <span class="lang-ar-content">الأدلة</span>
                 </a>
-                <a href="./blog.html">
+                <a href="/blog.html">
                     <span class="lang-en-content">Blog</span>
                     <span class="lang-de-content">Blog</span>
                     <span class="lang-ar-content">المدونة</span>
+                </a>
+                <a href="/about.html">
+                    <span class="lang-en-content">About</span>
+                    <span class="lang-de-content">Über mich</span>
+                    <span class="lang-ar-content">عن</span>
                 </a>
             </div>
             <div class="lang-dropdown">
@@ -49,7 +50,6 @@
         </div>
     </nav>
 </header>
-
     <main style="max-width: 1000px; margin: 0 auto; padding: 40px 20px;">
         <h2 class="section-title">
             <span class="lang-en-content">Premium Guides & Resources</span>
@@ -58,28 +58,30 @@
         </h2>
         <div class="projects-grid">
             
-        <div class='project-card' style='display: flex; flex-direction: column; justify-content: space-between;'>
+        <div class='saas-card guide-card' style='display: flex; flex-direction: column; justify-content: space-between;'>
             <div>
-                <img src='https://placehold.co/600x400/0056b3/white?text=.NET+Blueprint' alt='Cover' style='width:100%; border-radius:8px; margin-bottom:15px;'>
+                <div class='guide-image-wrapper'>
+                    <img src='https://placehold.co/600x400/0056b3/white?text=.NET+Blueprint' alt='Cover'>
+                </div>
                 <div class='lang-en-content'>
-                    <h3 class='project-title'>Advanced .NET Architecture Guide</h3>
-                    <p class='project-desc'>Master low-allocation memory profiling paradigms.</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>Advanced .NET Architecture Guide</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>Master low-allocation memory profiling paradigms.</p>
                 </div>
                 <div class='lang-de-content'>
-                    <h3 class='project-title'>Leitfaden für fortgeschrittene .NET-Architektur</h3>
-                    <p class='project-desc'>Meistern Sie Paradigmen zur Speicherprofilierung mit geringer Allokation.</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>Leitfaden für fortgeschrittene .NET-Architektur</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>Meistern Sie Paradigmen zur Speicherprofilierung mit geringer Allokation.</p>
                 </div>
                 <div class='lang-ar-content'>
-                    <h3 class='project-title'>دليل هندسة .NET المتقدمة</h3>
-                    <p class='project-desc'>احترف نماذج تحليل الذاكرة منخفضة التخصيص.</p>
+                    <h3 style='margin: 0 0 10px 0; font-size: 1.3rem; color: var(--primary-color);'>دليل هندسة .NET المتقدمة</h3>
+                    <p style='color: var(--text-muted); font-size: 0.95rem;'>احترف نماذج تحليل الذاكرة منخفضة التخصيص.</p>
                 </div>
             </div>
-            <div style='margin-top: 20px; display: flex; justify-content: space-between; align-items: center;'>
-                <span class='timeline-date' style='font-weight: bold; font-size: 1.2rem;'>19.99€</span>
-                <a href='https://gumroad.com/l/mock-id' class='social-btn' data-gumroad-overlay-checkout='true'>
-                    <span class='lang-en-content'>Buy Guide <i class='fa-solid fa-cart-shopping'></i></span>
+            <div style='margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;'>
+                <span style='font-weight: 800; font-size: 1.4rem; color: var(--text-main);'>19.99€</span>
+                <a href='https://gumroad.com/l/mock-id' class='btn-primary' data-gumroad-overlay-checkout='true'>
+                    <span class='lang-en-content'>Buy <i class='fa-solid fa-cart-shopping'></i></span>
                     <span class='lang-de-content'>Kaufen <i class='fa-solid fa-cart-shopping'></i></span>
-                    <span class='lang-ar-content'>شراء الدليل <i class='fa-solid fa-cart-shopping'></i></span>
+                    <span class='lang-ar-content'>شراء <i class='fa-solid fa-cart-shopping'></i></span>
                 </a>
             </div>
         </div>
