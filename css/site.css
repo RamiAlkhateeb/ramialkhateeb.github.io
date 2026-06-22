@@ -2,8 +2,8 @@
 
 :root {
     /* Stripe/SaaS Vibe Variables */
-    --primary-color: #635bff;
-    --primary-hover: #4a44cc;
+    --primary-color: #E8820C;
+    --primary-hover: #C96D0A;
     --bg-color: #f7f9fc;
     --card-bg: #ffffff;
     --text-main: #1a1f36;
@@ -14,7 +14,7 @@
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.04);
     --shadow-hover: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
-    --gradient-primary: linear-gradient(135deg, #635bff 0%, #00d4ff 100%);
+    --gradient-primary: linear-gradient(135deg, #E8820C 0%, #F5B041 100%);
 }
 
 /* Dark Mode SaaS Overrides */
@@ -23,6 +23,7 @@ body.dark-mode {
     --card-bg: #1f2937;
     --text-main: #f3f4f6;
     --text-muted: #9ca3af;
+    --primary-color: #F59B2B;
     --border-color: #374151;
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.2);
     --shadow-hover: 0 15px 35px rgba(0,0,0,0.4);
@@ -97,12 +98,12 @@ nav {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(99, 91, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(232, 130, 12, 0.2);
 }
 .btn-primary:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(99, 91, 255, 0.3);
+    box-shadow: 0 6px 12px rgba(232, 130, 12, 0.3);
 }
 
 .btn-secondary {
@@ -141,9 +142,10 @@ nav {
 /* Guides Grid (Fixes the massive card bug) */
 .guides-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 360px));
     gap: 30px;
     margin-top: 30px;
+    justify-content: center;
 }
 .guide-image-wrapper img {
     width: 100%;
@@ -304,6 +306,32 @@ body[dir="rtl"] .blog-row:hover { transform: translateX(-4px); }
 .blog-row-summary { font-size: 0.9rem; color: var(--text-muted); }
 .blog-row-date { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
 
+.blog-row-thumb {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.blog-row-thumb-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #E8820C, #F5B041);
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.blog-row-body {
+    flex: 1;
+    min-width: 0;
+}
 /* --- About Strip --- */
 .about-strip {
     display: flex;
@@ -340,16 +368,16 @@ body[dir="rtl"] .blog-row:hover { transform: translateX(-4px); }
 
 /* --- Skill Tags --- */
 .skill-tag {
-    background: rgba(99, 91, 255, 0.08);
+    background: rgba(232, 130, 12, 0.08);
+    border: 1px solid rgba(232, 130, 12, 0.15);
     color: var(--primary-color);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid rgba(99, 91, 255, 0.15);
 }
 body.dark-mode .skill-tag {
-    background: rgba(99, 91, 255, 0.15);
+    background: rgba(232, 130, 12, 0.15);
 }
 
 /* --- Site Footer --- */
@@ -369,3 +397,73 @@ body.dark-mode .skill-tag {
 
 /* --- Fix: lang-dropdown not .dropdown --- */
 .lang-dropdown { position: relative; display: inline-block; }
+
+/* --- Warm Visual Enhancements --- */
+
+/* Hero warm glow */
+.hero-section {
+    background: radial-gradient(ellipse at 50% 0%, rgba(232, 130, 12, 0.07) 0%, transparent 70%);
+}
+
+/* Orange logo */
+.logo a {
+    color: var(--primary-color) !important;
+}
+
+/* Section heading left accent */
+.section-heading {
+    padding-left: 14px;
+    border-left: 3px solid var(--primary-color);
+}
+body[dir="rtl"] .section-heading {
+    padding-left: 0;
+    padding-right: 14px;
+    border-left: none;
+    border-right: 3px solid var(--primary-color);
+}
+
+/* Card top accent on hover */
+.saas-card {
+    border-top: 3px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+}
+.saas-card:hover {
+    border-top-color: var(--primary-color);
+}
+
+/* Blog row left accent on hover */
+.blog-row {
+    border-left: 3px solid transparent;
+    transition: background 0.2s, transform 0.2s, border-left-color 0.2s;
+}
+.blog-row:hover {
+    border-left-color: var(--primary-color);
+    transform: translateX(3px);
+}
+body[dir="rtl"] .blog-row {
+    border-left: none;
+    border-right: 3px solid transparent;
+}
+body[dir="rtl"] .blog-row:hover {
+    border-right-color: var(--primary-color);
+    transform: translateX(-3px);
+}
+
+/* About strip left accent */
+.about-strip {
+    border-left: 4px solid var(--primary-color);
+}
+body[dir="rtl"] .about-strip {
+    border-left: none;
+    border-right: 4px solid var(--primary-color);
+}
+
+/* Footer warm tint */
+.site-footer {
+    background: rgba(232, 130, 12, 0.03);
+}
+
+/* Credibility strip number warm color */
+.cred-number {
+    color: var(--primary-color);
+}

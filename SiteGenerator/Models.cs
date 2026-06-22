@@ -11,6 +11,7 @@ public class BlogIndexEntry
     public string SummaryAr { get; set; } = string.Empty;
     public string Date { get; set; } = string.Empty;
     public bool IsPublished { get; set; }
+    public string SubstackUrl { get; set; } = string.Empty;
 }
 
 public class BlogPost : BlogIndexEntry

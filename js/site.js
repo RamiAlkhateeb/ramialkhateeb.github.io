@@ -128,15 +128,21 @@ async function fetchPreview(jsonPath, containerId, type, limit) {
                 const title = lang === 'de' ? (p.titleDe || p.TitleDe) : lang === 'ar' ? (p.titleAr || p.TitleAr) : (p.titleEn || p.TitleEn);
                 const summary = lang === 'de' ? (p.summaryDe || p.SummaryDe) : lang === 'ar' ? (p.summaryAr || p.SummaryAr) : (p.summaryEn || p.SummaryEn);
                 const slug = p.slug || p.Slug;
-                const date = p.date || p.Date || '';
+                const date = (p.date || p.Date || '').slice(0, 10);
+                const img = p.CoverImageUrl || p.coverImageUrl;
+                const firstLetter = (title || '?')[0].toUpperCase();
+                const thumb = img
+                    ? `<img src="${img}" alt="" class="blog-row-thumb">`
+                    : `<div class="blog-row-thumb-placeholder">${firstLetter}</div>`;
                 return `
-                <a href="blog/${slug}.html" class="blog-row">
-                    <div>
-                        <div class="blog-row-title">${title}</div>
-                        <div class="blog-row-summary">${summary}</div>
-                    </div>
-                    <div class="blog-row-date">${date}</div>
-                </a>`;
+        <a href="blog/${slug}.html" class="blog-row">
+            ${thumb}
+            <div class="blog-row-body">
+                <div class="blog-row-title">${title}</div>
+                <div class="blog-row-summary">${summary}</div>
+            </div>
+            <div class="blog-row-date">${date}</div>
+        </a>`;
             }).join('');
         }
 
