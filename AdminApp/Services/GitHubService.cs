@@ -1,5 +1,4 @@
 using Octokit;
-using System.Text;
 
 namespace AdminApp.Services;
 
@@ -25,29 +24,28 @@ public class GitHubService
     {
         if (!IsConfigured) throw new Exception("GitHub client not initialized.");
         var contents = await _client!.Repository.Content.GetAllContents(_owner, _repo, path);
-        var raw = contents.First().Content;
-        // Octokit returns base64 for binary but text for small files; handle both
-        try { return Encoding.UTF8.GetString(Convert.FromBase64String(raw)); }
-        catch { return raw; }
+        // RepositoryContent.Content is already decoded UTF-8 text in Octokit 14.x
+        return contents.First().Content ?? string.Empty;
     }
 
     public async Task SaveFileContentAsync(string path, string content, string commitMessage)
     {
         if (!IsConfigured) throw new Exception("GitHub client not initialized.");
-        var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(content));
+        // Pass plain text — Octokit 14.x automatically base64-encodes before sending to GitHub API.
+        // Pre-encoding here would cause double-encoding: GitHub stores base64 text instead of HTML.
         try
         {
             var existing = await _client!.Repository.Content.GetAllContents(_owner, _repo, path);
             var sha = existing.First().Sha;
             await _client.Repository.Content.UpdateFile(
                 _owner, _repo, path,
-                new UpdateFileRequest(commitMessage, encoded, sha));
+                new UpdateFileRequest(commitMessage, content, sha));
         }
         catch (NotFoundException)
         {
             await _client!.Repository.Content.CreateFile(
                 _owner, _repo, path,
-                new CreateFileRequest(commitMessage, encoded));
+                new CreateFileRequest(commitMessage, content));
         }
     }
 
