@@ -1,52 +1,32 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rami Alkhateeb | Engineering Guides</title>
+    <title>رامي الخطيب | أدلة وموارد للمطورين</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/site.css">
 </head>
-<body class="lang-en" dir="ltr">
+<body>
 
-    <!-- NAV -->
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html" style="text-decoration:none; color:inherit;">Rami Alkhateeb</a>
+                <a href="index.html">رامي الخطيب</a>
             </div>
             <div class="nav-controls">
                 <div class="nav-links">
-                    <a href="guides.html">
-                        <span class="lang-en-content">Guides</span>
-                        <span class="lang-de-content">Anleitungen</span>
-                        <span class="lang-ar-content">الأدلة</span>
-                    </a>
-                    <a href="blog.html">
-                        <span class="lang-en-content">Blog</span>
-                        <span class="lang-de-content">Blog</span>
-                        <span class="lang-ar-content">المدونة</span>
-                    </a>
-                    <a href="about.html">
-                        <span class="lang-en-content">About</span>
-                        <span class="lang-de-content">Über mich</span>
-                        <span class="lang-ar-content">عن</span>
-                    </a>
+                    <a href="#guides">الأدلة</a>
+                    <a href="#posts">المقالات</a>
+                    <a href="#about">عن</a>
                 </div>
-                <div class="lang-dropdown">
-                    <button class="icon-btn" id="lang-dropdown-btn">
-                        <i class="fa-solid fa-globe"></i>
-                        <span id="current-lang-label">EN</span>
-                        <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
-                    </button>
-                    <div class="dropdown-menu" id="lang-dropdown-menu">
-                        <button type="button" data-lang="en">🇺🇸 English (EN)</button>
-                        <button type="button" data-lang="de">🇩🇪 Deutsch (DE)</button>
-                        <button type="button" data-lang="ar">🇸🇦 العربية (AR)</button>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                <a href="https://rami13kh.substack.com/" target="_blank" class="btn-substack">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z"/>
+                    </svg>
+                    Substack
+                </a>
+                <button id="theme-toggle" class="icon-btn" aria-label="تبديل الوضع الليلي">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
@@ -57,127 +37,120 @@
 
         <!-- HERO -->
         <section class="hero-section fade-up">
-            <div class="lang-en-content">
-                <h1>Helping developers <span class="text-gradient">ace interviews</span> & build with AI.</h1>
-                <p class="hero-sub">Practical guides and articles for engineers targeting the European tech market. Written by someone who made the journey.</p>
-                <div class="hero-ctas">
-                    <a href="guides.html" class="btn-primary">Browse Guides <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="blog.html" class="btn-secondary">Read the Blog</a>
-                </div>
-            </div>
-            <div class="lang-de-content">
-                <h1>Praxiswissen für Entwickler: <span class="text-gradient">Interviews meistern</span> & mit KI bauen.</h1>
-                <p class="hero-sub">Praktische Guides und Artikel für Entwickler, die den europäischen Tech-Markt anvisieren. Geschrieben von jemandem, der diesen Weg gegangen ist.</p>
-                <div class="hero-ctas">
-                    <a href="guides.html" class="btn-primary">Guides ansehen <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="blog.html" class="btn-secondary">Zum Blog</a>
-                </div>
-            </div>
-            <div class="lang-ar-content">
-                <h1>محتوى عملي للمطورين: <span class="text-gradient">اجتز المقابلات</span> وابنِ بالذكاء الاصطناعي.</h1>
-                <p class="hero-sub">أدلة ومقالات عملية للمطورين الراغبين في دخول سوق التقنية الأوروبي. كتبها شخص عاش هذه التجربة بنفسه.</p>
-                <div class="hero-ctas" style="flex-direction:row-reverse;">
-                    <a href="guides.html" class="btn-primary"><i class="fa-solid fa-arrow-left"></i> تصفح الأدلة</a>
-                    <a href="blog.html" class="btn-secondary">اقرأ المدونة</a>
-                </div>
+            <h1>محتوى عملي للمطورين: <em>اجتز المقابلات</em> وابنِ بالذكاء الاصطناعي.</h1>
+            <p class="hero-sub">أدلة ومقالات للمطورين الراغبين في دخول سوق التقنية الأوروبي — كتبها شخص عاش هذه التجربة بنفسه.</p>
+            <div class="hero-ctas">
+                <a href="#guides" class="btn-primary">تصفح الأدلة</a>
+                <a href="#posts" class="btn-secondary">اقرأ المقالات</a>
             </div>
         </section>
 
-        <!-- GUIDES PREVIEW -->
-        <section class="preview-section">
+        <!-- GUIDES_START -->
+        <section class="preview-section" id="guides">
             <div class="preview-header">
-                <h2 class="section-heading">
-                    <span class="lang-en-content">Featured Guides</span>
-                    <span class="lang-de-content">Meine Guides</span>
-                    <span class="lang-ar-content">الأدلة المميزة</span>
-                </h2>
-                <a href="guides.html" class="preview-see-all">
-                    <span class="lang-en-content">View all →</span>
-                    <span class="lang-de-content">Alle ansehen →</span>
-                    <span class="lang-ar-content">← عرض الكل</span>
+                <h2 class="section-heading">الأدلة</h2>
+            </div>
+            <div class="guides-grid">
+
+                <div class="guide-card">
+                    <div class="guide-card-pattern">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="guide-card-body">
+                        <div class="guide-card-title">دليل هندسة .NET المتقدمة</div>
+                        <div class="guide-card-summary">احترف نماذج تحليل الذاكرة منخفضة التخصيص وبناء تطبيقات عالية الأداء.</div>
+                        <div class="guide-card-footer">
+                            <span class="guide-price">19.99€</span>
+                            <a href="#" class="btn-primary" style="font-size:0.82rem; padding:7px 14px;" target="_blank">
+                                شراء <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- GUIDES_END -->
+
+        <hr class="section-divider">
+
+        <!-- POSTS_START -->
+        <section class="preview-section" id="posts">
+            <div class="preview-header">
+                <h2 class="section-heading">المقالات</h2>
+                <a href="https://rami13kh.substack.com/" target="_blank" class="preview-see-all">
+                    Substack ←
                 </a>
             </div>
-            <div class="guides-grid" id="guides-preview-container">
-                <div class="preview-loading">
-                    <span class="lang-en-content">Loading guides...</span>
-                    <span class="lang-de-content">Guides werden geladen...</span>
-                    <span class="lang-ar-content">جارٍ تحميل الأدلة...</span>
-                </div>
-            </div>
-        </section>
+            <div class="posts-grid">
 
-        <!-- BLOG PREVIEW -->
-        <section class="preview-section">
-            <div class="preview-header">
-                <h2 class="section-heading">
-                    <span class="lang-en-content">Latest Articles</span>
-                    <span class="lang-de-content">Neueste Artikel</span>
-                    <span class="lang-ar-content">أحدث المقالات</span>
-                </h2>
-                <a href="blog.html" class="preview-see-all">
-                    <span class="lang-en-content">All articles →</span>
-                    <span class="lang-de-content">Alle Artikel →</span>
-                    <span class="lang-ar-content">← جميع المقالات</span>
+                <a href="https://www.linkedin.com/posts/" target="_blank" class="post-card">
+                    <div class="post-card-pattern">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-card-title">كيف تكسب 10 سنوات من الخبرة في مجال خارج مسارك المهني</div>
+                        <div class="post-card-summary">خطوات عملية لإتقان مجال لا يندرج ضمن مسيرتك المهنية الحالية.</div>
+                    </div>
+                    <div class="post-card-meta">
+                        <span class="post-card-date">2025-09-24</span>
+                        <span class="post-card-arrow">LinkedIn ←</span>
+                    </div>
                 </a>
-            </div>
-            <div class="blog-list" id="blog-preview-container">
-                <div class="preview-loading">
-                    <span class="lang-en-content">Loading articles...</span>
-                    <span class="lang-de-content">Artikel werden geladen...</span>
-                    <span class="lang-ar-content">جارٍ تحميل المقالات...</span>
-                </div>
+
+                <a href="https://www.linkedin.com/posts/" target="_blank" class="post-card">
+                    <div class="post-card-pattern">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-card-title">الخدمات المصغرة عالية الأداء</div>
+                        <div class="post-card-summary">استكشاف لمسارات الذاكرة وأنماط التحسين في بيئات .NET.</div>
+                    </div>
+                    <div class="post-card-meta">
+                        <span class="post-card-date">2026-06-20</span>
+                        <span class="post-card-arrow">LinkedIn ←</span>
+                    </div>
+                </a>
+
             </div>
         </section>
+        <!-- POSTS_END -->
 
-        <!-- ABOUT STRIP -->
-        <section class="about-strip">
+        <!-- ABOUT -->
+        <section class="about-strip" id="about">
             <img
                 src="https://profile-images.xing.com/images/ef1ab292604cf041a50f4bff0e5ed3ed-2/rami-alkhateeb.256x256.jpg"
-                alt="Rami Alkhateeb"
+                alt="رامي الخطيب"
                 class="about-strip-photo">
             <div class="about-strip-text">
-                <div class="lang-en-content">
-                    <strong>Rami Alkhateeb</strong> — .NET engineer who has worked across Syria, UAE, and Germany.
-                    I write practical guides for developers navigating the European job market.
-                </div>
-                <div class="lang-de-content">
-                    <strong>Rami Alkhateeb</strong> — .NET-Entwickler mit Erfahrung in Syrien, den VAE und Deutschland.
-                    Ich schreibe praxisnahe Guides für Entwickler auf dem europäischen Arbeitsmarkt.
-                </div>
-                <div class="lang-ar-content">
-                    <strong>رامي الخطيب</strong> — مطور .NET عمل في سوريا والإمارات وألمانيا.
-                    أكتب أدلة عملية للمطورين الراغبين في الانتقال إلى سوق العمل الأوروبي.
-                </div>
+                <strong>رامي الخطيب</strong> — مطور .NET عمل في سوريا والإمارات وألمانيا.
+                أكتب أدلة عملية للمطورين الراغبين في الانتقال إلى سوق العمل الأوروبي.
                 <div class="about-strip-links">
-                    <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/ramialkhateeb" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ramialkhateeb" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
                     <a href="https://rami13kh.substack.com/" target="_blank" aria-label="Substack">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z"/>
+                        </svg>
                     </a>
-                    <a href="about.html" class="about-strip-more">
-                        <span class="lang-en-content">Full bio →</span>
-                        <span class="lang-de-content">Vollständig →</span>
-                        <span class="lang-ar-content">← السيرة الكاملة</span>
-                    </a>
+                    <a href="about.html" class="about-strip-more">السيرة الكاملة ←</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
-        <p>
-            <span class="lang-en-content">English content on</span>
-            <span class="lang-de-content">Englische Inhalte auf</span>
-            <span class="lang-ar-content">المحتوى الإنجليزي على</span>
-            <a href="https://rami13kh.substack.com/" target="_blank">Substack ↗</a>
-        </p>
+        <p>المحتوى الإنجليزي على <a href="https://rami13kh.substack.com/" target="_blank">Substack ↗</a></p>
         <p class="footer-links">
             <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank">LinkedIn</a>
             <a href="https://github.com/ramialkhateeb" target="_blank">GitHub</a>
         </p>
-        <p class="footer-copy">&copy; 2026 Rami Alkhateeb</p>
+        <p class="footer-copy">&copy; 2026 رامي الخطيب</p>
     </footer>
 
     <script src="js/site.js"></script>
