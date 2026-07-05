@@ -1,139 +1,113 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عن رامي الخطيب | رامي الخطيب</title>
+    <title>عن رامي الخطيب</title>
     <meta name="description" content="نبذة عن رامي الخطيب مهندس برمجيات .NET بخبرة في سوريا والإمارات وألمانيا.">
-    <meta property="og:title" content="عن رامي الخطيب">
-    <meta property="og:description" content="مهندس برمجيات .NET بخبرة في سوريا والإمارات وألمانيا يشارك خبرته في الذكاء الاصطناعي وتطوير البرمجيات.">
-    <meta property="og:type" content="profile">
-    <meta property="og:locale" content="ar_AR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/site.css">
 </head>
+
 <body>
 
-    <header>
+    <header class="container">
         <nav>
             <div class="logo">
                 <a href="index.html">رامي الخطيب</a>
             </div>
-            <div class="nav-controls">
-                <div class="nav-links">
-                    <a href="index.html#guides">الأدلة</a>
-                    <a href="index.html#posts">المقالات</a>
-                    <a href="about.html">عن</a>
-                </div>
-                <a href="https://rami13kh.substack.com/" target="_blank" class="btn-substack">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z"/>
-                    </svg>
-                    Substack
-                </a>
-                <button id="theme-toggle" class="icon-btn" aria-label="تبديل الوضع الليلي">
-                    <i class="fas fa-moon"></i>
-                </button>
+            <div class="nav-links">
+                <a href="index.html#guides">الأدلة</a>
+                <a href="index.html#posts">المقالات</a>
+                <a href="about.html" style="color: var(--accent);">عني</a>
             </div>
         </nav>
     </header>
 
-    <main class="container" style="padding: 60px 20px;">
+    <main class="container" style="max-width: 800px;">
 
-        <div style="display:flex; align-items:center; gap:30px; margin-bottom:50px; flex-wrap:wrap;">
-            <img src="https://profile-images.xing.com/images/ef1ab292604cf041a50f4bff0e5ed3ed-2/rami-alkhateeb.256x256.jpg"
-                 alt="رامي الخطيب"
-                 style="width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid var(--accent); flex-shrink:0;">
-            <div>
-                <h1 style="margin:0 0 8px; font-size:2rem; font-weight:800;">رامي الخطيب</h1>
-                <div style="color:var(--text-muted); font-size:1.05rem;">
-                    مطور .NET · سوريا ← الإمارات ← ألمانيا · أبني دخلاً ثانياً من خلال تعليم المطورين
+        <section style="text-align: center; margin-bottom: 50px;">
+            <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">من أنا؟</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                أنا مهندس برمجيات متخصص في بيئات (.NET). بدأت رحلتي من سوريا، ثم انتقلت للعمل في البيئة السريعة
+                للشركات التقنية في الإمارات، وأعمل حالياً في ألمانيا حيث التركيز الأكبر على هندسة النظم المعمارية القوية
+                والمستقرة.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 50px;">
+            <h2 class="section-heading"><span class="chapter-label">السيرة المهنية</span>الخبرات السابقة</h2>
+
+            <div class="saas-card timeline">
+                <div class="job-item">
+                    <div class="job-header">
+                        <div class="job-title">Software Engineer <span class="job-location">@ Germany</span></div>
+                    </div>
+                    <span class="job-date">الآن</span>
+                    <div class="job-description">
+                        أعمل على بناء وتطوير أنظمة متقدمة باستخدام تقنيات .NET، مع التركيز على دمج حلول الذكاء
+                        الاصطناعي
+                        لتحسين إنتاجية فريق التطوير وتقليل استهلاك الموارد.
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- BIO -->
-        <section style="margin-bottom:50px;">
-            <h2 class="section-heading"><span>الخلفية</span></h2>
-            <div class="saas-card" style="margin-top:20px;">
-                <div style="color:var(--text-muted); line-height:1.8;">
-                    <p>مهندس برمجيات بخبرة تزيد عن 6 سنوات في ثلاثة أسواق تقنية مختلفة. تخرجت عام 2019، وعملت في سوريا حتى 2022، ثم انتقلت إلى الإمارات، ومنها إلى ألمانيا عام 2025.</p>
-                    <p>إلى جانب مسيرتي الهندسية، أتممت برنامجاً في نظم دعم القرار يشمل الاقتصاد والمحاسبة وإدارة سلاسل التوريد وتحليل البيانات — مما يمنحني مزيجاً فريداً من التفكير التقني والتجاري.</p>
-                    <p>أكتب لمطورين يشاركونني نفس التجربة: أكفياء وطموحون، ويسعون للنجاح في سوق عمل لم يُبنَ لهم.</p>
+                <div class="job-item">
+                    <div class="job-header">
+                        <div class="job-title">Software Developer <span class="job-location">@ UAE</span></div>
+                    </div>
+                    <span class="job-date">سابقاً</span>
+                    <div class="job-description">
+                        تطوير منصات برمجية سريعة النمو وتلبية متطلبات السوق الإماراتي عالي التنافسية، مع التركيز على
+                        الأداء السريع
+                        وقواعد البيانات الموزعة.
+                    </div>
+                </div>
+
+                <div class="job-item" style="border-color: transparent;">
+                    <div class="job-header">
+                        <div class="job-title">Backend Developer <span class="job-location">@ Syria</span></div>
+                    </div>
+                    <span class="job-date">البدايات</span>
+                    <div class="job-description">
+                        نقطة الانطلاق في مسيرتي المهنية، حيث بنيت الأساس الصلب في البرمجة كائنية التوجه (OOP) وتصميم
+                        قواعد البيانات.
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section style="margin-bottom:50px;">
-            <h2 class="section-heading"><span>الخبرة</span></h2>
-            <div style="margin-top:20px; display:flex; flex-direction:column; gap:16px;">
-
-                <div class="saas-card">
-                    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-                        <div>
-                            <span style="font-weight:700; font-size:1rem;">Software Engineer</span>
-                            <span style="color:var(--accent); font-weight:600; margin-left:10px;">· Germany</span>
-                        </div>
-                        <span style="color:var(--text-muted); font-size:0.88rem;">2025 – Present</span>
-                    </div>
-                    <div style="color:var(--text-muted); font-size:0.95rem;">العمل في سوق التقنية الألماني وبناء خبرة في بيئات البرمجيات المؤسسية الأوروبية.</div>
-                </div>
-
-                <div class="saas-card">
-                    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-                        <div>
-                            <span style="font-weight:700; font-size:1rem;">Software Engineer</span>
-                            <span style="color:var(--accent); font-weight:600; margin-left:10px;">· UAE</span>
-                        </div>
-                        <span style="color:var(--text-muted); font-size:0.88rem;">2022 – 2025</span>
-                    </div>
-                    <div style="color:var(--text-muted); font-size:0.95rem;">تطوير .NET في سوق الخليج التقني مع إدارة إجراءات التأشيرة والفرق متعددة الجنسيات والأنظمة المؤسسية.</div>
-                </div>
-
-                <div class="saas-card">
-                    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-                        <div>
-                            <span style="font-weight:700; font-size:1rem;">Software Engineer</span>
-                            <span style="color:var(--accent); font-weight:600; margin-left:10px;">· Syria</span>
-                        </div>
-                        <span style="color:var(--text-muted); font-size:0.88rem;">2019 – 2022</span>
-                    </div>
-                    <div style="color:var(--text-muted); font-size:0.95rem;">بداية المسيرة المهنية بعد التخرج وبناء المهارات الأساسية في .NET وقواعد البيانات وهندسة البرمجيات.</div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section style="margin-bottom:50px;">
-            <h2 class="section-heading"><span>المهارات والأدوات</span></h2>
-            <div class="saas-card" style="margin-top:20px; display:flex; flex-wrap:wrap; gap:10px;">
+        <section style="margin-bottom: 60px;">
+            <h2 class="section-heading"><span class="chapter-label">الأدوات والتقنيات</span>المهارات الأساسية</h2>
+            <div class="saas-card skills-card" style="justify-content: center; padding: 40px;">
                 <span class="skill-tag">.NET / C#</span>
                 <span class="skill-tag">ASP.NET Core</span>
                 <span class="skill-tag">SQL Server</span>
                 <span class="skill-tag">Azure</span>
-                <span class="skill-tag">Blazor WASM</span>
-                <span class="skill-tag">GitHub Actions</span>
-                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">Blazor</span>
                 <span class="skill-tag">Microservices</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">Business Processes</span>
-                <span class="skill-tag">Claude / AI Tools</span>
+                <span class="skill-tag">AI Prompting</span>
+                <span class="skill-tag">System Architecture</span>
             </div>
         </section>
 
     </main>
 
     <footer class="site-footer">
-        <p>المحتوى الإنجليزي على <a href="https://rami13kh.substack.com/" target="_blank">Substack ↗</a></p>
-        <p class="footer-links">
-            <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank">LinkedIn</a>
-            <a href="https://github.com/ramialkhateeb" target="_blank">GitHub</a>
-        </p>
-        <p class="footer-copy">&copy; 2026 رامي الخطيب</p>
+        <div style="margin-bottom: 15px;">
+            <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank"><i class="fab fa-linkedin"
+                    style="font-size: 1.5rem;"></i></a>
+            <a href="https://github.com/ramialkhateeb" target="_blank"><i class="fab fa-github"
+                    style="font-size: 1.5rem;"></i></a>
+            <a href="https://rami13kh.substack.com/" target="_blank"><i class="fas fa-envelope-open-text"
+                    style="font-size: 1.5rem;"></i></a>
+        </div>
+        <p>&copy; 2026 رامي الخطيب</p>
     </footer>
 
-    <script src="js/site.js"></script>
 </body>
+
 </html>

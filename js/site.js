@@ -1,4 +1,4 @@
-const PLACEHOLDER_CSV_URL = "PLACEHOLDER_CSV_URL";
+const PLACEHOLDER_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR-Se828e4Nf6VL9V_9EmCC__RFJN_yZVoEQlr5ZwtFt9AIFNtWgY3qY1bDasnj6IUt5Laaymyh3qsL/pub?output=csv";
 
 // Simple state machine CSV parser
 function parseCSV(text) {
@@ -7,7 +7,7 @@ function parseCSV(text) {
     let inQuotes = false;
     for (let i = 0; i < text.length; i++) {
         const c = text[i];
-        const next = text[i+1];
+        const next = text[i + 1];
         if (c === '"') {
             if (inQuotes && next === '"') {
                 row[row.length - 1] += '"';
@@ -35,154 +35,73 @@ function parseCSV(text) {
 
 function escapeHTML(str) {
     if (!str) return '';
-    return str.replace(/[&<>'"]/g, 
-        tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag)
-    );
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeBtn ? themeBtn.querySelector('i') : null;
-
-    function updateThemeState(theme) {
-        if (!body) return;
-        if (theme === 'dark') {
-            body.classList.add('dark-mode');
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        } else {
-            body.classList.remove('dark-mode');
-            if (themeIcon) {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        }
-    }
-
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark' || storedTheme === 'light') {
-        updateThemeState(storedTheme);
-    } else if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) {
-        updateThemeState('dark');
-    }
-
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const isDark = body.classList.toggle('dark-mode');
-            updateThemeState(isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    }
-
-    // Dynamic LinkedIn posts fetching from Google Sheet CSV
+document.addEventListener("DOMContentLoaded", () => {
     async function loadPosts() {
-        if (!PLACEHOLDER_CSV_URL || PLACEHOLDER_CSV_URL === 'PLACEHOLDER_CSV_URL') {
-            console.log('PLACEHOLDER_CSV_URL is placeholder or empty. Static fallback left in place.');
-            return;
-        }
+        const loader = document.getElementById('posts-loader'); // الإمساك بعنصر التحميل
 
         try {
             const response = await fetch(PLACEHOLDER_CSV_URL);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const csvText = await response.text();
-            const rows = parseCSV(csvText);
-
-            if (rows.length < 2) {
-                throw new Error('CSV is empty or invalid');
-            }
-
-            const headers = rows[0].map(h => h.trim().toLowerCase());
-            const titleIdx = headers.indexOf('title_ar');
-            const summaryIdx = headers.indexOf('summary_ar');
-            const linkedinIdx = headers.indexOf('linkedin_url');
-            const dateIdx = headers.indexOf('date');
-
-            if (titleIdx === -1 || summaryIdx === -1 || linkedinIdx === -1 || dateIdx === -1) {
-                throw new Error('CSV headers do not match expected: title_ar, summary_ar, linkedin_url, date');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
+            const text = await response.text();
+            const lines = parseCSV(text);
 
             const posts = [];
-            for (let i = 1; i < rows.length; i++) {
-                const row = rows[i];
-                if (row.length <= Math.max(titleIdx, summaryIdx, linkedinIdx, dateIdx)) {
-                    continue; // Skip malformed or empty rows
-                }
-
-                const titleAr = row[titleIdx].trim();
-                const summaryAr = row[summaryIdx].trim();
-                const linkedinUrl = row[linkedinIdx].trim();
-                const date = row[dateIdx].trim();
-
-                if (titleAr || summaryAr) {
-                    posts.push({ titleAr, summaryAr, linkedinUrl, date });
+            for (let i = 1; i < lines.length; i++) {
+                const row = lines[i];
+                if (row.length >= 4 && row[0].trim() !== '') {
+                    posts.push({
+                        titleAr: row[0].trim(),
+                        summaryAr: row[1].trim(),
+                        linkedinUrl: row[2].trim(),
+                        date: row[3].trim()
+                    });
                 }
             }
 
-            if (posts.length === 0) {
-                throw new Error('No valid post entries found in CSV');
-            }
+            if (posts.length > 0) {
+                const postsGrid = document.querySelector('.posts-grid');
 
-            const main = document.querySelector('main.container');
-            if (!main) return;
+                if (postsGrid) {
+                    // إزالة تأثير التحميل عند نجاح جلب البيانات
+                    if (loader) loader.remove();
 
-            // Find all comment nodes in main to locate POSTS_START and POSTS_END
-            const comments = [];
-            const iterator = document.createNodeIterator(main, NodeFilter.SHOW_COMMENT);
-            let node;
-            while (node = iterator.nextNode()) {
-                comments.push(node);
-            }
+                    posts.forEach((post, index) => {
+                        // إضافة كلاس fade-in وتأخير زمني متتابع (0.1s, 0.2s, ...)
+                        const delay = index * 0.15;
 
-            const startComment = comments.find(c => c.nodeValue.trim() === 'POSTS_START');
-            const endComment = comments.find(c => c.nodeValue.trim() === 'POSTS_END');
+                        const cardHTML = `
+                            <a href="${escapeHTML(post.linkedinUrl)}" target="_blank" class="post-card fade-in" style="animation-delay: ${delay}s">
+                                <div class="post-card-pattern">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="post-card-body">
+                                    <div class="post-card-title">${escapeHTML(post.titleAr)}</div>
+                                    <div class="post-card-summary">${escapeHTML(post.summaryAr).replace(/\n/g, '<br>')}</div>
+                                </div>
+                                <div class="post-card-meta">
+                                    <span class="post-card-date">${escapeHTML(post.date)}</span>
+                                    <span class="post-card-arrow">LinkedIn ←</span>
+                                </div>
+                            </a>
+                        `.trim();
 
-            if (startComment && endComment) {
-                // Clear existing posts between markers
-                let next = startComment.nextSibling;
-                while (next && next !== endComment) {
-                    const toRemove = next;
-                    next = next.nextSibling;
-                    toRemove.remove();
+                        // إدراج المقالات الجديدة في بداية القائمة (فوق المقال الثابت)
+                        postsGrid.insertAdjacentHTML('afterbegin', cardHTML);
+                    });
                 }
-
-                // Render and insert cards
-                posts.forEach(post => {
-                    const cardHTML = `
-                        <a href="${escapeHTML(post.linkedinUrl)}" target="_blank" class="post-card">
-                            <div class="post-card-pattern">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="post-card-body">
-                                <div class="post-card-title">${escapeHTML(post.titleAr)}</div>
-                                <div class="post-card-summary">${escapeHTML(post.summaryAr).replace(/\n/g, '<br>')}</div>
-                            </div>
-                            <div class="post-card-meta">
-                                <span class="post-card-date">${escapeHTML(post.date)}</span>
-                                <span class="post-card-arrow">LinkedIn ←</span>
-                            </div>
-                        </a>
-                    `.trim();
-
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = cardHTML;
-                    const cardNode = tempDiv.firstChild;
-                    endComment.parentNode.insertBefore(cardNode, endComment);
-                });
             }
         } catch (error) {
             console.error('Failed to load posts from CSV:', error);
-            // Gracefully leave existing static fallback cards in index.html
+            // في حال فشل الاتصال، نحذف الـ Loader لكي يظهر المقال الثابت (Fallback)
+            if (loader) loader.remove();
         }
     }
 
