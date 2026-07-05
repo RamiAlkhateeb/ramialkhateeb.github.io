@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            posts.sort((b, a) => new Date(b.date) - new Date(a.date));
+
             if (posts.length > 0) {
                 const postsGrid = document.querySelector('.posts-grid');
 
