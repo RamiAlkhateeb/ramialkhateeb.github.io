@@ -1,135 +1,155 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رامي الخطيب | مهندس برمجيات</title>
-    <meta name="description" content="أدلة عملية لكتابة Prompts احترافية للذكاء الاصطناعي من مهندس .NET يعمل في ألمانيا. تعلم كيف تستخدم الذكاء الاصطناعي فعليا في شغلك كمطور.">
-    <meta property="og:title" content="رامي الخطيب | أدلة عملية للذكاء الاصطناعي والتطوير">
-    <meta property="og:description" content="أدلة عملية لكتابة Prompts احترافية للذكاء الاصطناعي من مهندس .NET يعمل في ألمانيا.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_AR">
+    <title>رامي الخطيب | أدلة الذكاء الاصطناعي للمطورين</title>
+    <meta name="description"
+        content="أدلة عملية لكتابة Prompts احترافية للذكاء الاصطناعي من مهندس .NET يعمل في ألمانيا.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
 
-    <header>
+    <header class="container">
         <nav>
             <div class="logo">
                 <a href="index.html">رامي الخطيب</a>
             </div>
-            <div class="nav-controls">
-                <div class="nav-links">
-                    <a href="#guides">الأدلة</a>
-                    <a href="#posts">المقالات</a>
-                    <a href="about.html">عن</a>
-                </div>
-                <a href="https://rami13kh.substack.com/" target="_blank" class="btn-substack">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22.539 8.242H1.46V5.406h21.078v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.078V0z"/>
-                    </svg>
-                    Substack
-                </a>
-                <button id="theme-toggle" class="icon-btn" aria-label="تبديل الوضع الليلي">
-                    <i class="fas fa-moon"></i>
-                </button>
+            <div class="nav-links">
+                <a href="#guides">الأدلة</a>
+                <a href="#posts">المقالات</a>
+                <a href="about.html">عني</a>
+                <a href="https://rami13kh.substack.com/" target="_blank"
+                    style="color: var(--accent-gold); font-weight: 700;">English Blog ↗</a>
             </div>
         </nav>
     </header>
 
     <main class="container">
-
         <section class="hero">
-            <h1>اكتب Prompts احترافية توفرلك وقتك كمطور</h1>
-            <p>مهندس .NET يعمل فعليًا في ألمانيا بشارك أدلة عملية تساعدك تستخدم الذكاء الاصطناعي صح في شغلك بدل التجربة والخطأ.</p>
-            <a href="#guides" class="btn-primary" style="margin-top: 20px; display: inline-flex;">ابدأ بالدليل المجاني</a>
+            <div class="hero-illustration">
+                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-plus"></i>
+                <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+
+            <span class="badge"><i class="fas fa-code"></i> مهندس برمجيات (سوريا ← الإمارات ← ألمانيا)</span>
+            <h1>اكتب Prompts احترافية<br>توفرلك وقتك كمطور</h1>
+            <p>أدلة عملية مبنية على خبرة هندسية حقيقية، لمساعدتك على استثمار الذكاء الاصطناعي كمهندس برمجيات بدلاً من
+                إضاعة الوقت معه.</p>
         </section>
 
-        <!-- GUIDES_START -->
         <section id="guides">
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; margin-top: 60px;">مهندس برمجيات بخبرة تمتد بين سوريا والإمارات وألمانيا يشارك ما يستخدمه فعليًا في عمله اليومي.</p>
-            <h2 class="section-heading" style="margin-top: 0;">الأدلة والكتب الرقمية</h2>
+            <h2 class="section-heading">
+                <span class="chapter-label">الفصل الأول</span>
+                أدلة استخدام Claude & Gemini
+            </h2>
 
-            <div class="guide-card">
-                <div class="guide-card-body">
-                    <div class="guide-card-title">دليل كتابة الـ Prompts لـ Claude (النسخة الأساسية)</div>
-                    <div class="guide-card-summary">تعلم الأساسيات لبناء أوامر فعالة للذكاء الاصطناعي لتسريع عملك كمطور والحصول على نتائج دقيقة من المحاولة الأولى.</div>
-                    <div class="guide-card-footer">
-                        <div class="guide-price-container">
-                            <span class="guide-badge">ابدأ من هنا</span>
-                            <span class="guide-price">مجانًا</span>
+            <div class="pricing-grid">
+
+                <div class="pricing-card">
+                    <i class="fas fa-feather-pointed price-icon"></i>
+                    <h3 class="price-title">النسخة الأساسية</h3>
+                    <div class="price-value">مجاني</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> <span>العادات الأساسية لكتابة الأوامر بشكل صحيح</span></li>
+                        <li><i class="fas fa-check"></i> <span>أمثلة يومية مخصصة للمطورين فقط</span></li>
+                        <li><i class="fas fa-check"></i> <span>قراءة سريعة ومباشرة (أقل من ساعة)</span></li>
+                    </ul>
+                    <div class="card-action">
+                        <a href="https://payhip.com/b/pqNx4" class="btn btn-outline" target="_blank">تحميل مجاني</a>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; font-weight: 600;">
+                            <i class="fas fa-envelope" style="color: var(--accent-gold);"></i> سيتم إرسال الدليل إلى
+                            بريدك
                         </div>
-                        <a href="https://payhip.com/b/PLACEHOLDER" class="payhip-buy-button btn-primary" data-theme="none" data-product="PLACEHOLDER" target="_blank">شراء</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="guide-card">
-                <div class="guide-card-body">
-                    <div class="guide-card-title">دليل كتابة الـ Prompts لـ Claude (النسخة المتقدمة)</div>
-                    <div class="guide-card-summary">استراتيجيات تقنية متعمقة لسير عمل الذكاء الاصطناعي، وإدارة القيود، وتحسين الأكواد البرمجية للمطورين المحترفين.</div>
-                    <div class="guide-card-footer">
-                        <span class="guide-price">19$</span>
-                        <a href="https://payhip.com/b/PLACEHOLDER" class="payhip-buy-button btn-primary" data-theme="none" data-product="PLACEHOLDER" target="_blank">شراء</a>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 8px; width: 100%; text-align: center;">دفع آمن عبر Payhip</span>
+                <div class="pricing-card pro">
+                    <div class="pro-badge">الأكثر طلباً - قيمة أفضل</div>
+                    <i class="fas fa-wand-magic-sparkles price-icon"></i>
+                    <h3 class="price-title">النسخة المتقدمة</h3>
+                    <div class="price-value">$19</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> <span><strong>كل محتوى النسخة الأساسية</strong></span></li>
+                        <li><i class="fas fa-check"></i> <span>هندسة وكلاء الذكاء الاصطناعي (AI Agents)</span></li>
+                        <li><i class="fas fa-check"></i> <span>أمثلة معمارية معقدة لبيئات العمل الحقيقية</span></li>
+                        <li><i class="fas fa-check"></i> <span>استراتيجيات فعالة لتقليل استهلاك الـ Tokens</span></li>
+                    </ul>
+                    <div class="card-action">
+                        <a href="https://payhip.com/b/SZB6X" class="btn btn-primary" target="_blank">شراء الدليل
+                            الآن</a>
+                        <div
+                            style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; display: flex; justify-content: center; gap: 15px;">
+                            <span><i class="fas fa-lock" style="color: var(--accent-gold);"></i> دفع آمن</span>
+                            <span><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> وصول فوري
+                                للإيميل</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="pricing-card">
+                    <i class="fas fa-layer-group price-icon"></i>
+                    <h3 class="price-title">النسخة الاحترافية</h3>
+                    <div class="price-value">$29</div>
+                    <ul class="price-features">
+                        <li><i class="fas fa-check"></i> <span><strong>النسخة المتقدمة بالكامل</strong></span></li>
+                        <li><i class="fas fa-check"></i> <span>ملخص مرجعي سريع (Cheat Sheet)</span></li>
+                        <li><i class="fas fa-check"></i> <span>قوالب أوامر جاهزة للنسخ واللصق المباشر</span></li>
+                        <li><i class="fas fa-check"></i> <span>تحديثات مجانية مستمرة للمحتوى</span></li>
+                    </ul>
+                    <div class="card-action">
+                        <button class="btn btn-outline" disabled
+                            style="opacity: 0.5; cursor: not-allowed !important;">قريباً</button>
+                    </div>
+                </div>
+
             </div>
         </section>
-        <!-- GUIDES_END -->
 
-        <!-- POSTS_START -->
+        <section id="posts" style="margin-bottom: 60px;">
+            <h2 class="section-heading">
+                <span class="chapter-label">الفصل الثاني</span>
+                المقالات التقنية
+            </h2>
 
-                <a href="https://www.linkedin.com/posts/rami13alkhateeb_%D9%85-english-version-in-the-comments-%D8%A8%D9%88%D8%B3%D8%AA-%D8%B1%D9%82%D9%85-share-7474898665627631616-0S30/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB806s4BoSWn0JaeGaR7tebMSfsZvzrRRaI" target="_blank" class="post-card">
-                    <div class="post-card-pattern">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="post-card-body">
-                        <div class="post-card-title">ما الفرق بين async/await وTask.Run؟</div>
-                        <div class="post-card-summary">تخيل مطعم فيه طباخين تنين:
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">
+                I share my English technical content on <a href="https://rami13kh.substack.com/" target="_blank"
+                    style="color: var(--accent); font-weight: bold; text-decoration: underline;">Substack</a>
+            </p>
 
-🧑‍🍳 الطباخ الأول (async/await)
-🧑‍🍳 الطباخ التاني (Task.Run)</div>
-                    </div>
-                    <div class="post-card-meta">
-                        <span class="post-card-date">2026-06-27</span>
-                        <span class="post-card-arrow">LinkedIn ←</span>
-                    </div>
+            <div class="posts-grid">
+                <div id="posts-loader" class="posts-loader">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+
+                <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" class="post-card" id="fallback-post">
                 </a>
-<!-- POSTS_END -->
-
-
-        <section id="about" style="margin-top: 80px; margin-bottom: 40px;">
-            <h2 class="section-heading">نبذة عني</h2>
-            <div class="saas-card" style="padding: 40px;">
-                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px;">
-                    أنا مطور برمجيات أعمل وأعيش في ألمانيا. أركز في عملي على هندسة البرمجيات باستخدام (.NET) ومساعدة
-                    زملائي المطورين على تعزيز إنتاجيتهم عبر أدوات الذكاء الاصطناعي وتطوير مساراتهم المهنية.
-                </p>
-                <a href="about.html" style="color: var(--accent); font-weight: 600; text-decoration: none;">قراءة السيرة
-                    الكاملة &larr;</a>
             </div>
         </section>
 
     </main>
 
     <footer class="site-footer">
-        <p>المحتوى الإنجليزي متاح على <a href="https://rami13kh.substack.com/" target="_blank">Substack &nearr;</a></p>
-        <div style="margin: 20px 0; display: flex; justify-content: center; gap: 20px;">
-            <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="https://github.com/ramialkhateeb" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github" style="font-size: 1.5rem;"></i>
-            </a>
+        <div style="margin-bottom: 15px;">
+            <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank"><i class="fab fa-linkedin"
+                    style="font-size: 1.5rem;"></i></a>
+            <a href="https://github.com/ramialkhateeb" target="_blank"><i class="fab fa-github"
+                    style="font-size: 1.5rem;"></i></a>
+            <a href="https://rami13kh.substack.com/" target="_blank"><i class="fas fa-envelope-open-text"
+                    style="font-size: 1.5rem;"></i></a>
         </div>
-        <p>&copy; 2026 رامي الخطيب. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2026 رامي الخطيب</p>
     </footer>
 
     <script src="js/site.js"></script>
-    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
 </body>
+
 </html>
