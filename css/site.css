@@ -36,13 +36,14 @@ a {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 6px 20px;
 }
 
 /* --- HEADER & NAV --- */
 header {
-    padding: 30px 0;
-    margin-bottom: 20px;
+    padding: 50px 0;
+    /* تم زيادة الحشوة من 30px إلى 50px لجعله أسمك */
+    margin-bottom: 10px;
 }
 
 nav {
@@ -93,7 +94,7 @@ nav {
 /* --- HERO SECTION --- */
 .hero {
     text-align: center;
-    padding: 20px 0 60px;
+    padding: 70px 0 20px;
 }
 
 .hero-illustration {
