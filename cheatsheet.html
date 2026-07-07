@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompting Cheatsheet — Claude, Gemini & Claude Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b1220;
+            --surface: #111a2e;
+            --surface-2: #161f38;
+            --surface-3: #1b2745;
+            --border: #26324a;
+            --text: #e6ebf5;
+            --text-muted: #8b96ad;
+            --text-faint: #5b657c;
+            --blue: #2563eb;
+            --blue-deep: #1e3a8a;
+            --orange: #f97316;
+            --green: #22c55e;
+            --red: #ef4444;
+            --mono: 'JetBrains Mono', monospace;
+            --sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- LOGIN SCREEN ---------- */
+        #login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .terminal {
+            width: 100%;
+            max-width: 480px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot.red {
+            background: #ef4444;
+        }
+
+        .dot.yellow {
+            background: #f59e0b;
+        }
+
+        .dot.green {
+            background: #22c55e;
+        }
+
+        .terminal-title {
+            margin: 0 auto;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .terminal-body {
+            padding: 32px 28px;
+            font-family: var(--mono);
+        }
+
+        .terminal-body p.lead {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 0 0 20px;
+        }
+
+        .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .prompt-sym {
+            color: var(--green);
+        }
+
+        #email-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 14px;
+            outline: none;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        #email-input:focus {
+            border-bottom-color: var(--blue);
+        }
+
+        #login-btn {
+            margin-top: 20px;
+            width: 100%;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background .15s;
+        }
+
+        #login-btn:hover {
+            background: #1d4fd1;
+        }
+
+        #login-btn:disabled {
+            opacity: .6;
+            cursor: default;
+        }
+
+        #login-error {
+            margin-top: 14px;
+            font-size: 12.5px;
+            color: var(--red);
+            display: none;
+        }
+
+        #login-error.show {
+            display: block;
+        }
+
+        /* ---------- APP LAYOUT ---------- */
+        #app {
+            display: none;
+        }
+
+        #app.show {
+            display: block;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .topbar .file-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-3);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .topbar .file-tab i {
+            color: var(--orange);
+            font-style: normal;
+        }
+
+        .topbar-spacer {
+            flex: 1;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            color: var(--text);
+            border-color: var(--text-faint);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        nav.sidebar {
+            padding: 28px 16px;
+            position: sticky;
+            top: 49px;
+            height: calc(100vh - 49px);
+            overflow-y: auto;
+            border-right: 1px solid var(--border);
+        }
+
+        nav.sidebar a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin-bottom: 2px;
+        }
+
+        nav.sidebar a:hover {
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        main {
+            padding: 40px 44px 100px;
+        }
+
+        main h1 {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+
+        main>.subtitle {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            margin: 0 0 44px;
+        }
+
+        section {
+            margin-bottom: 52px;
+        }
+
+        section h2 {
+            font-size: 19px;
+            font-weight: 600;
+            margin: 0 0 6px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        section h3 {
+            font-size: 14.5px;
+            font-weight: 600;
+            margin: 22px 0 8px;
+            color: var(--text);
+        }
+
+        section>p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            margin: 14px 0;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--surface);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        td {
+            color: var(--text);
+        }
+
+        td code {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            background: var(--surface-3);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        ul {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+        }
+
+        ul li strong {
+            color: var(--text);
+        }
+
+        ul li code {
+            font-family: var(--mono);
+            font-size: 12.5px;
+            background: var(--surface-3);
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: var(--text);
+        }
+
+        /* prompt / code boxes */
+        .box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px 0 18px;
+        }
+
+        .box-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 14px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .box-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: .04em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .box-label.good {
+            color: var(--green);
+        }
+
+        .box-label.bad {
+            color: var(--red);
+        }
+
+        .copy-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--sans);
+            font-size: 11.5px;
+            padding: 4px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .copy-btn:hover {
+            color: var(--text);
+            border-color: var(--text-faint);
+        }
+
+        .copy-btn.copied {
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        .box-body {
+            padding: 16px 16px;
+            font-family: var(--mono);
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--text);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .box-note {
+            padding: 8px 16px 14px;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .moment-block {
+            margin-bottom: 26px;
+        }
+
+        .moment-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: var(--blue-deep);
+            color: #cfe0ff;
+            font-family: var(--mono);
+            font-size: 11px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        @media (max-width:800px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            nav.sidebar {
+                display: none;
+            }
+
+            main {
+                padding: 28px 20px 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ LOGIN SCREEN ============ -->
+    <div id="login-screen">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="terminal-title">access.sh</span>
+            </div>
+            <div class="terminal-body">
+                <p class="lead">Enter the email you used to buy the Premium guide.</p>
+                <div class="prompt-line">
+                    <span class="prompt-sym">$</span>
+                    <input type="email" id="email-input" placeholder="you@example.com" autocomplete="email" />
+                </div>
+                <button id="login-btn" onclick="attemptLogin()">Unlock cheatsheet</button>
+                <p id="login-error">Email not found. Double check the address you purchased with, or contact support.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ APP ============ -->
+    <div id="app">
+        <div class="topbar">
+            <div class="file-tab"><i>▸</i>cheatsheet.md</div>
+            <div class="topbar-spacer"></div>
+            <button class="logout-btn" onclick="logout()">Log out</button>
+        </div>
+
+        <div class="layout">
+            <nav class="sidebar">
+                <a href="#formula">Four-part formula</a>
+                <a href="#templates">Prompt templates</a>
+                <a href="#before-after">Before / after</a>
+                <a href="#good-bad">Good vs bad</a>
+                <a href="#claude-vs-gemini">Claude vs Gemini</a>
+                <a href="#when-not">When not to use AI</a>
+                <a href="#claudemd">CLAUDE.md</a>
+                <a href="#hygiene">Session hygiene</a>
+                <a href="#habits">Usage-saving habits</a>
+                <a href="#check">10-second check</a>
+            </nav>
+
+            <main>
+                <h1>Prompting Cheatsheet</h1>
+                <p class="subtitle">Claude, Gemini &amp; Claude Code — copy, adapt, paste.</p>
+
+                <section id="formula">
+                    <h2>The four-part prompt formula</h2>
+                    <p>Every good prompt answers these four questions. Skip one and you get a vague answer.</p>
+                    <table>
+                        <tr>
+                            <th>Part</th>
+                            <th>Answers</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>Context</td>
+                            <td>What is this?</td>
+                            <td>Node/Express API, PostgreSQL, deployed on Railway</td>
+                        </tr>
+                        <tr>
+                            <td>Material</td>
+                            <td>What do you have?</td>
+                            <td>Paste the real code or error — never describe it</td>
+                        </tr>
+                        <tr>
+                            <td>Goal</td>
+                            <td>What does "done" look like?</td>
+                            <td>Return 400 with a field-level validation message</td>
+                        </tr>
+                        <tr>
+                            <td>Constraints</td>
+                            <td>What must stay the same?</td>
+                            <td>Keep <code>authMiddleware</code> untouched</td>
+                        </tr>
+                    </table>
+
+                    <div class="box">
+                        <div class="box-header"><span class="box-label">Template</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">I'm working on [context]. Here's the relevant code/error: [paste]. I want
+                            [goal]. Keep [constraint] unchanged.</div>
+                    </div>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label">Example</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">I'm working on a React + TypeScript dashboard using React Query. Here's
+                            the hook: [paste useOrders.ts]. I want it to retry failed requests up to 3 times with
+                            exponential backoff. Keep the return shape ({ data, isLoading, error }) unchanged.</div>
+                    </div>
+                </section>
+
+                <section id="templates">
+                    <h2>Prompt templates, by moment</h2>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">1</span>Starting a feature</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">I'm adding [feature] to [module]. Stack: [tech]. Existing code:
+                                [paste]. Before writing anything, give me a short plan — what files change, what's new,
+                                how it fits the existing pattern.</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">2</span>Debugging</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">I'm getting [error] in [file/function] when [trigger]. Code: [paste].
+                                Stack trace: [paste]. I expected [behavior] instead. What's the cause and how do I fix
+                                it?</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">3</span>Code review before a PR</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Review this [class/function] for: [issue 1], [issue 2], [issue 3].
+                                Don't change [fixed thing] — that's intentional. [paste code]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">4</span>Test generation</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Write tests for this [function/method]. Cover: the normal case, [edge
+                                case 1], [edge case 2]. Our test style: [paste example]. [paste function]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">5</span>Understanding legacy code</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">This is legacy code I inherited. I understand what it does, not why
+                                it's structured this way — especially [part]. [paste code]. What problem was this
+                                solving? Still necessary given [modern alternative]?</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">6</span>Refactoring</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Refactor this to [goal]. Don't change external behavior or the public
+                                API. Code: [paste]. Style reference: [paste]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">7</span>Architecture discussion (no code yet)</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Deciding between [A] and [B] for [problem]. Context: [details]. What
+                                are the tradeoffs given our setup? Not asking for code yet — want to think this through
+                                first.</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">8</span>Claude Code — plan before executing</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">I want to [goal] in [file/area]. Use plan mode: give me a short plan —
+                                which files, how it fits [existing pattern], what could break. Don't write code yet.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">9</span>Claude Code — reviewing a diff</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Explain in plain language what this diff changes vs. before, and flag
+                                anything risky or unexpected. Diff: [paste]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">10</span>Batched fix request</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Fix these in [file]: (1) [issue 1] (2) [issue 2] (3) [issue 3]. Don't
+                                touch anything not listed. [paste code]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">11</span>Porting between frameworks</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Convert this [source] code to [target]. Keep the same logic and
+                                structure — this is a port, not a rewrite. Flag anything that doesn't translate
+                                directly. [paste code]</div>
+                        </div>
+                    </div>
+
+                    <div class="moment-block">
+                        <h3><span class="moment-num">12</span>Commit message / PR description from a diff</h3>
+                        <div class="box">
+                            <div class="box-header"><span class="box-label">Prompt</span><button class="copy-btn"
+                                    onclick="copyBox(this)">Copy</button></div>
+                            <div class="box-body">Write a commit message and short PR description for this diff. Focus
+                                on why, not just what changed. [paste diff]</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="before-after">
+                    <h2>Before / after</h2>
+
+                    <h3>Broken in production</h3>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label bad">Bad</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">My API is broken, can you help?</div>
+                    </div>
+                    <p class="box-note" style="margin-top:-10px;">→ generic troubleshooting checklist.</p>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label good">Good</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">Checkout fails ~1 in 20 requests. Node/Express + Stripe. Error log:
+                            [paste]. Handler: [paste]. Started after [commit/date]. Likely cause?</div>
+                    </div>
+                    <p class="box-note" style="margin-top:-10px;">→ targeted hypothesis.</p>
+
+                    <h3>Improving a component</h3>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label bad">Bad</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">Make this component better.</div>
+                    </div>
+                    <p class="box-note" style="margin-top:-10px;">→ unpredictable, unwanted changes.</p>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label good">Good</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">Improve this component's re-render performance — it re-renders on every
+                            keystroke in a sibling input. Don't change props or styling. [paste]</div>
+                    </div>
+                    <p class="box-note" style="margin-top:-10px;">→ fix scoped to the actual problem.</p>
+                </section>
+
+                <section id="good-bad">
+                    <h2>Good vs bad</h2>
+                    <table>
+                        <tr>
+                            <th>Bad</th>
+                            <th>Good</th>
+                        </tr>
+                        <tr>
+                            <td>"Fix this"</td>
+                            <td>"Fix this to return <code>null</code> instead of throwing when not found — don't change
+                                the signature"</td>
+                        </tr>
+                        <tr>
+                            <td>"Why is this slow?"</td>
+                            <td>"This query takes 4s on 50k rows. Query + schema: [paste]. Where's the bottleneck?"</td>
+                        </tr>
+                        <tr>
+                            <td>"Explain this code"</td>
+                            <td>"Explain why this is structured this way, especially the recursive call on line 40"</td>
+                        </tr>
+                        <tr>
+                            <td>"Add a delete button and wire it up"</td>
+                            <td>"Plan how to add a delete button to <code>UserRow.tsx</code> — don't code yet"</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="claude-vs-gemini">
+                    <h2>Claude vs Gemini</h2>
+                    <table>
+                        <tr>
+                            <th>Claude / Claude Code</th>
+                            <th>Gemini</th>
+                        </tr>
+                        <tr>
+                            <td>Multi-step reasoning, architecture talks</td>
+                            <td>Quick factual lookups</td>
+                        </tr>
+                        <tr>
+                            <td>Strict constraints followed</td>
+                            <td>Very large context (long logs, big docs)</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-file edits, planning before coding</td>
+                            <td>"Good enough" answers when Claude usage is low</td>
+                        </tr>
+                        <tr>
+                            <td>Sustained context across a session</td>
+                            <td>Simple rewrites, translations, brainstorming</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="when-not">
+                    <h2>When not to use AI</h2>
+                    <ul>
+                        <li><strong>Skip it</strong> — rename a variable, fix a typo, one-line config</li>
+                        <li><strong>Use Gemini / a smaller model</strong> — syntax lookups, simple formatting, early
+                            brainstorming</li>
+                        <li><strong>Use Claude / Claude Code</strong> — multi-step, multi-file, architecture, real
+                            debugging</li>
+                    </ul>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label">Gut-check</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">Does this need planning or multi-file context — or am I just looking
+                            something up?</div>
+                    </div>
+                </section>
+
+                <section id="claudemd">
+                    <h2>CLAUDE.md — what actually works</h2>
+                    <p>CLAUDE.md loads on every session — it's not free. Long, bloated files cause Claude to ignore your
+                        actual rules. Treat it like a scarce resource, not a wiki.</p>
+                    <ul>
+                        <li><strong>Keep it under ~200 lines.</strong> If it scrolls more than two screens, you're
+                            paying for it every message.</li>
+                        <li><strong>Lead with exact commands</strong> — build, test, lint, run. Highest ROI section by
+                            far.</li>
+                        <li><strong>Never duplicate your linter/formatter.</strong> Use a hook for that instead.</li>
+                        <li><strong>Give every rule a why.</strong> "Server components by default — client components
+                            caused 8s LCP regressions" survives; "write clean code" gets ignored.</li>
+                        <li><strong>Run <code>/init</code> to generate a starter, then cut it down.</strong> It's a
+                            first draft, not a finished file.</li>
+                        <li><strong>Put occasional/domain knowledge in Skills, not CLAUDE.md.</strong> Skills load on
+                            demand; CLAUDE.md loads every time.</li>
+                        <li><strong>Check it into git.</strong> Review it when Claude misbehaves, prune regularly.</li>
+                    </ul>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label">Template</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body"># Commands
+                            Build: [exact command]
+                            Test: [exact command]
+                            Lint: [exact command]
+
+                            # Architecture
+                            [stack, e.g. Next.js + Prisma + PostgreSQL]
+                            Domain logic lives in [folder structure].
+
+                            # Rules (with reasons)
+                            - [Rule] — because [what broke before]
+                            - [Rule] — because [what broke before]
+
+                            # Don't
+                            - Introduce new dependencies without asking
+                            - [anti-pattern this project has been burned by]</div>
+                    </div>
+                </section>
+
+                <section id="hygiene">
+                    <h2>Claude Code — session hygiene</h2>
+                    <ul>
+                        <li><strong>Use Plan Mode before letting it edit.</strong> Skipping this is how you get a
+                            plausible-looking change that misses the point.</li>
+                        <li><strong><code>/clear</code> between unrelated tasks.</strong> Old context costs you even
+                            when it's irrelevant now.</li>
+                        <li><strong>Went down the wrong path twice?</strong> Don't keep correcting — <code>/clear</code>
+                            and restart with a sharper prompt.</li>
+                        <li><strong>Use hooks for anything that must happen every time</strong> (formatting,
+                            lint-on-save, blocking writes to a sensitive folder). CLAUDE.md is advisory; hooks are
+                            deterministic.</li>
+                        <li><strong>Scope exploration.</strong> Point it at specific files or folders, not "go
+                            investigate the codebase."</li>
+                        <li><strong>Read the diff yourself before accepting.</strong></li>
+                    </ul>
+                </section>
+
+                <section id="habits">
+                    <h2>Usage-saving habits</h2>
+                    <ul>
+                        <li><strong>Front-load, don't follow up</strong> — one complete prompt beats five small ones
+                        </li>
+                        <li><strong>New topic = new chat/<code>/clear</code></strong> — old context costs tokens even
+                            when irrelevant</li>
+                        <li><strong>Batch related fixes</strong> into one prompt</li>
+                        <li><strong>Put recurring context in CLAUDE.md</strong> — don't retype it</li>
+                        <li><strong>Match model size to task size</strong></li>
+                        <li><strong>Mind rolling usage windows</strong> — space out non-urgent tasks near a limit</li>
+                    </ul>
+                </section>
+
+                <section id="check">
+                    <h2>The 10-second check before you hit send</h2>
+                    <div class="box">
+                        <div class="box-header"><span class="box-label">Ask yourself</span><button class="copy-btn"
+                                onclick="copyBox(this)">Copy</button></div>
+                        <div class="box-body">If a new developer joined this project with zero context, would this
+                            message alone be enough for them to help?</div>
+                    </div>
+                    <p style="color:var(--text-muted);font-size:14px;">If no — add the missing context before sending,
+                        not after.</p>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // ======== CONFIG ========
+        // Paste your deployed Apps Script Web App URL here (see Code.gs setup instructions).
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLj20W58oXm7uQirdH6BZMGSf1KUTzppmdAwxP7b3wbDLoGlKEq11zbPCbJFkPDdXJ/exec";
+        const STORAGE_KEY = "cheatsheet_auth_email";
+
+        function showApp() {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('app').classList.add('show');
+        }
+
+        function showLogin(errorMsg) {
+            document.getElementById('app').classList.remove('show');
+            document.getElementById('login-screen').style.display = 'flex';
+            const err = document.getElementById('login-error');
+            if (errorMsg) {
+                err.textContent = errorMsg;
+                err.classList.add('show');
+            } else {
+                err.classList.remove('show');
+            }
+        }
+
+        async function checkEmail(email) {
+            const url = APPS_SCRIPT_URL + "?email=" + encodeURIComponent(email);
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("Network error");
+            const data = await res.json();
+            return !!data.authorized;
+        }
+
+        async function attemptLogin() {
+            const input = document.getElementById('email-input');
+            const btn = document.getElementById('login-btn');
+            const email = input.value.trim().toLowerCase();
+            if (!email) { return; }
+
+            btn.disabled = true;
+            btn.textContent = "Checking…";
+
+            try {
+                const ok = await checkEmail(email);
+                if (ok) {
+                    localStorage.setItem(STORAGE_KEY, email);
+                    showApp();
+                } else {
+                    showLogin("Email not found. Double check the address you purchased with, or contact support.");
+                }
+            } catch (err) {
+                showLogin("Couldn't verify right now — check your connection and try again.");
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "Unlock cheatsheet";
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem(STORAGE_KEY);
+            showLogin();
+        }
+
+        document.getElementById('email-input').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') attemptLogin();
+        });
+
+        function copyBox(btn) {
+            const body = btn.closest('.box').querySelector('.box-body').innerText;
+            navigator.clipboard.writeText(body).then(() => {
+                const original = btn.textContent;
+                btn.textContent = "Copied";
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.classList.remove('copied');
+                }, 1500);
+            });
+        }
+
+        // On load: if we have a cached email, silently re-validate against the sheet.
+        (async function init() {
+            const cached = localStorage.getItem(STORAGE_KEY);
+            if (cached) {
+                try {
+                    const ok = await checkEmail(cached);
+                    if (ok) { showApp(); return; }
+                } catch (e) { /* fall through to login on network error */ }
+            }
+            showLogin();
+        })();
+    </script>
+
+</body>
+
+</html>
