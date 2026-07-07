@@ -469,32 +469,11 @@
 
 <body>
 
-    <!-- ============ LOGIN SCREEN ============ -->
-    <div id="login-screen">
-        <div class="terminal">
-            <div class="terminal-bar">
-                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                <span class="terminal-title">access.sh</span>
-            </div>
-            <div class="terminal-body">
-                <p class="lead">Enter the email you used to buy the Premium guide.</p>
-                <div class="prompt-line">
-                    <span class="prompt-sym">$</span>
-                    <input type="email" id="email-input" placeholder="you@example.com" autocomplete="email" />
-                </div>
-                <button id="login-btn" onclick="attemptLogin()">Unlock cheatsheet</button>
-                <p id="login-error">Email not found. Double check the address you purchased with, or contact support.
-                </p>
-            </div>
-        </div>
-    </div>
-
     <!-- ============ APP ============ -->
-    <div id="app">
+    <div id="app" class="show">
         <div class="topbar">
             <div class="file-tab"><i>▸</i>cheatsheet.md</div>
             <div class="topbar-spacer"></div>
-            <button class="logout-btn" onclick="logout()">Log out</button>
         </div>
 
         <div class="layout">
@@ -884,72 +863,23 @@
     </div>
 
     <script>
-        // ======== CONFIG ========
-        // Paste your deployed Apps Script Web App URL here (see Code.gs setup instructions).
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLj20W58oXm7uQirdH6BZMGSf1KUTzppmdAwxP7b3wbDLoGlKEq11zbPCbJFkPDdXJ/exec";
-        const STORAGE_KEY = "cheatsheet_auth_email";
-
-        function showApp() {
-            document.getElementById('login-screen').style.display = 'none';
-            document.getElementById('app').classList.add('show');
+        function cleanText(t) {
+            return t
+                .split('\n')
+                .map(line => line.trim())
+                .join('\n')
+                .replace(/\n{3,}/g, '\n\n')
+                .trim();
         }
 
-        function showLogin(errorMsg) {
-            document.getElementById('app').classList.remove('show');
-            document.getElementById('login-screen').style.display = 'flex';
-            const err = document.getElementById('login-error');
-            if (errorMsg) {
-                err.textContent = errorMsg;
-                err.classList.add('show');
-            } else {
-                err.classList.remove('show');
-            }
-        }
-
-        async function checkEmail(email) {
-            const url = APPS_SCRIPT_URL + "?email=" + encodeURIComponent(email);
-            const res = await fetch(url);
-            if (!res.ok) throw new Error("Network error");
-            const data = await res.json();
-            return !!data.authorized;
-        }
-
-        async function attemptLogin() {
-            const input = document.getElementById('email-input');
-            const btn = document.getElementById('login-btn');
-            const email = input.value.trim().toLowerCase();
-            if (!email) { return; }
-
-            btn.disabled = true;
-            btn.textContent = "Checking…";
-
-            try {
-                const ok = await checkEmail(email);
-                if (ok) {
-                    localStorage.setItem(STORAGE_KEY, email);
-                    showApp();
-                } else {
-                    showLogin("Email not found. Double check the address you purchased with, or contact support.");
-                }
-            } catch (err) {
-                showLogin("Couldn't verify right now — check your connection and try again.");
-            } finally {
-                btn.disabled = false;
-                btn.textContent = "Unlock cheatsheet";
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem(STORAGE_KEY);
-            showLogin();
-        }
-
-        document.getElementById('email-input').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') attemptLogin();
+        // Normalize every prompt box on load, so build-tool reformatting (Prettier, etc.)
+        // can't leak indentation into displayed or copied text.
+        document.querySelectorAll('.box-body').forEach(el => {
+            el.textContent = cleanText(el.textContent);
         });
 
         function copyBox(btn) {
-            const body = btn.closest('.box').querySelector('.box-body').innerText;
+            const body = btn.closest('.box').querySelector('.box-body').textContent;
             navigator.clipboard.writeText(body).then(() => {
                 const original = btn.textContent;
                 btn.textContent = "Copied";
@@ -960,18 +890,6 @@
                 }, 1500);
             });
         }
-
-        // On load: if we have a cached email, silently re-validate against the sheet.
-        (async function init() {
-            const cached = localStorage.getItem(STORAGE_KEY);
-            if (cached) {
-                try {
-                    const ok = await checkEmail(cached);
-                    if (ok) { showApp(); return; }
-                } catch (e) { /* fall through to login on network error */ }
-            }
-            showLogin();
-        })();
     </script>
 
 </body>
