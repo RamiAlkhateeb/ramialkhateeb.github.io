@@ -110,51 +110,43 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPosts();
 });
 
-// Add to site.js
-function previewPDF(pdfPath) {
-    // Get absolute URL of your hosted PDF
-    const absoluteUrl = new URL(pdfPath, window.location.href).href;
-    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absoluteUrl)}&embedded=true`;
+document.addEventListener("DOMContentLoaded", function () {
+    const pdfModal = document.getElementById("pdf-modal");
+    const pdfFrame = document.getElementById("pdf-viewer-frame");
+    const closeBtn = document.getElementById("close-pdf");
+    const pdfTitleSpan = document.getElementById("pdf-title");
 
-    document.getElementById('pdfFrame').src = googleViewerUrl;
-    document.getElementById('pdfModal').style.display = 'block';
+    // وظيفة فتح المستعرض والتتبع
+    window.openPdfPreview = function (pdfRelativePath, guideName) {
+        // بناء الرابط المطلق للملف بناءً على البيئة (Local أو Production على GitHub)
+        const absolutePdfUrl = new URL(pdfRelativePath, window.location.href).href;
 
-    // Track the preview (see section 2)
-    trackEvent('preview_pdf', 'Basic Guide');
-}
+        // الملف على نفس الخادم — المتصفح يعرضه مباشرةً داخل الإطار بدون أي خدمة خارجية
+        if (pdfTitleSpan) pdfTitleSpan.textContent = `معاينة: ${guideName}`;
+        if (pdfFrame) pdfFrame.src = absolutePdfUrl;
+        if (pdfModal) pdfModal.style.display = "flex";
 
-// فتح نافذة المعاينة
-function openPdfPreview(relativePdfPath) {
-    const modal = document.getElementById('pdfModal');
-    const iframe = document.getElementById('pdfFrame');
+        // 📈 تتبع حدث المعاينة فوراً (تكامل مع GA4)
+        trackStaticEvent("preview_pdf", guideName);
+    };
 
-    // بناء الرابط المطلق بناءً على بيئة التشغيل الحالية
-    const absolutePdfUrl = new URL(relativePdfPath, window.location.href).href;
-
-    // التحقق إذا كان الموقع يعمل محلياً للتطوير والتجربة
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.warn("Google Viewer cannot access local files. Opening directly in a new tab for testing.");
-        window.open(absolutePdfUrl, '_blank');
-        return;
+    // إغلاق المستعرض
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+            if (pdfModal) pdfModal.style.display = "none";
+            if (pdfFrame) pdfFrame.src = ""; // إيقاف التحميل في الخلفية لتوفير الأداء
+        });
     }
+});
 
-    // الرابط النهائي الموجه لمحرك جوجل (عند الرفع على جيت هاب)
-    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absolutePdfUrl)}&embedded=true`;
-
-    iframe.src = googleViewerUrl;
-    modal.style.display = 'flex';
-
-    // تتبع الـ Analytics (اختياري)
+// دالة التتبع الموحدة الصديقة للمواقع الـ Static
+function trackStaticEvent(actionType, label) {
     if (typeof gtag !== 'undefined') {
-        gtag('event', 'preview_pdf', { 'file_name': relativePdfPath });
+        gtag('event', actionType, {
+            'event_category': 'Guides Engagement',
+            'event_label': label
+        });
+    } else {
+        console.log(`[Local Mode] Event Tracked -> Action: ${actionType}, Target: ${label}`);
     }
-}
-
-// إغلاق نافذة المعاينة
-function closePdfPreview() {
-    const modal = document.getElementById('pdfModal');
-    const iframe = document.getElementById('pdfFrame');
-
-    modal.style.display = 'none';
-    iframe.src = ''; // تفريغ الإطار لوقف التحميل في الخلفية
 }
