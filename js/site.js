@@ -116,17 +116,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("close-pdf");
     const pdfTitleSpan = document.getElementById("pdf-title");
 
-    // وظيفة فتح المستعرض والتتبع
+    // وظيفة فتح المستعرض والتتبع باستخدام PDF.js الجاهز
     window.openPdfPreview = function (pdfRelativePath, guideName) {
-        // بناء الرابط المطلق للملف بناءً على البيئة (Local أو Production على GitHub)
+        // بناء الرابط المطلق للملف بناءً على البيئة الحالية (Local أو Production)
         const absolutePdfUrl = new URL(pdfRelativePath, window.location.href).href;
 
-        // الملف على نفس الخادم — المتصفح يعرضه مباشرةً داخل الإطار بدون أي خدمة خارجية
+        // تمرير رابط الملف إلى مستعرض PDF.js الرسمي عبر CDNJS
+        // هذا يعطي واجهة كاملة مخصصة للهواتف تدعم التمرير والزوم بشكل سلس جداً
+        const pdfJsViewerUrl = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/web/viewer.html?file=${encodeURIComponent(absolutePdfUrl)}`;
+
         if (pdfTitleSpan) pdfTitleSpan.textContent = `معاينة: ${guideName}`;
-        if (pdfFrame) pdfFrame.src = absolutePdfUrl;
+        if (pdfFrame) pdfFrame.src = pdfJsViewerUrl; // هنا قمنا بالتغيير ليعمل عبر المستعرض
         if (pdfModal) pdfModal.style.display = "flex";
 
-        // 📈 تتبع حدث المعاينة فوراً (تكامل مع GA4)
+        // 📈 تتبع حدث المعاينة في GA4
         trackStaticEvent("preview_pdf", guideName);
     };
 
