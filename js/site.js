@@ -109,3 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadPosts();
 });
+
+// Add to site.js
+function previewPDF(pdfPath) {
+    // Get absolute URL of your hosted PDF
+    const absoluteUrl = new URL(pdfPath, window.location.href).href;
+    const googleViewerUrl = `https://drive.google.com/file/d/1Y5-8muYT8zRxhYmIzx53Dbepka2F_9M6/view?usp=sharing&embedded=true`;
+
+    document.getElementById('pdfFrame').src = googleViewerUrl;
+    document.getElementById('pdfModal').style.display = 'block';
+
+    // Track the preview (see section 2)
+    trackEvent('preview_pdf', 'Basic Guide');
+}
