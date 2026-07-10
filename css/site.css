@@ -287,11 +287,10 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    /* Dark transparency */
+    /* الرقم الأخير 0.4 يعني شفافية بنسبة 40% فقط، مما يظهر الصورة بشكل أوضح بكثير */
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
-
 
 
 /* Override text colors inside the guide card to be white */
