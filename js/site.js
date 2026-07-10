@@ -45,65 +45,61 @@ function escapeHTML(str) {
 
 document.addEventListener("DOMContentLoaded", () => {
     async function loadPosts() {
-        const loader = document.getElementById('posts-loader'); // الإمساك بعنصر التحميل
+        const technicalGrid = document.getElementById('technical-posts-grid');
+        const generalGrid = document.getElementById('general-posts-grid');
+
+        // If we are not on the posts page, don't execute the fetch
+        if (!technicalGrid && !generalGrid) return;
 
         try {
             const response = await fetch(PLACEHOLDER_CSV_URL);
-            if (!response.ok) throw new Error('Network response was not ok');
-            const text = await response.text();
-            const lines = parseCSV(text);
+            const csvText = await response.text();
+            const lines = parseCSV(csvText);
 
-            const posts = [];
-            for (let i = 1; i < lines.length; i++) {
-                const row = lines[i];
-                if (row.length >= 4 && row[0].trim() !== '') {
-                    posts.push({
-                        titleAr: row[0].trim(),
-                        summaryAr: row[1].trim(),
-                        linkedinUrl: row[2].trim(),
-                        date: row[3].trim()
-                    });
+            // Clear loading state if you have loaders inside the grids
+            technicalGrid.innerHTML = '';
+            generalGrid.innerHTML = '';
+
+            // Skip the first row if it contains headers (Title, Summary, URL, Date, Group)
+            lines.forEach((line, index) => {
+                if (index === 0 && line[0].includes('title')) return; // Adjust if your header is named differently
+
+                if (line.length >= 4 && line[0].trim() !== '') {
+                    // Read the 5th column (Index 4), default to 'General' if empty
+                    const postGroup = line[4] ? line[4].trim() : 'عام';
+
+                    const post = {
+                        titleAr: line[0],
+                        summaryAr: line[1],
+                        linkedinUrl: line[2],
+                        date: line[3],
+                        group: postGroup
+                    };
+
+                    const cardHTML = `
+                    <a href="${escapeHTML(post.linkedinUrl)}" target="_blank" class="post-card fade-in">
+                        <div class="post-card-pattern"><i class="fab fa-linkedin"></i></div>
+                        <div class="post-card-body">
+                            <div class="post-card-title">${escapeHTML(post.titleAr)}</div>
+                            <div class="post-card-summary">${escapeHTML(post.summaryAr).replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="post-card-meta">
+                            <span class="post-card-date">${escapeHTML(post.date)}</span>
+                            <span class="post-card-arrow">LinkedIn ←</span>
+                        </div>
+                    </a>
+                `.trim();
+
+                    // Inject into the correct grid based on the Google Sheet column
+                    if (post.group === 'تقني' || post.group === 'Technical') {
+                        if (technicalGrid) technicalGrid.insertAdjacentHTML('beforeend', cardHTML);
+                    } else {
+                        if (generalGrid) generalGrid.insertAdjacentHTML('beforeend', cardHTML);
+                    }
                 }
-            }
-
-            posts.sort((b, a) => new Date(b.date) - new Date(a.date));
-
-            if (posts.length > 0) {
-                const postsGrid = document.querySelector('.posts-grid');
-
-                if (postsGrid) {
-                    // إزالة تأثير التحميل عند نجاح جلب البيانات
-                    if (loader) loader.remove();
-
-                    posts.forEach((post, index) => {
-                        // إضافة كلاس fade-in وتأخير زمني متتابع (0.1s, 0.2s, ...)
-                        const delay = index * 0.15;
-
-                        const cardHTML = `
-                            <a href="${escapeHTML(post.linkedinUrl)}" target="_blank" class="post-card fade-in" style="animation-delay: ${delay}s">
-                                <div class="post-card-pattern">
-                                    <i class="fab fa-linkedin"></i>
-                                </div>
-                                <div class="post-card-body">
-                                    <div class="post-card-title">${escapeHTML(post.titleAr)}</div>
-                                    <div class="post-card-summary">${escapeHTML(post.summaryAr).replace(/\n/g, '<br>')}</div>
-                                </div>
-                                <div class="post-card-meta">
-                                    <span class="post-card-date">${escapeHTML(post.date)}</span>
-                                    <span class="post-card-arrow">LinkedIn ←</span>
-                                </div>
-                            </a>
-                        `.trim();
-
-                        // إدراج المقالات الجديدة في بداية القائمة (فوق المقال الثابت)
-                        postsGrid.insertAdjacentHTML('afterbegin', cardHTML);
-                    });
-                }
-            }
+            });
         } catch (error) {
             console.error('Failed to load posts from CSV:', error);
-            // في حال فشل الاتصال، نحذف الـ Loader لكي يظهر المقال الثابت (Fallback)
-            if (loader) loader.remove();
         }
     }
 

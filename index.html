@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/site.css">
-
+    <link rel="icon" type="image/png" href="assets/images/favicon.jpg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSFW67DF99"></script>
     <script>
@@ -26,20 +26,7 @@
 
 <body>
 
-    <header class="container">
-        <nav>
-            <div class="logo">
-                <a href="index.html">رامي الخطيب</a>
-            </div>
-            <div class="nav-links">
-                <a href="#guides">الأدلة</a>
-                <a href="#posts">المقالات</a>
-                <a href="about.html">عني</a>
-                <a href="https://rami13kh.substack.com/" target="_blank"
-                    style="color: var(--accent-gold); font-weight: 700;">English Blog ↗</a>
-            </div>
-        </nav>
-    </header>
+    <app-header active="home"></app-header>
 
     <main class="container">
         <section class="hero">
@@ -49,67 +36,81 @@
                 <i class="fas fa-wand-magic-sparkles"></i>
             </div>
 
-            <span class="badge"><i class="fas fa-code"></i> مهندس برمجيات (سوريا ← الإمارات ← ألمانيا)</span>
-            <h1>اكتب Prompts احترافية<br>توفرلك وقتك كمطور</h1>
-            <p>أدلة عملية مبنية على خبرة هندسية حقيقية، لمساعدتك على استثمار الذكاء الاصطناعي كمهندس برمجيات بدلاً من
-                إضاعة الوقت معه.</p>
         </section>
 
-        <section id="guides">
-            <h2 class="section-heading">
+        <section id="guides" style="margin-top: 40px;">
+            <h2 class="section-heading" style="text-align: center;">الأدلة العملية</h2>
 
-                أدلة استخدام Claude & Gemini
-            </h2>
 
-            <div class="pricing-grid">
+            <div class="guides-grid">
+                <div class="guide-card" style="background-image: url('assets/images/guide-cover.png');">
+                    <div class="guide-card-overlay"></div>
+                    <div class="guide-card-content">
+                        <h3>دليل أساسيات كلود</h3>
+                        <p>توقف عن كتابة أوامر عشوائية. تعلم الأساسيات التي توفر وقتك.</p>
 
-                <div class="pricing-card">
-                    <i class="fas fa-feather-pointed price-icon"></i>
-                    <h3 class="price-title">النسخة الأساسية</h3>
-
-                    <div class="price-value">
-                        <span class="original-price">4€</span> مجاني
+                        <div class="guide-actions">
+                            <button onclick="openPdfPreview('assets/prompts-basic.pdf', 'دليل أساسيات كلود')"
+                                class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> تصفح الدليل الآن
+                            </button>
+                            <a href="assets/prompts-basic.pdf" download
+                                onclick="trackStaticEvent('download_pdf', 'دليل أساسيات كلود')" class="btn btn-primary">
+                                <i class="fas fa-download"></i> تحميل الـ PDF
+                            </a>
+                        </div>
                     </div>
-                    <span class="promo-note">دائمًا مجاني</span>
-
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> <span><strong>4 فصول</strong> تغطي الأساسيات</span></li>
-                        <li><i class="fas fa-check"></i> <span>العادات الأساسية لكتابة الأوامر بشكل صحيح</span></li>
-                        <li><i class="fas fa-check"></i> <span>أمثلة يومية مخصصة للمطورين فقط</span></li>
-                        <li><i class="fas fa-check"></i> <span>قراءة سريعة ومباشرة (أقل من ساعة)</span></li>
-                    </ul>
-                    <button onclick="openPdfPreview('assets/prompts-basic.pdf', 'دليل أساسيات كلود')"
-                        class="btn btn-secondary">
-                        <i class="fas fa-eye"></i> تصفح الدليل الآن
-                    </button>
-
-                    <a href="assets/prompts-basic.pdf" download
-                        onclick="trackStaticEvent('download_pdf', 'دليل أساسيات كلود')" class="btn btn-primary">
-                        <i class="fas fa-download"></i> تحميل الـ PDF مباشرة
-                    </a>
                 </div>
 
-                <div class="pricing-card pro">
-                    <div class="pro-badge">الأكثر طلباً - قيمة أفضل</div>
-                    <i class="fas fa-wand-magic-sparkles price-icon"></i>
-                    <h3 class="price-title">النسخة المتقدمة</h3>
+                <div class="guide-card"
+                    style="background-image: url('assets/images/guide-advanced.png'); border: 2px solid var(--accent);">
+                    <div class="guide-card-overlay"></div>
+                    <div class="guide-card-content">
 
-                    <div class="price-value">
-                        <span class="original-price">7€</span> مجاني
+                        <h3>دليل كلود للمطورين 🚀</h3>
+                        <p>من الفوضى إلى النتيجة. تعلم كيفية إدارة المشاريع
+                            البرمجية بكفاءة عالية.</p>
+
+                        <div class="guide-actions">
+                            <button onclick="openPdfPreview('assets/prompts-advanced.pdf', 'من الفوضى الى النتيجة')"
+                                class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> تصفح الدليل الآن
+                            </button>
+                            <a href="assets/prompts-advanced.pdf" download
+                                onclick="trackStaticEvent('download_pdf', 'من الفوضى الى النتيجة')"
+                                class="btn btn-primary">
+                                <i class="fas fa-download"></i> تحميل الـ PDF
+                            </a>
+                        </div>
                     </div>
-                    <span class="promo-note">عرض الإطلاق (لأول 60 يوم)</span>
+                </div>
 
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> <span><strong>7 فصول</strong> متقدمة وشاملة</span></li>
-                        <li><i class="fas fa-check"></i> <span>هندسة وكلاء الذكاء الاصطناعي (AI Agents)</span></li>
-                        <li><i class="fas fa-check"></i> <span>أمثلة معمارية معقدة لبيئات العمل الحقيقية</span></li>
-                        <li><i class="fas fa-check"></i> <span>استراتيجيات فعالة لتقليل استهلاك الـ Tokens</span></li>
-                    </ul>
-                    <div class="card-action">
-                        <a href="assets/prompts-advanced.pdf" class="btn btn-primary" target="_blank">فتح الدليل
-                            مجانًا</a>
+                <div class="guide-card" style="background-image: url('assets/images/guide-dotnet.png');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                    <div class="guide-card-content">
+                        <h3 style="color: #b0b0b0;">.NET Interview Playbook</h3>
+                        <p style="color: #888;">أكثر من 100 سؤال وجواب لاجتياز مقابلات العمل التقنية في السوق الأوروبي
+                            بنجاح.</p>
+                        <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
                     </div>
+                </div>
 
+                <div class="guide-card" style="background-image: url('assets/images/guide-germany.jpg');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                    <div class="guide-card-content">
+                        <h3 style="color: #b0b0b0;">دليل الهجرة للمطورين</h3>
+                        <p style="color: #888;">خطواتك العملية والقانونية للانتقال والعمل كمهندس برمجيات في ألمانيا.</p>
+                        <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
+                    </div>
+                </div>
+
+                <div class="guide-card" style="background-image: url('assets/images/guide-agents.jpg');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                    <div class="guide-card-content">
+                        <h3 style="color: #b0b0b0;">بناء وكلاء الذكاء الاصطناعي</h3>
+                        <p style="color: #888;">مستوى متقدم: كيف تبني AI Agents متكاملة باستخدام بيئة .NET.</p>
+                        <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
+                    </div>
                 </div>
 
 
@@ -117,56 +118,15 @@
             </div>
         </section>
 
-        <section id="posts" style="margin-bottom: 60px;">
-            <h2 class="section-heading">
-                المقالات التقنية
-            </h2>
-
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">
-                I share my English technical content on <a href="https://rami13kh.substack.com/" target="_blank"
-                    style="color: var(--accent); font-weight: bold; text-decoration: underline;">Substack</a>
-            </p>
-
-            <div class="posts-grid">
-                <div id="posts-loader" class="posts-loader">
-                    <div class="skeleton-card"></div>
-                    <div class="skeleton-card"></div>
-                </div>
-
-                <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" class="post-card" id="fallback-post">
-                </a>
-            </div>
-        </section>
 
     </main>
 
-    <footer class="site-footer">
-        <div style="margin-bottom: 15px;">
-            <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank"><i class="fab fa-linkedin"
-                    style="font-size: 1.5rem;"></i></a>
-            <a href="https://github.com/ramialkhateeb" target="_blank"><i class="fab fa-github"
-                    style="font-size: 1.5rem;"></i></a>
-            <a href="https://rami13kh.substack.com/" target="_blank"><i class="fas fa-envelope-open-text"
-                    style="font-size: 1.5rem;"></i></a>
-        </div>
-        <p>&copy; 2026 رامي الخطيب</p>
-    </footer>
+    <app-footer></app-footer>
+    <pdf-modal></pdf-modal>
 
     <script src="js/site.js"></script>
+    <script src="js/components.js"></script>
 
-    <div id="pdf-modal" class="pdf-modal" style="display: none;">
-        <div class="pdf-modal-container">
-            <div class="pdf-modal-header">
-                <button id="close-pdf" class="close-pdf-btn">
-                    <i class="fas fa-times"></i> إغلاق المعاينة
-                </button>
-                <span id="pdf-title" class="pdf-modal-title">معاينة الدليل</span>
-            </div>
-            <div class="pdf-modal-body">
-                <iframe id="pdf-viewer-frame" src="" width="100%" height="100%" allow="fullscreen"></iframe>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات | رامي الخطيب</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.jpg">
+</head>
+
+<body>
+
+    <app-header active="posts"></app-header>
+
+    <main class="container">
+        <div class="post-groups-nav">
+            <a href="#posts-technical" class="group-btn"><i class="fas fa-laptop-code"></i> مقالات تقنية</a>
+            <a href="#posts-general" class="group-btn"><i class="fas fa-rocket"></i> مقالات عامة</a>
+        </div>
+
+        <section id="posts-technical" style="margin-top: 40px;">
+            <h2 class="section-heading">مقالات تقنية 💻</h2>
+            <div class="posts-grid" id="technical-posts-grid">
+            </div>
+        </section>
+
+        <section id="posts-general" style="margin-top: 60px;">
+            <h2 class="section-heading">مقالات عامة ومهنية 🚀</h2>
+            <div class="posts-grid" id="general-posts-grid">
+            </div>
+        </section>
+    </main>
+
+    <app-footer></app-footer>
+
+    <script src="js/components.js"></script>
+    <script src="js/site.js"></script>
+
+</body>
+
+</html>
