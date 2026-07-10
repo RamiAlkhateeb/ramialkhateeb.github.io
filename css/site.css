@@ -624,15 +624,4 @@ nav {
 .pdf-modal-body {
     flex-grow: 1;
     background: #525659;
-    position: relative;
-    /* يضمن تفعيل التمرير السلس على متصفحات iOS Safari القديمة والحديثة */
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-}
-
-#pdf-viewer-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
 }

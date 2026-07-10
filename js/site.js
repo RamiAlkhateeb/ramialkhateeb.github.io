@@ -116,20 +116,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("close-pdf");
     const pdfTitleSpan = document.getElementById("pdf-title");
 
-    // وظيفة فتح المستعرض والتتبع باستخدام PDF.js الجاهز
+    // وظيفة فتح المستعرض والتتبع
     window.openPdfPreview = function (pdfRelativePath, guideName) {
-        // بناء الرابط المطلق للملف بناءً على البيئة الحالية (Local أو Production)
+        // بناء الرابط المطلق للملف بناءً على البيئة (Local أو Production)
         const absolutePdfUrl = new URL(pdfRelativePath, window.location.href).href;
 
-        // تمرير رابط الملف إلى مستعرض PDF.js الرسمي عبر CDNJS
-        // هذا يعطي واجهة كاملة مخصصة للهواتف تدعم التمرير والزوم بشكل سلس جداً
-        const pdfJsViewerUrl = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/web/viewer.html?file=${encodeURIComponent(absolutePdfUrl)}`;
+        // الهواتف لا تدعم عرض PDF داخل iframe بشكل صحيح (تكبير مفرط، تعثّر التمرير)
+        // الحل: فتح الملف مباشرةً في تبويب جديد ليُعرض بواسطة مستعرض PDF الأصلي للنظام
+        const isMobile = ('ontouchstart' in window || navigator.maxTouchPoints > 0) && window.innerWidth < 1024;
 
-        if (pdfTitleSpan) pdfTitleSpan.textContent = `معاينة: ${guideName}`;
-        if (pdfFrame) pdfFrame.src = pdfJsViewerUrl; // هنا قمنا بالتغيير ليعمل عبر المستعرض
-        if (pdfModal) pdfModal.style.display = "flex";
+        if (isMobile) {
+            window.open(absolutePdfUrl, '_blank');
+        } else {
+            if (pdfTitleSpan) pdfTitleSpan.textContent = `معاينة: ${guideName}`;
+            if (pdfFrame) pdfFrame.src = absolutePdfUrl;
+            if (pdfModal) pdfModal.style.display = "flex";
+        }
 
-        // 📈 تتبع حدث المعاينة في GA4
+        // 📈 تتبع حدث المعاينة (GA4)
         trackStaticEvent("preview_pdf", guideName);
     };
 
