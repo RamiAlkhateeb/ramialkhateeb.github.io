@@ -114,11 +114,47 @@ document.addEventListener("DOMContentLoaded", () => {
 function previewPDF(pdfPath) {
     // Get absolute URL of your hosted PDF
     const absoluteUrl = new URL(pdfPath, window.location.href).href;
-    const googleViewerUrl = `https://drive.google.com/file/d/1Y5-8muYT8zRxhYmIzx53Dbepka2F_9M6/view?usp=sharing&embedded=true`;
+    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absoluteUrl)}&embedded=true`;
 
     document.getElementById('pdfFrame').src = googleViewerUrl;
     document.getElementById('pdfModal').style.display = 'block';
 
     // Track the preview (see section 2)
     trackEvent('preview_pdf', 'Basic Guide');
+}
+
+// فتح نافذة المعاينة
+function openPdfPreview(relativePdfPath) {
+    const modal = document.getElementById('pdfModal');
+    const iframe = document.getElementById('pdfFrame');
+
+    // بناء الرابط المطلق بناءً على بيئة التشغيل الحالية
+    const absolutePdfUrl = new URL(relativePdfPath, window.location.href).href;
+
+    // التحقق إذا كان الموقع يعمل محلياً للتطوير والتجربة
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.warn("Google Viewer cannot access local files. Opening directly in a new tab for testing.");
+        window.open(absolutePdfUrl, '_blank');
+        return;
+    }
+
+    // الرابط النهائي الموجه لمحرك جوجل (عند الرفع على جيت هاب)
+    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absolutePdfUrl)}&embedded=true`;
+
+    iframe.src = googleViewerUrl;
+    modal.style.display = 'flex';
+
+    // تتبع الـ Analytics (اختياري)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'preview_pdf', { 'file_name': relativePdfPath });
+    }
+}
+
+// إغلاق نافذة المعاينة
+function closePdfPreview() {
+    const modal = document.getElementById('pdfModal');
+    const iframe = document.getElementById('pdfFrame');
+
+    modal.style.display = 'none';
+    iframe.src = ''; // تفريغ الإطار لوقف التحميل في الخلفية
 }
