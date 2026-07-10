@@ -22,6 +22,7 @@ jobs:
         cp *.html gh-pages-out/
         cp -R css gh-pages-out/
         cp -R js gh-pages-out/
+        cp -R assets gh-pages-out/
         echo "✅ Artifacts staged:"
         ls gh-pages-out/
 
