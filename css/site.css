@@ -261,7 +261,7 @@ nav {
     /* Ensure the card has enough height to push buttons down */
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 470px;
 }
 
 .guide-card-content {
