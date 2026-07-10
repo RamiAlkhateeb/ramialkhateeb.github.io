@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -68,20 +68,15 @@
                         <li><i class="fas fa-check"></i> <span>أمثلة يومية مخصصة للمطورين فقط</span></li>
                         <li><i class="fas fa-check"></i> <span>قراءة سريعة ومباشرة (أقل من ساعة)</span></li>
                     </ul>
-                    <div id="pdfModal" class="modal"
-                        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;">
-                        <div
-                            style="position:relative; width:95%; height:90%; margin: 5% auto; background:#fff; border-radius:8px;">
-                            <button onclick="document.getElementById('pdfModal').style.display='none'"
-                                style="position:absolute; top:-15px; right:-15px; background:var(--accent-gold); border:none; padding:10px; border-radius:50%; cursor:pointer;">✖</button>
-                            <iframe id="pdfFrame"
-                                style="width:100%; height:100%; border:none; border-radius:8px;"></iframe>
-                        </div>
-                    </div>
-
-                    <button onclick="openPdfPreview('assets/prompts-basic.pdf')" class="btn btn-primary">
-                        تصفح الدليل الآن <i class="fas fa-eye" style="margin-right:8px;"></i>
+                    <button onclick="openPdfPreview('assets/prompts-basic.pdf', 'دليل أساسيات كلود')"
+                        class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> تصفح الدليل الآن
                     </button>
+
+                    <a href="assets/prompts-basic.pdf" download
+                        onclick="trackStaticEvent('download_pdf', 'دليل أساسيات كلود')" class="btn btn-primary">
+                        <i class="fas fa-download"></i> تحميل الـ PDF مباشرة
+                    </a>
                 </div>
 
                 <div class="pricing-card pro">
@@ -101,7 +96,7 @@
                         <li><i class="fas fa-check"></i> <span>استراتيجيات فعالة لتقليل استهلاك الـ Tokens</span></li>
                     </ul>
                     <div class="card-action">
-                        <a href="assets/guides/prompts-advanced.pdf" class="btn btn-primary" target="_blank">فتح الدليل
+                        <a href="assets/prompts-advanced.pdf" class="btn btn-primary" target="_blank">فتح الدليل
                             مجانًا</a>
                     </div>
 
@@ -149,16 +144,17 @@
 
     <script src="js/site.js"></script>
 
-    <div id="pdfModal" class="pdf-modal"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
-        <div
-            style="position:relative; width:90%; height:85%; max-width:800px; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.5);">
-            <button onclick="closePdfPreview()"
-                style="position:absolute; top:10px; left:10px; background:#4A5240; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-family:'Cairo', sans-serif; z-index:10000;">
-                إغلاق ✕
-            </button>
-            <iframe id="pdfFrame"
-                style="width:100%; height:100%; border:none; padding-top:50px; box-sizing:border-box;"></iframe>
+    <div id="pdf-modal" class="pdf-modal" style="display: none;">
+        <div class="pdf-modal-container">
+            <div class="pdf-modal-header">
+                <button id="close-pdf" class="close-pdf-btn">
+                    <i class="fas fa-times"></i> إغلاق المعاينة
+                </button>
+                <span id="pdf-title" class="pdf-modal-title">معاينة الدليل</span>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdf-viewer-frame" src="" width="100%" height="100%" allow="fullscreen"></iframe>
+            </div>
         </div>
     </div>
 </body>
