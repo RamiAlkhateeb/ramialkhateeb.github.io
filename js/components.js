@@ -8,12 +8,12 @@ class AppHeader extends HTMLElement {
             <header class="container">
                 <nav>
                     <div class="logo">
-                        <a href="index.html">رامي الخطيب</a>
+                        <a href="index.html">أسرع طريق للجواب الصح</a>
                     </div>
                     <div class="nav-links">
-                        <a href="index.html#guides">الأدلة</a>
+                        <a href="index.html#guides">الكتيبات</a>
                         <a href="posts.html">المقالات</a>
-                        <a href="about.html">عني</a>
+                        <a href="about.html">عن الكاتب</a>
                         <a href="https://rami13kh.substack.com/" target="_blank"
                             style="color: var(--accent-gold); font-weight: 700;">English Blog ↗</a>
                     </div>

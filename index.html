@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رامي الخطيب | أدلة الذكاء الاصطناعي للمطورين</title>
-    <meta name="description"
-        content="أدلة عملية لكتابة Prompts احترافية للذكاء الاصطناعي من مهندس .NET يعمل في ألمانيا.">
+    <title>أسرع طريق للجواب الصح</title>
+    <meta name="description" content="أسرع طريق للجواب الصح.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -30,12 +29,9 @@
 
     <main class="container">
         <section class="hero">
-            <div class="hero-illustration">
-                <i class="fas fa-laptop-code"></i>
-                <i class="fas fa-plus"></i>
-                <i class="fas fa-wand-magic-sparkles"></i>
-            </div>
-
+            <h2>
+                كتيبات عملية قصيرة باللغة العربية تقرؤها على هاتفك الذكي
+            </h2>
         </section>
 
         <section id="guides" style="margin-top: 40px;">
@@ -43,22 +39,39 @@
 
 
             <div class="guides-grid">
-                <div class="guide-card" style="background-image: url('assets/images/guide-cover.png');">
+                <div class="guide-card"
+                    style="background-image: url('assets/images/guide-cover.png'); border: 2px solid var(--accent);">
                     <div class="guide-card-overlay"></div>
                     <div class="guide-card-content">
-                        <div class="read-time-badge"><i class="far fa-clock"></i> وقت القراءة: 13 دقيقة</div>
-                        <h3>دليل أساسيات كلود</h3>
-                        <p>توقف عن كتابة أوامر عشوائية. تعلم الأساسيات التي توفر وقتك.</p>
 
-                        <div class="guide-actions">
-                            <button onclick="openPdfPreview('assets/prompts-basic.pdf', 'دليل أساسيات كلود')"
-                                class="btn btn-secondary">
-                                <i class="fas fa-eye"></i> تصفح الدليل الآن
-                            </button>
-                            <a href="assets/prompts-basic.pdf" download
-                                onclick="trackStaticEvent('download_pdf', 'دليل أساسيات كلود')" class="btn btn-primary">
-                                <i class="fas fa-download"></i> تحميل الـ PDF
-                            </a>
+                        <div class="read-time-badge"><i class="far fa-clock"></i> وقت القراءة: 13 دقيقة</div>
+
+                        <h3>اساسيات كلود</h3>
+                        <p>كل ما تريد معرفتة عن كلود 2026</p>
+                        <div class="bottom-actions-container">
+                            <div class="guide-price">
+                                0.99 <span class="price-currency">€</span>
+                            </div>
+
+                            <div class="guide-actions">
+                                <button
+                                    onclick="openPdfPreview('assets/guides/prompts-basic-preview.pdf', 'معاينة كتيب كلود')"
+                                    class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i> معاينة الكتيب
+                                </button>
+
+                                <div style="width: 100%;">
+                                    <a href="https://payhip.com/b/pqNx4" target="_blank"
+                                        onclick="trackStaticEvent('buy_click', 'Basic Guide')" class="btn btn-primary"
+                                        style="width: 100%; text-align: center; background: var(--accent); border-color: var(--accent);">
+                                        <i class="fas fa-shopping-cart"></i> شراء النسخة الكاملة
+                                    </a>
+
+                                    <span class="email-note">
+                                        <i class="fas fa-envelope"></i> سيُطلب منك عند الشراء إدخال بريدك الإلكتروني
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,52 +80,70 @@
                     style="background-image: url('assets/images/guide-advanced.png'); border: 2px solid var(--accent);">
                     <div class="guide-card-overlay"></div>
                     <div class="guide-card-content">
-                        <div class="read-time-badge"><i class="far fa-clock"></i> وقت القراءة: 23 دقيقة</div>
-                        <h3>دليل كلود للمطورين 🚀</h3>
-                        <p>من الفوضى إلى النتيجة. تعلم كيفية إدارة المشاريع
-                            البرمجية بكفاءة عالية.</p>
 
-                        <div class="guide-actions">
-                            <button onclick="openPdfPreview('assets/prompts-advanced.pdf', 'من الفوضى الى النتيجة')"
-                                class="btn btn-secondary">
-                                <i class="fas fa-eye"></i> تصفح الدليل الآن
-                            </button>
-                            <a href="assets/prompts-advanced.pdf" download
-                                onclick="trackStaticEvent('download_pdf', 'من الفوضى الى النتيجة')"
-                                class="btn btn-primary">
-                                <i class="fas fa-download"></i> تحميل الـ PDF
-                            </a>
+                        <div class="read-time-badge"><i class="far fa-clock"></i> وقت القراءة: 23 دقيقة</div>
+
+                        <h3>كتيب كلود للمطورين 🚀</h3>
+                        <p>من الفوضى إلى النتيجة. تعلم كيفية بناء وكلاء ذكاء اصطناعي (AI Agents) وإدارة المشاريع
+                            البرمجية بكفاءة عالية.</p>
+                        <div class="bottom-actions-container">
+                            <div class="guide-price">
+                                1.79 <span class="price-currency">€</span>
+                            </div>
+
+                            <div class="guide-actions">
+                                <button
+                                    onclick="openPdfPreview('assets/guides/prompts-advanced-preview.pdf', 'معاينة كتيب المطورين')"
+                                    class="btn btn-secondary">
+                                    <i class="fas fa-eye"></i> معاينة الكتيب
+                                </button>
+
+                                <div style="width: 100%;">
+                                    <a href="https://payhip.com/b/CgQ0S" target="_blank"
+                                        onclick="trackStaticEvent('buy_click', 'Advanced Guide')"
+                                        class="btn btn-primary"
+                                        style="width: 100%; text-align: center; background: var(--accent); border-color: var(--accent);">
+                                        <i class="fas fa-shopping-cart"></i> شراء النسخة الكاملة
+                                    </a>
+
+                                    <span class="email-note">
+                                        <i class="fas fa-envelope"></i> سيُطلب منك عند الشراء إدخال بريدك الإلكتروني
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-card" style="background-image: url('assets/images/guide-dotnet.png');">
-                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                <div class="guide-card" style="background-image: url('assets/images/DotNet.png');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.75);"></div>
                     <div class="guide-card-content">
                         <div class="read-time-badge"><i class="fas fa-book-open"></i> قيد الكتابة...</div>
                         <h3 style="color: #b0b0b0;">.NET Interview Playbook</h3>
-                        <p style="color: #888;">أكثر من 100 سؤال وجواب لاجتياز مقابلات العمل التقنية في السوق الأوروبي
-                            بنجاح.</p>
+                        <p style="color: #888;">كيفية التحضير لمقابلات العمل باستخدام الذكاء الاصطناعي
+                        </p>
                         <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
                     </div>
                 </div>
 
-                <div class="guide-card" style="background-image: url('assets/images/guide-germany.jpg');">
-                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                <div class="guide-card" style="background-image: url('assets/images/Docker.png');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.75);"></div>
                     <div class="guide-card-content">
                         <div class="read-time-badge"><i class="fas fa-book-open"></i> قيد الكتابة...</div>
-                        <h3 style="color: #b0b0b0;">دليل الهجرة للمطورين</h3>
-                        <p style="color: #888;">خطواتك العملية والقانونية للانتقال والعمل كمهندس برمجيات في ألمانيا.</p>
+                        <h3 style="color: #b0b0b0;">كتيب Docker للمطورين</h3>
+                        <p style="color: #888;">كيفية العمل مع Docker
+                        </p>
                         <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
                     </div>
                 </div>
 
-                <div class="guide-card" style="background-image: url('assets/images/guide-agents.jpg');">
-                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.85);"></div>
+                <div class="guide-card" style="background-image: url('assets/images/DataAnalysis.png');">
+                    <div class="guide-card-overlay" style="background: rgba(0, 0, 0, 0.7);"></div>
                     <div class="guide-card-content">
                         <div class="read-time-badge"><i class="fas fa-book-open"></i> قيد الكتابة...</div>
-                        <h3 style="color: #b0b0b0;">بناء وكلاء الذكاء الاصطناعي</h3>
-                        <p style="color: #888;">مستوى متقدم: كيف تبني AI Agents متكاملة باستخدام بيئة .NET.</p>
+                        <h3 style="color: #b0b0b0;">تحليل البيانات</h3>
+                        <p style="color: #888;">أساسيات تحليل البيانات
+                        </p>
                         <div class="coming-soon-badge">⏳ سيتوفر قريباً</div>
                     </div>
                 </div>
