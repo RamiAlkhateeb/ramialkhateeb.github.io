@@ -611,3 +611,79 @@ html {
     /* تأثير ضبابي للخلفية */
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    /* مسار صورة الخلفية (Placeholder) - قم بتغييره لاسم صورتك */
+    background-image: url('../assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 30px;
+    border-radius: 15px;
+    /* حواف دائرية أنيقة */
+    margin-bottom: 40px;
+    overflow: hidden;
+    color: #FFFFFF;
+    /* نص أبيض ليتناسب مع التعتيم */
+}
+
+/* طبقة تعتيم سوداء شفافة فوق الصورة لكي يبقى النص مقروءاً بوضوح */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* نسبة التعتيم 70% */
+    z-index: 1;
+}
+
+/* حاوية المحتوى (النص والصورة) */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    /* عرض العناصر بجانب بعضها */
+    align-items: center;
+    justify-content: flex-start;
+    /* دفع العناصر لليمين (بسبب rtl) */
+    gap: 30px;
+    /* المسافة بين صورتك والنص */
+}
+
+/* تنسيق الصورة الشخصية أو البارزة بجانب النص */
+.hero-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h1 {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    max-width: 600px;
+    line-height: 1.8;
+    color: #E0E0E0;
+}
+
+/* استجابة للهواتف المحمولة */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        /* جعل الصورة فوق النص في الهواتف */
+        text-align: center;
+        /* توسيط النص في الهواتف ليكون أجمل */
+        justify-content: center;
+    }
+}

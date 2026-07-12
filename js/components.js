@@ -13,7 +13,7 @@ class AppHeader extends HTMLElement {
                     <div class="nav-links">
                         <a href="index.html#guides">الكتيبات</a>
                         <a href="posts.html">المقالات</a>
-                        <a href="about.html">عن الكاتب</a>
+                        
                         <a href="https://rami13kh.substack.com/" target="_blank"
                             style="color: var(--accent-gold); font-weight: 700;">English Blog ↗</a>
                     </div>
