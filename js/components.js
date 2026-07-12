@@ -15,7 +15,7 @@ class AppHeader extends HTMLElement {
                         <a href="posts.html">المقالات</a>
                         
                         <a href="https://rami13kh.substack.com/" target="_blank"
-                            style="color: var(--accent-gold); font-weight: 700;">English Blog ↗</a>
+                            style="color: var(--accent-gold); font-weight: 700;">English Blog</a>
                     </div>
                 </nav>
             </header>
