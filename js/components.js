@@ -8,7 +8,7 @@ class AppHeader extends HTMLElement {
             <header class="container">
                 <nav>
                     <div class="logo">
-                        <a href="index.html">أسرع طريق للجواب الصح</a>
+                        <a href="index.html">كتب/يات</a>
                     </div>
                     <div class="nav-links">
                         <a href="index.html#guides">الكتيبات</a>
