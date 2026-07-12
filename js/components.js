@@ -29,13 +29,17 @@ class AppFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <footer class="site-footer">
-                <div style="margin-bottom: 15px;">
-                    <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank"><i class="fab fa-linkedin" style="font-size: 1.5rem;"></i></a>
-                    <a href="https://github.com/ramialkhateeb" target="_blank"><i class="fab fa-github" style="font-size: 1.5rem;"></i></a>
-                    <a href="https://rami13kh.substack.com/" target="_blank"><i class="fas fa-envelope-open-text" style="font-size: 1.5rem;"></i></a>
-                </div>
-                <p>&copy; 2026 رامي الخطيب</p>
-            </footer>
+    <div style="margin-bottom: 15px;">
+        <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank"><i class="fab fa-linkedin" style="font-size: 1.5rem;"></i></a>
+        <a href="https://github.com/ramialkhateeb" target="_blank"><i class="fab fa-github" style="font-size: 1.5rem;"></i></a>
+        <a href="https://rami13kh.substack.com/" target="_blank"><i class="fas fa-envelope-open-text" style="font-size: 1.5rem;"></i></a>
+    </div>
+    <div style="margin-bottom: 10px; font-size: 0.85rem;">
+        <a href="impressum.html" style="color: var(--text-muted); margin: 0 8px;">Impressum</a>
+        <a href="privacy.html" style="color: var(--text-muted); margin: 0 8px;">Datenschutz</a>
+    </div>
+    <p>&copy; 2026 رامي الخطيب</p>
+</footer>
         `;
     }
 }
