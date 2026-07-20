@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكتيب | رامي الخطيب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+
+    <style>
+        /* Reader-specific styles, scoped to this page only */
+        .reader-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .reader-layout {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 720px);
+            gap: 48px;
+            align-items: start;
+        }
+
+        .reader-toc {
+            position: sticky;
+            top: 24px;
+            padding: 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--card-bg);
+        }
+
+        .reader-toc h2 {
+            margin: 0 0 12px;
+            font-size: 1rem;
+        }
+
+        .reader-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reader-toc li + li {
+            margin-top: 8px;
+        }
+
+        .reader-toc a {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
+        }
+
+        .reader-toc a:hover {
+            color: var(--accent);
+        }
+
+        .reader-toc .toc-level-3 {
+            padding-inline-start: 12px;
+            font-size: 0.82rem;
+        }
+
+        .reader-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .reader-back:hover {
+            color: var(--accent);
+        }
+
+        .reader-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+        }
+
+        .reader-state i {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Rendered markdown content */
+        #reader-content {
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        #reader-content h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 24px;
+            line-height: 1.4;
+        }
+
+        #reader-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 40px 0 16px;
+        }
+
+        #reader-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 30px 0 12px;
+        }
+
+        #reader-content p {
+            margin: 0 0 20px;
+        }
+
+        #reader-content ul,
+        #reader-content ol {
+            margin: 0 0 20px;
+            padding-inline-start: 24px;
+        }
+
+        #reader-content li {
+            margin-bottom: 8px;
+        }
+
+        #reader-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: block;
+        }
+
+        #reader-content blockquote {
+            border-inline-start: 3px solid var(--accent);
+            margin: 20px 0;
+            padding: 4px 20px;
+            color: var(--text-muted);
+        }
+
+        #reader-content code {
+            background: rgba(0, 0, 0, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        #reader-content pre {
+            background: rgba(0, 0, 0, 0.06);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0 0 20px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        #reader-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        #reader-content hr {
+            border: none;
+            border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+            margin: 40px 0;
+        }
+
+        #reader-content a {
+            color: var(--accent);
+        }
+
+        #reader-content h2,
+        #reader-content h3 {
+            scroll-margin-top: 24px;
+        }
+
+        @media (max-width: 800px) {
+            .reader-layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .reader-toc {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <app-header active="home"></app-header>
+
+    <main class="container">
+        <div class="reader-wrap">
+            <a href="index.html#guides" class="reader-back">
+                <i class="fas fa-arrow-right"></i> العودة إلى الكتيبات
+            </a>
+
+            <div id="reader-loading" class="reader-state">
+                <i class="fas fa-spinner fa-spin"></i>
+                جاري تحميل الكتيب...
+            </div>
+
+            <div id="reader-error" class="reader-state" style="display: none;">
+                <i class="fas fa-circle-exclamation"></i>
+                لم نتمكن من العثور على هذا الكتيب. تأكد من الرابط أو
+                <a href="index.html#guides" style="color: var(--accent);">عد إلى قائمة الكتيبات</a>.
+            </div>
+
+            <div id="reader-layout" class="reader-layout" style="display: none;">
+                <aside id="reader-toc" class="reader-toc" aria-label="Table of contents">
+                    <h2>محتوى الكتيب</h2>
+                    <ul id="reader-toc-list"></ul>
+                </aside>
+                <article id="reader-content"></article>
+            </div>
+        </div>
+    </main>
+
+    <app-footer></app-footer>
+
+    <script src="js/components.js"></script>
+    <script>
+        const GUIDES_DIRECTORY = 'assets/guides/';
+        const DEFAULT_GUIDE_FILE = 'basic.md';
+        const AVAILABLE_GUIDES = new Set(['basic.md']);
+
+        async function loadGuide() {
+            const loadingEl = document.getElementById('reader-loading');
+            const errorEl = document.getElementById('reader-error');
+            const layoutEl = document.getElementById('reader-layout');
+            const contentEl = document.getElementById('reader-content');
+            const tocEl = document.getElementById('reader-toc');
+            const tocListEl = document.getElementById('reader-toc-list');
+
+            const params = new URLSearchParams(window.location.search);
+            // Use the Markdown filename directly: reader.html?guide=basic.md.
+            // Loading reader.html without a parameter opens the basic guide.
+            const requestedFile = params.get('guide') || DEFAULT_GUIDE_FILE;
+            const fileName = requestedFile === 'basic' ? DEFAULT_GUIDE_FILE : requestedFile;
+
+            if (!AVAILABLE_GUIDES.has(fileName)) {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            try {
+                const filePath = GUIDES_DIRECTORY + fileName;
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error('File not found: ' + filePath);
+                }
+                const markdown = await response.text();
+
+                contentEl.innerHTML = marked.parse(markdown);
+
+                // Markdown assets are relative to the guide's directory, not reader.html.
+                contentEl.querySelectorAll('img[src]').forEach((image) => {
+                    image.src = new URL(image.getAttribute('src'), new URL(filePath, window.location.href)).href;
+                });
+
+                const headings = contentEl.querySelectorAll('h2, h3');
+                headings.forEach((heading, index) => {
+                    const id = `section-${index + 1}`;
+                    heading.id = id;
+
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `#${id}`;
+                    link.textContent = heading.textContent;
+                    link.className = `toc-level-${heading.tagName.slice(1)}`;
+                    item.appendChild(link);
+                    tocListEl.appendChild(item);
+                });
+                tocEl.style.display = headings.length ? '' : 'none';
+
+                // Update the tab title using the markdown's first heading, if present
+                const firstHeading = contentEl.querySelector('h1');
+                if (firstHeading) {
+                    document.title = firstHeading.textContent + ' | رامي الخطيب';
+                }
+
+                loadingEl.style.display = 'none';
+                layoutEl.style.display = 'grid';
+            } catch (err) {
+                console.error('Failed to load guide:', err);
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        loadGuide();
+    </script>
+
+</body>
+
+</html>
