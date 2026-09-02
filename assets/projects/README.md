@@ -1,15 +1,7 @@
-# Project previews
+# Project images
 
-Each portfolio project already reserves a GIF path in `js/projects.js`. Add the matching file here when it is ready:
+Use `assets/projects/<project-slug>/logo.png` for the home-card logo.
 
-- `carousel-engine.gif`
-- `e-commerce-store.gif`
-- `globalconnect.gif`
-- `inventory-dashboard.gif`
-- `job-interview.gif`
-- `monopoly-rl-agent.gif`
-- `ninar-fm-player.gif`
-- `nxtweek.gif`
-- `task-breaker.gif`
+Use `1.png`, `2.png`, and `3.png` for the three phone screenshots of normal projects. Carousel Engine uses `wide.png` for its single wide project image.
 
-Until a file is added, the site displays its built-in preview fallback. Use lightweight, looped GIFs for the best page speed, or replace a `gif` value with an HTTPS-hosted image or video preview URL.
+The portfolio displays a labeled placeholder when an image has not been added yet.

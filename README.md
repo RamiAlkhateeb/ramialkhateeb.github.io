@@ -1,19 +1,14 @@
-# Nxt13
+# Rami Alkhateeb Portfolio
 
-A fast, static bilingual business portfolio for Nxt13, built with HTML, CSS, and vanilla JavaScript and deployed to GitHub Pages.
+Static bilingual personal portfolio built with HTML, CSS, and vanilla JavaScript.
 
-## Update before publishing
+## Update project media
 
-- Set the live booking URL in `js/config.js`.
-- Add/replace projects in `js/projects.js`.
-- Put each project GIF in `assets/projects/` and set its matching `gif` path.
-- Set `apkUrl` and/or `webUrl` for a project. Empty values intentionally hide that action on its detail page.
+Edit `js/projects.js` to add projects and URLs. For each standard project, add:
 
-Projects use the stable URL format `project.html?project=your-project-slug`.
+- `assets/projects/<slug>/logo.png`
+- `assets/projects/<slug>/1.png`, `2.png`, and `3.png`
 
-## Pages
+For Carousel Engine, add `logo.png` and one wide `wide.png` image instead. Missing files show labeled placeholders.
 
-- `index.html` — home and project previews
-- `project.html` — reusable project detail page
-- `guides.html` — the previous Arabic guide collection
-- `posts.html` and `about.html` — rebranded retained content
+Set the Calendly link in `js/config.js` before publishing.
