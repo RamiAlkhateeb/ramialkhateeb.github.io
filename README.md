@@ -4,11 +4,13 @@ Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Sof
 
 ## Update project media
 
-Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders on `products.html` as a card with a screenshot, description, and Try/Coming-soon and Source actions. The homepage only shows a compact linked teaser.
+Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders on `products.html` as a compact card (logo, name, short description) with a "View screenshots"/"Watch demo" button and a Try/Coming-soon action. Clicking a card opens its media in a popup — a video when `video` is set (e.g. `carousel-engine/carousel_engine_teaser.mp4`), otherwise a screenshot carousel. The homepage only shows a compact linked teaser.
 
-- `assets/projects/<slug>/1.png` (or `2.png`/`3.png`, first one used)
+- `assets/projects/<slug>/logo.png` — card logo.
+- `assets/projects/<slug>/1.png`, `2.png`, … — screenshots opened in the popup carousel.
+- `assets/projects/<slug>/<slug>_teaser.mp4` — optional demo video that plays in the popup instead of screenshots.
 
-For Carousel Engine, add a wide `wide.png` image instead. Missing files show labeled placeholders. Syria FM uses the `syria-fm` folder and URL slug.
+See `assets/projects/README.md` for details.
 
 The career roadmap on `about.html` is sourced from `js/journey.js` (`window.RAMI_JOURNEY`), which should stay in sync with [assets/senior_software_engineer.md](assets/senior_software_engineer.md).
 
