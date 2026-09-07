@@ -24,6 +24,9 @@ node_modules/
 *.log
 .eslintcache
 
+# Playwright MCP screenshots/snapshots from local testing
+.playwright-mcp/
+
 ## ---------------------------------------------------------------------
 ## 3. Architecture Rules - TRACK DATA & LAYOUTS, IGNORE GENERATED OUTPUTS
 ## ---------------------------------------------------------------------
