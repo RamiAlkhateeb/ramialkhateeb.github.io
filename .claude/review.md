@@ -8,6 +8,7 @@ Project-specific things a generic reviewer would miss. Apply this in addition to
 
 ## RTL
 - [ ] New CSS uses logical properties (`padding-inline-start`, `inset-inline-start`, `border-inline-start`, `margin-inline-start`, `text-align: start`) instead of physical `left`/`right`/`padding-left` etc., since the site flips to `dir="rtl"` for Arabic.
+- [ ] Exception: the `.journey-sketch` map pins are positioned by raw percentage `left`/`top` matching pixel coordinates on a real map image (`assets/images/Europe-middle-east.png`) — don't "fix" this to logical properties (that would desync pins from the image), and don't mirror the map itself in RTL (it depicts real geography; flipping it would make it backwards). This is the one deliberate exception to the logical-properties rule above.
 
 ## Style consistency
 - [ ] New/edited CSS and JS match the existing dense, minified-by-hand style (one rule per line in CSS, compact function bodies in JS) — don't reformat or expand surrounding code as a side effect of an unrelated change.
@@ -20,4 +21,4 @@ Project-specific things a generic reviewer would miss. Apply this in addition to
 - [ ] New entries in `js/projects.js` and `js/journey.js` follow the shapes documented in the `add-product` / `update-journey` skills.
 
 ## Verification
-- [ ] Changes were actually checked in a browser via the `preview-site` skill (served over HTTP, not `file://`) — not just read back as source.
+- [ ] Per project convention, don't proactively serve/screenshot changes after an edit — only use the `preview-site` skill if the user explicitly asked to see/preview the result.

@@ -1,9 +1,11 @@
 ---
 name: preview-site
-description: Serve this static portfolio site locally and visually verify changes with a browser. Use whenever a change needs to be seen rendered, screenshotted, or checked in a real browser (layout, animation, RTL, popups).
+description: Serve this static portfolio site locally and visually verify changes with a browser. Only use when the user explicitly asks to preview, see, or screenshot a change — do not run this proactively as a post-edit verification step.
 ---
 
 # Preview and verify the site
+
+**Project convention: don't verify proactively.** After making a code change in this repo, do not automatically start a server or open a browser to check it — just report the change as done. Only run this skill when the user explicitly asks to see/preview/screenshot something.
 
 This is a static site with no dev server config. **`file://` does not work** — the custom elements (`<app-header>`/`<app-footer>`), i18n bootstrapping, and media popup logic all break silently when opened directly as a file, which has caused repeated false starts in past sessions. Always serve over HTTP first.
 

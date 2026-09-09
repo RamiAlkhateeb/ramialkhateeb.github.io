@@ -7,6 +7,10 @@
           {
             "type": "command",
             "command": "node scripts/check-i18n-parity.js"
+          },
+          {
+            "type": "command",
+            "command": "node scripts/remind-no-verify.js"
           }
         ]
       }
