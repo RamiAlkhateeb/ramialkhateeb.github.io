@@ -1,11 +1,11 @@
 ---
 name: add-product
-description: Add a new project/product to the portfolio site (products.html grid + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
+description: Add a new project/product to the portfolio site (the #products grid on index.html + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
 ---
 
 # Add a product
 
-Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them onto the homepage teaser, `products.html`, and `product.html?slug=<slug>` automatically.
+Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container in the `#products` section of the single page (`index.html`), and onto `product.html?slug=<slug>`, automatically.
 
 ## 1. Add the entry to `js/projects.js`
 
@@ -44,4 +44,4 @@ See `assets/projects/README.md` for the full media convention.
 
 ## 3. Verify
 
-Use the `preview-site` skill to serve the site locally and check: the product appears in the homepage teaser, on `products.html` as a card, and its detail page at `product.html?slug=<slug>` renders correctly (media popup opens, pricing section appears only if `pricing` was set).
+Only if the user explicitly asks to see the result, use the `preview-site` skill to serve the site locally and check: the product appears as a card in the `#products` section of `index.html`, and its detail page at `product.html?slug=<slug>` renders correctly (media popup opens, pricing section appears only if `pricing` was set, back-link returns to `index.html#products`). Otherwise just report the change as done — this project's convention is not to verify proactively.
