@@ -235,21 +235,10 @@ body[dir=rtl] .rail-label {
 
 .career-hero-wrapper {
     position: relative;
-    background-image: linear-gradient(135deg, rgba(250, 247, 242, 0.82), rgba(250, 247, 242, 0.55)), url('../assets/images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
     padding: 110px 0 130px;
-    overflow: hidden
-}
-
-.career-hero-wrapper:after {
-    content: '';
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    height: 150px;
-    background: linear-gradient(transparent, var(--bg));
-    pointer-events: none
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh
 }
 
 .career-hero {
@@ -259,14 +248,9 @@ body[dir=rtl] .rail-label {
 }
 
 .hero-glass-card {
-    background: rgba(255, 255, 255, 0.68);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(28, 26, 23, 0.08);
     border-radius: var(--radius-lg);
     padding: 48px;
-    color: var(--text);
-    box-shadow: 0 30px 70px rgba(28, 26, 23, 0.12)
+    color: var(--text)
 }
 
 .hero-glass-card h1 {
@@ -378,11 +362,6 @@ body[dir=rtl] .rail-label {
 
 .section:empty {
     padding: 0
-}
-
-.section-alt {
-    background: var(--soft);
-    border-block: 1px solid var(--line)
 }
 
 .section-heading {
@@ -716,7 +695,7 @@ body[dir=rtl] .sdlc-arrow i {
 }
 
 .contact-section {
-    background: radial-gradient(900px 420px at 50% 0%, rgba(217, 88, 26, 0.16), transparent 66%) var(--soft);
+    background: radial-gradient(900px 420px at 50% 0%, rgba(217, 88, 26, .18), transparent 66%);
     border-top: 1px solid var(--line);
     padding: 100px 0
 }
@@ -1475,11 +1454,6 @@ body.sea-page {
     background: var(--sea-bg, linear-gradient(180deg, var(--sea-sky), var(--sea-shallow) 16%, var(--sea-mid) 36%, var(--sea-deep) 60%, var(--sea-abyss) 88%)) no-repeat var(--sea-abyss)
 }
 
-body.sea-page main>section {
-    background: transparent;
-    border-block-color: transparent
-}
-
 body.sea-page #top {
     --sea-stops: var(--sea-sky) 0%, var(--sea-shallow) 100%
 }
@@ -1530,10 +1504,6 @@ body.sea-page [data-tone=deep] .metric-value {
     color: #f2c29c
 }
 
-body.sea-page .contact-section {
-    background: radial-gradient(900px 420px at 50% 0%, rgba(217, 88, 26, .18), transparent 66%)
-}
-
 body.sea-page .site-footer {
     background: transparent
 }
@@ -1581,16 +1551,6 @@ body.sea-page .site-header {
 html.sea-deep body.sea-page .site-header {
     background: rgba(10, 28, 40, .34);
     border-bottom-color: rgba(255, 255, 255, .18)
-}
-
-body.sea-page .career-hero-wrapper {
-    background: transparent;
-    min-height: 100vh;
-    min-height: 100svh
-}
-
-body.sea-page .career-hero-wrapper:after {
-    display: none
 }
 
 .sea-photo {

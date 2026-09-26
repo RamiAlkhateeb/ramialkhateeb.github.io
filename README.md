@@ -14,7 +14,7 @@ Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each
 
 See `assets/projects/README.md` for details.
 
-Set the contact email and Calendly link in `js/config.js` before publishing. The Download CV action is currently hidden: the `.cv-link` wiring and the `hero.cv` string are still in `js/site.js`, so restoring it means setting `cvUrl` in `js/config.js` and re-adding an `<a class="btn cv-link" data-i18n="hero.cv">` to the hero actions.
+Set the contact email and Calendly link in `js/config.js` before publishing.
 
 ## Local preview
 
