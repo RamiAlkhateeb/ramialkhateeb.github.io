@@ -305,7 +305,7 @@ body[dir=rtl] .rail-label {
     animation-delay: .42s
 }
 
-.hero-copy>.hero-status {
+.hero-copy>p.hero-status {
     animation-delay: .54s
 }
 
