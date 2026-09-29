@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap');
-
 :root {
     --bg: #faf7f2;
     --surface: #ffffff;
@@ -248,8 +246,7 @@ body[dir=rtl] .rail-label {
 }
 
 .hero-glass-card {
-    border-radius: var(--radius-lg);
-    padding: 48px;
+    padding: 0;
     color: var(--text)
 }
 
@@ -282,24 +279,86 @@ body[dir=rtl] .rail-label {
     }
 }
 
-.hero-glass-card>* {
+.hero-copy>* {
     animation: heroIn .75s cubic-bezier(.22, .8, .2, 1) both
 }
 
-.hero-glass-card>.eyebrow {
+.hero-copy>.eyebrow {
     animation-delay: .06s
 }
 
-.hero-glass-card>h1 {
+.hero-copy>h1 {
     animation-delay: .16s
 }
 
-.hero-glass-card>p:not(.eyebrow) {
+.hero-copy>p:not(.eyebrow) {
     animation-delay: .3s
 }
 
-.hero-glass-card>.hero-actions {
+.hero-copy>.hero-actions {
     animation-delay: .42s
+}
+
+.hero-glass-card p.hero-proof {
+    font-size: 1.05rem;
+    margin: 0 0 28px
+}
+
+.btn-primary-lg {
+    padding: 15px 28px;
+    font-size: 1.02rem;
+    box-shadow: 0 10px 30px rgba(217, 88, 26, .42), 0 0 0 4px rgba(240, 180, 138, .2)
+}
+
+.scroll-cue {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 26px;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    margin-inline: auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .55);
+    background: rgba(255, 255, 255, .14);
+    color: #fff;
+    font-size: .95rem;
+    transition: background .2s ease
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible {
+    background: rgba(255, 255, 255, .3)
+}
+
+.scroll-cue i {
+    animation: cueBob 1.8s ease-in-out infinite
+}
+
+@keyframes cueBob {
+
+    0%,
+    100% {
+        transform: translateY(-2px)
+    }
+
+    50% {
+        transform: translateY(4px)
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0
 }
 
 .hero-actions {
@@ -399,6 +458,31 @@ body[dir=rtl] .rail-label {
     align-items: flex-start;
     box-shadow: var(--shadow);
     transition: transform .2s ease, border-color .2s ease
+}
+
+.metrics-grid>div {
+    position: relative
+}
+
+.project-card::after,
+.metrics-grid>div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .2), rgba(255, 255, 255, 0) 65%);
+    transition: opacity .3s ease
+}
+
+@media(hover:hover) {
+
+    .project-card:hover::after,
+    .metrics-grid>div:hover::after {
+        opacity: 1
+    }
 }
 
 .metrics-grid>div:hover {
@@ -884,9 +968,6 @@ button:focus-visible {
         display: flex
     }
 
-    .hero-glass-card {
-        padding: 28px
-    }
 
     .career-hero-wrapper {
         padding: 60px 0 90px
@@ -954,8 +1035,14 @@ button:focus-visible {
         transition: none
     }
 
-    .hero-glass-card>* {
+    .hero-copy>*,
+    .scroll-cue i {
         animation: none
+    }
+
+    .project-card::after,
+    .metrics-grid>div::after {
+        display: none
     }
 
     .rail-progress {
@@ -983,7 +1070,12 @@ button:focus-visible {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow);
     cursor: pointer;
-    transition: transform .2s ease, box-shadow .2s ease
+    transition: opacity .6s ease, transform .6s ease, box-shadow .2s ease
+}
+
+.project-card.in-view:hover,
+.project-card.in-view:focus-visible {
+    transition: opacity .6s ease, transform .2s ease, box-shadow .2s ease
 }
 
 .project-card:hover,
@@ -1361,16 +1453,37 @@ body.sea-page [data-tone=deep] .metric-value {
     color: #f2c29c
 }
 
+body.sea-page .nav-links a.active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px
+}
+
+html.sea-deep body.sea-page .nav-links a.active,
+html.sea-deep body.sea-page .nav-links a:hover {
+    color: var(--sea-icon)
+}
+
+html.sea-deep body.sea-page .rail-dot.active .rail-mark {
+    border-color: var(--sea-icon);
+    background: var(--sea-icon);
+    box-shadow: 0 0 0 5px rgba(240, 180, 138, .2)
+}
+
+html.sea-deep body.sea-page .rail-dot:hover .rail-mark {
+    border-color: var(--sea-icon)
+}
+
 body.sea-page .site-footer {
     background: transparent
 }
 
-body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card, .hero-glass-card) {
-    background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .05) 60%, rgba(255, 255, 255, .1));
-    border: 1px solid rgba(255, 255, 255, .28);
-    backdrop-filter: blur(26px) saturate(1.8);
-    -webkit-backdrop-filter: blur(26px) saturate(1.8);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 -1px 0 rgba(255, 255, 255, .1), inset 1px 0 0 rgba(255, 255, 255, .2), 0 22px 55px rgba(3, 15, 24, .3)
+body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
+    background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015) 60%, rgba(255, 255, 255, .04));
+    border: 1px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px) saturate(1.4);
+    -webkit-backdrop-filter: blur(10px) saturate(1.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), inset 0 -1px 0 rgba(255, 255, 255, .05), 0 16px 40px rgba(3, 15, 24, .16)
 }
 
 body.sea-page .project-card:hover {
@@ -1381,11 +1494,12 @@ body.sea-page .hero-glass-card {
     --text: #56646d;
     --muted: #728088;
     --line: rgba(86, 100, 109, .24);
-    background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0) 55%), linear-gradient(160deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .04));
-    border-color: rgba(255, 255, 255, .42);
-    backdrop-filter: blur(18px) saturate(1.6);
-    -webkit-backdrop-filter: blur(18px) saturate(1.6);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 26px 60px rgba(30, 60, 75, .18)
+    background: none;
+    border: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    text-shadow: 0 1px 18px rgba(255, 255, 255, .35)
 }
 
 body.sea-page :is(.btn-outline, .language-toggle, .menu-toggle) {
@@ -1620,5 +1734,31 @@ html.sea-deep body.sea-page .site-header {
 
     .sea-ray {
         width: 26vw
+    }
+}
+
+html.tab-hidden .sea-fx *,
+html.tab-hidden .sea-fx *::before,
+html.tab-hidden .sea-fx *::after,
+html.tab-hidden .sea-photo:before {
+    animation-play-state: paused !important
+}
+
+@media(max-width:768px) {
+
+    body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
+        backdrop-filter: blur(10px) saturate(1.5);
+        -webkit-backdrop-filter: blur(10px) saturate(1.5)
+    }
+
+    body.sea-page .site-header {
+        backdrop-filter: blur(12px) saturate(1.5);
+        -webkit-backdrop-filter: blur(12px) saturate(1.5)
+    }
+
+    .sea-fx .sea-bit,
+    .sea-fx .sea-ray-2,
+    .sea-fx .sea-ray-3 {
+        display: none
     }
 }
