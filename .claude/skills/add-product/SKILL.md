@@ -1,11 +1,11 @@
 ---
 name: add-product
-description: Add a new project/product to the portfolio site (the #products grid on index.html + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
+description: Add a new project/product to the portfolio site (the app grid on nxt7.html + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
 ---
 
 # Add a product
 
-Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container in the `#products` section of the single page (`index.html`), and onto `product.html?slug=<slug>`, automatically.
+Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container on `nxt7.html` (the NxT7 umbrella page; the home page's `#products` section only shows the two umbrella cards from `window.RAMI_BRANDS`), and onto `product.html?slug=<slug>`, automatically. Add the app's name to the NxT7 entry's `apps` list in `RAMI_BRANDS` too.
 
 ## 1. Add the entry to `js/projects.js`
 
@@ -37,11 +37,11 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 
 Create `assets/projects/<slug>/` containing:
 - `logo.png` — shown on the product card.
-- `1.png`, `2.png`, … — screenshots opened in the popup carousel (skip if using a video).
-- `<slug>_teaser.mp4` — optional demo video; when `video` is set, the popup plays it instead of screenshots.
+- `1.png`, `2.png`, … — screenshots: the first is the card background on `nxt7.html`, all appear in phone frames on the detail page.
+- `<slug>_teaser.mp4` — optional demo video shown on the detail page; pair it with a `poster` image for the card background.
 
 See `assets/projects/README.md` for the full media convention.
 
 ## 3. Verify
 
-Only if the user explicitly asks to see the result, use the `preview-site` skill to serve the site locally and check: the product appears as a card in the `#products` section of `index.html`, and its detail page at `product.html?slug=<slug>` renders correctly (media popup opens, pricing section appears only if `pricing` was set, back-link returns to `index.html#products`). Otherwise just report the change as done — this project's convention is not to verify proactively.
+Only if the user explicitly asks to see the result, use the `preview-site` skill to serve the site locally and check: the product appears as a card on `nxt7.html`, and its detail page at `product.html?slug=<slug>` renders correctly (screenshots/video show, pricing section appears only if `pricing` was set, back-link returns to `nxt7.html`). Otherwise just report the change as done — this project's convention is not to verify proactively.

@@ -15,12 +15,12 @@
     <meta property="og:title" content="Rami Alkhateeb | Senior Software Engineer">
     <meta property="og:description"
         content="Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization. Eight years across Syria, the UAE, and Germany.">
-    <meta property="og:image" content="https://ramialkhateeb.github.io/assets/images/sea.jpg">
+    <meta property="og:image" content="https://ramialkhateeb.github.io/assets/images/rami-presenting.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rami Alkhateeb | Senior Software Engineer">
     <meta name="twitter:description"
         content="Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization.">
-    <meta name="twitter:image" content="https://ramialkhateeb.github.io/assets/images/sea.jpg">
+    <meta name="twitter:image" content="https://ramialkhateeb.github.io/assets/images/rami-presenting.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
@@ -59,14 +59,17 @@
         </section>
         <section id="about" class="section" data-tone="deep">
             <div class="container">
-                <div class="about-brief reveal" data-reveal="scale"><img src="assets/images/Me.webp" class="profile-photo"
-                        alt="Rami Alkhateeb">
-                    <div>
+                <div class="about-intro">
+                    <figure class="about-photo reveal" data-reveal="clip"><img src="assets/images/rami-presenting.webp"
+                            width="1200" height="900" loading="lazy"
+                            alt="Rami Alkhateeb presenting “From Ideas to Working Projects” on a large screen"></figure>
+                    <div class="about-copy">
                         <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
-                        <h2 data-i18n="about.title">I'm Rami — a software engineer who's spent 8 years building and
-                            modernizing enterprise systems across Germany, the UAE, and Syria.</h2>
-                        <p data-i18n="about.text">I like production code that stays solid under real use, and I'm just
-                            as comfortable inside a shared component library as I am in a stakeholder meeting.</p>
+                        <h2 data-scrub data-i18n="about.title">I'm Rami — a software engineer who's spent 8 years
+                            building and modernizing enterprise systems across Germany, the UAE, and Syria.</h2>
+                        <p class="reveal" data-i18n="about.text">I like production code that stays solid under real
+                            use, and I'm just as comfortable inside a shared component library as I am in a stakeholder
+                            meeting.</p>
                     </div>
                 </div>
                 <p class="eyebrow stack-label" data-i18n="impact.eyebrow">Engineering Impact</p>
@@ -84,11 +87,51 @@
                     <div class="reveal"><strong class="metric-value">~20%</strong><span
                             data-i18n="impact.performance">Performance Improvement</span></div>
                 </div>
+                <p class="eyebrow stack-label" data-i18n="capabilities.eyebrow">What I do</p>
+                <div class="capability-grid">
+                    <article class="reveal"><i class="fa-solid fa-code"></i>
+                        <h3 data-i18n="cap.software.title">Software Engineering</h3>
+                        <p data-i18n="cap.software.text">.NET, C#, ASP.NET Core, Angular, APIs, and databases.</p>
+                    </article>
+                    <article class="reveal"><i class="fa-solid fa-cloud"></i>
+                        <h3 data-i18n="cap.cloud.title">Architecture &amp; Cloud</h3>
+                        <p data-i18n="cap.cloud.text">Microservices, Azure, distributed systems, integrations, and
+                            modernization.</p>
+                    </article>
+                    <article class="reveal"><i class="fa-solid fa-people-group"></i>
+                        <h3 data-i18n="cap.lead.title">Technical Leadership</h3>
+                        <p data-i18n="cap.lead.text">Reviews, planning, technical decisions, and stakeholder
+                            collaboration.</p>
+                    </article>
+                    <article class="reveal"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <h3 data-i18n="cap.ai.title">AI-Assisted Engineering</h3>
+                        <p data-i18n="cap.ai.text">Codex and Claude Code for implementation, analysis, documentation,
+                            and controlled delivery.</p>
+                    </article>
+                </div>
+                <p class="eyebrow stack-label" data-i18n="about.expertise">Core expertise</p>
+                <div class="skill-field" dir="ltr" tabindex="0" role="group" aria-label="Core expertise">
+                    <ul class="skill-chips">
+                        <li>C# / .NET</li>
+                        <li>ASP.NET Core</li>
+                        <li>Angular</li>
+                        <li>TypeScript</li>
+                        <li>Azure</li>
+                        <li>Microservices</li>
+                        <li>SQL Server</li>
+                        <li>PostgreSQL</li>
+                        <li>Redis</li>
+                        <li>RabbitMQ</li>
+                        <li>Docker</li>
+                        <li>CI/CD</li>
+                        <li>xUnit</li>
+                        <li>Angular Material</li>
+                        <li>REST APIs</li>
+                        <li>Clean Architecture</li>
+                    </ul>
+                </div>
                 <p class="eyebrow stack-label" data-i18n="about.background">Background</p>
-                <p class="about-summary" data-i18n="about.summary">8 years building enterprise software across three
-                    countries — from a telecom platform serving 10M+ customers in Syria, to modernizing government
-                    justice systems in the UAE, to enterprise microservices in Germany.</p>
-                <div class="landmark-strip reveal" data-reveal="scale">
+                <div class="landmark-strip reveal" data-reveal="scale" data-route>
                     <div class="landmark"><svg viewBox="0 0 64 64" aria-hidden="true">
                             <rect x="6" y="40" width="52" height="10"></rect>
                             <circle cx="32" cy="34" r="10"></circle>
@@ -128,57 +171,19 @@
                 </div>
             </div>
         </section>
-        <section id="work" class="section" data-tone="deep">
-            <div class="container">
-                <p class="eyebrow" data-i18n="capabilities.eyebrow">What I do</p>
-                <div class="section-heading reveal">
-                    <h2 data-i18n="capabilities.title">Engineering depth with delivery ownership.</h2>
-                </div>
-                <div class="capability-grid">
-                    <article class="reveal"><i class="fa-solid fa-code"></i>
-                        <h3 data-i18n="cap.software.title">Software Engineering</h3>
-                        <p data-i18n="cap.software.text">.NET, C#, ASP.NET Core, Angular, APIs, and databases.</p>
-                    </article>
-                    <article class="reveal"><i class="fa-solid fa-cloud"></i>
-                        <h3 data-i18n="cap.cloud.title">Architecture &amp; Cloud</h3>
-                        <p data-i18n="cap.cloud.text">Microservices, Azure, distributed systems, integrations, and
-                            modernization.</p>
-                    </article>
-                    <article class="reveal"><i class="fa-solid fa-people-group"></i>
-                        <h3 data-i18n="cap.lead.title">Technical Leadership</h3>
-                        <p data-i18n="cap.lead.text">Reviews, planning, technical decisions, and stakeholder
-                            collaboration.</p>
-                    </article>
-                    <article class="reveal"><i
-                            class="fa-solid fa-wand-magic-sparkles"></i>
-                        <h3 data-i18n="cap.ai.title">AI-Assisted Engineering</h3>
-                        <p data-i18n="cap.ai.text">Codex and Claude Code for implementation, analysis, documentation,
-                            and controlled delivery.</p>
-                    </article>
-                </div>
-                <p class="eyebrow stack-label" data-i18n="about.expertise">Core expertise</p>
-                <div class="skills-card reveal"><span class="skill-tag">C# / .NET / ASP.NET Core</span><span
-                        class="skill-tag">Angular · TypeScript · React</span><span class="skill-tag">Microservices &amp;
-                        distributed systems</span><span class="skill-tag">Azure Functions, Service Bus, App
-                        Service</span><span class="skill-tag">SQL Server · PostgreSQL · Redis · MongoDB</span><span
-                        class="skill-tag">RabbitMQ · Docker · CI/CD</span><span class="skill-tag">REST/SOAP
-                        integrations</span><span class="skill-tag">xUnit · SOLID · Clean Code</span><span
-                        class="skill-tag">Reusable UI/component design</span></div>
-            </div>
-        </section>
         <section id="products" class="section" data-tone="deep">
             <div class="container">
-                <p class="eyebrow" data-i18n="products.eyebrow">Selected products</p>
+                <p class="eyebrow" data-i18n="products.eyebrow">Products</p>
                 <div class="section-heading reveal">
-                    <h2 data-i18n="products.title">Side projects built with product intent.</h2>
+                    <h2 data-i18n="products.title">What I build outside the day job.</h2>
                 </div>
-                <div id="project-grid" class="project-grid"></div>
+                <div id="brand-grid" class="brand-grid"></div>
             </div>
         </section>
         <section id="contact" class="section contact-section" data-tone="deep">
             <div class="container">
                 <p class="eyebrow" data-i18n="contact.eyebrow">Book an Appointment</p>
-                <h2 data-i18n="contact.title">Have an interesting problem, product, or platform to talk about? Let's
+                <h2 data-type data-i18n="contact.title">Have an interesting problem, product, or platform to talk about? Let's
                     schedule a call.</h2>
                 <p data-i18n="contact.text">Select a convenient time for a 1-on-1 discussion or consultation.</p>
                 <div class="hero-actions"><a class="btn email-link" data-i18n="hero.contact">Book an Appointment</a><a

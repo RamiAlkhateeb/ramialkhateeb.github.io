@@ -7,15 +7,15 @@ description: Serve this static portfolio site locally and visually verify change
 
 **Project convention: don't verify proactively.** After making a code change in this repo, do not automatically start a server or open a browser to check it — just report the change as done. Only run this skill when the user explicitly asks to see/preview/screenshot something.
 
-This is a static site with no dev server config. **`file://` does not work** — the custom elements (`<app-header>`/`<app-footer>`), i18n bootstrapping, and media popup logic all break silently when opened directly as a file, which has caused repeated false starts in past sessions. Always serve over HTTP first.
+This is a static site with no dev server config. **`file://` does not work** — the custom elements (`<app-header>`/`<app-footer>`), i18n bootstrapping, and the data-driven renderers all break silently when opened directly as a file, which has caused repeated false starts in past sessions. Always serve over HTTP first.
 
 ## 1. Start a local server
 
 Pick whichever is available in the environment:
 
 ```
-npx serve .          # Node — no install needed beyond npx
-python -m http.server # if Python is available
+python3 -m http.server  # preferred
+npx serve .             # avoid: its clean-URL redirect strips ?slug= from product.html links
 ```
 
 Run it in the background (it doesn't exit on its own).
@@ -25,8 +25,8 @@ Run it in the background (it doesn't exit on its own).
 Use `mcp__plugin_playwright_playwright__browser_navigate` to `http://localhost:<port>/<page>.html` (not `file://`), then `browser_snapshot` or `browser_take_screenshot` to inspect the result. Useful checks:
 - Resize with `browser_resize` to the site's breakpoints (850px, 600px) to confirm responsive layout.
 - Toggle the language switcher (`.language-toggle`) and re-check — this flips `dir` to `rtl` and re-renders all data-driven sections.
-- For product cards: click to open the media popup and confirm it opens/closes and (if multiple screenshots) the prev/next arrows work.
-- For About: scroll to confirm the roadmap's scroll-reveal (`.reveal`/`.in-view`) animates each node in.
+- For products: the home page shows the NxT7 and Courses cards; `nxt7.html` lists the app cards, and each opens `product.html?slug=<slug>`.
+- For About: scroll to confirm the scroll-reveals (`.reveal`/`.in-view`), the headline's word-by-word highlight, and the floating skill chips (they drift inside a box; click to pause).
 
 ## 3. Clean up
 

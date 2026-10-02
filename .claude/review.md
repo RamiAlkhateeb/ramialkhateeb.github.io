@@ -3,7 +3,7 @@
 Project-specific things a generic reviewer would miss. Apply this in addition to normal correctness review whenever a change touches this portfolio site's HTML/CSS/JS.
 
 ## Single-page structure
-- [ ] `index.html` holds every section (`#top`, `#about`, `#work`, `#products`, `#contact`). New sections must be registered in `SITE_STOPS` at the top of `js/components.js` — that array is the single source for both the header nav and the route rail, and `initNav()` derives its scroll-spy stops from the resulting `[data-scroll]` links.
+- [ ] `index.html` holds every section (`#top`, `#about`, `#products`, `#contact`). New sections must be registered in `SITE_STOPS` at the top of `js/components.js` — that array is the single source for both the header nav and the route rail, and `initNav()` derives its scroll-spy stops from the resulting `[data-scroll]` links.
 - [ ] Internal links point at anchors on `index.html` (e.g. `index.html#products`), never at `about.html`/`products.html` — those are redirect stubs now.
 - [ ] `product.html` stays a real page (`?slug=` deep links from `.project-card` clicks). Its nav still relies on the static `active="products"` attribute, so `initNav()` must keep bailing out when none of the `SITE_STOPS` ids exist in the document — don't change it to select sections by `main>section[id]`, which product.html would match.
 - [ ] Scroll-spy and count-up run once per page load (`navInit`/`countersInit` flags). `applyLanguage()` re-runs on every language toggle, so anything new called from there must be idempotent.
