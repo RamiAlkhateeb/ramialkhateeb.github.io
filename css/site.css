@@ -99,12 +99,14 @@ body[dir=rtl] .pricing-price {
     transition: transform .8s var(--ease), background-color .4s ease, border-color .4s ease
 }
 
-html.nav-hidden .nav-pill {
-    transform: translateY(-180%)
-}
+@media(min-width:769px) {
+    html.nav-hidden .nav-pill {
+        transform: translateY(-180%)
+    }
 
-html.nav-hidden .nav-pill:focus-within {
-    transform: none
+    html.nav-hidden .nav-pill:focus-within {
+        transform: none
+    }
 }
 
 .nav-pill a,
@@ -161,6 +163,11 @@ html.nav-hidden .nav-pill:focus-within {
     height: 20px;
     margin-inline: 6px;
     background: rgba(28, 26, 23, .18)
+}
+
+.nav-pill .language-toggle {
+    letter-spacing: 0;
+    text-transform: none
 }
 
 body[dir=rtl] .nav-pill a,
@@ -1094,8 +1101,17 @@ button:focus-visible {
         font-size: 10.5px
     }
 
+    body[dir=rtl] .nav-pill a,
+    body[dir=rtl] .nav-pill .language-toggle {
+        font-size: 12px
+    }
+
     .nav-divider {
         margin-inline: 2px
+    }
+
+    .scroll-cue {
+        bottom: 96px
     }
 
     body {
