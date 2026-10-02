@@ -20,6 +20,7 @@
 }
 
 html {
+    overflow-x: clip;
     scroll-behavior: smooth;
     scroll-padding-top: 88px
 }
@@ -295,8 +296,16 @@ body[dir=rtl] .rail-label {
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
-    padding-bottom: .14em;
-    margin-bottom: -.14em
+    padding: .14em .08em .18em;
+    margin: -.14em -.08em -.18em
+}
+
+body[dir=rtl] .hero-glass-card h1 {
+    letter-spacing: 0
+}
+
+html.js .hero-copy>h1:not([data-split]) {
+    visibility: hidden
 }
 
 .hw>span {
@@ -416,7 +425,7 @@ body[dir=rtl] .rail-label {
     box-shadow: 0 10px 26px rgba(217, 88, 26, 0.34)
 }
 
-.btn:active {
+.btn:active:not(.btn-disabled) {
     transform: translateY(0) scale(.97);
     box-shadow: 0 4px 12px rgba(217, 88, 26, 0.25);
     transition-duration: .08s
@@ -797,7 +806,7 @@ body[dir=rtl] .sdlc-arrow i {
     transform: scaleX(-1)
 }
 
-.reveal:not(.in-view) {
+html.js .reveal:not(.in-view) {
     opacity: 0
 }
 
@@ -1118,7 +1127,7 @@ button:focus-visible {
     }
 
     .reveal,
-    .reveal:not(.in-view),
+    html.js .reveal:not(.in-view),
     .reveal.in-view,
     .section-heading.reveal.in-view::after {
         opacity: 1;
