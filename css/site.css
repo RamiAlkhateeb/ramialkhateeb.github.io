@@ -9,6 +9,7 @@
     --accent-deep: #b8460f;
     --radius: 12px;
     --radius-lg: 20px;
+    --ease: cubic-bezier(.19, 1, .22, 1);
     --font: 'DM Sans', 'Cairo', sans-serif;
     --display: 'Archivo', 'DM Sans', 'Cairo', sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
@@ -45,7 +46,6 @@ a {
 h1,
 h2,
 h3,
-.logo,
 .footer-brand {
     font-family: var(--display)
 }
@@ -75,75 +75,110 @@ body[dir=rtl] .pricing-price {
 }
 
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(250, 247, 242, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--line)
+    position: fixed;
+    top: 22px;
+    inset-inline: 0;
+    z-index: 60;
+    display: flex;
+    justify-content: center;
+    pointer-events: none
 }
 
-.nav-wrap {
-    height: 70px;
+.nav-pill {
+    pointer-events: auto;
     display: flex;
     align-items: center;
-    gap: 24px
+    gap: 4px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .72);
+    border: 1px solid rgba(255, 255, 255, .75);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: 0 10px 40px rgba(28, 26, 23, .12);
+    transition: transform .8s var(--ease), background-color .4s ease, border-color .4s ease
 }
 
-.logo,
+html.nav-hidden .nav-pill {
+    transform: translateY(-180%)
+}
+
+html.nav-hidden .nav-pill:focus-within {
+    transform: none
+}
+
+.nav-pill a,
+.nav-pill .language-toggle {
+    position: relative;
+    z-index: 0;
+    display: block;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    font: 600 12.5px/1 var(--display);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #2a2a2a;
+    cursor: pointer;
+    transform: translate(var(--mx, 0), var(--my, 0));
+    transition: color .4s var(--ease), transform .6s cubic-bezier(.34, 1.56, .64, 1)
+}
+
+.nav-pill a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: #1b1b1b;
+    transform: scale(.4);
+    opacity: 0;
+    transition: transform .5s var(--ease), opacity .4s ease
+}
+
+.nav-pill a.active {
+    color: #fff
+}
+
+.nav-pill a.active::before {
+    transform: none;
+    opacity: 1
+}
+
+.nav-pill a:not(.active):hover,
+.nav-pill .language-toggle:hover {
+    color: var(--accent)
+}
+
+.nav-pill :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px
+}
+
+.nav-divider {
+    width: 1px;
+    height: 20px;
+    margin-inline: 6px;
+    background: rgba(28, 26, 23, .18)
+}
+
+body[dir=rtl] .nav-pill a,
+body[dir=rtl] .nav-pill .language-toggle {
+    font-family: Cairo, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0
+}
+
 .footer-brand {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: -.025em
 }
 
-.nav-controls {
-    margin-inline-start: auto;
-    display: flex;
-    gap: 9px;
-    align-items: center
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    font-size: .9rem;
-    font-weight: 600
-}
-
-.nav-links a {
-    color: var(--muted);
-    transition: color .2s ease
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-    color: var(--accent)
-}
-
-.language-toggle,
-.menu-toggle {
-    font: inherit;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--text);
-    border-radius: var(--radius);
-    padding: 8px 14px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all .2s ease
-}
-
-.language-toggle:hover,
-.menu-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent)
-}
-
-.menu-toggle {
-    display: none
+body:not(.sea-page) app-header {
+    display: block;
+    height: 84px
 }
 
 .route-rail {
@@ -981,7 +1016,7 @@ button:focus-visible {
 @media(max-width:1240px) {
     .route-rail {
         inset-inline: 0;
-        top: 70px;
+        top: 0;
         bottom: auto;
         transform: none;
         flex-direction: row;
@@ -1036,35 +1071,40 @@ button:focus-visible {
         grid-template-columns: repeat(2, 1fr)
     }
 
-    .nav-wrap {
-        height: 64px
+    .site-header {
+        top: auto;
+        bottom: 16px
     }
 
-    .route-rail {
-        top: 64px
+    .nav-pill {
+        max-width: calc(100vw - 16px);
+        gap: 2px;
+        padding: 5px;
+        overflow-x: auto;
+        scrollbar-width: none
     }
 
-    .menu-toggle {
-        display: block
+    .nav-pill::-webkit-scrollbar {
+        display: none
     }
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 64px;
-        inset-inline: 0;
-        padding: 20px;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 18px
+    .nav-pill a,
+    .nav-pill .language-toggle {
+        padding: 10px 11px;
+        font-size: 10.5px
     }
 
-    .nav-links.open {
-        display: flex
+    .nav-divider {
+        margin-inline: 2px
     }
 
+    body {
+        padding-bottom: 84px
+    }
+
+    body:not(.sea-page) app-header {
+        height: 0
+    }
 
     .career-hero-wrapper {
         padding: 60px 0 90px
@@ -1136,6 +1176,14 @@ button:focus-visible {
 
     .hw>span {
         animation: none
+    }
+
+    html.nav-hidden .nav-pill {
+        transform: none
+    }
+
+    .nav-pill a {
+        transform: none
     }
 
     .hero-copy {
@@ -1560,17 +1608,6 @@ body.sea-page [data-tone=deep] .metric-value {
     color: #f2c29c
 }
 
-body.sea-page .nav-links a.active {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 7px
-}
-
-html.sea-deep body.sea-page .nav-links a.active,
-html.sea-deep body.sea-page .nav-links a:hover {
-    color: var(--sea-icon)
-}
-
 html.sea-deep body.sea-page .rail-dot.active .rail-mark {
     border-color: var(--sea-icon);
     background: var(--sea-icon);
@@ -1586,11 +1623,12 @@ body.sea-page .site-footer {
 }
 
 body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
-    background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015) 60%, rgba(255, 255, 255, .04));
-    border: 1px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(10px) saturate(1.4);
-    -webkit-backdrop-filter: blur(10px) saturate(1.4);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), inset 0 -1px 0 rgba(255, 255, 255, .05), 0 16px 40px rgba(3, 15, 24, .16)
+    background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .008) 60%, rgba(255, 255, 255, .02));
+    border: 1px solid rgba(255, 255, 255, .14);
+    backdrop-filter: blur(6px) saturate(1.2);
+    -webkit-backdrop-filter: blur(6px) saturate(1.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), inset 0 -1px 0 rgba(255, 255, 255, .03), 0 12px 32px rgba(3, 15, 24, .1);
+    text-shadow: 0 1px 14px rgba(3, 15, 24, .35)
 }
 
 body.sea-page .project-card:hover {
@@ -1609,7 +1647,7 @@ body.sea-page .hero-glass-card {
     text-shadow: 0 1px 18px rgba(255, 255, 255, .35)
 }
 
-body.sea-page :is(.btn-outline, .language-toggle, .menu-toggle) {
+body.sea-page .btn-outline {
     background: linear-gradient(160deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, .1));
     border: 1px solid rgba(255, 255, 255, .4);
     backdrop-filter: blur(14px) saturate(1.6);
@@ -1617,18 +1655,37 @@ body.sea-page :is(.btn-outline, .language-toggle, .menu-toggle) {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55)
 }
 
-body.sea-page .site-header {
-    background: rgba(255, 255, 255, .3);
-    backdrop-filter: blur(26px) saturate(1.8);
-    -webkit-backdrop-filter: blur(26px) saturate(1.8);
-    border-bottom: 1px solid rgba(255, 255, 255, .45);
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .12);
-    transition: background-color .4s ease, border-color .4s ease, color .4s ease
+body.sea-page .nav-pill {
+    background: rgba(255, 255, 255, .28);
+    border-color: rgba(255, 255, 255, .55);
+    box-shadow: 0 10px 40px rgba(3, 15, 24, .14)
 }
 
-html.sea-deep body.sea-page .site-header {
-    background: rgba(10, 28, 40, .34);
-    border-bottom-color: rgba(255, 255, 255, .18)
+html.sea-deep body.sea-page .nav-pill {
+    background: rgba(10, 28, 40, .42);
+    border-color: rgba(255, 255, 255, .2);
+    box-shadow: 0 10px 40px rgba(3, 15, 24, .3)
+}
+
+html.sea-deep body.sea-page .nav-pill :is(a, .language-toggle) {
+    color: var(--glass-text)
+}
+
+html.sea-deep body.sea-page .nav-pill a::before {
+    background: var(--sea-icon)
+}
+
+html.sea-deep body.sea-page .nav-pill a.active {
+    color: #10222d
+}
+
+html.sea-deep body.sea-page .nav-pill a:not(.active):hover,
+html.sea-deep body.sea-page .nav-pill .language-toggle:hover {
+    color: var(--sea-icon)
+}
+
+html.sea-deep body.sea-page .nav-divider {
+    background: rgba(255, 255, 255, .25)
 }
 
 .sea-photo {
@@ -1854,13 +1911,13 @@ html.tab-hidden .sea-photo:before {
 @media(max-width:768px) {
 
     body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
-        backdrop-filter: blur(10px) saturate(1.5);
-        -webkit-backdrop-filter: blur(10px) saturate(1.5)
+        backdrop-filter: blur(4px) saturate(1.2);
+        -webkit-backdrop-filter: blur(4px) saturate(1.2)
     }
 
-    body.sea-page .site-header {
-        backdrop-filter: blur(12px) saturate(1.5);
-        -webkit-backdrop-filter: blur(12px) saturate(1.5)
+    body.sea-page .nav-pill {
+        backdrop-filter: blur(10px) saturate(1.4);
+        -webkit-backdrop-filter: blur(10px) saturate(1.4)
     }
 
     .sea-fx .sea-bit,
