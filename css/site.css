@@ -67,8 +67,8 @@ h3,
 
 html[dir=rtl] .eyebrow,
 html[dir=rtl] .metric-value,
-html[dir=rtl] .skill-tag,
 html[dir=rtl] .sdlc-index,
+html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
 html[dir=rtl] .pricing-price {
     font-family: Cairo, sans-serif
@@ -649,71 +649,6 @@ html[dir=rtl] .capability-grid article:before {
     font-size: .92rem
 }
 
-.about-brief {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 40px;
-    align-items: center;
-    background: var(--surface);
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow)
-}
-
-.profile-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--soft);
-    box-shadow: 0 0 0 1px var(--line), 0 14px 34px rgba(28, 26, 23, 0.12)
-}
-
-.about-brief h1,
-.about-brief h2 {
-    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
-    line-height: 1.16;
-    letter-spacing: -.03em;
-    font-weight: 700;
-    margin: 0 0 16px
-}
-
-.about-brief p:not(.eyebrow) {
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.65;
-    margin: 0
-}
-
-.skills-card {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    background: var(--surface);
-    padding: 28px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow)
-}
-
-.skill-tag {
-    font-family: var(--mono);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: .8rem;
-    font-weight: 500;
-    color: var(--text);
-    background: var(--soft);
-    transition: all .2s ease
-}
-
-.skill-tag:hover {
-    border-color: var(--accent);
-    color: var(--accent)
-}
-
 .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -747,19 +682,149 @@ html[dir=rtl] .capability-grid article:before {
     margin-top: 48px
 }
 
-.about-summary {
-    max-width: 760px;
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin: 0 0 28px
-}
-
 .landmark-strip {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 18px 72px;
     margin-bottom: 48px
+}
+
+.landmark-strip[data-route] {
+    padding-top: 54px
+}
+
+.landmark-strip .landmark {
+    position: relative;
+    z-index: 1
+}
+
+.route-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none
+}
+
+.route-svg path {
+    fill: none;
+    stroke: var(--sea-icon, var(--accent));
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 2 9;
+    opacity: .85
+}
+
+.route-draw {
+    stroke: #fff !important;
+    stroke-dasharray: none !important;
+    stroke-width: 6 !important;
+    opacity: 1 !important
+}
+
+.route-plane {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    color: var(--sea-icon, var(--accent));
+    font-size: 1rem;
+    offset-rotate: auto;
+    offset-distance: 0%;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--sea-icon, var(--accent)) 60%, transparent))
+}
+
+.route-plane i {
+    display: block;
+    transform: translate(-50%, -50%) rotate(-45deg)
+}
+
+.landmark-strip.in-view .route-plane {
+    animation: routeFly 3.2s cubic-bezier(.45, .05, .3, 1) .5s forwards
+}
+
+@keyframes routeFly {
+    0% {
+        offset-distance: 0%;
+        opacity: 0
+    }
+
+    8% {
+        opacity: 1
+    }
+
+    92% {
+        opacity: 1
+    }
+
+    100% {
+        offset-distance: 100%;
+        opacity: 0
+    }
+}
+
+.landmark-strip.in-view .landmark {
+    animation: landmarkPing .6s ease backwards
+}
+
+.landmark-strip.in-view .landmark:nth-of-type(1) {
+    animation-delay: .5s
+}
+
+.landmark-strip.in-view .landmark:nth-of-type(2) {
+    animation-delay: 2s
+}
+
+.landmark-strip.in-view .landmark:nth-of-type(3) {
+    animation-delay: 3.5s
+}
+
+@keyframes landmarkPing {
+    50% {
+        border-color: var(--sea-icon, var(--accent));
+        box-shadow: 0 0 0 6px color-mix(in srgb, var(--sea-icon, var(--accent)) 22%, transparent)
+    }
+}
+
+html.js [data-type]:not([data-typed]) {
+    color: transparent
+}
+
+.tw-rest {
+    color: transparent
+}
+
+.tw-caret {
+    display: inline-block;
+    width: .06em;
+    height: .9em;
+    margin-inline: .02em;
+    vertical-align: -.08em;
+    background: var(--sea-icon, var(--accent));
+    animation: caretBlink .9s steps(1) infinite
+}
+
+@keyframes caretBlink {
+    50% {
+        opacity: 0
+    }
+}
+
+.btn.email-link.pulse-once {
+    animation: btnPulse 1.6s ease-out 2
+}
+
+@keyframes btnPulse {
+    0% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--sea-icon, var(--accent)) 60%, transparent)
+    }
+
+    100% {
+        box-shadow: 0 0 0 18px color-mix(in srgb, var(--sea-icon, var(--accent)) 0%, transparent)
+    }
 }
 
 .landmark {
@@ -787,6 +852,251 @@ html[dir=rtl] .capability-grid article:before {
     height: 28px;
     fill: var(--accent);
     flex-shrink: 0
+}
+
+.about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center
+}
+
+.about-photo {
+    margin: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(3, 15, 24, .35);
+    aspect-ratio: 4 / 3
+}
+
+.about-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.about-copy h2 {
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    line-height: 1.18;
+    letter-spacing: -.03em;
+    font-weight: 700;
+    margin: 0 0 20px
+}
+
+.about-copy p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0
+}
+
+html[dir=rtl] .about-copy h2 {
+    letter-spacing: 0
+}
+
+.sw {
+    opacity: .22;
+    transition: opacity .35s ease
+}
+
+.sw.on {
+    opacity: 1
+}
+
+[data-reveal=clip].reveal.in-view {
+    animation: clipIn 1.25s cubic-bezier(.22, .8, .2, 1) var(--rd, 0ms) backwards
+}
+
+[data-reveal=clip].in-view img {
+    animation: photoSettle 1.8s cubic-bezier(.22, .8, .2, 1) var(--rd, 0ms) backwards
+}
+
+@keyframes clipIn {
+    from {
+        opacity: 0;
+        clip-path: inset(14% 10% 14% 10% round 28px)
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 round 28px)
+    }
+}
+
+@keyframes photoSettle {
+    from {
+        transform: scale(1.14)
+    }
+}
+
+.skill-field {
+    position: relative;
+    height: clamp(150px, 15vw, 180px);
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, .16);
+    background: linear-gradient(160deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18)
+}
+
+.skill-field:focus-visible {
+    outline: 2px solid var(--sea-icon, var(--accent));
+    outline-offset: 4px
+}
+
+.skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    list-style: none
+}
+
+.skill-chips li {
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .3);
+    background: rgba(255, 255, 255, .08);
+    color: var(--text);
+    font: 600 .84rem/1 var(--mono);
+    white-space: nowrap;
+    transition: border-color .25s ease, color .25s ease, background .25s ease
+}
+
+.skill-chips li:hover {
+    border-color: var(--sea-icon, var(--accent));
+    color: var(--sea-icon, var(--accent))
+}
+
+.skill-field.is-live .skill-chips {
+    display: block;
+    padding: 0
+}
+
+.skill-field.is-live .skill-chips li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    will-change: transform
+}
+
+@media(max-width:550px) {
+    .landmark-strip[data-route] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+        padding-top: 0
+    }
+
+    .skill-field {
+        height: 280px
+    }
+
+    .skill-chips li {
+        font-size: .74rem;
+        padding: 6px 11px
+    }
+}
+
+.section-heading .hw>span {
+    animation: none
+}
+
+.section-heading.in-view .hw>span {
+    animation: wordUp .9s cubic-bezier(.22, .8, .2, 1) calc(.12s + min(var(--i, 0), 9) * .05s) backwards
+}
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    perspective: 1200px
+}
+
+.project-card.brand-card {
+    aspect-ratio: 4 / 3;
+    color: inherit;
+    text-decoration: none;
+    transform: rotateX(calc(var(--ty, 0) * -7deg)) rotateY(calc(var(--tx, 0) * 9deg));
+    transition: transform .35s cubic-bezier(.22, .8, .2, 1), box-shadow .3s ease
+}
+
+.project-card.brand-card:hover,
+.project-card.brand-card:focus-visible {
+    transform: rotateX(calc(var(--ty, 0) * -7deg)) rotateY(calc(var(--tx, 0) * 9deg)) translateY(-4px)
+}
+
+.brand-card h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    letter-spacing: -.03em;
+    color: #fff
+}
+
+.brand-card .project-card-content {
+    padding: 28px
+}
+
+.brand-index {
+    position: absolute;
+    z-index: 1;
+    top: 18px;
+    inset-inline-start: 22px;
+    font: 600 .78rem/1 var(--mono);
+    letter-spacing: .12em;
+    color: rgba(255, 255, 255, .7)
+}
+
+.brand-art {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(120% 90% at 80% 10%, color-mix(in srgb, var(--sea-icon) 28%, transparent), transparent 60%), linear-gradient(150deg, var(--sea-mid), var(--sea-deeper))
+}
+
+.brand-wordmark {
+    font: 800 clamp(4.5rem, 11vw, 9rem)/1 var(--display);
+    letter-spacing: -.05em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--sea-icon);
+    filter: drop-shadow(0 0 18px color-mix(in srgb, var(--sea-icon) 35%, transparent));
+    transform: translateY(-62%);
+    transition: color .4s ease
+}
+
+.brand-card:hover .brand-wordmark {
+    color: color-mix(in srgb, var(--sea-icon) 18%, transparent)
+}
+
+.brand-art i {
+    font-size: clamp(4rem, 9vw, 7rem);
+    color: rgba(255, 255, 255, .16);
+    transform: translateY(-18%)
+}
+
+.brand-card .project-card-scrim {
+    background: linear-gradient(180deg, rgba(8, 10, 13, .3) 0%, rgba(8, 10, 13, .6) 42%, rgba(8, 10, 13, .93) 100%)
+}
+
+html[dir=rtl] .back-link i,
+html[dir=rtl] .project-card-cta i {
+    transform: scaleX(-1)
+}
+
+.project-card.brand-card.is-soon {
+    cursor: default
+}
+
+.project-card.brand-card.is-soon:hover {
+    transform: none;
+    box-shadow: var(--shadow)
 }
 
 .sdlc-block {
@@ -1226,15 +1536,9 @@ button:focus-visible {
         grid-template-columns: repeat(3, 1fr)
     }
 
-    .about-brief {
+    .about-intro {
         grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 28px
-    }
-
-    .profile-photo {
-        width: 130px;
-        height: 130px
+        gap: 32px
     }
 }
 
@@ -1306,8 +1610,14 @@ button:focus-visible {
     }
 
     .capability-grid,
-    .info-grid {
+    .info-grid,
+    .brand-grid {
         grid-template-columns: 1fr
+    }
+
+    .project-card.brand-card {
+        aspect-ratio: auto;
+        min-height: 420px
     }
 
     .hero-actions .btn {
@@ -1363,8 +1673,35 @@ button:focus-visible {
         animation: none
     }
 
-    .hw>span {
+    .landmark-strip.in-view .route-plane,
+    .landmark-strip.in-view .landmark,
+    .btn.email-link.pulse-once,
+    .tw-caret {
         animation: none
+    }
+
+    .route-plane {
+        display: none
+    }
+
+    html.js [data-type]:not([data-typed]) {
+        color: inherit
+    }
+
+    .hw>span,
+    .section-heading.in-view .hw>span,
+    [data-reveal=clip].reveal.in-view,
+    [data-reveal=clip].in-view img {
+        animation: none
+    }
+
+    .sw {
+        opacity: 1
+    }
+
+    .project-card.brand-card,
+    .project-card.brand-card:hover {
+        transform: none
     }
 
     html.nav-hidden .nav-pill {
@@ -1839,6 +2176,7 @@ body.sea-page {
     --glass-muted: rgba(224, 234, 240, .68);
     --sea-eyebrow: #e9cdb4;
     --sea-icon: #f0b48a;
+    --sea-ink: #1c2a32;
     background: var(--sea-bg, linear-gradient(180deg, var(--sea-sky), var(--sea-shallow) 16%, var(--sea-mid) 36%, var(--sea-deep) 60%, var(--sea-abyss) 88%)) no-repeat var(--sea-abyss)
 }
 
@@ -1847,11 +2185,7 @@ body.sea-page #top {
 }
 
 body.sea-page #about {
-    --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 100%
-}
-
-body.sea-page #work {
-    --sea-stops: var(--sea-mid) 0%, var(--sea-deep) 100%
+    --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 45%, var(--sea-deep) 100%
 }
 
 body.sea-page #products {
@@ -1906,7 +2240,23 @@ body.sea-page .site-footer {
     background: transparent
 }
 
-body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
+body.sea-page .btn.email-link {
+    background: var(--sea-icon);
+    border-color: var(--sea-icon);
+    color: var(--sea-ink);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--sea-icon) 32%, transparent)
+}
+
+body.sea-page .btn.email-link:hover {
+    background: var(--sea-eyebrow);
+    border-color: var(--sea-eyebrow)
+}
+
+body.sea-page .info-grid h3 {
+    color: var(--sea-icon)
+}
+
+body.sea-page :is(.metrics-grid>div, .info-grid>div, .landmark, .capability-grid article, .project-card) {
     background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .008) 60%, rgba(255, 255, 255, .02));
     border: 1px solid rgba(255, 255, 255, .14);
     backdrop-filter: blur(6px) saturate(1.2);
@@ -2194,7 +2544,7 @@ html.tab-hidden .sea-photo:before {
 
 @media(max-width:768px) {
 
-    body.sea-page :is(.about-brief, .metrics-grid>div, .info-grid>div, .landmark, .skills-card, .capability-grid article, .project-card) {
+    body.sea-page :is(.metrics-grid>div, .info-grid>div, .landmark, .capability-grid article, .project-card) {
         backdrop-filter: blur(4px) saturate(1.2);
         -webkit-backdrop-filter: blur(4px) saturate(1.2)
     }
