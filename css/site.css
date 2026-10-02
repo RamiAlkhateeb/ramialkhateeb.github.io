@@ -34,7 +34,7 @@ body {
     line-height: 1.6
 }
 
-body[dir=rtl] {
+html[dir=rtl] body {
     font-family: Cairo, sans-serif
 }
 
@@ -65,12 +65,12 @@ h3,
     margin: 0 0 14px
 }
 
-body[dir=rtl] .eyebrow,
-body[dir=rtl] .metric-value,
-body[dir=rtl] .skill-tag,
-body[dir=rtl] .sdlc-index,
-body[dir=rtl] .rail-label,
-body[dir=rtl] .pricing-price {
+html[dir=rtl] .eyebrow,
+html[dir=rtl] .metric-value,
+html[dir=rtl] .skill-tag,
+html[dir=rtl] .sdlc-index,
+html[dir=rtl] .rail-label,
+html[dir=rtl] .pricing-price {
     font-family: Cairo, sans-serif
 }
 
@@ -170,8 +170,8 @@ body[dir=rtl] .pricing-price {
     text-transform: none
 }
 
-body[dir=rtl] .nav-pill a,
-body[dir=rtl] .nav-pill .language-toggle {
+html[dir=rtl] .nav-pill a,
+html[dir=rtl] .nav-pill .language-toggle {
     font-family: Cairo, sans-serif;
     font-size: 14px;
     letter-spacing: 0
@@ -219,7 +219,7 @@ body:not(.sea-page) app-header {
     transition: transform .45s cubic-bezier(.22, .8, .2, 1)
 }
 
-body[dir=rtl] .rail-progress {
+html[dir=rtl] .rail-progress {
     transform-origin: right top
 }
 
@@ -264,7 +264,7 @@ body[dir=rtl] .rail-progress {
     transition: opacity .25s ease, transform .25s ease
 }
 
-body[dir=rtl] .rail-label {
+html[dir=rtl] .rail-label {
     transform: translateX(6px)
 }
 
@@ -342,7 +342,7 @@ body[dir=rtl] .rail-label {
     margin: -.14em -.08em -.18em
 }
 
-body[dir=rtl] .hero-glass-card h1 {
+html[dir=rtl] .hero-glass-card h1 {
     letter-spacing: 0
 }
 
@@ -618,7 +618,7 @@ html.js .hero-copy>h1:not([data-split]) {
     transition: transform .3s ease
 }
 
-body[dir=rtl] .capability-grid article:before {
+html[dir=rtl] .capability-grid article:before {
     transform-origin: right
 }
 
@@ -844,7 +844,7 @@ body[dir=rtl] .capability-grid article:before {
     flex: 0 0 auto
 }
 
-body[dir=rtl] .sdlc-arrow i {
+html[dir=rtl] .sdlc-arrow i {
     transform: scaleX(-1)
 }
 
@@ -871,11 +871,11 @@ html.js .reveal:not(.in-view) {
     --rs: .94
 }
 
-body[dir=rtl] [data-reveal=left] {
+html[dir=rtl] [data-reveal=left] {
     --rx: 48px
 }
 
-body[dir=rtl] [data-reveal=right] {
+html[dir=rtl] [data-reveal=right] {
     --rx: -48px
 }
 
@@ -902,7 +902,7 @@ body[dir=rtl] [data-reveal=right] {
     transform-origin: left center
 }
 
-body[dir=rtl] .section-heading.reveal::after {
+html[dir=rtl] .section-heading.reveal::after {
     transform-origin: right center
 }
 
@@ -1012,10 +1012,7 @@ html.intro-out .intro-screen {
     gap: 22px;
     background: linear-gradient(180deg, #456672, #1d3d4d 55%, #07161f);
     color: #f4f8fa;
-    cursor: pointer
-}
-
-html.intro .intro-screen {
+    cursor: pointer;
     animation: introOut .9s cubic-bezier(.76, 0, .24, 1) 1.6s forwards
 }
 
@@ -1026,7 +1023,7 @@ html.intro .intro-screen {
     animation: introName 1s cubic-bezier(.22, .8, .2, 1) .2s backwards
 }
 
-body[dir=rtl] .intro-name {
+html[dir=rtl] .intro-name {
     font-family: Cairo, sans-serif;
     letter-spacing: 0
 }
@@ -1039,7 +1036,7 @@ body[dir=rtl] .intro-name {
     animation: lineDraw 1s cubic-bezier(.22, .8, .2, 1) .5s backwards
 }
 
-body[dir=rtl] .intro-line {
+html[dir=rtl] .intro-line {
     transform-origin: right center
 }
 
@@ -1277,8 +1274,8 @@ button:focus-visible {
         font-size: 10.5px
     }
 
-    body[dir=rtl] .nav-pill a,
-    body[dir=rtl] .nav-pill .language-toggle {
+    html[dir=rtl] .nav-pill a,
+    html[dir=rtl] .nav-pill .language-toggle {
         font-size: 12px
     }
 
@@ -1518,7 +1515,7 @@ button:focus-visible {
     vertical-align: 1px
 }
 
-body[dir=rtl] .project-status {
+html[dir=rtl] .project-status {
     font-family: Cairo, sans-serif;
     letter-spacing: 0;
     text-transform: none
@@ -1542,7 +1539,7 @@ body[dir=rtl] .project-status {
     font: 500 .72rem/1.2 var(--mono)
 }
 
-body[dir=rtl] .project-chips li {
+html[dir=rtl] .project-chips li {
     font-family: Cairo, sans-serif
 }
 
@@ -1923,9 +1920,9 @@ body.sea-page .project-card:hover {
 }
 
 body.sea-page .hero-glass-card {
-    --text: #3f4d56;
-    --muted: #56646d;
-    --line: rgba(63, 77, 86, .26);
+    --text: #1f2c34;
+    --muted: #33444e;
+    --line: rgba(31, 44, 52, .28);
     background: none;
     border: 0;
     backdrop-filter: none;
