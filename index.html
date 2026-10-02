@@ -7,6 +7,7 @@
     <title>Rami Alkhateeb | Senior Software Engineer</title>
     <meta name="description"
         content="Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization. Eight years across Syria, the UAE, and Germany.">
+    <script>try{if(!sessionStorage.getItem('rami-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro');sessionStorage.setItem('rami-intro','1')}}catch(e){}</script>
     <meta name="theme-color" content="#1d3d4d">
     <link rel="canonical" href="https://ramialkhateeb.github.io/">
     <meta property="og:type" content="website">
@@ -26,11 +27,16 @@
         href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/site.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon-192.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 </head>
 
-<body><app-header active="home"></app-header><app-rail></app-rail><app-sea></app-sea>
+<body>
+    <div class="intro-screen" role="presentation">
+        <p class="intro-name" data-i18n="hero.eyebrow">Rami Alkhateeb</p><span class="intro-line"></span>
+        <button class="intro-skip" type="button" data-i18n="intro.skip">Skip</button>
+    </div>
+    <app-header active="home"></app-header><app-rail></app-rail><app-sea></app-sea>
     <main>
         <section id="top" class="career-hero-wrapper">
             <div class="container career-hero">
@@ -53,7 +59,7 @@
         </section>
         <section id="about" class="section" data-tone="deep">
             <div class="container">
-                <div class="about-brief reveal" data-reveal="scale"><img src="assets/images/Me.png" class="profile-photo"
+                <div class="about-brief reveal" data-reveal="scale"><img src="assets/images/Me.webp" class="profile-photo"
                         alt="Rami Alkhateeb">
                     <div>
                         <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
@@ -179,6 +185,9 @@
                         class="btn btn-outline" href="https://linkedin.com/in/rami13alkhateeb" target="_blank"
                         rel="noopener">LinkedIn</a><a class="btn btn-outline" href="https://github.com/ramialkhateeb"
                         target="_blank" rel="noopener">GitHub</a></div>
+                <p class="contact-mail"><span class="contact-mail-text"></span><button
+                        class="btn btn-outline btn-sm copy-email" type="button" data-i18n="contact.copy">Copy
+                        email</button><span class="copy-status" role="status" aria-live="polite"></span></p>
             </div>
         </section>
     </main><app-footer></app-footer>
