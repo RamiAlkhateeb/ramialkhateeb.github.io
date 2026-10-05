@@ -1,7 +1,11 @@
 # Project media
 
-Use `assets/projects/<project-slug>/logo.png` for the logo shown on the app's card and detail page.
+`assets/projects/<project-slug>/logo.svg` is the logo on the app's card and detail page. The NxT7 apps (Makdous, NxtTask, Syrian Radio) use the icons from the shared Nxt.UI library (`Nxt.UI/wwwroot/logos/`); copy the new SVG over when an app's icon changes.
 
-Product screenshots go in the project folder as `1.png`, `2.png`, `3.png`, … — the first one is the card background on `nxt7.html`, and all of them appear in phone frames on the detail page (`product.html?slug=<slug>`).
+Screenshots go in the project folder as `1.webp`, `2.webp`, `3.webp`, … at 591×1280 (a 375×812 phone viewport at 1.576× scale), in the English UI where the app supports it. The first one is the card's media window on `nxt7.html` and, when the project has an `ai.prompt`, the phone shown in the detail page's "How the AI helps" block, so put the AI screen first. The rest appear in phone frames on the detail page (`product.html?slug=<slug>`).
 
-A demo or teaser video can be added as `<project-slug>_teaser.mp4` (e.g. `carousel-engine/carousel_engine_teaser.mp4`) and set as `video`; it plays on the detail page. Projects without screenshots should set a `poster` image to use as the card background.
+AI screens can be captured without a real key: run the app locally, set `nxt.ai.key` to a placeholder, and have Playwright answer requests to `generativelanguage.googleapis.com` with a sample JSON reply that matches the app's `response_schema`.
+
+A demo or teaser video can be added as `<project-slug>_teaser.mp4` (e.g. `carousel-engine/carousel_engine_teaser.mp4`) and set as `video`; it plays on the detail page. Projects without screenshots should set a `poster` WebP for the card.
+
+`assets/images/nxt7-logo.svg` is the NxT7 studio logo used on the home page card and `nxt7.html`.

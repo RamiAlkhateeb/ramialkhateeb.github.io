@@ -14,9 +14,15 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
 ```js
 {
   slug: 'my-product',                 // used in URLs and asset folder name
-  logo: 'assets/projects/my-product/logo.png',
-  screenshots: ['assets/projects/my-product/1.png', 'assets/projects/my-product/2.png'], // omit if using video
-  video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4'
+  logo: 'assets/projects/my-product/logo.svg',   // NxT7 apps: copy from Nxt.UI/wwwroot/logos/
+  screenshots: ['assets/projects/my-product/1.webp', 'assets/projects/my-product/2.webp'], // 591×1280 WebP; omit if using video
+  video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4' (+ poster:'…/poster.webp')
+  tags: ['Gemini AI'],                // 'Gemini AI' renders as the highlighted AI chip
+  arabicFirst: false,                 // optional: adds an "Arabic-first" chip
+  ai: {                               // optional: AI line on the card + "How the AI helps" block on the detail page
+    en: { summary: '…', prompt: 'example request', result: ['line', 'line'] },
+    ar: { summary: '…', prompt: '…', result: ['…'] }
+  },
   tryUrl: '',                         // live URL, or '' to show "Coming soon"
   sourceUrl: '',                      // optional GitHub link
   pricing: [],                        // optional: [{name, price, period, features:[...]}]
@@ -27,7 +33,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     problem: '', decisions: '', architecture: '', constraints: '', outcome: '', learning: '',
     journey: []                       // optional array of milestone strings
   },
-  ar: { title: '...', short: '...' }  // Arabic is optional — falls back to `en` via localized()
+  // ar: { ...every en field... }    // optional; localized() swaps the WHOLE object, so a partial `ar` hides the missing sections
 }
 ```
 
@@ -36,9 +42,9 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 ## 2. Add assets
 
 Create `assets/projects/<slug>/` containing:
-- `logo.png` — shown on the product card.
-- `1.png`, `2.png`, … — screenshots: the first is the card background on `nxt7.html`, all appear in phone frames on the detail page.
-- `<slug>_teaser.mp4` — optional demo video shown on the detail page; pair it with a `poster` image for the card background.
+- `logo.svg` (or `.webp`) — shown on the product card.
+- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. The first is the card's media window on `nxt7.html` and, when `ai.prompt` is set, the phone shown in "How the AI helps"; the rest appear in phone frames on the detail page.
+- `<slug>_teaser.mp4` — optional demo video shown on the detail page; pair it with a `poster` WebP for the card.
 
 See `assets/projects/README.md` for the full media convention.
 
