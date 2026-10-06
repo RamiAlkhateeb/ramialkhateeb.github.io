@@ -14,9 +14,15 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
 ```js
 {
   slug: 'my-product',                 // used in URLs and asset folder name
-  logo: 'assets/projects/my-product/logo.png',
-  screenshots: ['assets/projects/my-product/1.png', 'assets/projects/my-product/2.png'], // omit if using video
-  video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4'
+  logo: 'assets/projects/my-product/logo.svg',   // NxT7 apps: copy from Nxt.UI/wwwroot/logos/
+  screenshots: ['assets/projects/my-product/1.webp', 'assets/projects/my-product/2.webp'], // 591×1280 WebP; omit if using video
+  video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4' (+ poster:'…/poster.webp')
+  tags: ['Gemini AI'],                // 'Gemini AI' renders as the highlighted AI chip
+  arabicFirst: false,                 // optional: adds an "Arabic-first" chip
+  ai: {                               // optional: "How the AI helps" block on the detail page
+    en: { summary: '…', prompt: 'example request', result: ['line', 'line'] },
+    ar: { summary: '…', prompt: '…', result: ['…'] }
+  },
   tryUrl: '',                         // live URL, or '' to show "Coming soon"
   sourceUrl: '',                      // optional GitHub link
   pricing: [],                        // optional: [{name, price, period, features:[...]}]
@@ -24,10 +30,9 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     title: 'My Product',
     short: 'One-sentence description shown on cards.',
     // optional narrative fields shown on the product.html detail page if present:
-    problem: '', decisions: '', architecture: '', constraints: '', outcome: '', learning: '',
-    journey: []                       // optional array of milestone strings
+    problem: '', outcome: ''           // only problem and outcome are shown on the detail page
   },
-  ar: { title: '...', short: '...' }  // Arabic is optional — falls back to `en` via localized()
+  // ar: { ...every en field... }    // optional; localized() swaps the WHOLE object, so a partial `ar` hides the missing sections
 }
 ```
 
@@ -36,9 +41,9 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 ## 2. Add assets
 
 Create `assets/projects/<slug>/` containing:
-- `logo.png` — shown on the product card.
-- `1.png`, `2.png`, … — screenshots, shown plainly on the detail page. The `nxt7.html` card shows only `logo.png`.
-- `<slug>_teaser.mp4` — optional demo video shown on the detail page; a `poster` image is optional.
+- `logo.svg` (or `.webp`) — shown on the product card.
+- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. Shown as plain images on the detail page; the `nxt7.html` card shows only the logo.
+- `<slug>_teaser.mp4` — optional demo video shown on the detail page.
 
 See `assets/projects/README.md` for the full media convention.
 

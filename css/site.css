@@ -13,7 +13,10 @@
     --font: 'DM Sans', 'Cairo', sans-serif;
     --display: 'Archivo', 'DM Sans', 'Cairo', sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-    --shadow: 0 10px 30px rgba(28, 26, 23, 0.08)
+    --shadow: 0 10px 30px rgba(28, 26, 23, 0.08);
+    --ai: #ff2d55;
+    --ai-2: #ff8c5a;
+    --ink: #1c1c1e
 }
 
 * {
@@ -1060,20 +1063,6 @@ html[dir=rtl] .about-copy h2 {
     background: radial-gradient(120% 90% at 80% 10%, color-mix(in srgb, var(--sea-icon) 28%, transparent), transparent 60%), linear-gradient(150deg, var(--sea-mid), var(--sea-deeper))
 }
 
-.brand-wordmark {
-    font: 800 clamp(4.5rem, 11vw, 9rem)/1 var(--display);
-    letter-spacing: -.05em;
-    color: transparent;
-    -webkit-text-stroke: 2px var(--sea-icon);
-    filter: drop-shadow(0 0 18px color-mix(in srgb, var(--sea-icon) 35%, transparent));
-    transform: translateY(-62%);
-    transition: color .4s ease
-}
-
-.brand-card:hover .brand-wordmark {
-    color: color-mix(in srgb, var(--sea-icon) 18%, transparent)
-}
-
 .brand-art i {
     font-size: clamp(4rem, 9vw, 7rem);
     color: rgba(255, 255, 255, .16);
@@ -1676,14 +1665,14 @@ button:focus-visible {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 22px
 }
 
 .project-card {
     position: relative;
     display: flex;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     isolation: isolate;
     border-radius: var(--radius-lg);
@@ -1762,6 +1751,112 @@ html[dir=rtl] .project-status {
     list-style: none
 }
 
+.brand-logo {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 6px;
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+    transition: transform .4s cubic-bezier(.22, .8, .2, 1)
+}
+
+.brand-card:hover .brand-logo {
+    transform: translateY(-4px) rotate(-3deg)
+}
+
+.nxt7-hero-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px
+}
+
+.nxt7-hero-top .eyebrow {
+    margin: 0
+}
+
+.nxt7-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(28, 26, 23, .18)
+}
+
+.ai-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    margin-bottom: 56px;
+    padding: clamp(24px, 4vw, 40px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: radial-gradient(120% 90% at var(--glow-x, 100%) 0%, color-mix(in srgb, var(--ai) 8%, transparent), transparent 60%), var(--surface);
+    box-shadow: var(--shadow)
+}
+
+html[dir=rtl] .ai-block {
+    --glow-x: 0%
+}
+
+.ai-block .eyebrow i {
+    color: var(--ai)
+}
+
+.ai-block h2 {
+    margin: 0 0 22px;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -.02em
+}
+
+.ai-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.ai-bubble {
+    margin: 0;
+    max-width: 92%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: .95rem;
+    line-height: 1.55
+}
+
+.ai-bubble.is-user {
+    align-self: flex-end;
+    background: var(--ink);
+    color: #fff;
+    border-end-end-radius: 6px
+}
+
+.ai-bubble.is-ai {
+    align-self: flex-start;
+    list-style: none;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-end-start-radius: 6px
+}
+
+.ai-bubble.is-ai li + li {
+    margin-top: 6px
+}
+
+.ai-bubble.is-ai li::before {
+    content: "\2713";
+    margin-inline-end: 8px;
+    color: var(--ai);
+    font-weight: 700
+}
+
+.ai-note {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: .82rem
+}
+
 .project-chips li {
     padding: 4px 10px;
     border-radius: 999px;
@@ -1824,7 +1919,8 @@ html[dir=rtl] .project-chips li {
     height: auto;
     aspect-ratio: 1;
     border-radius: 22%;
-    border: 0
+    border: 0;
+    background: none
 }
 
 .project-card .project-desc {
@@ -1925,6 +2021,10 @@ html[dir=rtl] .project-chips li {
     width: min(300px, 100%)
 }
 
+main:has(#product-body, #project-grid) {
+    min-height: 100vh
+}
+
 .product-shot img {
     display: block;
     width: 100%;
@@ -2007,7 +2107,6 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:980px) {
-
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr)
     }
@@ -2018,7 +2117,6 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:650px) {
-
     .pricing-grid {
         grid-template-columns: 1fr
     }
@@ -2048,7 +2146,7 @@ html[dir=rtl] .project-chips li {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px
 }
 
@@ -2074,7 +2172,7 @@ html[dir=rtl] .project-chips li {
 
 .sd-links {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
     height: 34px
 }
@@ -2134,7 +2232,7 @@ html[dir=rtl] .sd-base {
 
     .sd-apps,
     .sd-layers {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: 1fr
     }
 
     .sd-links {
@@ -2319,7 +2417,7 @@ html.sea-deep body.sea-page .nav-divider {
     content: '';
     position: absolute;
     inset: -4% -3%;
-    background: url('../assets/images/sea.jpg') center 45%/cover no-repeat;
+    background: url('../assets/images/sea.webp') center 45%/cover no-repeat;
     animation: sea-drift 36s ease-in-out infinite alternate
 }
 
