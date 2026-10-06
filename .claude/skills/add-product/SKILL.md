@@ -19,7 +19,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
   video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4' (+ poster:'…/poster.webp')
   tags: ['Gemini AI'],                // 'Gemini AI' renders as the highlighted AI chip
   arabicFirst: false,                 // optional: adds an "Arabic-first" chip
-  ai: {                               // optional: AI line on the card + "How the AI helps" block on the detail page
+  ai: {                               // optional: "How the AI helps" block on the detail page
     en: { summary: '…', prompt: 'example request', result: ['line', 'line'] },
     ar: { summary: '…', prompt: '…', result: ['…'] }
   },
@@ -30,8 +30,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     title: 'My Product',
     short: 'One-sentence description shown on cards.',
     // optional narrative fields shown on the product.html detail page if present:
-    problem: '', decisions: '', architecture: '', constraints: '', outcome: '', learning: '',
-    journey: []                       // optional array of milestone strings
+    problem: '', outcome: ''           // only problem and outcome are shown on the detail page
   },
   // ar: { ...every en field... }    // optional; localized() swaps the WHOLE object, so a partial `ar` hides the missing sections
 }
@@ -43,8 +42,8 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 
 Create `assets/projects/<slug>/` containing:
 - `logo.svg` (or `.webp`) — shown on the product card.
-- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. The first is the card's media window on `nxt7.html` and, when `ai.prompt` is set, the phone shown in "How the AI helps"; the rest appear in phone frames on the detail page.
-- `<slug>_teaser.mp4` — optional demo video shown on the detail page; pair it with a `poster` WebP for the card.
+- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. Shown as plain images on the detail page; the `nxt7.html` card shows only the logo.
+- `<slug>_teaser.mp4` — optional demo video shown on the detail page.
 
 See `assets/projects/README.md` for the full media convention.
 
