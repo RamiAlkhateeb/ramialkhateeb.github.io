@@ -9,7 +9,7 @@ Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Sof
 Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders on `nxt7.html` as a logo-only card linking to its detail page, which shows the screenshots (plain, no device frame) or the demo `video`, plus a short problem/outcome summary. `nxt7.html` also shows a diagram of how the apps share one library (text in the `shared.*` keys of `TEXT` in `js/site.js`). The home page's `#products` section shows two umbrella cards from `window.RAMI_BRANDS`: NxT7 and Courses (coming soon).
 
 - `assets/projects/<slug>/logo.png` — card logo.
-- `assets/projects/<slug>/1.png`, `2.png`, … — screenshots (the first is the card background).
+- `assets/projects/<slug>/1.png`, `2.png`, … — screenshots.
 - `assets/projects/<slug>/<slug>_teaser.mp4` — optional demo video for the detail page (pair it with a `poster` image).
 
 See `assets/projects/README.md` for details.

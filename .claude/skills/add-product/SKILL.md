@@ -38,7 +38,7 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 Create `assets/projects/<slug>/` containing:
 - `logo.png` — shown on the product card.
 - `1.png`, `2.png`, … — screenshots, shown plainly on the detail page. The `nxt7.html` card shows only `logo.png`.
-- `<slug>_teaser.mp4` — optional demo video shown on the detail page; pair it with a `poster` image for the card background.
+- `<slug>_teaser.mp4` — optional demo video shown on the detail page; a `poster` image is optional.
 
 See `assets/projects/README.md` for the full media convention.
 
