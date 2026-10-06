@@ -13,7 +13,12 @@
     --font: 'DM Sans', 'Cairo', sans-serif;
     --display: 'Archivo', 'DM Sans', 'Cairo', sans-serif;
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-    --shadow: 0 10px 30px rgba(28, 26, 23, 0.08)
+    --shadow: 0 10px 30px rgba(28, 26, 23, 0.08);
+    --ai: #ff2d55;
+    --ai-2: #ff8c5a;
+    --ai-soft: #ffb48a;
+    --ink: #1c1c1e;
+    --app-card-bg: #16181c
 }
 
 * {
@@ -70,7 +75,8 @@ html[dir=rtl] .metric-value,
 html[dir=rtl] .sdlc-index,
 html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
-html[dir=rtl] .pricing-price {
+html[dir=rtl] .pricing-price,
+html[dir=rtl] .project-ai span {
     font-family: Cairo, sans-serif
 }
 
@@ -1061,20 +1067,6 @@ html[dir=rtl] .about-copy h2 {
     background: radial-gradient(120% 90% at 80% 10%, color-mix(in srgb, var(--sea-icon) 28%, transparent), transparent 60%), linear-gradient(150deg, var(--sea-mid), var(--sea-deeper))
 }
 
-.brand-wordmark {
-    font: 800 clamp(4.5rem, 11vw, 9rem)/1 var(--display);
-    letter-spacing: -.05em;
-    color: transparent;
-    -webkit-text-stroke: 2px var(--sea-icon);
-    filter: drop-shadow(0 0 18px color-mix(in srgb, var(--sea-icon) 35%, transparent));
-    transform: translateY(-62%);
-    transition: color .4s ease
-}
-
-.brand-card:hover .brand-wordmark {
-    color: color-mix(in srgb, var(--sea-icon) 18%, transparent)
-}
-
 .brand-art i {
     font-size: clamp(4rem, 9vw, 7rem);
     color: rgba(255, 255, 255, .16);
@@ -1748,14 +1740,14 @@ button:focus-visible {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 22px
 }
 
 .project-card {
     position: relative;
     display: flex;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     isolation: isolate;
     border-radius: var(--radius-lg);
@@ -1806,24 +1798,6 @@ button:focus-visible {
     gap: 8px
 }
 
-.project-card.is-featured {
-    grid-column: 1 / -1;
-    aspect-ratio: 21 / 9
-}
-
-.is-featured .project-card-content {
-    max-width: 620px;
-    padding: 34px
-}
-
-.is-featured .project-card-top h3 {
-    font-size: 1.7rem
-}
-
-.project-card.is-featured .project-desc {
-    font-size: 1.02rem
-}
-
 .project-status {
     position: absolute;
     z-index: 1;
@@ -1865,6 +1839,191 @@ html[dir=rtl] .project-status {
     margin: 4px 0 6px;
     padding: 0;
     list-style: none
+}
+
+.project-ai {
+    margin: 2px 0 0;
+    color: rgba(255, 255, 255, .9);
+    font-size: .9rem;
+    line-height: 1.5
+}
+
+.project-ai span {
+    display: inline-block;
+    margin-inline-end: 6px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--ai), var(--ai-2));
+    color: #fff;
+    font: 700 .7rem/1.5 var(--mono);
+    letter-spacing: .06em;
+    vertical-align: 1px
+}
+
+html[dir=rtl] .project-ai span {
+    letter-spacing: 0
+}
+
+.project-chips li.is-ai {
+    border-color: color-mix(in srgb, var(--ai-2) 70%, transparent);
+    background: color-mix(in srgb, var(--ai) 18%, transparent)
+}
+
+.project-chips li.is-ai i {
+    color: var(--ai-soft)
+}
+
+.brand-logo {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 6px;
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+    transition: transform .4s cubic-bezier(.22, .8, .2, 1)
+}
+
+.brand-card:hover .brand-logo {
+    transform: translateY(-4px) rotate(-3deg)
+}
+
+.project-card.app-card {
+    flex-direction: column;
+    aspect-ratio: auto;
+    background: var(--app-card-bg);
+    border: 1px solid rgba(255, 255, 255, .08)
+}
+
+.app-card-media {
+    position: relative;
+    height: clamp(220px, 23vw, 290px);
+    overflow: hidden
+}
+
+.app-card-media::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 70px;
+    background: linear-gradient(transparent, var(--app-card-bg))
+}
+
+.app-card .project-card-media {
+    object-position: 50% 0
+}
+
+.app-card .project-card-content {
+    flex: 1;
+    margin-top: 0;
+    padding: 18px 22px 22px
+}
+
+.app-card .project-card-cta {
+    margin-top: auto
+}
+
+.app-card .project-desc {
+    color: rgba(255, 255, 255, .72)
+}
+
+.nxt7-hero-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px
+}
+
+.nxt7-hero-top .eyebrow {
+    margin: 0
+}
+
+.nxt7-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(28, 26, 23, .18)
+}
+
+.nxt7-eng-grid {
+    grid-template-columns: repeat(3, 1fr)
+}
+
+.ai-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    margin-bottom: 56px;
+    padding: clamp(24px, 4vw, 40px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    background: radial-gradient(120% 90% at var(--glow-x, 100%) 0%, color-mix(in srgb, var(--ai) 8%, transparent), transparent 60%), var(--surface);
+    box-shadow: var(--shadow)
+}
+
+html[dir=rtl] .ai-block {
+    --glow-x: 0%
+}
+
+.ai-block .eyebrow i {
+    color: var(--ai)
+}
+
+.ai-block h2 {
+    margin: 0 0 22px;
+    font-size: clamp(1.4rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -.02em
+}
+
+.ai-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.ai-bubble {
+    margin: 0;
+    max-width: 92%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: .95rem;
+    line-height: 1.55
+}
+
+.ai-bubble.is-user {
+    align-self: flex-end;
+    background: var(--ink);
+    color: #fff;
+    border-end-end-radius: 6px
+}
+
+.ai-bubble.is-ai {
+    align-self: flex-start;
+    list-style: none;
+    background: var(--soft);
+    border: 1px solid var(--line);
+    border-end-start-radius: 6px
+}
+
+.ai-bubble.is-ai li + li {
+    margin-top: 6px
+}
+
+.ai-bubble.is-ai li::before {
+    content: "\2713";
+    margin-inline-end: 8px;
+    color: var(--ai);
+    font-weight: 700
+}
+
+.ai-note {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: .82rem
+}
+
+.ai-block .phone {
+    width: clamp(220px, 24vw, 270px)
 }
 
 .project-chips li {
@@ -2039,6 +2198,14 @@ html[dir=rtl] .project-chips li {
     line-height: 0
 }
 
+main:has(#product-body, #project-grid) {
+    min-height: 100vh
+}
+
+#project-grid:empty {
+    min-height: 1140px
+}
+
 .phone-shot {
     display: block;
     width: 100%;
@@ -2129,10 +2296,6 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:980px) {
-    .project-card.is-featured {
-        aspect-ratio: 16 / 9
-    }
-
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr)
     }
@@ -2143,20 +2306,25 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:650px) {
-    .project-card.is-featured {
-        aspect-ratio: 3 / 4
-    }
-
-    .is-featured .project-card-content {
-        padding: 20px
-    }
-
     .pricing-grid {
         grid-template-columns: 1fr
     }
 
     .project-grid {
         grid-template-columns: 1fr
+    }
+
+    #project-grid:empty {
+        min-height: 2200px
+    }
+
+    .ai-block,
+    .nxt7-eng-grid {
+        grid-template-columns: 1fr
+    }
+
+    .ai-block .phone {
+        margin-inline: auto
     }
 
     .product-hero-top {
@@ -2337,7 +2505,7 @@ html.sea-deep body.sea-page .nav-divider {
     content: '';
     position: absolute;
     inset: -4% -3%;
-    background: url('../assets/images/sea.jpg') center 45%/cover no-repeat;
+    background: url('../assets/images/sea.webp') center 45%/cover no-repeat;
     animation: sea-drift 36s ease-in-out infinite alternate
 }
 
