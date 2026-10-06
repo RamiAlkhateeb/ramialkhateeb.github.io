@@ -6,7 +6,7 @@ Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Sof
 
 ## Update project media
 
-Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders on `nxt7.html` as a card (screenshot background, logo, name, short description, tags) linking to its detail page, which shows the screenshots in phone frames or the demo `video`. The home page's `#products` section shows two umbrella cards from `window.RAMI_BRANDS`: NxT7 and Courses (coming soon).
+Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders on `nxt7.html` as a logo-only card linking to its detail page, which shows the screenshots (plain, no device frame) or the demo `video`, plus a short problem/outcome summary. `nxt7.html` also shows a diagram of how the apps share one library (text in the `shared.*` keys of `TEXT` in `js/site.js`). The home page's `#products` section shows two umbrella cards from `window.RAMI_BRANDS`: NxT7 and Courses (coming soon).
 
 - `assets/projects/<slug>/logo.png` — card logo.
 - `assets/projects/<slug>/1.png`, `2.png`, … — screenshots (the first is the card background).

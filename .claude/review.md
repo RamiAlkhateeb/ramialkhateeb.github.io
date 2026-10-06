@@ -20,7 +20,7 @@ Project-specific things a generic reviewer would miss. Apply this in addition to
 
 ## Style consistency
 - [ ] New/edited CSS and JS match the existing dense, minified-by-hand style (one rule per line in CSS, compact function bodies in JS) — don't reformat or expand surrounding code as a side effect of an unrelated change.
-- [ ] Colors come from the `:root` tokens (`--bg`, `--surface`, `--soft`, `--line`, `--text`, `--muted`, `--accent`, `--accent-deep`). The palette is light/minimal; no hard-coded dark backgrounds outside the intentionally-dark popup/lightbox and phone-mockup chrome.
+- [ ] Colors come from the `:root` tokens (`--bg`, `--surface`, `--soft`, `--line`, `--text`, `--muted`, `--accent`, `--accent-deep`). The palette is light/minimal; no hard-coded dark backgrounds outside the intentionally-dark popup/lightbox chrome.
 - [ ] `<app-header active="...">` on any page matches an existing `data-nav` value in `SITE_STOPS` — a typo here silently fails to highlight the nav item.
 - [ ] New animation is neutralised in the `@media(prefers-reduced-motion:reduce)` block at the end of the base stylesheet.
 

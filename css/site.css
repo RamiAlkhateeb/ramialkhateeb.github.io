@@ -67,7 +67,6 @@ h3,
 
 html[dir=rtl] .eyebrow,
 html[dir=rtl] .metric-value,
-html[dir=rtl] .sdlc-index,
 html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
 html[dir=rtl] .pricing-price {
@@ -1099,65 +1098,6 @@ html[dir=rtl] .project-card-cta i {
     box-shadow: var(--shadow)
 }
 
-.sdlc-block {
-    margin-top: 32px
-}
-
-.sdlc-block h2 {
-    font-size: .92rem;
-    margin: 0 0 16px;
-    color: var(--accent)
-}
-
-.sdlc-flow {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 0
-}
-
-.sdlc-step {
-    flex: 1 1 170px;
-    min-width: 170px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    padding: 18px 20px;
-    box-shadow: var(--shadow)
-}
-
-.sdlc-index {
-    font-family: var(--mono);
-    font-size: .7rem;
-    font-weight: 700;
-    color: var(--accent)
-}
-
-.sdlc-step h3 {
-    margin: 6px 0 6px;
-    font-size: 1rem
-}
-
-.sdlc-step p {
-    margin: 0;
-    color: var(--muted);
-    font-size: .88rem;
-    line-height: 1.5
-}
-
-.sdlc-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    color: var(--muted);
-    flex: 0 0 auto
-}
-
-html[dir=rtl] .sdlc-arrow i {
-    transform: scaleX(-1)
-}
-
 html.js .reveal:not(.in-view) {
     opacity: 0
 }
@@ -1624,18 +1564,6 @@ button:focus-visible {
         width: 100%
     }
 
-    .sdlc-flow {
-        flex-direction: column
-    }
-
-    .sdlc-arrow {
-        padding: 6px 0;
-        transform: rotate(90deg)
-    }
-
-    .sdlc-arrow i {
-        transform: none !important
-    }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -1775,21 +1703,6 @@ button:focus-visible {
     outline-offset: 3px
 }
 
-.project-card-media {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 12%;
-    transition: transform .5s ease
-}
-
-.project-card:hover .project-card-media,
-.project-card:focus-visible .project-card-media {
-    transform: scale(1.06)
-}
-
 .project-card-scrim {
     position: absolute;
     inset: 0;
@@ -1804,24 +1717,6 @@ button:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 8px
-}
-
-.project-card.is-featured {
-    grid-column: 1 / -1;
-    aspect-ratio: 21 / 9
-}
-
-.is-featured .project-card-content {
-    max-width: 620px;
-    padding: 34px
-}
-
-.is-featured .project-card-top h3 {
-    font-size: 1.7rem
-}
-
-.project-card.is-featured .project-desc {
-    font-size: 1.02rem
 }
 
 .project-status {
@@ -1911,6 +1806,25 @@ html[dir=rtl] .project-chips li {
     border-radius: 8px;
     background: rgba(255, 255, 255, .14);
     border-color: rgba(255, 255, 255, .3)
+}
+
+.project-card.project-card--logo {
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.2rem
+}
+
+.project-card--logo .project-logo {
+    width: 52%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 22%;
+    border: 0
 }
 
 .project-card .project-desc {
@@ -2006,54 +1920,18 @@ html[dir=rtl] .project-chips li {
     background: #06090d
 }
 
-.phone {
-    position: relative;
-    width: min(clamp(240px, 30vw, 300px), 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px 11px 13px;
-    background: linear-gradient(150deg, #2c3037, #0a0b0e);
-    border-radius: 46px;
-    box-shadow: 0 24px 45px -16px rgba(0, 0, 0, .7), inset 0 0 0 2.5px #000, inset 0 0 0 4px rgba(178, 186, 198, .22)
+.product-shot {
+    margin: 0;
+    width: min(300px, 100%)
 }
 
-.phone:before {
-    content: '';
-    display: block;
-    width: 88px;
-    height: 26px;
-    border-radius: 999px;
-    background: #0a0b0e;
-    margin-bottom: 11px;
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .12)
-}
-
-.phone-screen {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 28px;
-    background: #060608;
-    border: 1px solid rgba(255, 255, 255, .06);
-    line-height: 0
-}
-
-.phone-shot {
+.product-shot img {
     display: block;
     width: 100%;
-    height: auto
-}
-
-.phone:after {
-    content: '';
-    display: block;
-    width: 38%;
-    height: 5px;
-    border-radius: 999px;
-    background: #191c20;
-    margin-top: 12px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .06)
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow)
 }
 
 .pricing-grid {
@@ -2129,9 +2007,6 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:980px) {
-    .project-card.is-featured {
-        aspect-ratio: 16 / 9
-    }
 
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr)
@@ -2143,13 +2018,6 @@ html[dir=rtl] .project-chips li {
 }
 
 @media(max-width:650px) {
-    .project-card.is-featured {
-        aspect-ratio: 3 / 4
-    }
-
-    .is-featured .project-card-content {
-        padding: 20px
-    }
 
     .pricing-grid {
         grid-template-columns: 1fr
@@ -2161,6 +2029,120 @@ html[dir=rtl] .project-chips li {
 
     .product-hero-top {
         flex-wrap: wrap
+    }
+}
+
+.shared-section {
+    padding-top: 0
+}
+
+.sd-caption {
+    max-width: 640px;
+    color: var(--muted);
+    margin: 0 0 28px
+}
+
+.sd-apps,
+.sd-layers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px
+}
+
+.sd-app {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: .92rem
+}
+
+.sd-app img {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    object-fit: contain;
+    flex-shrink: 0
+}
+
+.sd-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    height: 34px
+}
+
+.sd-links i {
+    justify-self: center;
+    width: 2px;
+    background: repeating-linear-gradient(180deg, var(--accent) 0 6px, transparent 6px 10px)
+}
+
+.sd-lib {
+    padding: 18px;
+    background: var(--soft);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg)
+}
+
+.sd-lib h3 {
+    margin: 0 0 14px;
+    font-size: 1rem;
+    color: var(--accent-deep)
+}
+
+.sd-layers li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius)
+}
+
+.sd-layers span {
+    color: var(--muted);
+    font-size: .8rem;
+    line-height: 1.4
+}
+
+.sd-base {
+    margin: 12px 0 0;
+    padding: 10px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: .78rem;
+    letter-spacing: .04em;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius)
+}
+
+html[dir=rtl] .sd-base {
+    font-family: Cairo, sans-serif
+}
+
+@media(max-width:650px) {
+
+    .sd-apps,
+    .sd-layers {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .sd-links {
+        display: none
+    }
+
+    .sd-lib {
+        margin-top: 14px
     }
 }
 
