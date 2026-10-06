@@ -1665,8 +1665,9 @@ button:focus-visible {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 760px
 }
 
 .project-card {
@@ -1911,11 +1912,12 @@ html[dir=rtl] .project-chips li {
     border: 1px solid var(--line);
     font-family: var(--display);
     font-weight: 700;
-    font-size: 1.2rem
+    font-size: 1rem;
+    text-align: center
 }
 
 .project-card--logo .project-logo {
-    width: 52%;
+    width: 60%;
     height: auto;
     aspect-ratio: 1;
     border-radius: 22%;
@@ -2112,7 +2114,8 @@ main:has(#product-body, #project-grid) {
     }
 
     .project-grid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px
     }
 }
 
@@ -2122,7 +2125,8 @@ main:has(#product-body, #project-grid) {
     }
 
     .project-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px
     }
 
     .product-hero-top {
