@@ -4,13 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, bilingual (English/Arabic) personal portfolio site for Rami Alkhateeb. Plain HTML/CSS/vanilla JS — no framework, no bundler, no package manager, no build step. Files are served as-is. Shared header/footer/route-rail come from custom elements in `js/components.js`; page content is mostly rendered from `window.*` data arrays (`js/projects.js`) by `js/site.js`, the single app entry point.
+A static, trilingual (English/German/Arabic) personal portfolio site for Rami Alkhateeb. Plain HTML/CSS/vanilla JS — no framework, no bundler, no package manager, no build step. Files are served as-is. Shared header/footer/route-rail come from custom elements in `js/components.js`; page content is mostly rendered from `window.*` data arrays (`js/projects.js`) by `js/site.js`, the single app entry point.
 
 `index.html` is a **single page** holding every section (`#top`, `#about`, `#products`, `#contact`) — the nav scrolls to anchors rather than navigating. `#products` shows two umbrella cards from `window.RAMI_BRANDS` (NxT7 and Courses); `nxt7.html` lists every app from `window.RAMI_PROJECTS`. `about.html` and `products.html` are one-line redirect stubs kept only for old inbound links. `product.html?slug=<slug>` is the one real second page (per-product detail, deep-linked from product cards).
 
 `js/site.js` has no router: every render function runs on every page and self-aborts when its container is missing (`if(!grid||!window.RAMI_PROJECTS)return`). Add a container id to a page and it renders; that's the whole dispatch mechanism.
 
 The section list is defined once as `SITE_STOPS` at the top of `js/components.js` and drives both the header nav and the route rail — add or reorder sections there, not in two places.
+
+The language button cycles `LANGS` (`en` -> `de` -> `ar`) in `js/site.js`; only `ar` flips the page to RTL. `localized()` falls back to `en` when an object has no `de`/`ar` version, so data arrays in `js/projects.js` can be translated gradually. The home page also renders `window.RAMI_EXPERIENCE` (timeline) and `window.RAMI_RECOMMENDATIONS` (hidden until it has entries) from `js/projects.js`.
 
 ## Commands
 
@@ -27,4 +29,4 @@ Deployment is automatic via `.github/workflows/deploy.yml`: on push to `main`, i
 - Adding a product/project → use the `add-product` skill.
 - Need to see a change rendered/screenshotted → use the `preview-site` skill.
 - Reviewing a change to this site → see `.claude/review.md` (or the `site-reviewer` sub-agent), which covers this repo's i18n-parity, RTL, and styling conventions.
-- Editing `js/site.js`'s `TEXT` dictionary triggers an automated en/ar key-parity check (see `.claude/settings.json` hooks + `scripts/check-i18n-parity.js`).
+- Editing `js/site.js`'s `TEXT` dictionary triggers an automated en/ar/de key-parity check (see `.claude/settings.json` hooks + `scripts/check-i18n-parity.js`).

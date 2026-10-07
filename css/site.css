@@ -64,7 +64,7 @@ h3,
     font-weight: 500;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-deep);
     margin: 0 0 14px
 }
 
@@ -451,8 +451,8 @@ html.js .hero-copy>h1:not([data-split]) {
     align-items: center;
     justify-content: center;
     padding: 12px 20px;
-    background: var(--accent);
-    border: 1px solid var(--accent);
+    background: var(--accent-deep);
+    border: 1px solid var(--accent-deep);
     border-radius: var(--radius);
     color: #fff;
     font-size: .95rem;
@@ -463,8 +463,8 @@ html.js .hero-copy>h1:not([data-split]) {
 }
 
 .btn:hover {
-    background: var(--accent-deep);
-    border-color: var(--accent-deep);
+    background: #9a3a0a;
+    border-color: #9a3a0a;
     transform: translateY(-1px);
     box-shadow: 0 10px 26px rgba(217, 88, 26, 0.34)
 }
@@ -483,8 +483,8 @@ html.js .hero-copy>h1:not([data-split]) {
 }
 
 .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--accent-deep);
+    color: var(--accent-deep);
     background: rgba(217, 88, 26, 0.08);
     box-shadow: none
 }
@@ -669,7 +669,7 @@ html[dir=rtl] .capability-grid article:before {
 .info-grid h3 {
     font-size: 1.05rem;
     margin: 0 0 12px;
-    color: var(--accent);
+    color: var(--accent-deep);
     letter-spacing: -.01em
 }
 
@@ -2275,7 +2275,12 @@ html[dir=rtl] .sd-base {
 }
 
 .tl-dates {
-    color: var(--accent)
+    color: var(--accent-deep)
+}
+
+body.sea-page [data-tone=deep] .tl-dates,
+body.sea-page [data-tone=deep] .reco-card figcaption a {
+    color: var(--sea-eyebrow)
 }
 
 .tl-place {
@@ -2370,6 +2375,23 @@ html[dir=rtl] .sd-base {
         flex: 1;
         justify-content: center;
         text-align: center
+    }
+
+    .mobile-cta .btn-outline,
+    body.sea-page .mobile-cta .btn-outline {
+        background: #fff;
+        border: 1px solid var(--line);
+        color: var(--text);
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none
+    }
+
+    body.sea-page .mobile-cta .btn.email-link {
+        background: var(--accent-deep);
+        border-color: var(--accent-deep);
+        color: #fff;
+        box-shadow: none
     }
 
     .site-footer {

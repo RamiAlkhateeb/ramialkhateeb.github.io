@@ -9,7 +9,7 @@ Project-specific things a generic reviewer would miss. Apply this in addition to
 - [ ] Scroll-spy and count-up run once per page load (`navInit`/`countersInit` flags). `applyLanguage()` re-runs on every language toggle, so anything new called from there must be idempotent.
 
 ## i18n
-- [ ] Every `TEXT` key added or changed in `js/site.js` exists in **both** `TEXT.en` and `TEXT.ar`. Arabic content for data arrays (`js/projects.js`) may legitimately be omitted — `localized()` falls back to `en` — but `TEXT` UI strings must not be English-only.
+- [ ] Every `TEXT` key added or changed in `js/site.js` exists in **all three** of `TEXT.en`, `TEXT.ar` and `TEXT.de`. Arabic and German content for data arrays (`js/projects.js`) may legitimately be omitted — `localized()` falls back to `en` — but `TEXT` UI strings must not be English-only.
 - [ ] Any string containing HTML markup (e.g. a `<br>`) is bound with `data-i18n-html`, not `data-i18n` — the latter sets `textContent` and will render the tag as literal text.
 - [ ] Markup rendered by `js/components.js` carries real English fallback text, not the `TEXT` key name — custom elements upgrade before `applyLanguage()` runs, so a key name would flash on screen.
 
