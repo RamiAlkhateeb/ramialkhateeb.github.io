@@ -12,7 +12,7 @@ A static, trilingual (English/German/Arabic) personal portfolio site for Rami Al
 
 The section list is defined once as `SITE_STOPS` at the top of `js/components.js` and drives both the header nav and the route rail — add or reorder sections there, not in two places.
 
-The language button cycles `LANGS` (`en` -> `de` -> `ar`) in `js/site.js`; only `ar` flips the page to RTL. `localized()` falls back to `en` when an object has no `de`/`ar` version, so data arrays in `js/projects.js` can be translated gradually. The home page also renders `window.RAMI_EXPERIENCE` (timeline) and `window.RAMI_RECOMMENDATIONS` (hidden until it has entries) from `js/projects.js`.
+The language button cycles `LANGS` (`en` -> `de` -> `ar`) in `js/site.js`; only `ar` flips the page to RTL. `localized()` falls back to `en` when an object has no `de`/`ar` version, so data arrays in `js/projects.js` can be translated gradually. The home page also renders `window.RAMI_RECOMMENDATIONS` (hidden until it has entries) from `js/projects.js`.
 
 ## Commands
 

@@ -16,11 +16,9 @@ See `assets/projects/README.md` for details.
 
 Set the contact email and Calendly link in `js/config.js` before publishing.
 
-## Recommendations, experience and languages
+## Recommendations and languages
 
 - `window.RAMI_RECOMMENDATIONS` in `js/projects.js` drives the Recommendations block under About. It is empty on purpose: add real quotes only (`{name, role:{en,ar,de}, quote:{en,ar,de}, linkedin}`) and the block appears.
-- `window.RAMI_EXPERIENCE` in `js/projects.js` drives the Experience timeline (taken from `assets/senior_software_engineer.md`).
-- The CV download is `assets/Rami-Alkhateeb-CV.pdf`; regenerate it when the markdown CV changes.
 - The site is English / German / Arabic. UI strings live in `TEXT.en|de|ar` in `js/site.js` (`node scripts/check-i18n-parity.js` checks all three).
 
 ## Local preview
