@@ -2211,10 +2211,6 @@ html[dir=rtl] .sd-base {
     opacity: .72
 }
 
-.cv-link i {
-    margin-inline-end: 6px
-}
-
 .skill-groups {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2229,63 +2225,8 @@ html[dir=rtl] .sd-base {
     color: var(--sea-icon, var(--accent))
 }
 
-.timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-inline-start: 2px solid var(--line)
-}
-
-.timeline li {
-    position: relative;
-    padding: 0 0 26px 0;
-    padding-inline-start: 24px
-}
-
-.timeline li:last-child {
-    padding-bottom: 0
-}
-
-.timeline li::before {
-    content: '';
-    position: absolute;
-    inset-inline-start: -7px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 4px var(--bg)
-}
-
-.timeline h3 {
-    margin: 2px 0 2px;
-    font-size: 1.05rem
-}
-
-.timeline p {
-    margin: 0;
-    max-width: 62ch
-}
-
-.tl-dates,
-.tl-place {
-    font: 500 .72rem/1.4 var(--mono);
-    letter-spacing: .08em
-}
-
-.tl-dates {
-    color: var(--accent-deep)
-}
-
-body.sea-page [data-tone=deep] .tl-dates,
 body.sea-page [data-tone=deep] .reco-card figcaption a {
     color: var(--sea-eyebrow)
-}
-
-.tl-place {
-    margin-bottom: 4px !important;
-    opacity: .72
 }
 
 .reco {
