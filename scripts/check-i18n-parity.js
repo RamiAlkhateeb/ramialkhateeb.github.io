@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 'use strict';
-// Checks that js/site.js's TEXT.en and TEXT.ar objects have the same keys.
+// Checks that js/site.js's TEXT.en, TEXT.ar and TEXT.de objects have the same keys.
 // Runs standalone (`node scripts/check-i18n-parity.js`) or as a Claude Code
 // PostToolUse hook (reads the tool-call JSON payload from stdin and only
 // acts when the edited file is js/site.js).
@@ -75,18 +75,21 @@ function main() {
     console.error('check-i18n-parity: failed to parse TEXT object — ' + err.message);
     return;
   }
-  if (!text.en || !text.ar) {
-    console.error('check-i18n-parity: TEXT is missing an `en` or `ar` block.');
+  const others = ['ar', 'de'];
+  if (!text.en || others.some(l => !text[l])) {
+    console.error('check-i18n-parity: TEXT is missing an `en`, `ar` or `de` block.');
     return;
   }
-  const { onlyA, onlyB } = diffKeys(text.en, text.ar);
-  if (!onlyA.length && !onlyB.length) {
-    console.log('check-i18n-parity: TEXT.en/TEXT.ar keys are in sync (' + Object.keys(text.en).length + ' keys).');
-    return;
+  let clean = true;
+  for (const lang of others) {
+    const { onlyA, onlyB } = diffKeys(text.en, text[lang]);
+    if (!onlyA.length && !onlyB.length) continue;
+    clean = false;
+    console.warn('check-i18n-parity: TEXT.en/TEXT.' + lang + ' key mismatch found.');
+    if (onlyA.length) console.warn('  Missing from ' + lang + ': ' + onlyA.join(', '));
+    if (onlyB.length) console.warn('  Missing from en: ' + onlyB.join(', '));
   }
-  console.warn('check-i18n-parity: TEXT.en/TEXT.ar key mismatch found.');
-  if (onlyA.length) console.warn('  Missing from ar: ' + onlyA.join(', '));
-  if (onlyB.length) console.warn('  Missing from en: ' + onlyB.join(', '));
+  if (clean) console.log('check-i18n-parity: TEXT.en/TEXT.ar/TEXT.de keys are in sync (' + Object.keys(text.en).length + ' keys).');
 }
 
 main();

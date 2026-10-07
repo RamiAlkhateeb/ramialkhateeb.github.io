@@ -7,7 +7,8 @@
     <title>Rami Alkhateeb | Senior Software Engineer</title>
     <meta name="description"
         content="Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization. Eight years across Syria, the UAE, and Germany.">
-    <script>try{if(!sessionStorage.getItem('rami-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro');sessionStorage.setItem('rami-intro','1')}}catch(e){}</script>
+    <script>try{if(!localStorage.getItem('rami-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro');localStorage.setItem('rami-intro','1')}}catch(e){}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Rami Alkhateeb", "url": "https://ramialkhateeb.github.io/", "image": "https://ramialkhateeb.github.io/assets/images/rami-presenting.webp", "jobTitle": "Senior Software Engineer", "description": "Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization.", "email": "mailto:rami13alkhateeb@gmail.com", "sameAs": ["https://linkedin.com/in/rami13alkhateeb", "https://github.com/ramialkhateeb", "https://rami13kh.substack.com/"], "knowsAbout": ["C#", ".NET", "ASP.NET Core", "Angular", "Azure", "Microservices", "SQL Server", "PostgreSQL", "Clean Architecture"], "knowsLanguage": ["ar", "en", "de"], "alumniOf": {"@type": "CollegeOrUniversity", "name": "Al-Baath University"}}</script>
     <meta name="theme-color" content="#1d3d4d">
     <link rel="canonical" href="https://ramialkhateeb.github.io/">
     <meta property="og:type" content="website">
@@ -23,9 +24,8 @@
     <meta name="twitter:image" content="https://ramialkhateeb.github.io/assets/images/rami-presenting.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap"></noscript>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <link rel="stylesheet" href="css/site.css">
     <link rel="icon" type="image/png" href="assets/images/favicon-192.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -45,9 +45,8 @@
                         <p class="eyebrow" data-i18n="hero.eyebrow">Rami Alkhateeb</p>
                         <h1 data-i18n="hero.tagline">I turn hard business problems into software that ships.</h1>
                         <p class="hero-proof" data-i18n="hero.proof">8 years · 3 countries · enterprise platforms serving
-                            10M+ customers</p>
-                        <div class="hero-actions"><a class="btn btn-primary-lg email-link" data-i18n="hero.contact">Book an
-                                Appointment</a><a class="btn btn-outline"
+                            6M+ customers</p>
+                        <div class="hero-actions"><a class="btn btn-primary-lg email-link" data-i18n="hero.contact">Book a call</a><a class="btn btn-outline cv-link" href="assets/Rami-Alkhateeb-CV.pdf" download><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span data-i18n="cv.download">Download CV</span></a><a class="btn btn-outline"
                                 href="https://linkedin.com/in/rami13alkhateeb" target="_blank"
                                 rel="noopener">LinkedIn</a><a class="btn btn-outline"
                                 href="https://github.com/ramialkhateeb" target="_blank" rel="noopener">GitHub</a></div>
@@ -75,18 +74,20 @@
                 <p class="eyebrow stack-label" data-i18n="impact.eyebrow">Engineering Impact</p>
                 <div class="metrics-grid">
                     <div class="reveal"><strong class="metric-value">8</strong><span
-                            data-i18n="impact.years">Years Experience</span></div>
+                            data-i18n="impact.years">Years Experience</span><small class="metric-ctx" data-i18n="impact.years.ctx">Syria · UAE · Germany</small></div>
                     <div class="reveal"><strong class="metric-value">~30</strong><span
-                            data-i18n="impact.components">Reusable UI/Platform Components</span></div>
+                            data-i18n="impact.components">Reusable UI/Platform Components</span><small class="metric-ctx" data-i18n="impact.components.ctx">HILTES, Germany</small></div>
                     <div class="reveal"><strong class="metric-value">5+</strong><span
-                            data-i18n="impact.services">Enterprise Services Modernized</span></div>
-                    <div class="reveal"><strong class="metric-value">10M+</strong><span
-                            data-i18n="impact.customers">Telecom Customers Served</span></div>
+                            data-i18n="impact.services">Enterprise Services Modernized</span><small class="metric-ctx" data-i18n="impact.services.ctx">CARMA, Dubai</small></div>
+                    <div class="reveal"><strong class="metric-value">6M+</strong><span
+                            data-i18n="impact.customers">Telecom Customers Served</span><small class="metric-ctx" data-i18n="impact.customers.ctx">Syriatel, Damascus</small></div>
                     <div class="reveal"><strong class="metric-value">4</strong><span
-                            data-i18n="impact.azure">Enterprise Azure Projects</span></div>
+                            data-i18n="impact.azure">Enterprise Azure Projects</span><small class="metric-ctx" data-i18n="impact.azure.ctx">Tech Unicorn, Dubai</small></div>
                     <div class="reveal"><strong class="metric-value">~20%</strong><span
-                            data-i18n="impact.performance">Performance Improvement</span></div>
+                            data-i18n="impact.performance">Performance Improvement</span><small class="metric-ctx" data-i18n="impact.performance.ctx">Abu Dhabi Ports, SQL tuning</small></div>
                 </div>
+                <p class="eyebrow stack-label" data-i18n="exp.eyebrow">Experience</p>
+                <ol id="experience-timeline" class="timeline"></ol>
                 <p class="eyebrow stack-label" data-i18n="capabilities.eyebrow">What I do</p>
                 <div class="capability-grid">
                     <article class="reveal"><i class="fa-solid fa-code"></i>
@@ -110,26 +111,7 @@
                     </article>
                 </div>
                 <p class="eyebrow stack-label" data-i18n="about.expertise">Core expertise</p>
-                <div class="skill-field" dir="ltr" tabindex="0" role="group" aria-label="Core expertise">
-                    <ul class="skill-chips">
-                        <li>C# / .NET</li>
-                        <li>ASP.NET Core</li>
-                        <li>Angular</li>
-                        <li>TypeScript</li>
-                        <li>Azure</li>
-                        <li>Microservices</li>
-                        <li>SQL Server</li>
-                        <li>PostgreSQL</li>
-                        <li>Redis</li>
-                        <li>RabbitMQ</li>
-                        <li>Docker</li>
-                        <li>CI/CD</li>
-                        <li>xUnit</li>
-                        <li>Angular Material</li>
-                        <li>REST APIs</li>
-                        <li>Clean Architecture</li>
-                    </ul>
-                </div>
+                <div class="skill-groups" role="group" aria-label="Core expertise"><div class="skill-group reveal"><h3 data-i18n="skills.backend">Backend</h3><ul class="skill-chips"><li>C# / .NET</li><li>ASP.NET Core</li><li>Web APIs</li><li>EF Core</li><li>Microservices</li></ul></div><div class="skill-group reveal"><h3 data-i18n="skills.frontend">Frontend</h3><ul class="skill-chips"><li>Angular</li><li>TypeScript</li><li>React</li><li>Angular Material</li><li>Blazor</li></ul></div><div class="skill-group reveal"><h3 data-i18n="skills.cloud">Cloud &amp; DevOps</h3><ul class="skill-chips"><li>Azure</li><li>Azure Functions</li><li>Service Bus</li><li>Docker</li><li>CI/CD</li><li>GitHub Actions</li></ul></div><div class="skill-group reveal"><h3 data-i18n="skills.data">Data &amp; messaging</h3><ul class="skill-chips"><li>SQL Server</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li><li>RabbitMQ</li></ul></div><div class="skill-group reveal"><h3 data-i18n="skills.practices">Practices</h3><ul class="skill-chips"><li>Clean Architecture</li><li>SOLID</li><li>xUnit</li><li>REST / SOAP integrations</li><li>Code reviews</li></ul></div></div>
                 <p class="eyebrow stack-label" data-i18n="about.background">Background</p>
                 <div class="landmark-strip reveal" data-reveal="scale" data-route>
                     <div class="landmark"><svg viewBox="0 0 64 64" aria-hidden="true">
@@ -169,6 +151,7 @@
                             working proficiency</p>
                     </div>
                 </div>
+                <div id="recommendations" class="reco" hidden></div>
             </div>
         </section>
         <section id="products" class="section" data-tone="deep">
@@ -182,11 +165,11 @@
         </section>
         <section id="contact" class="section contact-section" data-tone="deep">
             <div class="container">
-                <p class="eyebrow" data-i18n="contact.eyebrow">Book an Appointment</p>
+                <p class="eyebrow" data-i18n="contact.eyebrow">Book a call</p>
                 <h2 data-type data-i18n="contact.title">Have an interesting problem, product, or platform to talk about? Let's
                     schedule a call.</h2>
                 <p data-i18n="contact.text">Select a convenient time for a 1-on-1 discussion or consultation.</p>
-                <div class="hero-actions"><a class="btn email-link" data-i18n="hero.contact">Book an Appointment</a><a
+                <div class="hero-actions"><a class="btn email-link" data-i18n="hero.contact">Book a call</a><a class="btn btn-outline cv-link" href="assets/Rami-Alkhateeb-CV.pdf" download><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span data-i18n="cv.download">Download CV</span></a><a
                         class="btn btn-outline" href="https://linkedin.com/in/rami13alkhateeb" target="_blank"
                         rel="noopener">LinkedIn</a><a class="btn btn-outline" href="https://github.com/ramialkhateeb"
                         target="_blank" rel="noopener">GitHub</a></div>

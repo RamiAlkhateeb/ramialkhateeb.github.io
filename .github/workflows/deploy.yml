@@ -20,6 +20,7 @@ jobs:
         set -e
         mkdir -p gh-pages-out
         cp *.html gh-pages-out/
+        cp sitemap.xml robots.txt gh-pages-out/
         cp -R css gh-pages-out/
         cp -R js gh-pages-out/
         cp -R assets gh-pages-out/

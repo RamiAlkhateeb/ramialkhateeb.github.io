@@ -21,7 +21,8 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
   arabicFirst: false,                 // optional: adds an "Arabic-first" chip
   ai: {                               // optional: "How the AI helps" block on the detail page
     en: { summary: '…', prompt: 'example request', result: ['line', 'line'] },
-    ar: { summary: '…', prompt: '…', result: ['…'] }
+    ar: { summary: '…', prompt: '…', result: ['…'] },
+    de: { summary: '…', prompt: '…', result: ['…'] }
   },
   tryUrl: '',                         // live URL, or '' to show "Coming soon"
   sourceUrl: '',                      // optional GitHub link
@@ -32,7 +33,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     // optional narrative fields shown on the product.html detail page if present:
     problem: '', outcome: ''           // only problem and outcome are shown on the detail page
   },
-  // ar: { ...every en field... }    // optional; localized() swaps the WHOLE object, so a partial `ar` hides the missing sections
+  // ar / de: { ...every en field you want shown... }  // optional; localized() swaps the WHOLE object, so a partial `ar`/`de` hides the missing sections
 }
 ```
 
