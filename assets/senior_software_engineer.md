@@ -59,7 +59,7 @@ Senior Software Engineer with **8 years of experience** building, modernizing, a
 
 ### Syriatel Mobile Telecom — Full Stack Developer
 **Damascus, Syria | Oct 2018 – Feb 2020**
-- Designed and developed internal enterprise applications for a telecom environment serving more than **10 million customers**.
+- Designed and developed internal enterprise applications for a telecom environment serving more than **6 million customers**.
 - Built a configuration-driven module for Customer Action Tracking that reduced repeated page-specific development.
 - Delivered modules for KYC and prize-management systems using .NET and Angular technologies.
 
