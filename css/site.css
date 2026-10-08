@@ -2750,8 +2750,12 @@ html.tab-hidden .sea-photo:before {
     grid-template-columns: repeat(2, 1fr)
 }
 
-.about-more .landmark-strip {
-    gap: 18px 32px;
+.about-more .landmark-strip,
+.about-more .landmark-strip[data-route] {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+    padding-top: 0;
     margin-bottom: 24px
 }
 
@@ -2811,5 +2815,13 @@ body.sea-page .social-links a {
 @media(max-width:700px) {
     .about-more .skill-groups {
         grid-template-columns: 1fr
+    }
+}
+
+@media(max-width:550px) {
+    .hero-actions .social-links {
+        width: 100%;
+        justify-content: center;
+        margin-inline-start: 0
     }
 }
