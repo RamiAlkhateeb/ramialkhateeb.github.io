@@ -7,7 +7,7 @@ window.RAMI_PROJECTS=[
 // Umbrella cards on the home page. NxT7 groups every app above (rendered on nxt7.html).
 window.RAMI_BRANDS=[
 {slug:'nxt7',href:'nxt7.html',logo:'assets/images/nxt7-logo.svg',apps:['Makdous','NxtTask','Syrian Radio','Carousel Engine'],en:{title:'NxT7',short:'My product studio: everyday apps with an optional AI assistant, built on one shared design system.'},ar:{title:'NxT7',short:'استوديو منتجاتي: تطبيقات يومية مع مساعد ذكاء اصطناعي اختياري، مبنية على نظام تصميم واحد مشترك.'},de:{title:'NxT7',short:'Mein Produktstudio: Alltags-Apps mit optionalem KI-Assistenten, gebaut auf einem gemeinsamen Designsystem.'}},
-{slug:'courses',soon:true,icon:'fa-graduation-cap',en:{title:'Courses',short:'Hands-on courses for developers, from fundamentals to shipping real products with AI-assisted engineering.'},ar:{title:'الدورات',short:'دورات عملية للمطورين، من الأساسيات إلى إطلاق منتجات حقيقية باستخدام الهندسة المدعومة بالذكاء الاصطناعي.'},de:{title:'Kurse',short:'Praxisnahe Kurse für Entwickler – von den Grundlagen bis zum Ausliefern echter Produkte mit KI-gestützter Entwicklung.'}}
+{slug:'courses',href:'https://ramialkhateeb.github.io/Courses/',icon:'fa-graduation-cap',en:{title:'Courses',short:'Hands-on courses for developers, from fundamentals to shipping real products with AI-assisted engineering.'},ar:{title:'الدورات',short:'دورات عملية للمطورين، من الأساسيات إلى إطلاق منتجات حقيقية باستخدام الهندسة المدعومة بالذكاء الاصطناعي.'},de:{title:'Kurse',short:'Praxisnahe Kurse für Entwickler – von den Grundlagen bis zum Ausliefern echter Produkte mit KI-gestützter Entwicklung.'}}
 ];
 
 window.RAMI_RECOMMENDATIONS=[];
