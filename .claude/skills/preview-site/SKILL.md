@@ -26,7 +26,7 @@ Use `mcp__plugin_playwright_playwright__browser_navigate` to `http://localhost:<
 - Resize with `browser_resize` to the site's breakpoints (850px, 600px) to confirm responsive layout.
 - Toggle the language switcher (`.language-toggle`) and re-check — this flips `dir` to `rtl` and re-renders all data-driven sections.
 - For products: the home page shows the NxT7 and Courses cards; `nxt7.html` lists the app cards, and each opens `product.html?slug=<slug>`.
-- For About: scroll to confirm the scroll-reveals (`.reveal`/`.in-view`), the headline's word-by-word highlight, and the floating skill chips (they drift inside a box; click to pause).
+- For About: scroll to confirm the scroll-reveals (`.reveal`/`.in-view`), the headline's word-by-word highlight, and the tech-logo row under "Expertise & background".
 
 ## 3. Clean up
 
