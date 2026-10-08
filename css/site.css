@@ -72,7 +72,8 @@ html[dir=rtl] .eyebrow,
 html[dir=rtl] .metric-value,
 html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
-html[dir=rtl] .pricing-price {
+html[dir=rtl] .pricing-price,
+html[dir=rtl] .about-facts-list dt {
     font-family: Cairo, sans-serif
 }
 
@@ -680,117 +681,6 @@ html[dir=rtl] .capability-grid article:before {
     line-height: 1.85
 }
 
-.about-facts {
-    margin-top: 48px
-}
-
-.landmark-strip {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px 72px;
-    margin-bottom: 48px
-}
-
-.landmark-strip[data-route] {
-    padding-top: 54px
-}
-
-.landmark-strip .landmark {
-    position: relative;
-    z-index: 1
-}
-
-.route-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    pointer-events: none
-}
-
-.route-svg path {
-    fill: none;
-    stroke: var(--sea-icon, var(--accent));
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-dasharray: 2 9;
-    opacity: .85
-}
-
-.route-draw {
-    stroke: #fff !important;
-    stroke-dasharray: none !important;
-    stroke-width: 6 !important;
-    opacity: 1 !important
-}
-
-.route-plane {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    color: var(--sea-icon, var(--accent));
-    font-size: 1rem;
-    offset-rotate: auto;
-    offset-distance: 0%;
-    opacity: 0;
-    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--sea-icon, var(--accent)) 60%, transparent))
-}
-
-.route-plane i {
-    display: block;
-    transform: translate(-50%, -50%) rotate(-45deg)
-}
-
-.landmark-strip.in-view .route-plane {
-    animation: routeFly 3.2s cubic-bezier(.45, .05, .3, 1) .5s forwards
-}
-
-@keyframes routeFly {
-    0% {
-        offset-distance: 0%;
-        opacity: 0
-    }
-
-    8% {
-        opacity: 1
-    }
-
-    92% {
-        opacity: 1
-    }
-
-    100% {
-        offset-distance: 100%;
-        opacity: 0
-    }
-}
-
-.landmark-strip.in-view .landmark {
-    animation: landmarkPing .6s ease backwards
-}
-
-.landmark-strip.in-view .landmark:nth-of-type(1) {
-    animation-delay: .5s
-}
-
-.landmark-strip.in-view .landmark:nth-of-type(2) {
-    animation-delay: 2s
-}
-
-.landmark-strip.in-view .landmark:nth-of-type(3) {
-    animation-delay: 3.5s
-}
-
-@keyframes landmarkPing {
-    50% {
-        border-color: var(--sea-icon, var(--accent));
-        box-shadow: 0 0 0 6px color-mix(in srgb, var(--sea-icon, var(--accent)) 22%, transparent)
-    }
-}
-
 html.js [data-type]:not([data-typed]) {
     color: transparent
 }
@@ -827,33 +717,6 @@ html.js [data-type]:not([data-typed]) {
     100% {
         box-shadow: 0 0 0 18px color-mix(in srgb, var(--sea-icon, var(--accent)) 0%, transparent)
     }
-}
-
-.landmark {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 20px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    box-shadow: var(--shadow);
-    color: var(--text);
-    font-weight: 600;
-    font-size: .92rem;
-    transition: border-color .2s ease, transform .2s ease
-}
-
-.landmark:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px)
-}
-
-.landmark svg {
-    width: 28px;
-    height: 28px;
-    fill: var(--accent);
-    flex-shrink: 0
 }
 
 .about-intro {
@@ -929,50 +792,6 @@ html[dir=rtl] .about-copy h2 {
 @keyframes photoSettle {
     from {
         transform: scale(1.14)
-    }
-}
-
-
-
-.skill-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none
-}
-
-.skill-chips li {
-    padding: 7px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, .3);
-    background: rgba(255, 255, 255, .08);
-    color: var(--text);
-    font: 600 .84rem/1 var(--mono);
-    white-space: nowrap;
-    transition: border-color .25s ease, color .25s ease, background .25s ease
-}
-
-.skill-chips li:hover {
-    border-color: var(--sea-icon, var(--accent));
-    color: var(--sea-icon, var(--accent))
-}
-
-
-
-@media(max-width:550px) {
-    .landmark-strip[data-route] {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 26px;
-        padding-top: 0
-    }
-
-
-    .skill-chips li {
-        font-size: .74rem;
-        padding: 6px 11px
     }
 }
 
@@ -1283,9 +1102,6 @@ html[dir=rtl] .intro-line {
     }
 }
 
-
-
-
 .page-hero {
     padding: 70px 0 30px
 }
@@ -1538,15 +1354,9 @@ button:focus-visible {
         animation: none
     }
 
-    .landmark-strip.in-view .route-plane,
-    .landmark-strip.in-view .landmark,
     .btn.email-link.pulse-once,
     .tw-caret {
         animation: none
-    }
-
-    .route-plane {
-        display: none
     }
 
     html.js [data-type]:not([data-typed]) {
@@ -2211,20 +2021,6 @@ html[dir=rtl] .sd-base {
     opacity: .72
 }
 
-.skill-groups {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px 28px
-}
-
-.skill-group h3 {
-    margin: 0 0 10px;
-    font: 500 .72rem/1.2 var(--mono);
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--sea-icon, var(--accent))
-}
-
 body.sea-page [data-tone=deep] .reco-card figcaption a {
     color: var(--sea-eyebrow)
 }
@@ -2277,67 +2073,15 @@ body.sea-page [data-tone=deep] .reco-card figcaption a {
     text-decoration: underline
 }
 
-.mobile-cta {
-    display: none
-}
-
 @media(max-width:900px) {
-    .skill-groups {
-        grid-template-columns: repeat(2, 1fr)
-    }
-
     .reco-grid {
         grid-template-columns: 1fr
     }
 }
 
 @media(max-width:700px) {
-    .skill-groups {
-        grid-template-columns: 1fr
-    }
-
     .route-rail {
         display: none
-    }
-
-    .mobile-cta {
-        position: fixed;
-        inset-inline: 0;
-        bottom: 0;
-        z-index: 40;
-        display: flex;
-        gap: 10px;
-        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-        background: rgba(250, 247, 242, .92);
-        border-top: 1px solid var(--line);
-        backdrop-filter: blur(10px)
-    }
-
-    .mobile-cta .btn {
-        flex: 1;
-        justify-content: center;
-        text-align: center
-    }
-
-    .mobile-cta .btn-outline,
-    body.sea-page .mobile-cta .btn-outline {
-        background: #fff;
-        border: 1px solid var(--line);
-        color: var(--text);
-        box-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none
-    }
-
-    body.sea-page .mobile-cta .btn.email-link {
-        background: var(--accent-deep);
-        border-color: var(--accent-deep);
-        color: #fff;
-        box-shadow: none
-    }
-
-    .site-footer {
-        padding-bottom: 84px
     }
 }
 
@@ -2395,10 +2139,6 @@ body.sea-page [data-tone=deep] .capability-grid i {
     color: var(--sea-icon)
 }
 
-body.sea-page [data-tone=deep] .landmark svg {
-    fill: var(--sea-icon)
-}
-
 body.sea-page [data-tone=deep] .metric-value {
     color: #f2c29c
 }
@@ -2433,7 +2173,7 @@ body.sea-page .info-grid h3 {
     color: var(--sea-icon)
 }
 
-body.sea-page :is(.metrics-grid>div, .info-grid>div, .landmark, .capability-grid article, .project-card) {
+body.sea-page :is(.metrics-grid>div, .info-grid>div, .capability-grid article, .project-card) {
     background: radial-gradient(130% 100% at 0% 0%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 52%), linear-gradient(160deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .008) 60%, rgba(255, 255, 255, .02));
     border: 1px solid rgba(255, 255, 255, .14);
     backdrop-filter: blur(6px) saturate(1.2);
@@ -2721,7 +2461,7 @@ html.tab-hidden .sea-photo:before {
 
 @media(max-width:768px) {
 
-    body.sea-page :is(.metrics-grid>div, .info-grid>div, .landmark, .capability-grid article, .project-card) {
+    body.sea-page :is(.metrics-grid>div, .info-grid>div, .capability-grid article, .project-card) {
         backdrop-filter: blur(4px) saturate(1.2);
         -webkit-backdrop-filter: blur(4px) saturate(1.2)
     }
@@ -2738,34 +2478,57 @@ html.tab-hidden .sea-photo:before {
     }
 }
 
-/* Expertise & background: skills on one side, route + facts on the other */
-.about-more {
+/* Expertise & background: tech logos + three short fact lines */
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 32px;
+    padding: 0;
+    list-style: none
+}
+
+.tech-logos li {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-    gap: 40px;
-    align-items: start
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 6px 18px rgba(3, 15, 24, .14);
+    transition: transform .25s var(--ease)
 }
 
-.about-more .skill-groups {
-    grid-template-columns: repeat(2, 1fr)
+.tech-logos li:hover {
+    transform: translateY(-3px)
 }
 
-.about-more .landmark-strip,
-.about-more .landmark-strip[data-route] {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 26px;
-    padding-top: 0;
-    margin-bottom: 24px
+.tech-logos img {
+    width: 36px;
+    height: 36px
 }
 
-.about-more .info-grid {
-    grid-template-columns: 1fr;
-    gap: 16px
+.about-facts-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 12px 28px;
+    margin: 0
 }
 
-.about-more .about-facts {
-    margin-top: 0
+.about-facts-list dt {
+    font: 500 .72rem/1.9 var(--mono);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--sea-eyebrow, var(--accent))
+}
+
+html[dir=rtl] .about-facts-list dt {
+    letter-spacing: 0
+}
+
+.about-facts-list dd {
+    margin: 0;
+    color: var(--text)
 }
 
 .about-cta {
@@ -2805,23 +2568,26 @@ body.sea-page .social-links a {
     border-color: rgba(255, 255, 255, .4)
 }
 
-@media(max-width:980px) {
-    .about-more {
-        grid-template-columns: 1fr;
-        gap: 28px
-    }
-}
-
-@media(max-width:700px) {
-    .about-more .skill-groups {
-        grid-template-columns: 1fr
-    }
-}
-
 @media(max-width:550px) {
     .hero-actions .social-links {
         width: 100%;
         justify-content: center;
         margin-inline-start: 0
+    }
+}
+
+@media(max-width:550px) {
+    .about-facts-list {
+        grid-template-columns: 1fr;
+        gap: 2px
+    }
+
+    .about-facts-list dd {
+        margin-bottom: 12px
+    }
+
+    .tech-logos li {
+        width: 56px;
+        height: 56px
     }
 }
