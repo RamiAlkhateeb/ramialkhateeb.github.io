@@ -2603,3 +2603,7 @@ body.sea-page .social-links a {
         height: 56px
     }
 }
+
+body.sea-page .hero-glass-card .social-links a {
+    border-color: var(--line)
+}
