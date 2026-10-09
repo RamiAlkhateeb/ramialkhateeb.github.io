@@ -2,7 +2,7 @@
 
 Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Software Architect opportunities.
 
-`index.html` is a single page containing every section — hero, about (photo intro, impact metrics, what I do, a row of tech logos from `assets/icons/tech/` (devicon, MIT), short worked-in/education/languages facts, recommendations), products, and contact. The header nav and the route rail down the side both scroll to those anchors; the section list lives once in `SITE_STOPS` at the top of `js/components.js`. `about.html` and `products.html` are redirect stubs kept only for older inbound links. `nxt7.html` lists every app under the NxT7 umbrella, and `product.html?slug=<slug>` is the per-app detail page.
+`index.html` is a single page containing every section — hero, about (photo intro, impact metrics, what I do, two rows of tech logos (Stack and AI) from `assets/icons/tech/` (devicon, MIT, and Simple Icons, CC0), short worked-in/education/languages facts, recommendations), products, and contact. The header nav and the route rail down the side both scroll to those anchors; the section list lives once in `SITE_STOPS` at the top of `js/components.js`. `about.html` and `products.html` are redirect stubs kept only for older inbound links. `nxt7.html` lists every app under the NxT7 umbrella, and `product.html?slug=<slug>` is the per-app detail page.
 
 ## Update project media
 
