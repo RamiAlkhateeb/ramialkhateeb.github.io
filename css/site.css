@@ -74,7 +74,9 @@ html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
 html[dir=rtl] .pricing-price,
 html[dir=rtl] .about-facts-list dt,
-html[dir=rtl] .tech-row-label {
+html[dir=rtl] .tech-row-label,
+html[dir=rtl] .project-purpose,
+html[dir=rtl] .project-group-label {
     font-family: Cairo, sans-serif
 }
 
@@ -1701,6 +1703,28 @@ html[dir=rtl] .project-chips li {
     color: var(--text)
 }
 
+.project-purpose {
+    position: absolute;
+    inset-block-start: 10px;
+    inset-inline-start: 12px;
+    font: 500 .62rem/1 var(--mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    opacity: .85
+}
+
+.project-group-label {
+    grid-column: 1 / -1;
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font: 500 .7rem/1.4 var(--mono);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .75
+}
+
 .project-card--logo .project-logo {
     width: 54%;
     height: auto;
@@ -2556,7 +2580,9 @@ html.tab-hidden .sea-photo:before {
 }
 
 html[dir=rtl] .about-facts-list dt,
-html[dir=rtl] .tech-row-label {
+html[dir=rtl] .tech-row-label,
+html[dir=rtl] .project-purpose,
+html[dir=rtl] .project-group-label {
     letter-spacing: 0
 }
 
