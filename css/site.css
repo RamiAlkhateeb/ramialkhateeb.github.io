@@ -574,7 +574,6 @@ html.js .hero-copy>h1:not([data-split]) {
 }
 
 @media(hover:hover) {
-
     .project-card:hover::after,
     .metrics-grid>div:hover::after {
         opacity: 1

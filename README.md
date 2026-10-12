@@ -2,13 +2,11 @@
 
 Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Software Architect opportunities.
 
-`index.html` is a single page containing every section — hero, about (photo intro, impact metrics, what I do, two rows of tech logos (Stack and AI) from `assets/icons/tech/` (devicon, MIT, and Simple Icons, CC0), short worked-in/education/languages facts, recommendations), products, and contact. The header nav and the route rail down the side both scroll to those anchors; the section list lives once in `SITE_STOPS` at the top of `js/components.js`. `about.html` and `products.html` are redirect stubs kept only for older inbound links. `nxt7.html` lists every app under the NxT7 umbrella, and `product.html?slug=<slug>` is the per-app detail page.
+`index.html` is a single page containing every section — hero, about (photo intro, impact metrics, what I do, two rows of tech logos (Stack and AI) from `assets/icons/tech/` (devicon, MIT, and Simple Icons, CC0), short worked-in/education/languages facts, recommendations), products, and contact. The header nav and the route rail down the side both scroll to those anchors; the section list lives once in `SITE_STOPS` at the top of `js/components.js`. `about.html` and `products.html` are redirect stubs kept only for older inbound links. `product.html?slug=<slug>` is the per-app detail page.
 
 ## Update project media
 
-Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders in the home page's Products section as a logo-only card linking to its detail page, which opens with a "How the AI helps" example (from the project's `ai` field) and shows the screenshots as plain images (no device frame), then a short problem/outcome summary. The Products section also has a diagram of the apps on their shared libraries, built from the `nxt7.eng.*` and `shared.*` keys of `TEXT` in `js/site.js` or the demo `video`. The home page's `#products` section shows one umbrella card from `window.RAMI_BRANDS` (NxT7).
-
-- `assets/projects/<slug>/logo.svg` — card logo (the NxT7 apps use the SVGs from the shared `Nxt.UI` library).
+Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders in the home page's Products section as a logo-only card linking to its detail page, which opens with a "How the AI helps" example (from the project's `ai` field) and shows the screenshots as plain images (no device frame), then a short problem/outcome summary. The Products section also has a diagram of the apps on their shared libraries, built from the `nxt7.eng.*` and `shared.*` keys of `TEXT` in `js/site.js` or the demo `video`. - `assets/projects/<slug>/logo.svg` — card logo (the NxT7 apps use the SVGs from the shared `Nxt.UI` library).
 - `assets/projects/<slug>/1.webp`, `2.webp`, … — 591×1280 screenshots .
 - `assets/projects/<slug>/<slug>_teaser.mp4` — optional demo video for the detail page (pair it with a `poster` image).
 
