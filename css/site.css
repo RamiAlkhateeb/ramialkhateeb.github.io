@@ -2693,3 +2693,7 @@ body.sea-page [data-tone=deep] .project-purpose {
 body.sea-page [data-tone=deep] .project-group-label {
     color: var(--sea-eyebrow)
 }
+
+.brand-grid:has(> :only-child) {
+    grid-template-columns: 1fr
+}
