@@ -1,11 +1,11 @@
 ---
 name: add-product
-description: Add a new project/product to the portfolio site (the app grid on nxt7.html + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
+description: Add a new project/product to the portfolio site (the app grid in the home page's #products section + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
 ---
 
 # Add a product
 
-Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container on `nxt7.html` (the NxT7 umbrella page; the home page's `#products` section only shows the one umbrella card from `window.RAMI_BRANDS`), and onto `product.html?slug=<slug>`, automatically. Add the app's name to the NxT7 entry's `apps` list in `RAMI_BRANDS` too.
+Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container on `nxt7.html` (the NxT7 section of the home page, `#products`; `nxt7.html` is only a redirect), and onto `product.html?slug=<slug>`, automatically. Add the app's name to the NxT7 entry's `apps` list in `RAMI_BRANDS` too.
 
 ## 1. Add the entry to `js/projects.js`
 

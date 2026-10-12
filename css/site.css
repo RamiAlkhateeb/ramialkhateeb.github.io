@@ -70,7 +70,6 @@ h3,
 
 html[dir=rtl] .eyebrow,
 html[dir=rtl] .metric-value,
-html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
 html[dir=rtl] .pricing-price,
 html[dir=rtl] .about-facts-list dt,
@@ -815,77 +814,9 @@ html[dir=rtl] .about-copy h2 {
     animation: wordUp .9s cubic-bezier(.22, .8, .2, 1) calc(.12s + min(var(--i, 0), 9) * .05s) backwards
 }
 
-.brand-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    perspective: 1200px
-}
-
-.project-card.brand-card {
-    aspect-ratio: 4 / 3;
-    color: inherit;
-    text-decoration: none;
-    transform: rotateX(calc(var(--ty, 0) * -7deg)) rotateY(calc(var(--tx, 0) * 9deg));
-    transition: transform .35s cubic-bezier(.22, .8, .2, 1), box-shadow .3s ease
-}
-
-.project-card.brand-card:hover,
-.project-card.brand-card:focus-visible {
-    transform: rotateX(calc(var(--ty, 0) * -7deg)) rotateY(calc(var(--tx, 0) * 9deg)) translateY(-4px)
-}
-
-.brand-card h3 {
-    margin: 0;
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    letter-spacing: -.03em;
-    color: #fff
-}
-
-.brand-card .project-card-content {
-    padding: 28px
-}
-
-.brand-index {
-    position: absolute;
-    z-index: 1;
-    top: 18px;
-    inset-inline-start: 22px;
-    font: 600 .78rem/1 var(--mono);
-    letter-spacing: .12em;
-    color: rgba(255, 255, 255, .7)
-}
-
-.brand-art {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    background: radial-gradient(120% 90% at 80% 10%, color-mix(in srgb, var(--sea-icon) 28%, transparent), transparent 60%), linear-gradient(150deg, var(--sea-mid), var(--sea-deeper))
-}
-
-.brand-art i {
-    font-size: clamp(4rem, 9vw, 7rem);
-    color: rgba(255, 255, 255, .16);
-    transform: translateY(-18%)
-}
-
-.brand-card .project-card-scrim {
-    background: linear-gradient(180deg, rgba(8, 10, 13, .3) 0%, rgba(8, 10, 13, .6) 42%, rgba(8, 10, 13, .93) 100%)
-}
-
 html[dir=rtl] .back-link i,
 html[dir=rtl] .project-card-cta i {
     transform: scaleX(-1)
-}
-
-.project-card.brand-card.is-soon {
-    cursor: default
-}
-
-.project-card.brand-card.is-soon:hover {
-    transform: none;
-    box-shadow: var(--shadow)
 }
 
 html.js .reveal:not(.in-view) {
@@ -1324,14 +1255,8 @@ button:focus-visible {
     }
 
     .capability-grid,
-    .info-grid,
-    .brand-grid {
+    .info-grid {
         grid-template-columns: 1fr
-    }
-
-    .project-card.brand-card {
-        aspect-ratio: auto;
-        min-height: 420px
     }
 
     .hero-actions .btn {
@@ -1393,11 +1318,6 @@ button:focus-visible {
 
     .sw {
         opacity: 1
-    }
-
-    .project-card.brand-card,
-    .project-card.brand-card:hover {
-        transform: none
     }
 
     html.nav-hidden .nav-pill,
@@ -1529,30 +1449,6 @@ html[dir=rtl] .project-status {
     margin: 4px 0 6px;
     padding: 0;
     list-style: none
-}
-
-.brand-logo {
-    width: 76px;
-    height: 76px;
-    margin-bottom: 6px;
-    border-radius: 20px;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
-    transition: transform .4s cubic-bezier(.22, .8, .2, 1)
-}
-
-.brand-card:hover .brand-logo {
-    transform: translateY(-4px) rotate(-3deg)
-}
-
-.nxt7-hero-top {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 8px
-}
-
-.nxt7-hero-top .eyebrow {
-    margin: 0
 }
 
 .nxt7-logo {
@@ -2162,14 +2058,6 @@ body.sea-page #about {
     --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 45%, var(--sea-deep) 100%
 }
 
-body.sea-page #nxt7-apps {
-    --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 40%, var(--sea-deep) 100%
-}
-
-body.sea-page #nxt7-engineering {
-    --sea-stops: var(--sea-deep) 0%, var(--sea-abyss) 100%
-}
-
 body.sea-page #products {
     --sea-stops: var(--sea-deep) 0%, var(--sea-deeper) 100%
 }
@@ -2670,18 +2558,6 @@ body.sea-page .hero-glass-card .social-links a {
     border-color: var(--line)
 }
 
-.career-hero-wrapper.nxt7-hero-wrap {
-    min-height: 64vh;
-    min-height: 64svh;
-    padding: 120px 0 80px
-}
-
-@media(max-width:768px) {
-    .career-hero-wrapper.nxt7-hero-wrap {
-        padding: 90px 0 60px
-    }
-}
-
 body.sea-page [data-tone=deep] .sd-lib h3 {
     color: var(--sea-icon)
 }
@@ -2694,6 +2570,29 @@ body.sea-page [data-tone=deep] .project-group-label {
     color: var(--sea-eyebrow)
 }
 
-.brand-grid:has(> :only-child) {
-    grid-template-columns: 1fr
+.products-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px
+}
+
+.products-head .eyebrow {
+    margin: 0
+}
+
+.products-head .nxt7-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px
+}
+
+.products-intro {
+    max-width: 680px;
+    margin: 0 0 36px;
+    color: var(--muted)
+}
+
+#products .shared-section {
+    padding: 72px 0 0
 }

@@ -8,4 +8,4 @@ AI screens can be captured without a real key: run the app locally, set `nxt.ai.
 
 A demo or teaser video can be added as `<project-slug>_teaser.mp4` (e.g. `carousel-engine/carousel_engine_teaser.mp4`) and set as `video`; it plays on the detail page.
 
-`assets/images/nxt7-logo.svg` is the NxT7 studio logo used on the home page card and `nxt7.html`.
+`assets/images/nxt7-logo.svg` is the NxT7 studio logo used in the home page's Products section.
