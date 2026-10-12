@@ -5,7 +5,7 @@ description: Add a new project/product to the portfolio site (the app grid on nx
 
 # Add a product
 
-Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container on `nxt7.html` (the NxT7 umbrella page; the home page's `#products` section only shows the two umbrella cards from `window.RAMI_BRANDS`), and onto `product.html?slug=<slug>`, automatically. Add the app's name to the NxT7 entry's `apps` list in `RAMI_BRANDS` too.
+Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container on `nxt7.html` (the NxT7 umbrella page; the home page's `#products` section only shows the one umbrella card from `window.RAMI_BRANDS`), and onto `product.html?slug=<slug>`, automatically. Add the app's name to the NxT7 entry's `apps` list in `RAMI_BRANDS` too.
 
 ## 1. Add the entry to `js/projects.js`
 
@@ -25,6 +25,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     de: { summary: '…', prompt: '…', result: ['…'] }
   },
   tryUrl: '',                         // live URL, or '' to show "Coming soon"
+  // href: 'https://…',              // optional: the tile opens this external site instead of product.html (e.g. Abu Shreek courses); such entries are not added to NxT7's `apps` chips
   sourceUrl: '',                      // optional GitHub link
   pricing: [],                        // optional: [{name, price, period, features:[...]}]
   en: {
