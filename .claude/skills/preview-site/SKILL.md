@@ -25,7 +25,7 @@ Run it in the background (it doesn't exit on its own).
 Use `mcp__plugin_playwright_playwright__browser_navigate` to `http://localhost:<port>/<page>.html` (not `file://`), then `browser_snapshot` or `browser_take_screenshot` to inspect the result. Useful checks:
 - Resize with `browser_resize` to the site's breakpoints (850px, 600px) to confirm responsive layout.
 - Toggle the language switcher (`.language-toggle`) and re-check — this flips `dir` to `rtl` and re-renders all data-driven sections.
-- For products: the home page shows the NxT7 and Abo Shrik (courses) cards; `nxt7.html` lists the app cards, and each opens `product.html?slug=<slug>`.
+- For products: the home page shows the NxT7 card; `nxt7.html` lists the app cards, and each opens `product.html?slug=<slug>`, except Abu Shreek, which opens the courses site.
 - For About: scroll to confirm the scroll-reveals (`.reveal`/`.in-view`), the headline's word-by-word highlight, and the tech-logo row under "Expertise & background".
 
 ## 3. Clean up
