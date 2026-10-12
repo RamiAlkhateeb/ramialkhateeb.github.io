@@ -6,7 +6,7 @@ window.RAMI_PROJECTS=[
 ];
 // Umbrella cards on the home page. NxT7 groups every app above (rendered on nxt7.html).
 window.RAMI_BRANDS=[
-{slug:'nxt7',href:'nxt7.html',logo:'assets/images/nxt7-logo.svg',apps:['Makdous','NxtTask','Syrian Radio'],en:{title:'NxT7',short:'My life-organizer apps: plan your week, eat well and unwind, with an optional AI helper.'},ar:{title:'NxT7',short:'تطبيقاتي لتنظيم الحياة اليومية: خطط أسبوعك، كُل جيداً واسترح، مع مساعد ذكاء اصطناعي اختياري.'},de:{title:'NxT7',short:'Meine Apps zur Alltagsorganisation: Woche planen, gut essen und abschalten, mit optionalem KI-Helfer.'}},
+{slug:'nxt7',href:'nxt7.html',logo:'assets/images/nxt7-logo.svg',apps:['Makdous','NxtTask','Syrian Radio'],en:{title:'NxT7',short:'Apps to organize your mind: plan your week, eat well and unwind, with an optional AI helper.'},ar:{title:'NxT7',short:'تطبيقات لتنظيم ذهنك: خطط أسبوعك، كُل جيداً واسترح، مع مساعد ذكاء اصطناعي اختياري.'},de:{title:'NxT7',short:'Apps für einen geordneten Kopf: Woche planen, gut essen und abschalten, mit optionalem KI-Helfer.'}},
 {slug:'courses',href:'https://ramialkhateeb.github.io/Courses/',icon:'fa-graduation-cap',en:{title:'Courses',short:'Hands-on courses for developers, from fundamentals to shipping real products with AI-assisted engineering.'},ar:{title:'الدورات',short:'دورات عملية للمطورين، من الأساسيات إلى إطلاق منتجات حقيقية باستخدام الهندسة المدعومة بالذكاء الاصطناعي.'},de:{title:'Kurse',short:'Praxisnahe Kurse für Entwickler – von den Grundlagen bis zum Ausliefern echter Produkte mit KI-gestützter Entwicklung.'}}
 ];
 
