@@ -2670,10 +2670,20 @@ body.sea-page .hero-glass-card .social-links a {
     border-color: var(--line)
 }
 
-.nxt7-hero-wrap {
+.career-hero-wrapper.nxt7-hero-wrap {
     min-height: 64vh;
     min-height: 64svh;
     padding: 120px 0 80px
+}
+
+@media(max-width:768px) {
+    .career-hero-wrapper.nxt7-hero-wrap {
+        padding: 90px 0 60px
+    }
+}
+
+body.sea-page [data-tone=deep] .sd-lib h3 {
+    color: var(--sea-icon)
 }
 
 body.sea-page [data-tone=deep] .project-purpose {
