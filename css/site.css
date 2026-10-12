@@ -74,7 +74,9 @@ html[dir=rtl] .brand-index,
 html[dir=rtl] .rail-label,
 html[dir=rtl] .pricing-price,
 html[dir=rtl] .about-facts-list dt,
-html[dir=rtl] .tech-row-label {
+html[dir=rtl] .tech-row-label,
+html[dir=rtl] .project-purpose,
+html[dir=rtl] .project-group-label {
     font-family: Cairo, sans-serif
 }
 
@@ -1701,6 +1703,32 @@ html[dir=rtl] .project-chips li {
     color: var(--text)
 }
 
+.project-purpose {
+    position: absolute;
+    inset-block-start: 10px;
+    inset-inline-start: 12px;
+    font: 500 .62rem/1 var(--mono);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    opacity: .85
+}
+
+.project-group-label {
+    grid-column: 1 / -1;
+    margin: 14px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font: 500 .7rem/1.4 var(--mono);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .75
+}
+
+.project-card--logo:has(.project-purpose) {
+    padding-block-start: 26px
+}
+
 .project-card--logo .project-logo {
     width: 54%;
     height: auto;
@@ -2134,6 +2162,14 @@ body.sea-page #about {
     --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 45%, var(--sea-deep) 100%
 }
 
+body.sea-page #nxt7-apps {
+    --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 40%, var(--sea-deep) 100%
+}
+
+body.sea-page #nxt7-engineering {
+    --sea-stops: var(--sea-deep) 0%, var(--sea-abyss) 100%
+}
+
 body.sea-page #products {
     --sea-stops: var(--sea-deep) 0%, var(--sea-deeper) 100%
 }
@@ -2556,7 +2592,9 @@ html.tab-hidden .sea-photo:before {
 }
 
 html[dir=rtl] .about-facts-list dt,
-html[dir=rtl] .tech-row-label {
+html[dir=rtl] .tech-row-label,
+html[dir=rtl] .project-purpose,
+html[dir=rtl] .project-group-label {
     letter-spacing: 0
 }
 
@@ -2630,4 +2668,28 @@ body.sea-page .social-links a {
 
 body.sea-page .hero-glass-card .social-links a {
     border-color: var(--line)
+}
+
+.career-hero-wrapper.nxt7-hero-wrap {
+    min-height: 64vh;
+    min-height: 64svh;
+    padding: 120px 0 80px
+}
+
+@media(max-width:768px) {
+    .career-hero-wrapper.nxt7-hero-wrap {
+        padding: 90px 0 60px
+    }
+}
+
+body.sea-page [data-tone=deep] .sd-lib h3 {
+    color: var(--sea-icon)
+}
+
+body.sea-page [data-tone=deep] .project-purpose {
+    color: var(--sea-icon)
+}
+
+body.sea-page [data-tone=deep] .project-group-label {
+    color: var(--sea-eyebrow)
 }
