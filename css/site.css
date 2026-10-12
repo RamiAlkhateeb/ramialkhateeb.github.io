@@ -1725,6 +1725,10 @@ html[dir=rtl] .project-chips li {
     opacity: .75
 }
 
+.project-card--logo:has(.project-purpose) {
+    padding-block-start: 26px
+}
+
 .project-card--logo .project-logo {
     width: 54%;
     height: auto;
