@@ -2162,6 +2162,14 @@ body.sea-page #about {
     --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 45%, var(--sea-deep) 100%
 }
 
+body.sea-page #nxt7-apps {
+    --sea-stops: var(--sea-shallow) 0%, var(--sea-mid) 40%, var(--sea-deep) 100%
+}
+
+body.sea-page #nxt7-engineering {
+    --sea-stops: var(--sea-deep) 0%, var(--sea-abyss) 100%
+}
+
 body.sea-page #products {
     --sea-stops: var(--sea-deep) 0%, var(--sea-deeper) 100%
 }
@@ -2660,4 +2668,18 @@ body.sea-page .social-links a {
 
 body.sea-page .hero-glass-card .social-links a {
     border-color: var(--line)
+}
+
+.nxt7-hero-wrap {
+    min-height: 64vh;
+    min-height: 64svh;
+    padding: 120px 0 80px
+}
+
+body.sea-page [data-tone=deep] .project-purpose {
+    color: var(--sea-icon)
+}
+
+body.sea-page [data-tone=deep] .project-group-label {
+    color: var(--sea-eyebrow)
 }
