@@ -14,7 +14,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
 ```js
 {
   slug: 'my-product',                 // used in URLs and asset folder name
-  logo: 'assets/projects/my-product/logo.svg',   // NxT7 apps: copy from Nxt.UI/wwwroot/logos/
+  logo: 'assets/projects/my-product/logo.png',   // family products: copy from Nxt.UI/wwwroot/logos/
   screenshots: ['assets/projects/my-product/1.webp', 'assets/projects/my-product/2.webp'], // 591×1280 WebP; omit if using video
   video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4' (+ poster:'…/poster.webp')
   tags: ['Gemini AI'],                // 'Gemini AI' renders as the highlighted AI chip
@@ -43,7 +43,7 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 ## 2. Add assets
 
 Create `assets/projects/<slug>/` containing:
-- `logo.svg` (or `.webp`) — shown on the product card.
+- `logo.png` (512px, rounded tile with transparent corners; `.svg`/`.webp` also work) — shown on the product card.
 - `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. Shown as plain images on the detail page; the Products-section card shows only the logo.
 - `<slug>_teaser.mp4` — optional demo video shown on the detail page.
 
