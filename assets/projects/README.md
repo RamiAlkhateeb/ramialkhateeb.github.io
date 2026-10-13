@@ -1,6 +1,6 @@
 # Project media
 
-`assets/projects/<project-slug>/logo.svg` is the logo on the app's card and detail page. The NxT7 apps (Makdous, NxtTask, Syrian Radio) use the icons from the shared Nxt.UI library (`Nxt.UI/wwwroot/logos/`); copy the new SVG over when an app's icon changes.
+`assets/projects/<project-slug>/logo.png` is the logo on the app's card and detail page. All five products (Makdous, NxtTask, Syrian Radio, Abu Shreek, Carousel Engine) use the icons from the shared Nxt.UI library (`Nxt.UI/wwwroot/logos/*.png`, 512px tiles with transparent rounded corners); copy the new PNG over when a product's icon changes.
 
 Screenshots go in the project folder as `1.webp`, `2.webp`, `3.webp`, … at 591×1280 (a 375×812 phone viewport at 1.576× scale), in the English UI where the app supports it. They appear as plain screenshots on the detail page; the Products-section card shows only the logo.
 
