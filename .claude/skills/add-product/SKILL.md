@@ -25,7 +25,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
     de: { summary: '…', prompt: '…', result: ['…'] }
   },
   tryUrl: '',                         // live URL, or '' to show "Coming soon"
-  // href: 'https://…',              // optional: the tile opens this external site instead of product.html (e.g. Abu Shreek courses); such entries are not added to NxT7's `apps` chips
+  // href: 'https://…',              // optional: the tile opens this external site instead of product.html; such entries are not added to NxT7's `apps` chips
   sourceUrl: '',                      // optional GitHub link
   pricing: [],                        // optional: [{name, price, period, features:[...]}]
   en: {
