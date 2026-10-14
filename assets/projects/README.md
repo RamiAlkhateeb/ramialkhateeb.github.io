@@ -9,3 +9,5 @@ AI screens can be captured without a real key: run the app locally, set `nxt.ai.
 A demo or teaser video can be added as `<project-slug>_teaser.mp4` (e.g. `carousel-engine/carousel_engine_teaser.mp4`) and set as `video`; it plays on the detail page.
 
 `assets/images/nxt7-logo.svg` is the NxT7 studio logo used in the home page's Products section.
+
+An animated demo can replace the screenshots: put `demo-<lang>.gif` (432×768) in the project folder and add `gif:{ar:'assets/projects/<slug>/demo-ar.gif'}` to the project in `js/projects.js` (add `en`/`de` keys for other languages; a missing language falls back to the first GIF). Visitors with reduced motion still get the screenshots.

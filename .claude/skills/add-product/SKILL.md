@@ -16,6 +16,7 @@ Append an object to the `RAMI_PROJECTS` array matching this shape (match the fil
   slug: 'my-product',                 // used in URLs and asset folder name
   logo: 'assets/projects/my-product/logo.png',   // family products: copy from Nxt.UI/wwwroot/logos/
   screenshots: ['assets/projects/my-product/1.webp', 'assets/projects/my-product/2.webp'], // 591×1280 WebP; omit if using video
+  // gif: { ar: 'assets/projects/my-product/demo-ar.gif' },  // optional: animated demo (432×768), per language; shown instead of the screenshots (screenshots return for prefers-reduced-motion); other languages fall back to the first GIF given
   video: '',                          // optional: 'assets/projects/my-product/my-product_teaser.mp4' (+ poster:'…/poster.webp')
   tags: ['Gemini AI'],                // 'Gemini AI' renders as the highlighted AI chip
   arabicFirst: false,                 // optional: adds an "Arabic-first" chip
