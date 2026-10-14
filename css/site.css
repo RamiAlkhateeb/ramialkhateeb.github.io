@@ -1735,6 +1735,10 @@ main:has(#product-body, #project-grid) {
     min-height: 100vh
 }
 
+.product-gif {
+    width: min(360px, 100%)
+}
+
 .product-shot img {
     display: block;
     width: 100%;
