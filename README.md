@@ -6,9 +6,8 @@ Static bilingual portfolio for Senior Software Engineer, Technical Lead, and Sof
 
 ## Update project media
 
-Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders in the home page's Products section as a logo-only card linking to its detail page, which opens with a "How the AI helps" example (from the project's `ai` field) and shows the screenshots as plain images (no device frame), then a short problem/outcome summary. The Products section also has a diagram of the apps on their shared libraries, built from the `nxt7.eng.*` and `shared.*` keys of `TEXT` in `js/site.js` or the demo `video`. - `assets/projects/<slug>/logo.svg` — card logo (the NxT7 apps use the SVGs from the shared `Nxt.UI` library).
-- `assets/projects/<slug>/demo-ar.gif` (optional `gif` field, 432×768, per language) — shown instead of the screenshots on the detail page (reduced motion falls back to them).
-- `assets/projects/<slug>/1.webp`, `2.webp`, … — 591×1280 screenshots .
+Edit `js/projects.js` to add products and live `tryUrl`/`sourceUrl` values. Each product renders in the home page's Products section as a logo-only card linking to its detail page, which is a dark sea-themed page: a hero with eyebrow, buttons, tag chips and up to three screenshots in phone frames, a "How the AI helps" example (from the `ai` field, with EN/DE/AR chips), a six-block case study (problem, decisions, architecture, constraints, outcome, learning), the `journey` rows and a closing booking CTA. The Products section also has a diagram of the apps on their shared libraries, built from the `nxt7.eng.*` and `shared.*` keys of `TEXT` in `js/site.js` or the demo `video`. - `assets/projects/<slug>/logo.svg` — card logo (the NxT7 apps use the SVGs from the shared `Nxt.UI` library).
+- `assets/projects/<slug>/1.webp`, `2.webp`, `3.webp` — 591×1280 screenshots, shown in the hero's phone frames (first three).
 - `assets/projects/<slug>/<slug>_teaser.mp4` — optional demo video for the detail page (pair it with a `poster` image).
 
 See `assets/projects/README.md` for details.
