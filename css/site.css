@@ -1461,12 +1461,6 @@ html[dir=rtl] .project-status {
     box-shadow: 0 12px 28px rgba(28, 26, 23, .18)
 }
 
-.ai-note {
-    margin: 16px 0 0;
-    color: var(--muted);
-    font-size: .82rem
-}
-
 .project-chips li {
     padding: 4px 10px;
     border-radius: 999px;
@@ -2689,8 +2683,7 @@ body.product-page .btn-outline:hover {
     background: transparent;
     color: var(--muted);
     font: 500 .72rem/1 var(--mono);
-    cursor: pointer;
-    transition: all .2s ease
+    cursor: pointer
 }
 
 .ai-lang-btn:hover {
@@ -2853,5 +2846,9 @@ html[dir=rtl] .ai-lang-btn {
 @media(prefers-reduced-motion:no-preference) {
     .phone {
         transition: transform .3s ease
+    }
+
+    .ai-lang-btn {
+        transition: color .2s ease, border-color .2s ease, background-color .2s ease
     }
 }
