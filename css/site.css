@@ -294,7 +294,7 @@ html[dir=rtl] .rail-label {
 
 .career-hero-wrapper {
     position: relative;
-    padding: 110px 0 130px;
+    padding: clamp(150px, 26vh, 260px) 0 130px;
     overflow: hidden;
     min-height: 100vh;
     min-height: 100svh
