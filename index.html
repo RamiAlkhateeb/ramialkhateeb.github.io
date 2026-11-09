@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <title>Rami Alkhateeb | Senior Software Engineer</title>
     <meta name="description"
         content="Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization. Eight years across Syria, the UAE, and Germany.">
-    <script>try{if(!localStorage.getItem('rami-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro');localStorage.setItem('rami-intro','1')}}catch(e){}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Rami Alkhateeb", "url": "https://ramialkhateeb.github.io/", "image": "https://ramialkhateeb.github.io/assets/images/rami-presenting.webp", "jobTitle": "Senior Software Engineer", "description": "Senior Software Engineer specialising in .NET, Azure, microservices, and enterprise modernization.", "email": "mailto:rami13alkhateeb@gmail.com", "sameAs": ["https://linkedin.com/in/rami13alkhateeb", "https://github.com/ramialkhateeb", "https://rami13kh.substack.com/"], "knowsAbout": ["C#", ".NET", "ASP.NET Core", "Angular", "Azure", "Microservices", "SQL Server", "PostgreSQL", "Clean Architecture"], "knowsLanguage": ["ar", "en", "de"], "alumniOf": {"@type": "CollegeOrUniversity", "name": "Al-Baath University"}}</script>
-    <meta name="theme-color" content="#1d3d4d">
+    <meta name="theme-color" content="#10232B">
     <link rel="canonical" href="https://ramialkhateeb.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ramialkhateeb.github.io/">
@@ -24,152 +23,157 @@
     <meta name="twitter:image" content="https://ramialkhateeb.github.io/assets/images/rami-presenting.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap"></noscript>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/card.css">
     <link rel="icon" type="image/png" href="assets/images/favicon-192.png">
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 </head>
 
-<body>
-    <div class="intro-screen" role="presentation">
-        <p class="intro-name" data-i18n="hero.eyebrow">Rami Alkhateeb</p><span class="intro-line"></span>
-        <button class="intro-skip" type="button" data-i18n="intro.skip">Skip</button>
-    </div>
-    <app-header active="home"></app-header><app-rail></app-rail><app-sea></app-sea>
+<body class="card-page">
+    <app-header></app-header>
     <main>
-        <section id="top" class="career-hero-wrapper">
-            <div class="container career-hero">
-                <div class="hero-glass-card">
-                    <div class="hero-copy">
-                        <p class="eyebrow" data-i18n="hero.eyebrow">Rami Alkhateeb</p>
-                        <h1 data-i18n="hero.tagline">I turn hard business problems into software that ships.</h1>
-                        <p class="hero-proof" data-i18n="hero.proof">8 years · 3 countries · enterprise platforms serving
-                            6M+ customers</p>
-                        <div class="hero-actions"><span class="social-links"><a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/ramialkhateeb" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></span></div>
+        <div class="wc" id="wc" data-side="card">
+            <div class="wc-sides" id="wc-sides">
+                <svg class="wc-star" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><rect x="22" y="22" width="56" height="56" rx="8"/><rect x="22" y="22" width="56" height="56" rx="8" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="14"/></g></svg>
+                <section class="wc-side" id="side-card" role="tabpanel" tabindex="0" aria-labelledby="tab-card">
+                    <div class="side-card-main">
+                        <p class="mono" data-i18n="card.role">Senior Software Engineer · .NET · Azure</p>
+                        <h1>Rami <br class="d-only">Alkhateeb</h1>
+                        <p class="pitch" data-i18n="hero.tagline">I turn hard business problems into software that ships.</p>
+                        <ul class="chips">
+                            <li data-i18n="chip.years">8 years</li>
+                            <li data-i18n="chip.stack">.NET · Azure</li>
+                            <li data-i18n="chip.places">Syria · UAE · Germany</li>
+                            <li class="d-only" data-i18n="chip.customers">6M+ customers served</li>
+                            <li class="d-only" data-i18n="chip.langs">AR · EN · DE (B2)</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
-            <a class="scroll-cue" href="#about"><span class="sr-only" data-i18n="hero.scroll">Scroll to about</span><i
-                    class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-        </section>
-        <section id="about" class="section" data-tone="deep">
-            <div class="container">
-                <div class="about-intro">
-                    <figure class="about-photo reveal" data-reveal="clip"><img src="assets/images/rami-presenting.webp"
-                            width="1200" height="900" loading="lazy"
-                            alt="Rami Alkhateeb presenting “From Ideas to Working Projects” on a large screen"></figure>
-                    <div class="about-copy">
-                        <p class="eyebrow" data-i18n="about.eyebrow">About me</p>
-                        <h2 data-scrub data-i18n="about.title">I'm Rami — a software engineer who's spent 8 years
-                            building and modernizing enterprise systems across Germany, the UAE, and Syria.</h2>
-                        <p class="reveal" data-i18n="about.text">I like production code that stays solid under real
-                            use, and I'm just as comfortable inside a shared component library as I am in a stakeholder
-                            meeting.</p>
+                    <div class="side-card-contact d-only">
+                        <a class="contact-row" href="https://linkedin.com/in/rami13alkhateeb" target="_blank" rel="noopener"><span class="ico-in" aria-hidden="true">in</span><span>LinkedIn</span><small>/rami13alkhateeb</small></a>
+                        <a class="contact-row" href="https://github.com/ramialkhateeb" target="_blank" rel="noopener"><span class="ico-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></span><span>GitHub</span><small>/ramialkhateeb</small></a>
+                        <a class="contact-row mail-link" href="mailto:"><span class="ico-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span data-i18n="contact.email">Email</span><small class="mail-text"></small></a>
+                        <button type="button" class="btn btn-ink save-contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="card.saveContact">Save contact (.vcf)</span></button>
                     </div>
-                </div>
-                <p class="eyebrow stack-label" data-i18n="impact.eyebrow">Engineering Impact</p>
-                <div class="metrics-grid">
-                    <div class="reveal"><strong class="metric-value">8</strong><span
-                            data-i18n="impact.years">Years Experience</span><small class="metric-ctx" data-i18n="impact.years.ctx">Syria · UAE · Germany</small></div>
-                    <div class="reveal"><strong class="metric-value">~30</strong><span
-                            data-i18n="impact.components">Reusable UI/Platform Components</span><small class="metric-ctx" data-i18n="impact.components.ctx">HILTES, Germany</small></div>
-                    <div class="reveal"><strong class="metric-value">5+</strong><span
-                            data-i18n="impact.services">Enterprise Services Modernized</span><small class="metric-ctx" data-i18n="impact.services.ctx">CARMA, Dubai</small></div>
-                    <div class="reveal"><strong class="metric-value">6M+</strong><span
-                            data-i18n="impact.customers">Telecom Customers Served</span><small class="metric-ctx" data-i18n="impact.customers.ctx">Syriatel, Damascus</small></div>
-                    <div class="reveal"><strong class="metric-value">4</strong><span
-                            data-i18n="impact.azure">Enterprise Azure Projects</span><small class="metric-ctx" data-i18n="impact.azure.ctx">Tech Unicorn, Dubai</small></div>
-                    <div class="reveal"><strong class="metric-value">~20%</strong><span
-                            data-i18n="impact.performance">Performance Improvement</span><small class="metric-ctx" data-i18n="impact.performance.ctx">Abu Dhabi Ports, SQL tuning</small></div>
-                </div>
-                <p class="eyebrow stack-label" data-i18n="capabilities.eyebrow">What I do</p>
-                <div class="capability-grid">
-                    <article class="reveal"><i class="fa-solid fa-code"></i>
-                        <h3 data-i18n="cap.software.title">Software Engineering</h3>
-                        <p data-i18n="cap.software.text">.NET, C#, ASP.NET Core, Angular, APIs, and databases.</p>
-                    </article>
-                    <article class="reveal"><i class="fa-solid fa-cloud"></i>
-                        <h3 data-i18n="cap.cloud.title">Architecture &amp; Cloud</h3>
-                        <p data-i18n="cap.cloud.text">Microservices, Azure, distributed systems, integrations, and
-                            modernization.</p>
-                    </article>
-                    <article class="reveal"><i class="fa-solid fa-people-group"></i>
-                        <h3 data-i18n="cap.lead.title">Technical Leadership</h3>
-                        <p data-i18n="cap.lead.text">Reviews, planning, technical decisions, and stakeholder
-                            collaboration.</p>
-                    </article>
-                    <article class="reveal"><i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <h3 data-i18n="cap.ai.title">AI-Assisted Engineering</h3>
-                        <p data-i18n="cap.ai.text">Codex and Claude Code for implementation, analysis, documentation,
-                            and controlled delivery.</p>
-                    </article>
-                </div>
-                <p class="eyebrow stack-label" data-i18n="about.expertise">Expertise &amp; background</p>
-                <p class="tech-row-label" data-i18n="about.stack">Stack</p>
-                <ul class="tech-logos reveal">
-                    <li><img src="assets/icons/tech/dotnet.svg" alt=".NET" title=".NET" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/csharp.svg" alt="C#" title="C#" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/blazor.svg" alt="Blazor" title="Blazor" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/azure.svg" alt="Azure" title="Azure" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/angular.svg" alt="Angular" title="Angular" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/react.svg" alt="React" title="React" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/typescript.svg" alt="TypeScript" title="TypeScript" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/nodejs.svg" alt="Node.js" title="Node.js" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/sqlserver.svg" alt="SQL Server" title="SQL Server" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/redis.svg" alt="Redis" title="Redis" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/rabbitmq.svg" alt="RabbitMQ" title="RabbitMQ" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/docker.svg" alt="Docker" title="Docker" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/githubactions.svg" alt="GitHub Actions" title="GitHub Actions" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/firebase.svg" alt="Firebase" title="Firebase" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/cloudflare.svg" alt="Cloudflare" title="Cloudflare" width="36" height="36" loading="lazy"></li>
-                </ul>
-                <p class="tech-row-label" data-i18n="about.ai">AI</p>
-                <ul class="tech-logos reveal">
-                    <li><img src="assets/icons/tech/claude.svg" alt="Claude" title="Claude" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/ollama.svg" alt="Ollama" title="Ollama" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/gemini.svg" alt="Google Gemini" title="Google Gemini" width="36" height="36" loading="lazy"></li>
-                    <li><img src="assets/icons/tech/copilot.svg" alt="GitHub Copilot" title="GitHub Copilot" width="36" height="36" loading="lazy"></li>
-                </ul>
-                <dl class="about-facts-list reveal">
-                    <dt data-i18n="about.workedIn">Worked in</dt>
-                    <dd><span aria-hidden="true">🇸🇾</span> <span data-i18n="landmark.syria">Syria</span> · <span aria-hidden="true">🇦🇪</span> <span data-i18n="landmark.uae">UAE</span> · <span aria-hidden="true">🇩🇪</span> <span data-i18n="landmark.germany">Germany</span></dd>
-                    <dt data-i18n="about.education">Education</dt>
-                    <dd data-i18n="about.educationBody">B.Sc. Software Engineering — Al-Baath University</dd>
-                    <dt data-i18n="about.languages">Languages</dt>
-                    <dd data-i18n="about.languagesBody">Arabic (native) · English (fluent) · German (B2)</dd>
-                </dl>
-                <div id="recommendations" class="reco" hidden></div>
+                </section>
+                <section class="wc-side" id="side-impact" role="tabpanel" tabindex="0" aria-labelledby="tab-impact" hidden>
+                    <p class="mono accent" data-i18n="impact.eyebrow">Engineering Impact</p>
+                    <ul class="stats"><li><strong>8</strong><span class="stat-label" data-i18n="impact.years">Years Experience</span><span class="stat-label-s" data-i18n="impact.years.s">Years, 3 countries</span><small data-i18n="impact.years.ctx"></small></li><li><strong>6M+</strong><span class="stat-label" data-i18n="impact.customers">Telecom Customers Served</span><span class="stat-label-s" data-i18n="impact.customers.s">Customers served</span><small data-i18n="impact.customers.ctx"></small></li><li><strong>~30</strong><span class="stat-label" data-i18n="impact.components">Reusable UI/Platform Components</span><span class="stat-label-s" data-i18n="impact.components.s">UI components</span><small data-i18n="impact.components.ctx"></small></li><li><strong>5+</strong><span class="stat-label" data-i18n="impact.services">Enterprise Services Modernized</span><span class="stat-label-s" data-i18n="impact.services.s">Services modernized</span><small data-i18n="impact.services.ctx"></small></li><li><strong>4</strong><span class="stat-label" data-i18n="impact.azure">Enterprise Azure Projects</span><span class="stat-label-s" data-i18n="impact.azure.s">Azure projects</span><small data-i18n="impact.azure.ctx"></small></li><li><strong>~20%</strong><span class="stat-label" data-i18n="impact.performance">Performance Improvement</span><span class="stat-label-s" data-i18n="impact.performance.s">Faster SQL</span><small data-i18n="impact.performance.ctx"></small></li></ul>
+                </section>
+                <section class="wc-side" id="side-stack" role="tabpanel" tabindex="0" aria-labelledby="tab-stack" hidden>
+                    <div class="stack-do">
+                        <p class="mono accent" data-i18n="capabilities.eyebrow">What I do</p>
+                        <ul class="do-list">
+                            <li><strong data-i18n="cap.software.title">Software Engineering</strong><span data-i18n="cap.software.text">.NET, C#, ASP.NET Core, Angular, APIs, and databases.</span></li>
+                            <li><strong data-i18n="cap.cloud.title">Architecture &amp; Cloud</strong><span data-i18n="cap.cloud.text">Microservices, Azure, distributed systems, integrations, and modernization.</span></li>
+                            <li><strong data-i18n="cap.lead.title">Technical Leadership</strong><span data-i18n="cap.lead.text">Reviews, planning, technical decisions, and stakeholder collaboration.</span></li>
+                            <li><strong data-i18n="cap.ai.title">AI-Assisted Engineering</strong><span data-i18n="cap.ai.text">Codex and Claude Code for implementation, analysis, documentation, and controlled delivery.</span></li>
+                        </ul>
+                    </div>
+                    <div class="stack-tech">
+                        <p class="mono accent" data-i18n="about.stack">Stack</p>
+                        <ul class="tech-chips"><li><img src="assets/icons/tech/dotnet.svg" alt="" width="16" height="16"><span>.NET</span></li><li><img src="assets/icons/tech/csharp.svg" alt="" width="16" height="16"><span>C#</span></li><li><img src="assets/icons/tech/blazor.svg" alt="" width="16" height="16"><span>Blazor</span></li><li><img src="assets/icons/tech/azure.svg" alt="" width="16" height="16"><span>Azure</span></li><li><img src="assets/icons/tech/angular.svg" alt="" width="16" height="16"><span>Angular</span></li><li><img src="assets/icons/tech/react.svg" alt="" width="16" height="16"><span>React</span></li><li><img src="assets/icons/tech/typescript.svg" alt="" width="16" height="16"><span>TypeScript</span></li><li><img src="assets/icons/tech/nodejs.svg" alt="" width="16" height="16"><span>Node.js</span></li><li><img src="assets/icons/tech/sqlserver.svg" alt="" width="16" height="16"><span>SQL Server</span></li><li><img src="assets/icons/tech/redis.svg" alt="" width="16" height="16"><span>Redis</span></li><li><img src="assets/icons/tech/rabbitmq.svg" alt="" width="16" height="16"><span>RabbitMQ</span></li><li><img src="assets/icons/tech/docker.svg" alt="" width="16" height="16"><span>Docker</span></li><li><img src="assets/icons/tech/githubactions.svg" alt="" width="16" height="16"><span>GitHub Actions</span></li><li><img src="assets/icons/tech/firebase.svg" alt="" width="16" height="16"><span>Firebase</span></li><li><img src="assets/icons/tech/cloudflare.svg" alt="" width="16" height="16"><span>Cloudflare</span></li></ul>
+                        <p class="mono accent" data-i18n="about.ai">AI</p>
+                        <ul class="tech-chips"><li class="is-ai"><img src="assets/icons/tech/claude.svg" alt="" width="16" height="16"><span>Claude</span></li><li class="is-ai"><img src="assets/icons/tech/ollama.svg" alt="" width="16" height="16"><span>Ollama</span></li><li class="is-ai"><img src="assets/icons/tech/gemini.svg" alt="" width="16" height="16"><span>Gemini</span></li><li class="is-ai"><img src="assets/icons/tech/copilot.svg" alt="" width="16" height="16"><span>Copilot</span></li></ul>
+                    </div>
+                </section>
+                <section class="wc-side" id="side-apps" role="tabpanel" tabindex="0" aria-labelledby="tab-apps" hidden>
+                    <div class="apps-head">
+                        <p class="mono accent" data-i18n="nxt7.title">Organized mind = calm mind</p>
+                        <p class="apps-note d-only" data-i18n="apps.note">Optional AI helper · your key stays on your device</p>
+                    </div>
+                    <ul class="apps-grid" id="apps-grid"></ul>
+                    <p class="sr-only" data-i18n="nxt7.intro"></p>
+                </section>
+                <section class="wc-side" id="side-about" role="tabpanel" tabindex="0" aria-labelledby="tab-about" hidden>
+                    <div class="about-main">
+                        <p class="mono accent" data-i18n="about.eyebrow">About me</p>
+                        <h2 data-i18n="about.title"></h2>
+                        <p class="about-text" data-i18n="about.text"></p>
+                        <a class="btn btn-outline-light about-cv" href="assets/Rami-Alkhateeb-CV.pdf" download><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span data-i18n="about.cv">Download CV</span></a>
+                    </div>
+                    <div class="about-aside d-only"><dl class="facts">
+                        <dt data-i18n="about.workedIn">Worked in</dt>
+                        <dd><span data-i18n="landmark.syria">Syria</span> · <span data-i18n="landmark.uae">UAE</span> · <span data-i18n="landmark.germany">Germany</span></dd>
+                        <dt data-i18n="about.education">Education</dt>
+                        <dd data-i18n="about.educationBody"></dd>
+                        <dt data-i18n="about.languages">Languages</dt>
+                        <dd data-i18n="about.languagesBody"></dd>
+                    </dl><div class="reco" hidden></div></div>
+                </section>
+                <section class="wc-side" id="side-info" role="tabpanel" tabindex="0" aria-labelledby="tab-info" hidden>
+                    <p class="mono accent" data-i18n="about.expertise">Expertise &amp; background</p>
+                    <dl class="facts">
+                        <dt data-i18n="about.workedIn">Worked in</dt>
+                        <dd><span data-i18n="landmark.syria">Syria</span> · <span data-i18n="landmark.uae">UAE</span> · <span data-i18n="landmark.germany">Germany</span></dd>
+                        <dt data-i18n="about.education">Education</dt>
+                        <dd data-i18n="about.educationBody"></dd>
+                        <dt data-i18n="about.languages">Languages</dt>
+                        <dd data-i18n="about.languagesBody"></dd>
+                    </dl>
+                    <div class="reco" hidden></div>
+                </section>
+                <button type="button" class="flip-btn m-only" id="flip-m" data-i18n-aria="card.flip" aria-label="Flip card"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></button>
             </div>
-        </section>
-        <section id="products" class="section" data-tone="deep">
-            <div class="container">
-                <div class="products-head"><img class="nxt7-logo" src="assets/images/nxt7-logo.svg" alt="NxT7 logo" width="56" height="56"><p class="eyebrow">NxT7</p></div>
-                <div class="section-heading reveal">
-                    <h2 data-i18n="nxt7.title">Organized mind = calm mind</h2>
-                </div>
-                <p class="products-intro" data-i18n="nxt7.intro">NxT7 is a small set of apps to clear your head: plan your days, decide what to eat, unwind with the radio, and keep learning. Each app has an optional AI helper, and your key stays on your device.</p>
-                <div id="project-grid" class="project-grid"></div>
-                <div id="nxt7-engineering" class="shared-section"><div id="shared-diagram"></div></div>
+            <div class="wc-nav">
+                <div class="wc-tabs" role="tablist" data-i18n-aria="card.sides" aria-label="Card sides"><button type="button" role="tab" id="tab-card" aria-controls="side-card" aria-selected="false" tabindex="-1" data-side="card"><span data-i18n="tab.card"></span></button><button type="button" role="tab" id="tab-impact" aria-controls="side-impact" aria-selected="false" tabindex="-1" data-side="impact"><span data-i18n="tab.impact"></span></button><button type="button" role="tab" id="tab-stack" aria-controls="side-stack" aria-selected="false" tabindex="-1" data-side="stack"><span data-i18n="tab.stack"></span></button><button type="button" role="tab" id="tab-apps" aria-controls="side-apps" aria-selected="false" tabindex="-1" data-side="apps"><span class="d-only" data-i18n="tab.apps"></span><span class="m-only" data-i18n="tab.appsS"></span></button><button type="button" role="tab" id="tab-about" aria-controls="side-about" aria-selected="false" tabindex="-1" data-side="about"><span data-i18n="tab.about"></span></button><button type="button" role="tab" id="tab-info" aria-controls="side-info" aria-selected="false" tabindex="-1" data-side="info" data-compact-only><span data-i18n="tab.info"></span></button></div>
+                <button type="button" class="flip-btn d-only" id="flip-d"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg><span id="flip-label" data-i18n="card.flip">Flip card</span></button>
             </div>
-        </section>
-        <section id="contact" class="section contact-section" data-tone="deep">
-            <div class="container">
-                <p class="eyebrow" data-i18n="contact.eyebrow">Book a call</p>
-                <h2 data-type data-i18n="contact.title">Have an interesting problem, product, or platform to talk about? Let's
-                    schedule a call.</h2>
-                <p data-i18n="contact.text">Select a convenient time for a 1-on-1 discussion or consultation.</p>
-                <div class="hero-actions"><a class="btn btn-primary-lg email-link" data-i18n="hero.contact">Book a 45-min call</a><span class="social-links"><a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/ramialkhateeb" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></span></div>
-                <p class="contact-mail"><span class="contact-mail-text"></span><button
-                        class="btn btn-outline btn-sm copy-email" type="button" data-i18n="contact.copy">Copy
-                        email</button><span class="copy-status" role="status" aria-live="polite"></span></p>
+        </div>
+        <p class="wc-hint" data-i18n="card.hint">Tap a tab or swipe the card to flip it</p>
+        <div class="wc-contact m-only">
+            <div class="contact-grid">
+                <a href="https://linkedin.com/in/rami13alkhateeb" target="_blank" rel="noopener"><span class="ico-in" aria-hidden="true">in</span>LinkedIn</a>
+                <a href="https://github.com/ramialkhateeb" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>GitHub</a>
+                <a class="mail-link" href="mailto:"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span data-i18n="contact.email">Email</span></a>
             </div>
-        </section>
-    </main><app-footer></app-footer>
+            <div class="contact-actions">
+                <button type="button" class="btn btn-cream" id="open-share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span data-i18n="card.saveShare">Save &amp; share</span></button>
+                <a class="btn btn-brass email-link" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><span data-i18n="card.book">Book a call</span></a>
+            </div>
+        </div>
+        <nav class="wc-links" data-i18n-aria="nav.more" aria-label="More">
+            <a href="assets/Rami-Alkhateeb-CV.pdf" download data-i18n="about.cv">Download CV</a>
+            <a href="guides.html" data-i18n="nav.guides">Guides</a>
+            <a href="https://rami13kh.substack.com/" target="_blank" rel="noopener">Blog</a>
+            <button type="button" class="link-btn d-only" id="open-share-d" data-i18n="card.saveShare">Save &amp; share</button>
+            <a href="impressum.html" data-i18n="footer.impressum">Impressum</a>
+            <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+            <span data-i18n="footer.copy">© 2026 Rami Alkhateeb.</span>
+        </nav>
+    </main>
+
+    <dialog class="sheet" id="share-sheet" aria-labelledby="share-title">
+        <div class="sheet-grip" aria-hidden="true"></div>
+        <div class="sheet-head"><h2 id="share-title" data-i18n="share.title">Share this card</h2><button type="button" class="icon-btn" data-close data-i18n-aria="share.close" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div class="qr-row"><img src="assets/images/qr-site.svg" alt="" width="112" height="112"><div><strong data-i18n="share.scan">Scan to open my card</strong><span data-i18n="share.scanText">Show it at meetups and interviews instead of a paper card.</span></div></div>
+        <div class="sheet-actions">
+            <button type="button" class="btn btn-ink save-contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="share.save">Save to contacts</span></button>
+            <div class="sheet-pair">
+                <button type="button" class="btn btn-outline-ink" id="copy-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg><span data-i18n="share.copy">Copy link</span></button>
+                <a class="btn btn-brass email-link" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><span data-i18n="hero.contact">Book a 45-min call</span></a>
+            </div>
+            <p class="sheet-status" id="share-status" role="status" aria-live="polite"></p>
+        </div>
+    </dialog>
+
+    <dialog class="sheet app-sheet" id="app-sheet" aria-labelledby="app-title">
+        <div class="sheet-grip" aria-hidden="true"></div>
+        <div class="sheet-head"><div class="app-id"><img id="app-icon" src="" alt="" width="56" height="56"><div><span class="mono" id="app-tag"></span><h2 id="app-title"></h2></div></div><button type="button" class="icon-btn" data-close data-i18n-aria="share.close" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div class="app-body"><img id="app-shot" class="app-shot" src="" alt="" hidden><div class="app-copy"><p id="app-short"></p><div class="app-actions"><a class="btn btn-brass" id="app-try" target="_blank" rel="noopener"></a><a class="btn btn-outline-ink" id="app-case"></a></div></div></div>
+    </dialog>
+
+    <dialog class="sheet reco-sheet" id="reco-sheet" aria-labelledby="reco-title-h">
+        <div class="sheet-grip" aria-hidden="true"></div>
+        <div class="sheet-head"><h2 id="reco-title-h" data-i18n="reco.eyebrow">Recommendations</h2><button type="button" class="icon-btn" data-close data-i18n-aria="share.close" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div id="reco-body"></div>
+    </dialog>
+
     <script src="js/config.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/components.js"></script>
     <script src="js/site.js"></script>
+    <script src="js/card.js"></script>
 </body>
 
 </html>
