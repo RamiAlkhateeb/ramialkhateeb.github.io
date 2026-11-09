@@ -1,11 +1,11 @@
 ---
 name: add-product
-description: Add a new project/product to the portfolio site (the app grid in the home page's #products section + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
+description: Add a new project/product to the portfolio site (the Apps side of the home page card + product.html detail page). Use when the user asks to add, create, or list a new product/project/side-project on the site.
 ---
 
 # Add a product
 
-Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the `#project-grid` container in the home page's `#products` section (`nxt7.html` is only a redirect), and onto `product.html?slug=<slug>`, automatically.
+Products are entirely data-driven from `window.RAMI_PROJECTS` in `js/projects.js` — no HTML editing needed. `js/site.js` renders them into the Apps side of the card (`#apps-grid`, via `js/card.js`) and the detail page.
 
 ## 1. Add the entry to `js/projects.js`
 
@@ -44,11 +44,11 @@ Only `slug`, `logo`/`screenshots`/`video`, and `en.title`/`en.short` are require
 
 Create `assets/projects/<slug>/` containing:
 - `logo.png` (512px, rounded tile with transparent corners; `.svg`/`.webp` also work) — shown on the product card.
-- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. The first three are shown in phone frames in the detail page hero; the Products-section card shows only the logo.
+- `1.webp`, `2.webp`, … — 591×1280 phone screenshots in English. The first three are shown in phone frames in the detail page hero; the Apps side shows only the logo (the app sheet shows the first screenshot).
 - `<slug>_teaser.mp4` — optional demo video shown on the detail page.
 
 See `assets/projects/README.md` for the full media convention.
 
 ## 3. Verify
 
-Only if the user explicitly asks to see the result, use the `preview-site` skill to serve the site locally and check: the product appears as a card in the home page's Products section, and its detail page at `product.html?slug=<slug>` renders correctly (screenshots/video show, pricing section appears only if `pricing` was set, back-link returns to `index.html#products`). Otherwise just report the change as done — this project's convention is not to verify proactively.
+Only if the user explicitly asks to see the result, use the `preview-site` skill to serve the site locally and check: the product appears as an icon on the Apps side of the card (index.html#apps), and its detail page at `product.html?slug=<slug>` renders correctly (screenshots/video show, pricing section appears only if `pricing` was set, back-link returns to `index.html#apps`). Otherwise just report the change as done — this project's convention is not to verify proactively.
