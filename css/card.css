@@ -137,12 +137,9 @@ html[dir=rtl] .wc-side h1 {
     flex-wrap: wrap;
     gap: 1.4cqw;
     margin: auto 0 0;
-    padding: 0 13cqw 0 0;
+    padding: 0;
+    padding-inline-end: 13cqw;
     list-style: none
-}
-
-html[dir=rtl] .wc-side .chips {
-    padding: 0 0 0 13cqw
 }
 
 .chips li {
@@ -193,8 +190,7 @@ html[dir=rtl] .stats strong {
 .do-list span,
 .stack-do .mono,
 .stack-tech .mono:nth-of-type(2),
-.about-main .mono,
-.about-cv {
+.about-main .mono {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -308,6 +304,10 @@ html[dir=rtl] .stats strong {
     display: flex;
     flex-direction: column;
     gap: 2cqw
+}
+
+.about-cv {
+    display: none
 }
 
 .about-text {
@@ -1009,6 +1009,7 @@ html[dir=rtl] .facts dt {
     }
 
     .about-cv {
+        display: inline-flex;
         position: static;
         width: auto;
         height: auto;
@@ -1319,4 +1320,17 @@ html[dir=rtl] .facts dt {
     color: var(--brass-text);
     font-weight: 600;
     text-decoration: underline
+}
+
+@media(max-width:380px) {
+    .wc-tabs button {
+        font-size: 12px;
+        padding: 0 1px
+    }
+}
+
+@media(min-width:932px) and (min-height:561px) {
+    .reco-open {
+        font-size: 15px
+    }
 }

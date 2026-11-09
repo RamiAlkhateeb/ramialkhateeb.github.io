@@ -11,8 +11,8 @@ Read `.claude/review.md` in this repo and apply every checklist item to the chan
 1. Open `js/site.js` and confirm every `TEXT` key present in `TEXT.en` also exists in `TEXT.ar` (and vice versa) — flag any mismatch by exact key name.
 2. Search the changed HTML for `data-i18n="..."` bindings whose corresponding `TEXT` value (in either language) contains an HTML tag (e.g. `<br>`) — that must be `data-i18n-html` instead.
 3. Scan changed/added CSS for physical direction properties (`left:`, `right:`, `padding-left`, `padding-right`, `margin-left`, `margin-right`, `border-left`, `border-right`, `text-align:left`, `text-align:right`) — these break RTL and should be logical properties instead, unless there's a clear reason (e.g. a fixed device-frame graphic) that the review should call out rather than silently allow.
-4. Check that any `active="..."` attribute on `<app-header>` in changed/added HTML matches a `nav` value in the `SITE_STOPS` array at the top of `js/components.js`.
-4b. Check that any new page section on `index.html` is registered in `SITE_STOPS` (so it appears in both the header nav and the route rail) and that internal links target `index.html#<anchor>` rather than the `about.html`/`products.html` redirect stubs.
+4. Check that every `section.wc-side` on `index.html` has a matching `role=tab` button and a `tab.*` TEXT key in all three languages.
+4b. Check that internal links target `index.html#<side>` (`#apps`, `#about`, `#impact`, `#stack`, `#share`) rather than the `about.html`/`products.html` redirect stubs.
 5. If a page, function, or CSS class was removed/renamed, grep the whole repo to confirm no other file still references the old name.
 6. Spot-check that new/edited code matches the surrounding file's existing density (not reformatted into a more verbose style).
 

@@ -13,11 +13,9 @@
     --brass-soft: #F2DDB4;
     --muted-cream: #5A6970;
     --accent: #C9953F;
-    --accent-deep: #C9953F;
     --sea-icon: #C9953F;
     --sea-eyebrow: #F2DDB4;
     --sea-ink: #18262D;
-    --ai: #C9953F;
     --radius: 14px;
     --radius-lg: 22px;
     --shadow: 0 24px 60px rgba(3, 15, 24, .35);
@@ -184,7 +182,7 @@ html[dir=rtl] .brand-url {
 
 .lang-switch button {
     min-width: 44px;
-    height: 36px;
+    height: 44px;
     padding: 0 12px;
     border: 0;
     border-radius: 999px;
@@ -394,12 +392,6 @@ html[dir=rtl] .back-link i {
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 14px
-}
-
-a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 3px
 }
 
 .project-chips {
