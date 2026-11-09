@@ -1282,8 +1282,6 @@ button:focus-visible {
         width: clamp(240px, 26vw, 400px)
     }
 
-    .sea-fx .sea-canoe-art,
-    .sea-fx .canoe-ripple,
     .sea-fx .sea-ray,
     .sea-fx .sea-bit,
     .sea-fx .sea-whale i,
@@ -1293,6 +1291,10 @@ button:focus-visible {
 
     .sea-fx .sea-bit {
         display: none
+    }
+
+    .sea-fx .sea-canoe-art {
+        animation: sea-bob-soft 12s ease-in-out infinite
     }
 
     .reveal,
@@ -2243,11 +2245,23 @@ html.sea-deep body.sea-page .lang-pill:hover {
 
     0%,
     100% {
-        transform: translateY(0) rotate(-1deg)
+        transform: translate(-5px, 1px) rotate(-1.2deg)
     }
 
     50% {
-        transform: translateY(-1.5px) rotate(1deg)
+        transform: translate(5px, -4px) rotate(1.2deg)
+    }
+}
+
+@keyframes sea-bob-soft {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-.6deg)
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(.6deg)
     }
 }
 
