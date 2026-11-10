@@ -306,10 +306,6 @@ html[dir=rtl] .stats strong {
     gap: 2cqw
 }
 
-.about-cv {
-    display: none
-}
-
 .about-text {
     margin: 0;
     font-size: max(11px, 3.1cqw);
@@ -1008,19 +1004,6 @@ html[dir=rtl] .facts dt {
         white-space: normal
     }
 
-    .about-cv {
-        display: inline-flex;
-        position: static;
-        width: auto;
-        height: auto;
-        min-height: 44px;
-        padding: 0 20px;
-        border: 1px solid var(--line);
-        overflow: visible;
-        clip: auto;
-        white-space: normal
-    }
-
     .do-list {
         font-size: inherit
     }
@@ -1156,11 +1139,6 @@ html[dir=rtl] .facts dt {
 
     .about-text {
         font-size: 16px
-    }
-
-    .about-cv {
-        align-self: flex-start;
-        display: inline-flex
     }
 
     .about-aside {
