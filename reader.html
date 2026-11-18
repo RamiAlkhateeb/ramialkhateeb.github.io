@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الكتيب | رامي الخطيب</title>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap"><link rel="stylesheet" href="css/site.css">
     <link rel="icon" type="image/png" href="assets/images/favicon-192.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
@@ -85,9 +85,24 @@
             color: var(--text-muted);
         }
 
+        .reader-spinner {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--line);
+            border-top-color: var(--brass);
+            border-radius: 50%;
+            animation: reader-spin .8s linear infinite;
+        }
+
+        @keyframes reader-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .reader-state svg,
         .reader-state i {
             font-size: 2rem;
-            margin-bottom: 16px;
+            margin: 0 auto 16px;
             display: block;
         }
 
@@ -204,16 +219,16 @@
     <main class="container">
         <div class="reader-wrap">
             <a href="guides.html" class="reader-back">
-                <i class="fas fa-arrow-right"></i> العودة إلى الكتيبات
+                <svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> العودة إلى الكتيبات
             </a>
 
             <div id="reader-loading" class="reader-state">
-                <i class="fas fa-spinner fa-spin"></i>
+                <span class="reader-spinner" aria-hidden="true"></span>
                 جاري تحميل الكتيب...
             </div>
 
             <div id="reader-error" class="reader-state" style="display: none;">
-                <i class="fas fa-circle-exclamation"></i>
+                <svg class="ico" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
                 لم نتمكن من العثور على هذا الكتيب. تأكد من الرابط أو
                 <a href="guides.html" style="color: var(--accent);">عد إلى قائمة الكتيبات</a>.
             </div>
