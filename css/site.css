@@ -339,10 +339,6 @@ html[dir=rtl] .brand-url {
     max-width: 760px
 }
 
-html[dir=rtl] .back-link i {
-    transform: scaleX(-1)
-}
-
 .page-hero {
     padding: 70px 0 30px
 }
@@ -907,4 +903,13 @@ html[dir=rtl] .ai-lang-btn {
 main > p a {
     color: var(--brass-soft);
     text-decoration: underline
+}
+
+.ico {
+    flex: none;
+    vertical-align: -3px
+}
+
+html[dir=rtl] .back-link .ico {
+    transform: scaleX(-1)
 }
